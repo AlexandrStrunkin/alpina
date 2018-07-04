@@ -64,7 +64,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                 $corner_2 = '';
             }?>   
             <link itemprop="relatedLink" href="<?=$arItem["DETAIL_PAGE_URL"]?>" />
-            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onmousedown="try { rrApi.recomMouseDown(<?=$arItem["ID"]?>, {methodName: 'UpSellItemToItems'}) } catch(e) {}">
+            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" >
                 <div class="section_item_img">
                     <img src="<?=$pict["src"]?>" title="<?=$arItem["NAME"]?>" alt="<?=$arItem["NAME"]?>" style="<?=($corner_1)?'border-radius: 15px 15px 15px 15px;':''?> <?=($corner_2)?'border-radius: 0px 15px 15px 0px;':''?>"/>
                 </div>
