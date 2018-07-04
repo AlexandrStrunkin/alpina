@@ -1113,6 +1113,8 @@
                         CEvent::Send("NOTICE_OF_PAYMENT", "s1", $arFields, "N");
                 } else if($order_list["STATUS_ID"] == ASSEMBLED_STATUS_ID){
                     CSaleOrder::StatusOrder($ID, ASSEMBLED_STATUS_ID);
+                } else if($order_list["STATUS_ID"] == "PZ"){
+                    CSaleOrder::StatusOrder($ID, "PZ");
                 } else {
                     CSaleOrder::StatusOrder($ID, "D");
                     CSaleOrder::PayOrder($ID, "Y", false, false, 0);
