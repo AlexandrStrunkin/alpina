@@ -6,6 +6,8 @@
 ?>
 <!doctype html>
 <html class="finishOrder" lang="ru">
+
+<head>
 <!-- retailrocket трекер -->
 <script type="text/javascript">
    var rrPartnerId = "50b90f71b994b319dc5fd855";
@@ -24,7 +26,6 @@
        ref.parentNode.insertBefore(apiJs, ref);
    }(document));
 </script>
-<head>
 <?
 //Отправка данных о заказе в GTM
 $order_id = intval($_REQUEST["ORDER_ID"]);
