@@ -33,8 +33,22 @@
            ref.parentNode.insertBefore(apiJs, ref);
        }(document));
     </script>
+    
+    <script>
+      (function(d, w, c, e, l) {
+        w[c] = w[c] || 'HfuU7jy2swMfqZncmph09QrD6JoYXRrh';
+        w[e] = w[e] || 'antisov.ru';
+        w[l] = w[l] || 1;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = 'https://cdn.' + w[e] + '/advisor.js';
+        s.async = true;
+        try {
+            d.getElementsByTagName('head')[0].appendChild(s);
+        } catch (e) {}
+      })(document, window, 'AdvisorApiToken', 'AdvisorHost', 'AdvisorSecure');
+    </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
 
     <link rel="stylesheet" href="/css/style.css?<?=filemtime($_SERVER["DOCUMENT_ROOT"].'/css/style.css')?>" type="text/css">
 

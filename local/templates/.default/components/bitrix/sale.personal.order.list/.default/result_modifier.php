@@ -3,7 +3,7 @@
 	use Bitrix\Main\Localization\Loc;
 
 	Loc::loadMessages(__FILE__);
-
+   
 	// we dont trust input params, so validation is required
 	$legalColors = array(
 		'green' => true,
@@ -61,13 +61,14 @@
             $order_IDs[] = $order["ORDER"]["ID"];
         }
     }
-
-    $users_info = CUser::GetList (($by = "id"), ($sort = "desc"), array("ID" => $user_IDs[0]));
-                  
-    while ($users = $users_info -> Fetch()) {
-        $arResult["USER_INFO"][$users["ID"]] = $users;    
-    }
-                            
+    arshow();
+    if(count($arResult["ORDERS"]) > 0){
+        $users_info = CUser::GetList (($by = "id"), ($sort = "desc"), array("ID" => $user_IDs[0]));
+                      
+        while ($users = $users_info -> Fetch()) {
+            $arResult["USER_INFO"][$users["ID"]] = $users;    
+        }
+    }                
     $order_info = CSaleOrderPropsValue::GetList(array(), array("ORDER_ID" => $order_IDs), false, false, array());
     while ($info = $order_info->Fetch()) {             
         $boxberryDelivery = '';

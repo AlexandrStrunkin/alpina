@@ -25,6 +25,12 @@
     <p class="personal_title"><?echo $APPLICATION->GetTitle();?></p>
 
     <div class="historyWrap">
+     <?
+
+        $key = 0;
+
+        if (!empty($arResult["ORDERS"])) {
+        ?>
         <div class="tableTitle">
             <p class="numbTitle"><?= GetMessage("NUMBER"); ?></p>
             <p class="dateTitle"><?= GetMessage("DATE"); ?></p>
@@ -33,11 +39,7 @@
             <p class="quantTitle"><?= GetMessage("SALE"); ?></p>
             <p class="sumTitle"><?= GetMessage("SUMM"); ?></p>
         </div>
-        <?
-
-        $key = 0;
-
-        if (!empty($arResult["ORDERS"])) {
+            <?
             foreach ($arResult["ORDERS"] as $k => $order) {
 
                 if($_SERVER["HTTP_X_REAL_IP"] == "91.201.253.5") {
