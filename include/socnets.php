@@ -5,4 +5,4 @@
 <a href="https://instagram.com/alpinabook" target="_blank" rel="nofollow"><img src="/img/instImg.png"></a>
 <a href="https://ok.ru/alpinabook" target="_blank" rel="nofollow"><img src="/img/ok.png"></a>
 <a href="https://t.me/alpinaru " target="_blank" rel="nofollow"><img src="/img/tele1.png"></a>
-<a href="Zen.yandex.ru/alpina " target="_blank" rel="nofollow"><img height="20"; src="/img/Zen_logo.png"></a>
+<a href="https://Zen.yandex.ru/alpina " target="_blank" rel="nofollow"><img src="/img/Zen_logo.png" height="20"></a>
