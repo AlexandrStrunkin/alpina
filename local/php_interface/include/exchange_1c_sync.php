@@ -80,26 +80,9 @@ class Exchange1C {
 
             while($arCatalog = $cat->Fetch()) {
                 $total_quantity += intval($arCatalog['CATALOG_QUANTITY']);
-               // $name = $arCatalog['NAME'];
             }
 
-             $bitrix_id_elem_info = CIBlockElement::GetList (array(), array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "ID" => $bitrix_id), false, false, array("CATALOG_QUANTITY", "CANONICAL_PAGE_URL", "PROPERTY_STATE", "PROPERTY_reissue", "NAME"));
-             if ($bitrix_id_elem = $bitrix_id_elem_info -> GetNext()) {
-                  $quantity = $bitrix_id_elem["CATALOG_QUANTITY"];
-                  $href = $bitrix_id_elem['CANONICAL_PAGE_URL'];
-                  $state = $bitrix_id_elem['PROPERTY_STATE_ENUM_ID'];
-                  $reissue = $bitrix_id_elem['PROPERTY_REISSUE_VALUE'];
-                  $name = $bitrix_id_elem['NAME'];
 
-             }
-
-            //Запросе на обновление остатков у товара
-            $arField = array('QUANTITY' => $total_quantity);// зарезервированное количество
-            if(CCatalogProduct::Update($bitrix_id, $arField)) {
-                //Прямой вызов функции, CCatalogProduct::Update не инициирует
-                QuantityChanges::QuantityOnMoreThanZero($bitrix_id, $arField);
-                QuantityChanges::QuantityOnZero($bitrix_id, $arField);
-            }
         }
     }
 
@@ -133,7 +116,15 @@ class Exchange1C {
                   $name = $bitrix_id_elem['NAME'];
                   logger($quantity, $_SERVER["DOCUMENT_ROOT"].'/logs/iblock_77_1.txt');
              }
-
+             
+            //Запросе на обновление остатков у товара
+            $arField = array('QUANTITY' => $total_quantity);// зарезервированное количество
+            if(CCatalogProduct::Update($bitrix_id, $arField)) {
+                //Прямой вызов функции, CCatalogProduct::Update не инициирует
+                QuantityChanges::QuantityOnMoreThanZero($bitrix_id, $arField);
+                QuantityChanges::QuantityOnZero($bitrix_id, $arField);
+            }
+            
             //Запросе на обновление остатков у товара
             if($total_quantity > 0 && $quantity <= 0){
                 if($state == STATE_SOON && $reissue == ""){

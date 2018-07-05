@@ -4,12 +4,12 @@ use Mailgun\Mailgun;
 if ($_POST['email']) {
 	$email = $_POST['email'];
 	$book = $_POST['book'];
-	
+
 	$book = CIBlockElement::GetList (array(), array("IBLOCK_ID" => 4, "ID" => $_POST['book']), false, false, array("ID", "NAME", "DETAIL_PICTURE")) -> Fetch();
 	$link = CIBlockElement::GetProperty(4, $_POST['book'], array("sort" => "asc"), Array("CODE"=>"glava"))->Fetch();
 	$link = "https://www.alpinabook.ru".CFile::GetPath($link['VALUE']);
 	$text = CFile::ResizeImageGet($book["DETAIL_PICTURE"], array("width" => 200, "height" => 270), BX_RESIZE_IMAGE_PROPORTIONAL, true);
-	
+
 	if (strpos($link,"selcdn.ru") !== false) {
 		$text = "<a href='https://www.alpinabook.ru/catalog/temporary/".$_POST['book']."/' target='_blank'><img src='https://www.alpinabook.ru".$text[src]."' align='left' style='margin-right:20px;' /></a>
 			Скачать главу из книги <a href='https://www.alpinabook.ru/catalog/temporary/".$_POST['book']."/' target='_blank'>«".$book['NAME']."»</a> можно по ссылке ниже. Приятного чтения!<br /><br /><br />
@@ -21,24 +21,24 @@ if ($_POST['email']) {
 	}
 	$images = array();
 	$images[] = $text[src];
-	                                                                                                                                   ['book']));
+
+	$recs = json_decode(file_get_contents('http://api.retailrocket.ru/api/1.0/Recomendation/UpSellItemToItems/50b90f71b994b319dc5fd855/'.$_POST['book']));
 	array_splice($recs, 3);
-	
+
 	if (!empty($recs[0])) {
 		$text .= "<br /><br /><table width='100%'><tbody><tr><td colspan='3' style='padding:20px 0 10px;font-size:24px;text-align:center;'>Рекомендуем обратить внимание</td></tr><tr>";
 		foreach ($recs as $rec) {
 			$recbook = CIBlockElement::GetList (array(), array("IBLOCK_ID" => 4, "ID" => $rec), false, false, array("ID", "NAME", "DETAIL_PICTURE")) -> Fetch();
 			$recpic = CFile::ResizeImageGet($recbook["DETAIL_PICTURE"], array("width" => 140, "height" => 200), BX_RESIZE_IMAGE_PROPORTIONAL, true);
 			$text .= "<td width='140'>";
-    $recs = json_decode(file_get_contents('http://api.retailrocket.ru/api/1.0/Recomendation/UpSellItemToItems/50b90f71b994b319dc5fd855/'.$_POST
 			$text .= "<a href='https://www.alpinabook.ru/catalog/temporary/".$recbook['ID']."/' target='_blank'><img src='https://www.alpinabook.ru".$recpic[src]."' align='left' style='margin-right:20px;' alt='".$recbook['NAME']."' title='".$recbook['NAME']."' /></a>";
 			$text .= "</td>";
 			$images[] = $recpic[src];
 		}
 		$text .= "</tr></tbody></table>";
 	}
-	
-	
+
+
 	$mailFields = array(
 		"EMAIL"=> $email,
 		"BOOK" => $book['NAME'],
@@ -46,8 +46,8 @@ if ($_POST['email']) {
 	);
 	//CEvent::Send("SEND_CHAPTER", "s1", $mailFields, "N");
 	echo 'ok';
-	
-	
+
+
 
 
 	# Instantiate the client.
@@ -59,7 +59,7 @@ if ($_POST['email']) {
 		'from'    => 'Альпина Паблишер (Alpina.ru) <shop@alpinabook.ru>',
 		'to'      => $_POST['email'],
 		//'cc'      => 'baz@example.com',
-		//'bcc'     => 'a.marchenkov@alpinabook.ru',
+		'bcc'     => 'noreply@alpinabook.ru',
 		'subject' => 'Глава из книги «'.$book['NAME'].'»',
 		'text'    => 'Testing some Mailgun awesomness!',
 		'html'    => '
@@ -79,7 +79,7 @@ if ($_POST['email']) {
 					<tr>
 						<td align="right" width="370"><a href="http://www.alpinabook.ru/" target="_blank"><img align="right" alt="Логотип интернет-магазина Альпина Паблишер" src="http://www.alpinabook.ru/images/unisenderimages/mailing20/iabook.png" style="width: 180px; margin: 0px; border: 0px none; line-height: 100%; outline: medium none; text-decoration: none; float: right; height: 52px;" /></a></td>
 						<td align="right">
-						
+
 						</td>
 					</tr>
 					<tr>
@@ -104,7 +104,7 @@ if ($_POST['email']) {
 		<!-- //HEADER --><!-- Информация о заказе -->
 		<tr>
 			<td align="center" style="padding-top:0px; padding-bottom:0;color: #393939;font-family: \'Open Sans\',\'Segoe UI\',Roboto,Tahoma,sans-serif;font-size: 16px;line-height: 160%;text-align: left;padding:0;background:#FCFFD4;" valign="top">
-			
+
 			<table align="center" style="width:100%;">
 				<tbody>
 					<tr>
@@ -117,13 +117,13 @@ if ($_POST['email']) {
 										'.$text.'
 									</td>
 								</tr>
-																	
+
 							</tbody>
 						</table>
 						</td>
 					</tr>
 				</tbody>
-			</table>			
+			</table>
 			</td>
 		</tr>
 		<!-- //Информация о заказе -->
@@ -131,7 +131,7 @@ if ($_POST['email']) {
 		<!-- Контакты имага -->
 		<tr>
 			<td align="center" style="color: #393939;font-family: \'Open Sans\',\'Segoe UI\',Roboto,Tahoma,sans-serif;font-size: 16px;line-height: 160%;text-align: left;padding:10px 0; background:#e3e3e3" valign="top">
-			
+
 			<table align="center" style="width:100%;">
 				<tbody>
 					<tr>
@@ -149,16 +149,16 @@ if ($_POST['email']) {
 						</td>
 					</tr>
 				</tbody>
-			</table>			
+			</table>
 			</td>
 		</tr>
 		<!-- //Контакты имага -->
-		
-		
+
+
 		<!-- Подпись -->
 		<tr>
 			<td align="center" style="padding-top:0px; padding-bottom:0;color: #393939;font-family: \'Open Sans\',\'Segoe UI\',Roboto,Tahoma,sans-serif;font-size: 16px;line-height: 160%;text-align: left;padding:0;" valign="top">
-			
+
 			<table align="center" style="width:100%;">
 				<tbody>
 					<tr>
@@ -177,7 +177,7 @@ if ($_POST['email']) {
 						</td>
 					</tr>
 				</tbody>
-			</table>			
+			</table>
 			</td>
 		</tr>
 		<!-- //Подпись -->
@@ -210,44 +210,44 @@ if ($_POST['email']) {
 	), array(
     'inline' => $images
 ));
-	
+
 	function subscribeTest($id, $mail, $name) {
 		$arSelect = Array("ID");
 		$name = 'Глава из книги '.$name;
 		$arFilter = Array("IBLOCK_ID" => 41,"ACTIVE" => "Y","NAME" => $name, "PROPERTY_SUB_EMAIL" => $mail);
 		$res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize" => 9999), $arSelect);
-		
+
 		if($ob = $res -> GetNextElement()) {
-		} else {	
+		} else {
 			$el = new CIBlockElement;
 			global $USER;
 			$PROP = array();
 			$PROP[385] = '1';  // --- book id
 			$PROP[386] = $mail; // --- subscriber E-mail
 			$PROP[387] = $name;  // --- subscription description
-			$PROP[388] = "3"; // --- subscription id		
-			
+			$PROP[388] = "3"; // --- subscription id
+
 			$arLoadProductArray = Array(
-			  "MODIFIED_BY"    => $USER->GetID(), 
-			  "IBLOCK_SECTION_ID" => false,         
+			  "MODIFIED_BY"    => $USER->GetID(),
+			  "IBLOCK_SECTION_ID" => false,
 			  "IBLOCK_ID"      => 41,
 			  "PROPERTY_VALUES"=> $PROP,
 			  "NAME"           => $name,
 			  "ACTIVE"         => "Y",
-			  ); 
-			  
+			  );
+
 			$el->Add($arLoadProductArray);
 		}
 	}
 
 	subscribeTest($_POST['book'],$_POST['email'], $book['NAME']);
-	
+
 	/*function chapterRfm($id, $mail) {
 		$arSelect = array(
 			"ID",
 			"NAME"
 		);
-		
+
 		$filter = array(
 			"IBLOCK_ID" => 67,
 			"ACTIVE" => "Y",
@@ -261,7 +261,7 @@ if ($_POST['email']) {
 			$res1 = CIBlockElement::GetByID($ob[ID]);
 			$obRes1 = $res1->GetNextElement();
 			$ar_res1 = $obRes1->GetProperties();
-			
+
 			if (!empty($ar_res1[WISHBOOKS][VALUE])) {
 				array_push($ar_res1[WISHBOOKS][VALUE], $id);
 				CIBlockElement::SetPropertyValuesEx($ob[ID], 67, array('WISHBOOKS' => $ar_res1[WISHBOOKS][VALUE]));
@@ -273,7 +273,7 @@ if ($_POST['email']) {
 			$PROP = array();
 			$PROP[800] = 'sendchapter';
 			$PROP[802] = $id;
-			
+
 			$arLoadProductArray = Array(
 				"MODIFIED_BY"    => 15,
 				"IBLOCK_SECTION" => false,
@@ -282,24 +282,24 @@ if ($_POST['email']) {
 				"NAME"           => $mail,
 				"ACTIVE"         => "Y"
 			);
-			
+
 			if ($el->Add($arLoadProductArray))
 				echo 1;
 			else
 				echo 2;
 		}
 	}
-	
+
 	chapterRfm($_POST['book'],$_POST['email']);*/
-	
+
 } else {
 	$email = 'a.marchenkov@alpinabook.ru';
 	$book = 7706;
-	
+
 	$book = CIBlockElement::GetList (array(), array("IBLOCK_ID" => 4, "ID" => $book), false, false, array("ID", "NAME", "DETAIL_PICTURE")) -> Fetch();
 	$link = CIBlockElement::GetProperty(4, $book, array("sort" => "asc"), Array("CODE"=>"glava"))->Fetch();
 	$link = CFile::GetPath($link['VALUE']);
-	
+
 	$text = CFile::ResizeImageGet($book["DETAIL_PICTURE"], array("width" => 200, "height" => 270), BX_RESIZE_IMAGE_PROPORTIONAL, true);
 	print_r($text);
 	$text = "<img src='".explode("/", $text[src])[6]."' align='left' style='margin-right:20px;' />";

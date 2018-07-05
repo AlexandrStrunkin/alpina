@@ -4322,7 +4322,6 @@ function CourierAdd($ID, $arFields){
                         $PROP = array();
                         $PROP["ORDER"] = $ID;  
                         $PROP["COURIRER"] = $user_group["ID"];        
-
                         $arLoadProductArray = Array(
                           "IBLOCK_SECTION_ID" => false,          // элемент лежит в корне раздела
                           "IBLOCK_ID"      => IBLOCK_ID_COURIER,
