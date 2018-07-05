@@ -774,13 +774,6 @@
 
             CSaleOrderPropsValue::Add($arPropFields);
 
-            // Добавляем полную стоимость заказа в оплату
-            $order_instance = Bitrix\Sale\Order::load($ID);
-            $payment_collection = $order_instance->getPaymentCollection();
-            foreach ($payment_collection as $payment) {
-                $payment->setField('SUM', $arFields['PRICE']);
-                $payment->save();
-            }
         }
     }
 
@@ -805,13 +798,6 @@
 
             CSaleOrderPropsValue::Add($arPropFields);
 
-            // Добавляем полную стоимость заказа в оплату
-            $order_instance = Bitrix\Sale\Order::load($ID);
-            $payment_collection = $order_instance->getPaymentCollection();
-            foreach ($payment_collection as $payment) {
-                $payment->setField('SUM', $arFields['PRICE']);
-                $payment->save();
-            }
         }
     }
 
@@ -843,13 +829,6 @@
     function guruHandlerAfter($ID, $arFields) {
         GLOBAL $arParams;
         if ($arFields['DELIVERY_ID'] == GURU_DELIVERY_ID) {
-            // Добавляем полную стоимость заказа в оплату
-            $order_instance = Bitrix\Sale\Order::load($ID);
-            $payment_collection = $order_instance->getPaymentCollection();
-            foreach ($payment_collection as $payment) {
-                $payment->setField('SUM', $arFields['PRICE']);
-                $payment->save();
-            }
 
             // записываем тех данные в поле адреса id пункта самовывоза|дата доставки
             $property_collection = $order_instance->getPropertyCollection();
@@ -955,13 +934,6 @@
                  }
             }
 
-            // Добавляем полную стоимость заказа в оплату
-            $order_instance = Bitrix\Sale\Order::load($orderId);
-            $payment_collection = $order_instance->getPaymentCollection();
-            foreach ($payment_collection as $payment) {
-                $payment->setField('SUM', $arFields['PRICE']);
-                $payment->save();
-            }
 
             // записываем тех данные в поле адреса id пункта самовывоза
             $property_collection = $order_instance->getPropertyCollection();
@@ -4350,9 +4322,8 @@ function CourierAdd($ID, $arFields){
                         $el = new CIBlockElement;
 
                         $PROP = array();
-                        $PROP["ORDER"] = $ID;  // свойству с кодом 12 присваиваем значение "Белый"
-                        $PROP["COURIRER"] = $user_group["ID"];        // свойству с кодом 3 присваиваем значение 38
-
+                        $PROP["ORDER"] = $ID;  
+                        $PROP["COURIRER"] = $user_group["ID"];        
                         $arLoadProductArray = Array(
                           "IBLOCK_SECTION_ID" => false,          // элемент лежит в корне раздела
                           "IBLOCK_ID"      => IBLOCK_ID_COURIER,
