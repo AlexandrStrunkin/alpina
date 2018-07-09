@@ -1316,3 +1316,19 @@ body>.bottomBlock{display:none}
 .categories ul li ul{
     padding: 0;
 }
+.categoryWrapper .showMore_2 {
+    border: 1px solid #c8a474;
+    -moz-transition: color .3s ease,background-color .3s ease,border-color .3s ease;
+    -ms-transition: color .3s ease,background-color .3s ease,border-color .3s ease;
+    -o-transition: color .3s ease,background-color .3s ease,border-color .3s ease;
+    transition: color .3s ease,background-color .3s ease,border-color .3s ease;
+    border-radius: 34px;
+    color: #c8a474;
+    font-size: 19px;
+    margin: 47px auto 70px;
+    padding: 12px 44px;
+    text-align: center;
+    width: 245px;
+    cursor: pointer;
+    clear: both;
+}

@@ -17,7 +17,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
     </style>
 <?}?>
 
-<div class="otherBooks" id="block1">
+<div class="otherBooks otherBooks_all" id="block1">
     <ul>
         <?foreach ($arResult["ITEMS"] as $arItem) {
             $pict = CFile::ResizeImageGet($arItem["DETAIL_PICTURE"]["ID"], array('width'=>147, 'height'=>216), BX_RESIZE_IMAGE_PROPORTIONAL, true);
@@ -101,3 +101,48 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
 <?if (($arResult["NAV_RESULT"]->NavPageCount) > 1) {?>
     <p class="showMore">Показать ещё</p>
 <?}?>
+<script type="">
+       
+    $(document).ready(function() {
+        <?$navnum = $arResult["NAV_RESULT"]->NavNum;?>
+        
+        <?if (isset($_REQUEST["PAGEN_".$navnum])) {?>
+            var page = <?=$_REQUEST["PAGEN_".$navnum]?> + 1;
+        <?}else{?>
+            var page = 2;
+        <?}?>
+        
+        var maxpage = <?=(isset($arResult["NAV_RESULT"]->NavPageCount)) ? ($arResult["NAV_RESULT"]->NavPageCount) : 2?>;
+        console.log(maxpage);
+        $('.showMore').click(function(){
+            var otherBooks = $(this).siblings(".otherBooks_all");
+
+            <?if (isset($_REQUEST["SORT"])) {?>
+                var section_url = '<?= $arResult["SECTION_PAGE_URL"] . "?" . $_SERVER["QUERY_STRING"] . "&PAGEN_" . $navnum . "=" ?>';
+            <?} else {?>
+                var section_url = '<?= $arResult["SECTION_PAGE_URL"] . "?PAGEN_" . $navnum . "=" ?>';
+            <?}?>
+            $.get(section_url + page, function(data) {
+                var next_page = $('.otherBooks_all ul li', data);
+                //$('.catalogBooks').append('<br /><h3>Страница '+ page +'</h3><br />');
+                $('.otherBooks_all ul').append(next_page);
+                page++;})
+            .done(function() {
+                $(".nameBook").each(function() {
+                    if($(this).length > 0) {
+                        $(this).html(truncate($(this).html(), 40));}});
+                var otherBooksHeight = 1440 * Math.ceil(($(".otherBooks_all ul li").length / 15));
+                var categorHeight = 1600 + Math.ceil($(".otherBooks_all ul li").length + $(".otherBooks_all").height() + $(".otherBooks_popular").height());
+         //       otherBooks.css("height", otherBooksHeight +"px");
+           //     $(".wrapperCategor").css("height", categorHeight+"px");
+           //     $(".contentWrapp").css("height", categorHeight -10+"px");
+            });
+            if (page == maxpage) {
+                $('.showMore').hide();
+                //$('.phpages').hide();}
+            return false;
+        }
+    }); 
+});         
+ 
+</script>

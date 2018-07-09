@@ -2,3 +2,6 @@
 .serieDescr{padding-bottom:20px;color:#3f4a4d}
 .serieDescr p{padding-bottom:5px}
 h2{font-family:Walshein_black!important;color:#3f4a4d;font-size:32px}
+body .categoryWrapper .contentWrapp{
+    height: auto;  
+}
