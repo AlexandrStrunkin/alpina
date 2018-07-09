@@ -1007,11 +1007,12 @@ function update_basket(e)
 function addtocart(productid, name, product_status) {
     //product_status 22-нет в наличии;
     quantity = $(".transparent_input").val();
+    
 	$(".inBasket").hide();
 	$("#loadingInfo").show();
 
 	$("a.product"+productid).find(".basketBook").css("background-color", "#A9A9A9");
-
+    $("a.product"+productid).removeAttr("onclick");
     $.post('/ajax/ajax_add2basket.php', {action: "add", productid: productid, quantity:quantity, product_status:product_status}, function(data)
         {
 
@@ -1029,7 +1030,7 @@ function addtocart(productid, name, product_status) {
             $("#wishItem_"+productid+" a").attr("href", "/personal/cart");
             $("#wishItem_"+productid+" a").attr("title", "Перейти в корзину");
             $(".inBasket").closest("a").removeAttr("onclick");
-            $("#wishItem_"+productid+" a").removeAttr("onclick");
+           
             if ($("a.product"+productid).length > 0)
             {
                 // для раздела каталога и карточки товара
@@ -1053,6 +1054,7 @@ function addtocart(productid, name, product_status) {
             //$(".wrap_prise_top").load(window.location.href + " .wrap_prise_top > *");
 			$('.busket_senk').show();
 			setTimeout(function(){$('.busket_senk').fadeOut('fast')},2000);
+            return false;
     })
 }
 function addtocart_fromwishlist (productid, name, product_status) {

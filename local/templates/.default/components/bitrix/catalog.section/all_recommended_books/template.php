@@ -70,7 +70,23 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                 </div>
                 <p class="bookName" title="<?=$arItem["NAME"]?>"><?=$arItem["NAME"]?></p>
                 <p class="tapeOfPack"><?=$arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
+                    
+                <?
+                if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != 22 
+                    && intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != 23) {
+                ?>
+                    <p class="bookPrice"><?=ceil($arPrice["DISCOUNT_VALUE_VAT"])?><u style="font-family:RoubleSign; text-decoration: none;">i</u></p>
+                <?
+                } else if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) == 23) {
+                ?>
+                    <p class="bookPrice"><?=$arItem["PROPERTIES"]["STATE"]["VALUE"]?></p>
+                <?
+                } else {
+                ?>
+                    <p class="bookPrice">Выйдет <?=FormatDate("X", MakeTimeStamp($arItem["PROPERTIES"]["SOON_DATE_TIME"]["VALUE"]))?></p>
+                
                  <?
+                }
                     foreach ($arItem["PRICES"] as $code => $arPrice) {
                         if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != getXMLIDByCode(CATALOG_IBLOCK_ID, "STATE", "soon")
                             && intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != getXMLIDByCode(CATALOG_IBLOCK_ID, "STATE", "net_v_nal")) {
@@ -96,22 +112,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                         <?
                         }
                     }
-                    ?>
-                <?
-                if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != 22 
-                    && intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != 23) {
-                ?>
-                    <p class="bookPrice"><?=ceil($arPrice["DISCOUNT_VALUE_VAT"])?><span></span></p>
-                <?
-                } else if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) == 23) {
-                ?>
-                    <p class="bookPrice"><?=$arItem["PROPERTIES"]["STATE"]["VALUE"]?></p>
-                <?
-                } else {
-                ?>
-                    <p class="bookPrice">Выйдет <?=FormatDate("X", MakeTimeStamp($arItem["PROPERTIES"]["SOON_DATE_TIME"]["VALUE"]))?></p>
-                <?    
-                }
+   
                 ?>        
             </a>
         </div>
