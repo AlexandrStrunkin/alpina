@@ -37,7 +37,7 @@ $this->setFrameMode(true);
                             <p class="tapeOfPack"><?=$arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
                             <p class="bookPrice"><?=$arPrice['DISCOUNT_VALUE_VAT']?><span></span></p>
                         </a>
-						<a class="product<?=$arItem["ID"];?>" onmousedown="try { rrApi.addToBasket(<?=$arItem["ID"]?>) } catch(e) {}" href="<?echo $arItem["ADD_URL"]?>" onclick="addToCartTracking(<?= $arItem["ID"];?>, '<?= $arItem["NAME"];?>', '<?= ceil($arPrice["DISCOUNT_VALUE_VAT"])?>','', '1');dataLayer.push({event: 'EventsInCart', action: '1st Step', label: 'recsAddToCart'});"><p class="basketBook">Добавить к заказу</p></a>
+                        <a class="product<?=$arItem["ID"];?>" onmousedown="try { rrApi.addToBasket(<?=$arItem["ID"]?>) } catch(e) {}" href="<?echo $arItem["ADD_URL"]?>" onclick="dataLayer.push({event: 'EventsInCart', action: '1st Step', label: 'recsAddToCart'});delete_href(<?=$arItem["ID"];?>)"><p class="basketBook">Добавить к заказу</p></a>
                     </div>    
                 </li>    
                 <?}

@@ -17,7 +17,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
     </style>
 <?}?>
 
-<div class="otherBooks otherBooks_all" id="block1">
+<div class="otherBooks_popular otherBooks" id="block1">
     <ul>
         <?foreach ($arResult["ITEMS"] as $arItem) {
             $pict = CFile::ResizeImageGet($arItem["DETAIL_PICTURE"]["ID"], array('width'=>147, 'height'=>216), BX_RESIZE_IMAGE_PROPORTIONAL, true);
@@ -70,7 +70,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                             </p>
                             
                             <?if ($dbBasketItems["QUANTITY"] == 0) {?>
-                                <a class="product<?=$arItem["ID"];?>" onmousedown="try { rrApi.addToBasket(<?=$arItem["ID"]?>) } catch(e) {}" href="<?echo $arItem["ADD_URL"]?>" onclick="addtocart(<?=$arItem["ID"];?>, '<?=$arItem["NAME"];?>');delete_href(<?=$arItem["ID"];?>);return false;"><p class="basketBook">В корзину</p></a>
+                                <a class="product<?=$arItem["ID"];?>" onmousedown="try { rrApi.addToBasket(<?=$arItem["ID"]?>) } catch(e) {}" href="<?echo $arItem["ADD_URL"]?>" onclick="addtocart(<?=$arItem["ID"];?>, '<?=$arItem["NAME"];?>');return false;"><p class="basketBook">В корзину</p></a>
                             <?} else {?>
                                 <a class="product<?=$arItem["ID"];?>" href="/personal/cart/"><p class="basketBook" style="background-color: #A9A9A9;color: white;">Оформить</p></a>
                             <?}?>
@@ -99,11 +99,12 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
 </div>
 
 <?if (($arResult["NAV_RESULT"]->NavPageCount) > 1) {?>
-    <p class="showMore">Показать ещё</p>
+    <p class="showMore_2">Показать ещё</p>
 <?}?>
-<script type="">
-       
+<script>
+    // скрипт ajax-подгрузки товаров в блоке "Все книги"
     $(document).ready(function() {
+                 
         <?$navnum = $arResult["NAV_RESULT"]->NavNum;?>
         
         <?if (isset($_REQUEST["PAGEN_".$navnum])) {?>
@@ -111,11 +112,10 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
         <?}else{?>
             var page = 2;
         <?}?>
-        
-        var maxpage = <?=(isset($arResult["NAV_RESULT"]->NavPageCount)) ? ($arResult["NAV_RESULT"]->NavPageCount) : 2?>;
-        console.log(maxpage);
-        $('.showMore').click(function(){
-            var otherBooks = $(this).siblings(".otherBooks_all");
+
+    var maxpage = <?=(isset($arResult["NAV_RESULT"]->NavPageCount)) ? ($arResult["NAV_RESULT"]->NavPageCount) : 2?>;
+        $('.showMore_2').click(function(){
+            var otherBooks = $(this).siblings(".otherBooks_popular");
 
             <?if (isset($_REQUEST["SORT"])) {?>
                 var section_url = '<?= $arResult["SECTION_PAGE_URL"] . "?" . $_SERVER["QUERY_STRING"] . "&PAGEN_" . $navnum . "=" ?>';
@@ -123,26 +123,30 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                 var section_url = '<?= $arResult["SECTION_PAGE_URL"] . "?PAGEN_" . $navnum . "=" ?>';
             <?}?>
             $.get(section_url + page, function(data) {
-                var next_page = $('.otherBooks_all ul li', data);
+                var next_page = $('.otherBooks_popular ul li', data);
                 //$('.catalogBooks').append('<br /><h3>Страница '+ page +'</h3><br />');
-                $('.otherBooks_all ul').append(next_page);
+                $('.otherBooks_popular ul').append(next_page);
                 page++;})
             .done(function() {
                 $(".nameBook").each(function() {
                     if($(this).length > 0) {
                         $(this).html(truncate($(this).html(), 40));}});
-                var otherBooksHeight = 1440 * Math.ceil(($(".otherBooks_all ul li").length / 15));
-                var categorHeight = 1600 + Math.ceil($(".otherBooks_all ul li").length + $(".otherBooks_all").height() + $(".otherBooks_popular").height());
-         //       otherBooks.css("height", otherBooksHeight +"px");
-           //     $(".wrapperCategor").css("height", categorHeight+"px");
-           //     $(".contentWrapp").css("height", categorHeight -10+"px");
+                var otherBooksHeight = 1440 * Math.ceil(($(".otherBooks_popular ul li").length / 15));
+                var categorHeight = 1600 + Math.ceil(($(".otherBooks_popular ul li").length) + $(".otherBooks_popular").height() + $(".otherBooks_all").height());
+                console.log(categorHeight);
+             //  otherBooks.css("height", otherBooksHeight +"px");
+              //  $(".wrapperCategor").css("height", categorHeight +"px");
+            //    $(".contentWrapp").css("height", categorHeight-10+"px");
             });
             if (page == maxpage) {
-                $('.showMore').hide();
+                $('.showMore_2').hide();
                 //$('.phpages').hide();}
             return false;
         }
-    }); 
-});         
- 
+    });
+
+        <?if (!$USER -> IsAuthorized()){?>
+            $(".categoryWrapper .categoryBooks").hover(function(){
+                $(this).css("height", "390px");});
+        <?}?>});
 </script>

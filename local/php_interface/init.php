@@ -829,7 +829,7 @@
     function guruHandlerAfter($ID, $arFields) {
         GLOBAL $arParams;
         if ($arFields['DELIVERY_ID'] == GURU_DELIVERY_ID) {
-
+            $order_instance = Bitrix\Sale\Order::load($ID);
             // записываем тех данные в поле адреса id пункта самовывоза|дата доставки
             $property_collection = $order_instance->getPropertyCollection();
             if ($arFields['PERSON_TYPE_ID'] == LEGAL_ENTITY_PERSON_TYPE_ID) {
@@ -934,7 +934,7 @@
                  }
             }
 
-
+            $order_instance = Bitrix\Sale\Order::load($orderId);
             // записываем тех данные в поле адреса id пункта самовывоза
             $property_collection = $order_instance->getPropertyCollection();
             if ($arFields['PERSON_TYPE_ID'] == LEGAL_ENTITY_PERSON_TYPE_ID) {
