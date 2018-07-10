@@ -8,7 +8,7 @@ if ($_REQUEST["email"]) {
     if (!$subs_list) {
         
         // Ваш ключ доступа к API (из Личного Кабинета Юнисендер)
-        $api_key = "6fiazmsxjge4rbwe4i3ws9bssitdhnhoo3hff5ca";
+        $api_key = KEY_UNISENDER;
 
         // Данные о новом подписчике
         $user_email = $_REQUEST["email"];
