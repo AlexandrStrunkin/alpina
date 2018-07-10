@@ -1333,7 +1333,7 @@
 
         <div class="annotation" id="prodBlock1">
             <div class="showAllWrapp">
-
+               
                 <?global $reviewsFilter;
                 $reviewsFilter = array ("PROPERTY_BOOK" => $arResult["ID"]);
                 $APPLICATION->IncludeComponent(
@@ -1351,9 +1351,9 @@
                         0 => "",
                         1 => "",
                     ),
-                    "ELEMENT_SORT_FIELD" => "id",
-                    "ELEMENT_SORT_ORDER" => "desc",
-                    "ELEMENT_SORT_FIELD2" => "id",
+                    "ELEMENT_SORT_FIELD" => "sort",
+                    "ELEMENT_SORT_ORDER" => "asc",
+                    "ELEMENT_SORT_FIELD2" => "sort",
                     "ELEMENT_SORT_ORDER2" => "asc",
                     "FILTER_NAME" => "reviewsFilter",
                     "INCLUDE_SUBSECTIONS" => "Y",
