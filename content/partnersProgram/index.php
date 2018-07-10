@@ -2,6 +2,11 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Партнерская программа");
 ?>
+<style type="text/css">
+    .centerWrapper a p{
+        display: none;
+    }
+</style>
 <div class="searchWrap">
         <div class="catalogWrapper">
             <?$APPLICATION->IncludeComponent("bitrix:search.title", "search_form", 

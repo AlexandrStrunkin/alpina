@@ -1003,7 +1003,11 @@ function update_basket(e)
         $(".BasketQuant").html(total_quant);
     });
 }
-
+function delete_href(id){
+    setTimeout(function() {
+        $('.product'+id).attr('href', '') 
+    }, 150);
+}
 function addtocart(productid, name, product_status) {
     //product_status 22-нет в наличии;
     quantity = $(".transparent_input").val();

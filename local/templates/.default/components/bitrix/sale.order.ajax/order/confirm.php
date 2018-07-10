@@ -217,8 +217,10 @@
                                         ),
                                         false
                                     ); ?>
-                                <?} else if($arResult["PAY_SYSTEM"]["ID"] != 1 && $arResult["PAY_SYSTEM"]["ID"] != 11 && $arResult["PAY_SYSTEM"]["ID"] != 17){?>
+                                <?} else if($arResult["PAY_SYSTEM"]["ID"] != 1 && $arResult["PAY_SYSTEM"]["ID"] != 11 && $arResult["PAY_SYSTEM"]["ID"] != 17 && $arResult["PAY_SYSTEM"]["ID"] != 14){?>
                                     <a class="platbox_button submit_platbox" style="color: #fff;">Оплатить</a>
+                                <?} elseif($arResult["PAY_SYSTEM"]["ID"] == 14) {?>
+                                    <a class="platbox_button" href="/personal/order/payment/?ORDER_ID=<?=$arResult['ORDER']['ID'];?>" style="color: #fff;">Оплатить</a>
                                 <?}?>
 								<br /><br />
 								Спасибо за хороший выбор!
