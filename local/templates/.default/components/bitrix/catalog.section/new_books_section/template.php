@@ -141,10 +141,10 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
 
                                         $curr_author = CIBlockElement::GetByID($arItem["PROPERTIES"]["AUTHORS"]["VALUE"][0]) -> Fetch();
                                     ?>
-                                    <?if($arItem["PROPERTIES"]["TRANSPARENT_CORNER"]["VALUE_XML_ID"] == "Y"){?>  
-                                        <?$corner_1 = "Y";?> 
+                                    <?if($arItem["PROPERTIES"]["TRANSPARENT_CORNER"]["VALUE_XML_ID"] == "Y"){?>
+                                        <?$corner_1 = "Y";?>
                                     <?} else if($arItem["PROPERTIES"]["TRANSPARENT_CORNER_1_2"]["VALUE_XML_ID"] == "Y"){?>
-                                        <?$corner_2 = "Y";?>  
+                                        <?$corner_2 = "Y";?>
                                     <?} else {
                                         $corner_1 = '';
                                         $corner_2 = '';
@@ -446,7 +446,11 @@ if ($arrFilter['ID'][0] > 0) {
                     });
                     //var otherBooksHeight = 1310 * Math.ceil(($(".otherBooks ul li").length / 15));
                     //var categorHeight = 2750 + 1190 * (($(".otherBooks ul li").length - 15) / 15);
-                    var categorHeight = 1700 + Math.ceil(($(".otherBooks ul li").length - 15) / 5) * 455;
+                    //var categorHeight = 2000 + Math.ceil(($(".otherBooks ul li").length - 15) / 5) * 455;
+
+                    //var categorHeight = 350 + Math.ceil(($(".otherBooks ul li").height() * $(".otherBooks ul li").length / 5));
+                    var categorHeight = 235 + $(".contentWrapp .titleMain").height() + $(".contentWrapp .filterParams").height() + $(".contentWrapp .otherBooks").height() + $(".contentWrapp .wishlist_info").height() + $(".contentWrapp .showMore").height();
+
                     //otherBooks.css("height", otherBooksHeight+"px");
                     $(".wrapperCategor").css("height", categorHeight+"px");
                     $(".contentWrapp").css("height", categorHeight-10+"px");

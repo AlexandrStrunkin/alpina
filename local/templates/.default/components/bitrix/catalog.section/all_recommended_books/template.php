@@ -64,7 +64,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                 $corner_2 = '';
             }?>   
             <link itemprop="relatedLink" href="<?=$arItem["DETAIL_PAGE_URL"]?>" />
-            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onmousedown="try { rrApi.recomMouseDown(<?=$arItem["ID"]?>, {methodName: 'UpSellItemToItems'}) } catch(e) {}">
+            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" >
                 <div class="section_item_img">
                     <img src="<?=$pict["src"]?>" title="<?=$arItem["NAME"]?>" alt="<?=$arItem["NAME"]?>" style="<?=($corner_1)?'border-radius: 15px 15px 15px 15px;':''?> <?=($corner_2)?'border-radius: 0px 15px 15px 0px;':''?>"/>
                 </div>
@@ -77,7 +77,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                         ?>
                         <?
                             if ($arResult["ITEM_IN_BASKET"][$arBasketItems["PRODUCT_ID"]]["QUANTITY"] == 0) {?>
-                            <a class="product<?= $arItem["ID"]; ?>" onmousedown="try { rrApi.addToBasket(<?=$arItem["ID"]?>) } catch(e) {}" href="javascript:void(0)" onclick="addtocart(<?= $arItem["ID"]; ?>, '<?= $arItem["NAME"]; ?>'); addToCartTracking(<?= $arItem["ID"]; ?>, '<?= $arItem["NAME"]; ?>', '<?= $arPrice["VALUE"] ?>', '<?= ($arResult["NAME"]) ? $arResult["NAME"] : GetMessage("BEST") ?>', '1'); return false;">
+                            <a class="product<?= $arItem["ID"]; ?>" href="javascript:void(0)" onclick="addtocart(<?= $arItem["ID"]; ?>, '<?= $arItem["NAME"]; ?>'); addToCartTracking(<?= $arItem["ID"]; ?>, '<?= $arItem["NAME"]; ?>', '<?= $arPrice["VALUE"] ?>', '<?= ($arResult["NAME"]) ? $arResult["NAME"] : GetMessage("BEST") ?>', '1'); return false;">
                                 <p class="basketBook">В корзину</p>
                             </a>
                             <?} else {?>
