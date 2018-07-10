@@ -11,6 +11,7 @@ function closeInfo() {
 	$('#blogRec').hide();
 }
 
+/*
 $(document).ready(function() {
 	var cycleCheck = false;
 	var target = $('.author');
@@ -27,9 +28,9 @@ $(document).ready(function() {
 			try {rrApi.addToBasket(postid)} catch(e) {};
 			cycleCheck = true;
 		}
-	});
+	}); 
 });
-
+ */
 function showCats() {
 	$(".catsLinks").toggle("fast", function() {
 		

@@ -132,7 +132,7 @@ if($arResult["VARIABLES"]["SECTION_CODE"] == "BooksForParentsAndChildren") {
 
 //пример выборки дерева подразделов для раздела 
 
-$rsSect = CIBlockSection::GetList(array('left_margin' => 'asc'),array("CODE" => $arResult["VARIABLES"]["SECTION_CODE"], "IBLOCK_ID" => CATALOG_IBLOCK_ID), false, array("ID"));
+$rsSect = CIBlockSection::GetList(array('left_margin' => 'asc'),array("CODE" => $arResult["VARIABLES"]["SECTION_CODE"], "IBLOCK_ID" => CATALOG_IBLOCK_ID, "ACTIVE" => "Y"), false, array("ID"));
 if ($arSect = $rsSect->GetNext()){
    // получаем подразделы
    ?>

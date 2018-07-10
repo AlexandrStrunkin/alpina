@@ -23,7 +23,7 @@ if ($arResult["isFormDescription"] == "Y" || $arResult["isFormTitle"] == "Y" || 
 if ($arResult["isFormTitle"])
 {
 ?>
-	<h3><?=$arResult["FORM_TITLE"]?></h3>
+	<h3><?//=$arResult["FORM_TITLE"]?></h3>
 <?
 } //endif ;
 

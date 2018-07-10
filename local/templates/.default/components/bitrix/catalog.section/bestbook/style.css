@@ -16,3 +16,4 @@
 .bestbook .wrap{position:relative;max-width:1140px;margin:0 auto}
 .bestbook .author{border-top:1px solid #fff;padding: 20px 0 20px;margin:30px 50px;font-family: Walshein_light;font-style:italic;width:600px}
 .bestbook .name a:hover{text-decoration:underline}
+.bestbook .wrap .description,.bestbook .wrap .author{color: #fff;}
