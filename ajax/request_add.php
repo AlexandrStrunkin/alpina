@@ -22,7 +22,8 @@ if ($_REQUEST["email"]) {
           'list_ids' => $user_lists,
           'fields[email]' => $user_email,
           'fields[Name]' => $user_name,
-          'tags' => $user_tag
+          'tags' => $user_tag,
+          'double_optin' => 3
         );
 
         // Устанавливаем соединение
