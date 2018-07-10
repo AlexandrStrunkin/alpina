@@ -76,7 +76,6 @@
     define ("SECTION_ID_FOR_CHILDREN", 131);  // id раздела для детей и родителей
     define ("BOOK_COLOR_BLACK", 434300);
     define ("EVENT_SALE_STATUS_CHANGED_AR", 400);
-    define ("KEY_UNISENDER", "6fiazmsxjge4rbwe4i3ws9bssitdhnhoo3hff5ca");
 
     define ("GROUP_COURIER", 9);
     define ("DELIVERY_COURIER_1", 9);
