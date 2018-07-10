@@ -14,7 +14,7 @@ if ($_REQUEST["email"]) {
         $user_email = $_REQUEST["email"];
         $user_name = iconv('cp1251', 'utf-8', $_REQUEST["email"]);
         $user_lists = "9435203";
-        $user_tag = urlencode("подписка_на_рассылку");
+        $user_tag = urlencode(iconv('cp1251', 'utf-8', "подписка_на_рассылку"));
 
         // Создаём POST-запрос
         $POST = array (
