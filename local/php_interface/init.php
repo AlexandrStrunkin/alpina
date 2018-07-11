@@ -168,6 +168,18 @@
             die();
         }
     }
+    function object_in_array($data) {
+        if (is_array($data) || is_object($data))
+        {
+            $result = array();
+            foreach ($data as $key => $value)
+            {
+                $result[$key] = object_in_array($value);
+            }
+            return $result;
+        }
+        return $data;
+    }
     AddEventHandler('main', 'OnBeforeEventSend', 'addingTagParameterForTemplate');
     function addingTagParameterForTemplate ($arFields, $arTemplate) {
         if ($arTemplate["EVENT_NAME"] == "SUBSCRIBE_CONFIRM") {

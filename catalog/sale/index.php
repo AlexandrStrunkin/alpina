@@ -113,7 +113,8 @@ if(!$USER->IsAdmin()){
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO",
 		"DISPLAY_COMPARE" => "N",
-		"COMPATIBLE_MODE" => "Y"
+		"COMPATIBLE_MODE" => "Y",
+		"MESS_BTN_COMPARE" => "Сравнить"
 	),
 	false
 );?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
