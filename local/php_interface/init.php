@@ -130,6 +130,7 @@
     define ("HIDE_SOON_ID", 357); //ID свойства "Не показывать в скоро в продаже"
     define ("STATE_SOON", 22); //ID состояния книги "Скоро в продаже"
     define ("UNDER_ORDER", 5844); //ID состояния книги "предзаказ"
+    define ("PROP_NOVINKA_ID", 5971); //ID свойства книги "Новинка"
     define ("STATE_NULL", 23); //ID состояния книги "Нет в наличии"
     define ("STATE_NEWS", 21); //ID состояния книги "Новинка"
     define ("EXPERTS_IBLOCK_ID", 23); //ID инфоблока Эксперты
@@ -2025,6 +2026,31 @@
     }
 
 
+    
+    AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "UpdateStatusNew");
+
+    // создаем обработчик события "OnAfterIBlockElementUpdate"
+    function UpdateStatusNew(&$arFields) {
+        if($arFields["IBLOCK_ID"] == CATALOG_IBLOCK_ID){
+            $db_props = CIBlockElement::GetProperty($arFields["IBLOCK_ID"], $arFields["ID"], array("sort" => "asc"), Array("CODE"=>"STATE"));
+            if($ar_props = $db_props->Fetch()){
+                $str_to_state = $ar_props["VALUE"]; // получаем значение статуса
+            }
+            $proprs_date = CIBlockElement::GetProperty($arFields["IBLOCK_ID"], $arFields["ID"], array("sort" => "asc"), Array("CODE"=>"STATEDATE"));
+            if($ar_props_date = $proprs_date->Fetch()){
+                $state_date = $ar_props_date["VALUE"]; // получаем дату проставления новинки
+            }
+            $date = date_create($state_date);
+            date_modify($date, '+2 month');  // прибавляем 2 месяца
+            date_format($date, 'd.m.Y');
+            if($str_to_state == STATE_NEWS && $state_date >= date('d.m.Y')){ // добавляем свойство новинки 
+                CIBlockElement::SetPropertyValuesEx($arFields["ID"], $arFields["IBLOCK_ID"], array("NOVINKA" => PROP_NOVINKA_ID));
+            } else { // удалем свойство через 2 месяца после установленной даты
+                CIBlockElement::SetPropertyValuesEx($arFields["ID"], $arFields["IBLOCK_ID"], array("NOVINKA" => false));
+            }
+        }
+    }
+    
     // --- books subscribe
     AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", "sendMailToBookSubs");
 
@@ -3549,7 +3575,7 @@
                     }
                 }
             }
-        }
+        }        
     }
 
     //Обновляем корзину, требуется для корректного отображения страницы с заказами, при переходе со страницы офорлмения заказа
@@ -3889,7 +3915,7 @@
                     }
                 }
 
-            }
+            }            
         }
     }
 
@@ -4352,4 +4378,5 @@ function CourierAdd($ID, $arFields){
        } 
     } 
 }
+
  
