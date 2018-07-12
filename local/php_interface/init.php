@@ -4331,11 +4331,11 @@ function CourierAdd($ID, $arFields){
 
        if (in_array($arFields["STATUS_ID"], $status_id) && in_array($arFields["DELIVERY_ID"], $delivery_id)) {  
             $filter = Array (
-                "!UF_STATION_METRO" => false,
+                "!UF_STATION_METRO_M" => false,
                 "GROUPS_ID" => Array(GROUP_COURIER),
             );
             $params = array(
-                "SELECT" => array("UF_STATION_METRO"),
+                "SELECT" => array("UF_STATION_METRO_M"),
                 "FIELDS" => array("ID", "NAME"),
             );
             $rsUsers = CUser::GetList(($by="NAME"), ($order="desc"), $filter, $params); // выбираем пользователей
@@ -4350,7 +4350,7 @@ function CourierAdd($ID, $arFields){
             $db_props = CSaleOrderPropsVariant::GetByValue($dbOrderProps["ORDER_PROPS_ID"],$dbOrderProps["VALUE"]);
 
             foreach($ar_user as $user_group){      
-               if($user_group["UF_STATION_METRO"] == $db_props["NAME"]){
+               if(in_array($db_props["NAME"], $user_group["UF_STATION_METRO_M"])){
 
                     $arSelect = Array("ID");
                     $ob_courier = CIBlockElement::GetList(Array(), Array("IBLOCK_ID" => IBLOCK_ID_COURIER, "NAME" => $ID), false, false, $arSelect);

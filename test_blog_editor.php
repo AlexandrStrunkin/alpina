@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="<?=$jsonObj["theme_files"][0]["url"]?>">
     <link rel="stylesheet" href="<?=$jsonObj["content_editor_files"][0]["url"]?>">
     <script>
-     /*    $(document).ready(function () {
+         $(document).ready(function () {
            //преобразуем данные формы в строку, но нам же нужен формат JSON
            //var data = $('form').serialize();
                                                            
@@ -59,7 +59,7 @@
                     $('.stk-editor').text('Error!');
                    }
                });
-         });    */
+         });    
     </script>
   </head>
   <body>
