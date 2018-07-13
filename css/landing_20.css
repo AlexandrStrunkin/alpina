@@ -17,7 +17,7 @@ header .phone{
     float: right;
     position: absolute;
     right: 0;
-    top: 17px;
+    top: -1px;
     font-size: 22px;
     color: #677377;
 }
@@ -64,9 +64,10 @@ section{
 }
 .books_wrap{
     width: 960px;
-    margin: 0 auto 40px;
+    margin: 0 auto 30px;
     height: auto;
     overflow: hidden;
+    padding-bottom: 20px;
 }
 .books_wrap .bookWrap{
     float: left;
@@ -89,6 +90,15 @@ section{
     position: relative;
     right: 17px;
 
+}
+.digitalBookMark{
+    background-color: #dd6eff;
+    border-radius: 20px;
+}
+.digitalBookMark p span{
+    width: auto;
+    right: 0;
+    color: #fff;
 }
 .books_wrap .bookWrap > p,
 .books_wrap span{

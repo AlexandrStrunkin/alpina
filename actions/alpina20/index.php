@@ -32,8 +32,9 @@
 <body itemscope itemtype="https://schema.org/WebPage">
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
     <header>
-        <a href="<?=$_SERVER["HTTP_HOST"]?>" class="logo"><img src="/img/landing/logo_lp.png"></a>
-        <P class="phone">+7 (495) 980-80-77</p>
+        <a href="https://<?=$_SERVER["HTTP_HOST"]?>" class="logo"><img src="/img/landing/logo_lp.png"></a>
+        <P class="phone">+7 (495) 120-07-04 <br>
+                        +7 (800) 550-53-22</p>
         <div class="menu_top">
             <ul class="menu">
                 <li><a class="topMenuLink" href="/content/payment/">Оплата</a></li>
@@ -63,7 +64,7 @@
                 while ($arProductDiscounts = $dbProductDiscounts->Fetch()) {
                     $massiv[] = $arProductDiscounts["PRODUCT_ID"];
                 }
-             $arSelect = Array("ID", "DETAIL_PICTURE", "DETAIL_PAGE_URL", "NAME", "PROPERTY_text_landing_20", "PROPERTY_ol_book");
+             $arSelect = Array("ID", "DETAIL_PICTURE", "DETAIL_PAGE_URL", "NAME", "PROPERTY_text_landing_20", "PROPERTY_appstore");
              $arFilter = Array("IBLOCK_ID"=>CATALOG_IBLOCK_ID, "ID"=>$massiv, "ACTIVE"=>"Y");
              $res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 
@@ -79,6 +80,11 @@
                     </a>
                     <b><?=$arFields["NAME"]?></b>
                     <p><?=$arFields["PROPERTY_TEXT_LANDING_20_VALUE"]?></p>
+                    <?if (!empty($arFields["PROPERTY_APPSTORE_VALUE"])) {?>
+                    <div class="digitalBookMark">
+                        <p><span class="test">Бесплатная эл. версия</span></p>
+                    </div>
+                    <?}?>
                     <span>старая цена: <strike><?=round($price['PRICE']["PRICE"])?> руб.</strike></span>
                     <span class="oldprice">цена по акции <?=round($final_price)?> руб.</span>
                     <a class="item product<?= $arFields["ID"]; ?>" href="javascript:void(0)" onclick="addtocart(<?= $arFields["ID"]; ?>, '<?= $arFields["NAME"]; ?>');return false;">
@@ -149,7 +155,8 @@
         <hr> 
         <div class="footer">
              <p class="tag">© 2018 Альпина</p>
-             <p class="phone">+7 (495) 980-80-77</p>
+             <p class="phone">+7 (495) 120-07-04 <br>
+                        +7 (800) 550-53-22</p>             
              <div class="bot_menu">
                 <ul class="menu">
                     <li><a class="topMenuLink" href="/content/payment/">Оплата</a></li>
