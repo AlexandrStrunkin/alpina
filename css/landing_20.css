@@ -13,6 +13,7 @@ header{
     margin: 20px auto 0;
     height: auto;
 }
+
 header .phone{
     float: right;
     position: absolute;
@@ -34,15 +35,16 @@ header .menu_top .menu li a{
 .ftoto_20{
     background: url(/img/landing/image_1.png) no-repeat;
     background-size: 100%;
-    height: 552px;
+    height: 585px;
 }
 .ftoto_20 h3{
     margin: 0 auto;
     text-align: center;
     position: relative;
-    top: 75%;
+    top: 76%;
     color:#677377;
     font-size: 40px;
+    z-index: 1;
 }
 .ftoto_20 h3 b{
     color:#ff7c05;
@@ -74,6 +76,8 @@ section{
     height: 580px;
     margin: 0 50px;
     width: 220px;
+    position: relative;
+    padding-bottom: 20px;
 }
 .books_wrap a.page{
     color:#677377;
@@ -92,13 +96,11 @@ section{
 
 }
 .digitalBookMark{
-    background-color: #dd6eff;
     border-radius: 20px;
 }
 .digitalBookMark p span{
     width: auto;
     right: 0;
-    color: #fff;
 }
 .books_wrap .bookWrap > p,
 .books_wrap span{
@@ -116,17 +118,22 @@ section{
     max-height: 310px;
     box-shadow: 0px 8px 21px -1px #999;
 }
-
-.books_wrap .item p{
+.item{
     border: 1px solid #c7a271;
     border-radius: 40px;
     color: #c7a271;
     cursor: pointer;
     font-size: 14px;
-    margin: 9px auto 0;
     padding: 6px 5px;
     text-align: center;
-    width: 122px;
+    position: absolute;
+    width: 212px;
+    bottom: 35px;
+    left: 50%;
+    margin-left: -106px;
+}
+.books_wrap .item > p{
+
 }
 .gifts{
     clear: both;
@@ -153,10 +160,12 @@ section{
 }
 .gifts ul li{
     float: left;
-    width: 275px;
-    margin: 0 22px;
+    width: 272px;
+    padding: 0 17px;
+    margin: 5px;
     text-align: center;
     height: 450px;
+    border: 2px solid #e4e4e4;
 }
 .gifts ul li p{
     color: #677377;
@@ -175,6 +184,7 @@ section{
 }
 .gifts ul li img{
     width: 200px;
+    box-shadow: 0px 3px 15px -7px;
 }
 
 body footer{
@@ -201,12 +211,13 @@ footer > ul{
     float: right;
     position: absolute;
     top: 0;
-    right: 41%;
+    right: 40%;
 }
 footer > span{
     width: 1140px;
     display: block;
     margin: 0 auto;
+    text-align: center;
     color: #677377;
 }
 .footer{
@@ -240,3 +251,22 @@ footer hr{
     border-color: #ebebeb;
     margin-bottom: 25px;
 }
+ @media only screen and (max-width:1100px){
+    header{
+        width: auto;
+    }
+    footer > span {
+        width: auto;
+    }
+    .footer{
+       width: auto; 
+    }
+    .gifts{
+        padding: 30px 30px;
+    }
+}
+ @media only screen and (max-width:1360px){
+    .ftoto_20{
+        background-position: 50% 80%;
+    }
+ }
