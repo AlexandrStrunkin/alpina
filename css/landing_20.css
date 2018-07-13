@@ -34,13 +34,13 @@ header .menu_top .menu li a{
 .ftoto_20{
     background: url(/img/landing/image_1.png) no-repeat;
     background-size: 100%;
-    height: 590px;
+    height: 552px;
 }
 .ftoto_20 h3{
     margin: 0 auto;
     text-align: center;
     position: relative;
-    top: 76%;
+    top: 75%;
     color:#677377;
     font-size: 40px;
 }
@@ -50,7 +50,7 @@ header .menu_top .menu li a{
 .ftoto_20 p{
     text-align: center;
     position: relative;
-    top: 75%;
+    top: 73%;
     color: #677377;
     font-size: 18px;
     background-color: #f0f0f0;
@@ -202,6 +202,12 @@ footer > ul{
     position: absolute;
     top: 0;
     right: 41%;
+}
+footer > span{
+    width: 1140px;
+    display: block;
+    margin: 0 auto;
+    color: #677377;
 }
 .footer{
     width: 1140px;
