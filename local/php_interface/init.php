@@ -3904,7 +3904,7 @@
                 }
                 foreach($order_new_statys as $order_update){
 
-                    if($order_update["ORDER"] && $order_update["STATUS"] != "N"){
+                    if($order_update["ORDER"] && $order_update["STATUS"] != "N" && $order_update["STATUS"] != "A"){
                         if($order_update["ORDER"]["PAY_SYSTEM_ID"] == CASH_PAY_SISTEM_ID || $order_update["ORDER"]["PAY_SYSTEM_ID"] == PAY_SYSTEM_IN_OFFICE){
                             CSaleOrder::StatusOrder($order_update["ORDER"]["ID"], "N");  // меняем статус на новый
                         }else if($order_update["ORDER"]["PAY_SYSTEM_ID"] == CASHLESS_PAYSYSTEM_ID ){
@@ -4310,7 +4310,7 @@ AddEventHandler("iblock", "OnAfterIBlockElementDelete", "DeleteElementWishList")
        $rsSales = CSaleOrder::GetList(array(), $arFilter, false, false, array("ID", "PAY_SYSTEM_ID", "PERSON_TYPE_ID", "STATUS_ID"));
        
        while ($arSales = $rsSales->Fetch()) {
-           if(($arSales["PAY_SYSTEM_ID"] == RFI_PAYSYSTEM_ID || $arSales["PAY_SYSTEM_ID"] == SBERBANK_PAYSYSTEM_ID) && $arSales["PERSON_TYPE_ID"] == NATURAL_ENTITY_PERSON_TYPE_ID && $arSales["STATUS_ID"] != "PR" &&  $arSales["STATUS_ID"] != "PZ"){    
+           if(($arSales["PAY_SYSTEM_ID"] == RFI_PAYSYSTEM_ID || $arSales["PAY_SYSTEM_ID"] == SBERBANK_PAYSYSTEM_ID) && $arSales["PERSON_TYPE_ID"] == NATURAL_ENTITY_PERSON_TYPE_ID && $arSales["STATUS_ID"] != "PR" &&  $arSales["STATUS_ID"] != "PZ" &&  $arSales["STATUS_ID"] != "A"){    
                 CSaleOrder::StatusOrder($arSales["ID"], "O");   // изменяем статус на "ожидается оплата"
            }
        }  
