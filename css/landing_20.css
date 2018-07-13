@@ -64,12 +64,13 @@ section{
 }
 .books_wrap{
     width: 960px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     height: auto;
+    overflow: hidden;
 }
 .books_wrap .bookWrap{
     float: left;
-    height: 560px;
+    height: 580px;
     margin: 0 50px;
     width: 220px;
 }
@@ -123,7 +124,9 @@ section{
     width: 960px;
     margin: 0 auto;
     padding: 30px 90px;
+    overflow: hidden;
 }
+
 .gifts h3{
     font-size: 30px;
     color: #677377;
@@ -133,11 +136,36 @@ section{
     color:#677377;
     text-align: center;
     font-size: 20px;
+    margin-bottom: 40px;
 }
 .gifts h3 b{
     color:#ff7c05;    
 }
-
+.gifts ul li{
+    float: left;
+    width: 275px;
+    margin: 0 22px;
+    text-align: center;
+    height: 450px;
+}
+.gifts ul li p{
+    color: #677377;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.gifts ul li span{
+    color: #ff7c05;
+    text-align: center;
+    display: block;
+    border: 2px solid #ff7c05;
+    padding: 5px 26px;
+    margin: 6px 0;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.gifts ul li img{
+    width: 200px;
+}
 
 body footer{
     background-color: #fff;
@@ -149,6 +177,8 @@ footer > p{
     text-align: center;
     position: relative;
     right: 100px;
+    margin-bottom: 40px;
+
 }
 footer > ul li a img{
     width: 42px;
@@ -162,4 +192,35 @@ footer > ul{
     position: absolute;
     top: 0;
     right: 41%;
+}
+.footer{
+    width: 1140px;
+    margin: 0 auto;
+}
+.tag{
+    float: left;
+    color:#677377;
+    font-size: 18px;
+}
+.bot_menu{
+    text-align: center;
+    width: 650px;
+    margin: 0 auto 90px;
+}
+.phone{
+    float: right;
+    color:#677377;
+    font-size: 18px;
+}
+.bot_menu .menu li{
+    padding: 0 15px;
+}
+.bot_menu .menu li a {
+    color: #ff7c05!important;
+    font-size: 17px;
+}
+footer hr{
+    width: 1140px;
+    border-color: #ebebeb;
+    margin-bottom: 25px;
 }

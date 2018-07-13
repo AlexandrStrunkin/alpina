@@ -63,7 +63,7 @@
                 while ($arProductDiscounts = $dbProductDiscounts->Fetch()) {
                     $massiv[] = $arProductDiscounts["PRODUCT_ID"];
                 }
-             $arSelect = Array("ID", "DETAIL_PICTURE", "DETAIL_PAGE_URL", "NAME", "PROPERTY_text_landing_20");
+             $arSelect = Array("ID", "DETAIL_PICTURE", "DETAIL_PAGE_URL", "NAME", "PROPERTY_text_landing_20", "PROPERTY_ol_book");
              $arFilter = Array("IBLOCK_ID"=>CATALOG_IBLOCK_ID, "ID"=>$massiv, "ACTIVE"=>"Y");
              $res = CIBlockElement::GetList(Array(), $arFilter, false, false, $arSelect);
 
@@ -79,6 +79,7 @@
                     </a>
                     <b><?=$arFields["NAME"]?></b>
                     <p><?=$arFields["PROPERTY_TEXT_LANDING_20_VALUE"]?></p>
+                    <span>старая цена: <strike><?=round($price['PRICE']["PRICE"])?> руб.</strike></span>
                     <span class="oldprice">цена по акции <?=round($final_price)?> руб.</span>
                     <a class="item product<?= $arFields["ID"]; ?>" href="javascript:void(0)" onclick="addtocart(<?= $arFields["ID"]; ?>, '<?= $arFields["NAME"]; ?>');return false;">
                         <p class="basketBook">В корзину</p>
@@ -93,45 +94,45 @@
                 в розыгрыше призов. Результаты будут объявлены 24 июля в соцсетях издательства</p>
             <ul>
                 <li>
-                    <img src=""><p>Puzzle English — онлайн-сервис для самостоятельного изучения английского языка с помощью видео, игр, упражнений, подкастов, песен и большого количества разного контента</p>
+                    <img src="/img/landing/PuzzleEnglish-logo_vertical_color.png"><p><b>Puzzle English</b> — онлайн-сервис для самостоятельного изучения английского языка с помощью видео, игр, упражнений, подкастов, песен и большого количества разного контента</p>
                     <span>2 доступа к заданиям</span>
                     <span>3 курса Puzzle Academy</span>
                     <span>5 доступов к подкастам</span>
                 </li>
-                <li>
-                    <img src=""><p>Сити Класс предлагает интеллектуальный досуг. Это 100 идей, как с пользой провести время! Вас ждёт прекрасная компания наших экспертов: Ирина Хакамада, Александр Васильев, Николай Сванидзе, Максим Поташев и другие</p>
+                <li>                  
+                    <img src="/img/landing/cityclass.png"><p><b>Сити Класс</b> предлагает интеллектуальный досуг. Это 100 идей, как с пользой провести время! Вас ждёт прекрасная компания наших экспертов: Ирина Хакамада, Александр Васильев, Николай Сванидзе, Максим Поташев и другие</p>
                     <span>3 билета на лекции  и мастер-классы</span>
                 </li>
                 <li>
-                    <img src=""><p>Remote Moscow — театральный проект нового формата</p>
+                    <img src="/img/landing/pasted.png"><p><b>Remote Moscow</b> — театральный проект нового формата</p>
                     <span>2 билета на спектакль - путешествие по Москве</span>
                 </li>
-                <li>   
-                    <img src=""><p>Молодой, независимый театр, созданный на основе курса Школы-студии МХАТ под руководством Дмитрия Брусникина.</p>
+                <li style=" height: 340px;">   
+                    <img src="/img/landing/share1.png"><p>Молодой, независимый театр, созданный на основе курса Школы-студии МХАТ под руководством Дмитрия Брусникина.</p>
                     <span>2 билета на любой спектакль</span>
                 </li>
-                <li>
-                    <img src=""><p>Центр популяризации естественно-научных знаний</p>
+                <li style=" height: 340px;">
+                    <img src="/img/landing/dc6f8ad803f12dc564665195c0bdf357.png"><p>Центр популяризации естественно-научных знаний</p>
                     <span>В рамочке 2 билета на посещение Большого Звездного зала и музея Урани</span>
                 </li>
-                <li>
-                    <img src=""><p>Мосигра - настольные игры для классных людей</p>
+                <li style=" height: 340px;">
+                    <img src="/img/landing/timthumb.png"><p>Мосигра - настольные игры для классных людей</p>
                     <span>5 наборов игры «Экивоки»</span>
                 </li>
                 <li>
-                    <img src="">
+                    <img src="/img/landing/foto_1.png">
                     <div>26 или 27 июля</div>
                     <p><b>Юлия Лапина</b>, клиническиий психолог, автор книги "Тело, секс, еда и тревога"</p>
                     <span>Ужин с Юлией Лапиной</span>
                 </li>
                 <li>
-                    <img src="">
+                    <img src="/img/landing/foto_2.png">
                     <div>28 июля</div>
                     <p><b>Александр Талал</b>, сценарист, куратор "Московской школы кино", автор книги "Миф и жизнь в кино"</p>
                     <span>Ужин с Александром Талалом</span>
                 </li>
                 <li>
-                    <img src="">
+                    <img src="/img/landing/foto_3.png">
                     <div>22 августа</div>
                     <p><b>Никита Непряхин</b>, бизнес-тренер, телерадио - ведущий, автор книги "Я манипулирую тобой"</p>
                     <span>Завтрак с Никитой Непряхиным</span>
@@ -144,9 +145,11 @@
         <ul>
             <li><a href="https://vk.com/ideabooks"><img src="/img/landing/seti_1.png" alt=""></a></li>
             <li><a href="https://www.facebook.com/alpinabook/"><img src="/img/landing/seti_2.png" alt=""></a></li>
-        </ul>      
+        </ul>     
+        <hr> 
         <div class="footer">
              <p class="tag">© 2018 Альпина</p>
+             <p class="phone">+7 (495) 980-80-77</p>
              <div class="bot_menu">
                 <ul class="menu">
                     <li><a class="topMenuLink" href="/content/payment/">Оплата</a></li>
@@ -155,7 +158,6 @@
                     <li><a class="topMenuLink" href="/about/contacts/">Контакты</a></li>
                 </ul>
              </div>
-             <p class="phone">+7 (495) 980-80-77</p>
         </div>
     </footer>
 </body>
