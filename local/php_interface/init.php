@@ -181,6 +181,23 @@
         }
         return $data;
     }
+
+    /**
+    *
+    * @param mixed $data
+    * @param string $file
+    * @return void
+    *
+    * */
+
+    function logger($data, $file) {
+        file_put_contents(
+            $file,
+            var_export($data, 1)."\n",
+            FILE_APPEND
+        );
+    }
+    
     AddEventHandler('main', 'OnBeforeEventSend', 'addingTagParameterForTemplate');
     function addingTagParameterForTemplate ($arFields, $arTemplate) {
         if ($arTemplate["EVENT_NAME"] == "SUBSCRIBE_CONFIRM") {
@@ -1481,9 +1498,9 @@
     AddEventHandler("main", "OnBeforeUserRegister", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));
     class OnBeforeUserRegisterHandler {
         function OnBeforeUserRegister(&$arFields) {
-            $arFields['LOGIN'] = $arFields['EMAIL'];
-
-            return $arFields;
+           // $arFields['LOGIN'] = $arFields['EMAIL'];
+            logger(date('d.m.Y H:i').' '.implode(', ', $arFields), $_SERVER["DOCUMENT_ROOT"].'/logs/user_mail.txt');
+           // return $arFields;
         }
     }
 
@@ -3099,21 +3116,6 @@
         }
     }
 
-    /**
-    *
-    * @param mixed $data
-    * @param string $file
-    * @return void
-    *
-    * */
-
-    function logger($data, $file) {
-        file_put_contents(
-            $file,
-            var_export($data, 1)."\n",
-            FILE_APPEND
-        );
-    }
 
     /**
     *
