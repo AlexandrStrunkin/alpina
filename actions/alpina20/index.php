@@ -78,7 +78,7 @@
                     <a href="<?=$arFields["DETAIL_PAGE_URL"]?>" class="page">
                         <img src="<?=$picture?>" alt="<?=$arFields["NAME"]?>" title="<?=$arFields["NAME"]?>" /><br>
                     </a>
-                    <b><?=$arFields["NAME"]?></b>
+                    <b><?=$arFields["NAME"]?></b>     
                     <br>
                     <p><?=$arFields["PROPERTY_TEXT_LANDING_20_VALUE"]?></p>
                     <span> <strike><?=round($price['PRICE']["PRICE"])?> руб.</strike></span>
@@ -111,7 +111,7 @@
                     <span>3 билета на лекции  и мастер-классы</span>
                 </li>
                 <li>
-                    <img src="/img/landing/pasted.png"><p><b>Remote Moscow</b> — театральный проект нового формата</p>
+                    <img src="/img/landing/pasted.png" style=" margin-top: 23px; "><p><b>Remote Moscow</b> — театральный проект нового формата</p>
                     <span>2 билета на спектакль - путешествие по Москве</span>
                 </li>
                 <li style=" height: 340px;">   
@@ -127,13 +127,13 @@
                     <span>5 наборов игры «Экивоки»</span>
                 </li>
                 <li>
-                    <img src="/img/landing/foto_1.png">
+                    <img src="/img/landing/foto_1.png" style=" margin-top: 4px; ">
                     <div>26 или 27 июля</div>
                     <p><b>Юлия Лапина</b>, клиническиий психолог, автор книги "Тело, секс, еда и тревога"</p>
                     <span>Ужин с Юлией Лапиной</span>
                 </li>
                 <li>
-                    <img src="/img/landing/foto_2.png">
+                    <img src="/img/landing/foto_2.png" style=" top: 3px; position: relative; ">
                     <div>28 июля</div>
                     <p><b>Александр Талал</b>, сценарист, куратор "Московской школы кино", автор книги "Миф и жизнь в кино"</p>
                     <span>Ужин с Александром Талалом</span>
