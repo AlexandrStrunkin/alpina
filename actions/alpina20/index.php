@@ -79,12 +79,13 @@
                         <img src="<?=$picture?>" alt="<?=$arFields["NAME"]?>" title="<?=$arFields["NAME"]?>" /><br>
                     </a>
                     <b><?=$arFields["NAME"]?></b>
+                    <br>
                     <p><?=$arFields["PROPERTY_TEXT_LANDING_20_VALUE"]?></p>
 
                     <span>старая цена: <strike><?=round($price['PRICE']["PRICE"])?> руб.</strike></span>
 
                     <a class="item product<?= $arFields["ID"]; ?>" href="javascript:void(0)" onclick="addtocart(<?= $arFields["ID"]; ?>, '<?= $arFields["NAME"]; ?>');return false;">
-                        <p class="basketBook">Купить за новая цена <?=round($final_price)?> руб.</p>
+                        <p class="basketBook">Купить за <?=round($final_price)?> руб.</p>
                         <?if (!empty($arFields["PROPERTY_APPSTORE_VALUE"])) {?>
                         <div class="digitalBookMark">
                             <p><span class="test">+ Бесплатная эл. версия</span></p>

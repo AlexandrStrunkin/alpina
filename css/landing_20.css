@@ -167,6 +167,9 @@ section{
     height: 450px;
     border: 2px solid #e4e4e4;
 }
+.books_wrap div:last-child br{
+    display: none;
+}
 .gifts ul li p{
     color: #677377;
     text-align: center;

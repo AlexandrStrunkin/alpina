@@ -693,7 +693,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
 
                     var categorHeight = WrappHeight+RecHeight+200 + Math.ceil(($(".otherBooks ul li").length - 15) / 5) * 455;
 
-                    $(".otherBooks").css("height", otherBooksHeight+"px");
+                  //  $(".otherBooks").css("height", otherBooksHeight+"px");
                     //$(".wrapperCategor").css("height", categorHeight+"px");
                     //$(".contentWrapp").css("height", categorHeight-10+"px");
                     //$(".wrapperCategor").css("height", $(".contentWrapp").height()+"px");
@@ -732,7 +732,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
 
                         var categorHeight = WrappHeight+RecHeight+200+ Math.ceil(($(".otherBooks ul li").length - BooksLiLength) / 5) * 455;
 
-                        $(".otherBooks").css("height", otherBooksHeight+"px");
+                       // $(".otherBooks").css("height", otherBooksHeight+"px");
                         //$(".wrapperCategor").css("height", categorHeight+"px");
                         //$(".contentWrapp").css("height", categorHeight-10+"px");
                         //$(".wrapperCategor").css("height", $(".wrapperCategor").height()+"px");
