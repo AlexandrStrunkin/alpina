@@ -68,7 +68,6 @@ section{
     width: 960px;
     margin: 0 auto 30px;
     height: auto;
-    overflow: hidden;
     padding-bottom: 20px;
 }
 .books_wrap .bookWrap{
@@ -77,19 +76,22 @@ section{
     margin: 0 50px;
     width: 220px;
     position: relative;
-    padding-bottom: 50px;
+    padding-bottom: 60px;
 }
 .books_wrap a.page{
     color:#677377;
     height: 310px;
     display: table-cell;
     vertical-align: bottom;
+    position: relative;
 }
 .books_wrap div:nth-child(18) a{
     vertical-align: unset;
 }
 .books_wrap div:nth-child(6) a img{
-    height: 300px;
+    width: 270px;
+    right: 25px;
+    position: relative;
 }
 .books_wrap div:nth-child(4) a img{
     width: 200px;
@@ -98,7 +100,7 @@ section{
     width: 206px;
 }
 .books_wrap b{
-    margin: 5px 0;
+    margin: 12px 0;
     text-align: center;
     display: block;
     color:#677377;
@@ -128,17 +130,19 @@ section{
 .books_wrap .bookWrap > p{
     color:#ff7c05;
     position: absolute;
-    top: 63%;
+    top: 62%;
     left: 50%;
     margin-left: -125px;
 }
 .books_wrap .bookWrap > span{
     position: absolute;
-    bottom: 17%;
+    bottom: 18%;
     left: 50%;
     margin-left: -125px;
 }
 .books_wrap a img{
+    position: absolute;
+    bottom: 0;
     width: 215px;
     max-height: 310px;
     box-shadow: 0px 8px 21px -1px #999;
@@ -153,7 +157,7 @@ section{
     text-align: center;
     position: absolute;
     width: 212px;
-    bottom: 46px;
+    bottom: 56px;
     left: 50%;
     margin-left: -106px;
 }
@@ -301,6 +305,17 @@ footer hr{
     }
     .gifts{
         padding: 30px 30px;
+    }
+}
+ @media only screen and (min-width:1400px){
+    .ftoto_20{
+        height: 765px;
+    }
+    .ftoto_20 p {
+        top: 80%;
+    }
+    .ftoto_20 h3{
+       top: 80.5%;
     }
 }
  @media only screen and (max-width:1360px){
