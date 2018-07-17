@@ -323,3 +323,13 @@ footer hr{
         background-position: 50% 80%;
     }
  }
+ @media only screen and (max-width:1000px){
+    .ftoto_20{
+        background-position: 50% 88%;
+    }
+ }
+ @media only screen and (max-width:680px){
+    .ftoto_20{
+        background-position: 50% 100%;
+    }
+ }

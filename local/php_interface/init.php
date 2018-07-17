@@ -1310,8 +1310,23 @@
 			} else if($val == "I"){
                 $order = CSaleOrder::GetById($ID);
                 $message = new Message();
+                $ar_courier = array();
                 if($_SESSION["MESSAGE_STATE"] != $val || $_SESSION["MESSAGE_ORDER"] != $ID){
-                    $result = $message->sendMessage($ID,$val,'','',$order["TRACKING_NUMBER"]);
+                    $arSelect_courier = Array("ID", "PROPERTY_COURIRER");
+                    $arFilter_courier = Array("IBLOCK_ID"=>IBLOCK_ID_COURIER, "ACTIVE"=>"Y", "NAME" => $ID);
+                    $res_courier = CIBlockElement::GetList(Array(), $arFilter_courier, false, false, $arSelect_courier);
+                    if ( $courier = $res_courier->Fetch() ) {
+                        $user_ar = CUser::GetByID($courier["PROPERTY_COURIRER_VALUE"])->Fetch();
+                        $ar_courier["CUR"]["NAME"] = $user_ar["NAME"];
+                        $ar_courier["CUR"]["PHONE"] = $user_ar["LAST_NAME"];
+                    }                    
+
+                    if(!empty($ar_courier)){
+                        logger($ar_courier["CUR"]["NAME"],$_SERVER["DOCUMENT_ROOT"].'/logs/log_courier.txt' );
+                        $result = $message->sendMessage($ID,$val,$ar_courier,'');
+                    } else if($order["TRACKING_NUMBER"]){
+                        $result = $message->sendMessage($ID,$val,'','',$order["TRACKING_NUMBER"]);
+                    }
                 }      
             } else if($val == "AR"){
                 $message = new Message();
@@ -1323,7 +1338,6 @@
             $_SESSION["MESSAGE_PRICE"] = $order['PRICE'];
             $_SESSION["MESSAGE_ORDER"] = $ID;
 
-            logger(date('d.m.Y H:i:s').': '.$_SESSION["MESSAGE_STATE"]." ".$_SESSION["MESSAGE_PRICE"]." ".$_SESSION["MESSAGE_ORDER"],$_SERVER["DOCUMENT_ROOT"].'/logs/log1.txt' );
             logger(date('d.m.Y H:i:s').': '.$result,$_SERVER["DOCUMENT_ROOT"].'/logs/log1_sms.txt' );
         }
 
@@ -1850,17 +1864,16 @@
             "A" => "Заказ №order отменен. Если это ошибка, звоните +7(495)1200704",
             "K" => "Заказ №order отправлен почтой РФ. Трек-номер будет выслан в течение 5 рабочих дней. Возник вопрос? Звоните +7(495)1200704",
             "C" => "Заказ №order на сумму ordsum руб собран и ждет вас по адресу 4-ая Магистральная ул., д.5, под. 2, этаж 2 по будням с 8 до 18 часов",
-            "I" => "Ваш заказ №order в пути. Трек-номер tracking",
+            "CA" => "Ваш заказ №order в пути. Трек-номер tracking",
             "AR" => "Ваш заказ №order прибыл в место вручения.",
             "D10" => "Истекает срок хранения заказа №order. Возник вопрос? Звоните +7(495)1200704",
             "D12" => "Осталось 2 дня до отмены заказа №order. Возник вопрос? Звоните +7(495)1200704",
-            "CA" => "Заказ №order уже в пути. Курьер cur_name cur_phone",
+            "I" => "Заказ №order уже в пути. Курьер cur_name cur_phone",
             "PS" => "Заказ №order принят Почтой России к отправке. В течение 1-2 недель посылка прибудет в почтовое отделение. Будем держать в курсе",
             "PD" => "Заказ №order доставлен почтовое отделение. Пожалуйста, получите посылку на почте. Трекинг-код tracking. С собой необходимо иметь паспорт",
             "P10" => "Срок хранения заказа №order истекает. Пожалуйста, заберите заказ в почтовом отделении. Трекинг-код tracking",
             "PA" => "Срок хранения заказа №order истекает. Пожалуйста, заберите заказ в почтовом отделении. Трекинг-код tracking",
             "P" => "К сожалению, курьер не смог до вас дозвониться. Доставка перенесена на следующий рабочий день. Возник вопрос? Звоните +7(495)1200704"
-            //"I" => "Заказ №order в пути. Если будут вопросы – звоните +7(495)1200704"
         );
 
         /***************
@@ -1961,15 +1974,19 @@
         private $url = "https://auth.terasms.ru/outbox/send/"; //url для api запросов
 
         public function sendMessage($ID,$val,$curArr,$ordsum,$tracking) {
-
             $phone = $this->getPhone($ID);
             $name = $this->getClientName($ID);
-
-            $message = preg_replace('/order/',$ID,self::$messages[$val]); // ---- вставляем номер заказа
+            if (empty($curArr)) {
+                $message = preg_replace('/order/',$ID,self::$messages['CA']); // ---- вставляем номер заказа
+            } else {
+                $message = preg_replace('/order/',$ID,self::$messages[$val]); // ---- вставляем номер заказа
+            }
             $message = preg_replace('/ordsum/',$ordsum,$message); // ---- вставляем сумму заказа
-            $message = preg_replace('/tracking/',$tracking,$message); // ---- вставляем трек-номер
+            if ($tracking) {
+                $message = preg_replace('/tracking/',$tracking,$message); // ---- вставляем трек-номер
+            }
             $message = preg_replace('/clientName/',$name,$message); // ---- вставляем имя клиента
-            if ($curArr != '') {
+            if (!empty($curArr)) {
                 $message = preg_replace('/cur_name/',$curArr['CUR']['NAME'],$message); // ---- вставляем имя курьера
                 $message = preg_replace('/cur_phone/',$curArr['CUR']['PHONE'],$message); // ---- вставляем телефон курьера
             }
@@ -2001,6 +2018,8 @@
                     'content' => $postdata
                     )
             );
+            
+            logger($curArr,$_SERVER["DOCUMENT_ROOT"].'/logs/log_courier.txt' );
 
             $context  = stream_context_create($opts);
             $result = file_get_contents($path, false, $context);

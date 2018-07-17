@@ -157,7 +157,7 @@ function date_deactive(){    // ограничение вывода достав
         $count_dev++;
     }
         ?>
-
+  
 <script>
 	window.THIS_TEMPLATE_PATH = '<?= $templateFolder ?>';
 	window.GURU_DELIVERY_ID = '<?= GURU_DELIVERY_ID ?>';
@@ -287,7 +287,7 @@ function date_deactive(){    // ограничение вывода достав
            }
            deleteDateId("ORDER_PROP_44");
            deleteDateId("ORDER_PROP_45");  */
-
+         <?//arshow($_POST)?>
         //календарь
         var disabledDates = "<?=$holidays?>";
 		var enabledDates = "<?=implode(',',$open_date)?>";
@@ -347,7 +347,9 @@ function date_deactive(){    // ограничение вывода достав
         ourday = <?=date("w");?>;
         time_open_today = '<?=date('H:i')?>';
         today_hours = '<?=date('H')?>';
+        delivery_mkad = $('.check_delivery .radioInp').val();
         time_open = '<?=DELIVERY_TIME?>';
+
         minDatePlus = 0;
         <?if($_SESSION["DATE_DELIVERY_STATE"]){?>
 		    ftePlus = <?=$interval + $setProps['nextDay']?> + 1;
@@ -363,7 +365,11 @@ function date_deactive(){    // ограничение вывода достав
         } else {
             discount_day(minDatePlus, now_todey);
         }
-        minDatePlus = ar_day;
+        if(delivery_mkad == <?=DELIVERY_COURIER_MKAD?>){
+            minDatePlus += 2;
+        } else {
+            minDatePlus = ar_day;
+        }
         if (parseInt($('.order_weight').text()) / 1000 > 5) { //Если вес больше 5кг, доставка плюс один день
             //minDatePlus++;
 			minDatePlus = minDatePlus + 1;

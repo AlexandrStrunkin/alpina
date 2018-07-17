@@ -74,7 +74,7 @@ $this->setFrameMode(true);
                             </div>    
                         </div>
                         
-                        <a href="/series/66454/" onclick="dataLayer.push({'event' : 'topBlockOnMain', 'action' : 'bookClickHBR', 'label' : 'allBooks'});">
+                        <a href="/catalog/sale/" onclick="dataLayer.push({'event' : 'topBlockOnMain', 'action' : 'bookClickHBR', 'label' : 'allBooks'});">
                         <div class="text">
                             <p>Новые скидки каждый день</p>
                             Смотреть все

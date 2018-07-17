@@ -75,7 +75,7 @@
                $final_price = round($price['DISCOUNT_PRICE']);
                ?>
                 <div class="bookWrap">
-                    <a href="<?=$arFields["DETAIL_PAGE_URL"]?>" class="page">
+                    <a href="<?=$arFields["DETAIL_PAGE_URL"]?>" class="page" target="_blank">
                         <img src="<?=$picture?>" alt="<?=$arFields["NAME"]?>" title="<?=$arFields["NAME"]?>" /><br>
                     </a>
                     <b><?=$arFields["NAME"]?></b>     
