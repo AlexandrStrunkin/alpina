@@ -111,6 +111,14 @@
     <?if (!$checkMobile) {?>
         $(document).ready(function(){
             $(".bookPrice span, .newPrice span").html('i');
+            $('body').on('click', '.getSubscribe', function(){
+                 var email = $(".subscribeEmail").val();
+                (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
+            })            
+            $('body').on('click', '.takePartWrap button', function(){
+                 var email = $("#chapter-email").val();
+                (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
+            })
         });
         $(window).scroll(function() { //Скрываем блок с ценой при скролле вниз, расширяем блок аннотации и опускаем его на уровень глаз
             scrollDepth = $(window).scrollTop();

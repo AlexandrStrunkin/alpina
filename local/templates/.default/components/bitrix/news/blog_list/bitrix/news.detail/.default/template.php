@@ -376,6 +376,12 @@ $(document).ready(function() {
 	if (($(".textWrap").height() + 150) < $(".bottomWrap").height()) {
 		$(".bottomWrap").css("width", "100%");
 	}
+
+    $('body').on('click', '.mc-subscr-toggle', function(){
+        var email = $('#cackleReviews .mc-subscr-input-wrap input').val();
+        (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
+    })
 });
+
 </script>
 <input type="hidden" id="postid" name="postid" value="<?=$arResult["ID"]?>" />
