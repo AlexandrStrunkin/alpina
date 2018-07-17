@@ -124,6 +124,7 @@
     define ("ROUTE_STATUS_ID", 'I');  // в пути
     define ("ASSEMBLED_STATUS_ID", 'C');  // собран
     define ("STATUS_UNDER_ORDER", 'PZ');  // под заказ
+    define ("STATUS_SERTIFICATE", 'OS');  // оплата сертификатом 
     define ("DELIVERY_TIME", '12:00');  // Время
 
     define ("REISSUE_ID", 218); //ID свойства "Переиздание"
@@ -646,6 +647,7 @@
         CModule::IncludeModule('iblock');
         CModule::IncludeModule('sale');
         $VALUES = 0;
+        logger($arFields, $_SERVER["DOCUMENT_ROOT"].'/logs/status.txt');
         foreach($arFields["BASKET_ITEMS"] as $basket_item){
 
             $res = CIBlockElement::GetProperty(CATALOG_IBLOCK_ID, $basket_item["PRODUCT_ID"], array(), array("CODE" => "STATE"));
@@ -1976,8 +1978,9 @@
         public function sendMessage($ID,$val,$curArr,$ordsum,$tracking) {
             $phone = $this->getPhone($ID);
             $name = $this->getClientName($ID);
-            if (empty($curArr)) {
-                $message = preg_replace('/order/',$ID,self::$messages['CA']); // ---- вставляем номер заказа
+            logger($curArr, $_SERVER["DOCUMENT_ROOT"].'/logs/status.txt');
+            if (empty($curArr) && $val == "I") {  // проверяем заказы с трек номером
+                $message = preg_replace('/order/',$ID,self::$messages["CA"]); // ---- вставляем номер заказа
             } else {
                 $message = preg_replace('/order/',$ID,self::$messages[$val]); // ---- вставляем номер заказа
             }
@@ -4346,6 +4349,18 @@ function CourierAdd($ID, $arFields){
  if (CModule::IncludeModule("sale")){
        global $USER;
 
+       $dbOrderProps = CSaleOrderPropsValue::GetList(
+            array("SORT" => "ASC"),
+            array("ORDER_ID" => $ID, "CODE"=>array("CODE_COUPON"))
+        );
+        while ($arOrderProps = $dbOrderProps->GetNext()){
+            if(!empty($arOrderProps["VALUE"])){
+                $srtificate_ob = CIBlockElement::GetList(Array(), Array("IBLOCK_ID"=>CERTIFICATE_IBLOCK_ID, "PROPERTY_COUPON_CODE" => $arOrderProps["VALUE"]), false, false, Array("ID", "IBLOCK_ID", "PROPERTY_COUPON_CODE"));
+                while($ar_srtificate = $srtificate_ob->GetNext()) {
+                    CSaleOrder::StatusOrder($arOrderProps["ORDER_ID"], STATUS_SERTIFICATE);
+                }
+            }
+        };
        $status_id = array("N", "D", "AC");
        $delivery_id = array(DELIVERY_COURIER_1,DELIVERY_COURIER_2, DELIVERY_COURIER_MKAD);
        $db_props = array();
