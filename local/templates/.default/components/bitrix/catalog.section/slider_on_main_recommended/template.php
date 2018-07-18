@@ -28,7 +28,7 @@ $this->setFrameMode(true);
         <ul>
             <?foreach ($arResult["ITEMS"] as $arItem) {
                 $pict = $arItem["DETAIL_PICTURE"]["SRC_RESIZE"];
-                $author = $arItem["DISPLAY_PROPERTIES"]["AUTHORS"]["DISPLAY_VALUE"];?>
+                $author = $arItem["DISPLAY_PROPERTIES"]["AUTHORS"]["LINK_ELEMENT_VALUE"];?>
                 <li class="LiSliderElement">
                     <div class="divSliderElementConteiner">
                         <a href="<?=$arItem["DETAIL_PAGE_URL"]?>">
@@ -58,16 +58,16 @@ $this->setFrameMode(true);
                             <?if($author){
                                 if(is_array($author)){
                                     foreach($author as $value){?>
-                                        <p class="sliderBookSeveralAutor" title="Перейтина страницу автора"><?=$value?></p>
+                                        <p class="sliderBookSeveralAutor" title="Перейтина страницу автора"><?=$value["NAME"]?></p>
                                     <?}
                                 }else{?>
-                                    <p class="sliderBookAutor" title="Перейти на страницу автора"><?=$author?></p>
+                                    <p class="sliderBookAutor" title="Перейти на страницу автора"><?=$author["NAME"]?></p>
                                 <?}?>
                             <?}?>
                             <?if($arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]){?>
                                 <p class="sliderBookOfPack"><?=$arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
                             <?}?>
-                            <?if($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"] == ''){?>
+                            <?if($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"] != STATE_SOON){?>
                                 <p class="sliderBookPrice"><?=$arItem["PRICES"]["BASE"]["DISCOUNT_VALUE_VAT"]?> <span class="rub_symbol">i</span></p>
                             <?//Свойство "Нет в наличии", "Под заказ", "Скоро в продаже", "Новинка"
                             }elseif($arItem["PROPERTIES"]["STATE"]["VALUE"]){?>

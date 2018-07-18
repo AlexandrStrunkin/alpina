@@ -13,12 +13,13 @@
 $this->setFrameMode(true);
 ?>
 
-<div class="saleSlider">  <!--слайдер блока "Мы рекомендуем"-->
+<div class="saleSlider">  <!--СЃР»Р°Р№РґРµСЂ Р±Р»РѕРєР° "РњС‹ СЂРµРєРѕРјРµРЅРґСѓРµРј"-->
     <ul>
         <?foreach ($arResult["ITEMS"] as $cell => $arItem) {
                 foreach ($arItem["PRICES"] as $code => $arPrice) {
                     if ($arPrice["PRINT_DISCOUNT_VALUE"]) {
                         $pict = CFile::ResizeImageGet($arItem["DETAIL_PICTURE"]["ID"], array('width'=>147, 'height'=>216), BX_RESIZE_IMAGE_PROPORTIONAL, true);
+                        $author = $arItem["DISPLAY_PROPERTIES"]["AUTHORS"]["LINK_ELEMENT_VALUE"];
                     ?>
                     <li>
                         <div class="bookWrapp">
@@ -68,10 +69,20 @@ $this->setFrameMode(true);
                                     <?}?>
                                 </div>
                                 <p class="bookName" title="<?=$arItem["NAME"]?>"><?=$arItem["NAME"]?></p>
+                            </a>
+                                <?if($author){
+                                    if(is_array($author)){
+                                        foreach($author as $value){?>
+                                            <p class="sliderBookSeveralAutor" title="Перейтина страницу автора"><?=$value["NAME"];?></p>
+                                        <?}
+                                    }else{?>
+                                        <p class="sliderBookAutor" title="Перейти на страницу автора"><?=$value["NAME"]; ?></p>
+                                    <?}?>
+                                <?}?>
                                 <p class="tapeOfPack"><?=$arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
                                 <p class="bookPriceLine"><?=ceil($arPrice["PRINT_VALUE_VAT"])?><span class="rubsign"></span></p>
                                 <p class="bookPrice"><?=ceil($arPrice["DISCOUNT_VALUE_VAT"])?><span></span></p>
-                            </a>
+                            
                         </div>    
                     </li>
                     <?}

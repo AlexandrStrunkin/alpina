@@ -1810,7 +1810,7 @@ $APPLICATION->IncludeComponent(
 							"PROPERTY_CODE" => array(
 								0 => "discount_on",
 								1 => "spec_price",
-								2 => "",
+								2 => "AUTHORS",
 							),
 							"SECTION_CODE" => "",
 							"SECTION_ID" => $_REQUEST["SECTION_ID"],

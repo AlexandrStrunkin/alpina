@@ -123,7 +123,7 @@ header .headBasket{padding:17px 1px 0}
 .recomendation .bookName,.saleWrapp .bookName{padding-bottom:6px;padding-top:16px;font-size:14px}
 .hintWrapp .recomendation{border-top:1px solid #e4e4e4;margin-top:63px;position:relative}
 .recomendation .saleSlider{overflow:hidden}
-.recomendation li,.saleWrapp .saleSlider li{display:inline-block}
+.recomendation li,.saleWrapp .saleSlider li{display:inline-table}
 .recomendation .left{cursor:pointer;left:-46px;position:absolute;top:194px}
 .recomendation .right{cursor:pointer;position:absolute;right:-32px;top:195px}
 .recomendation li{width:192px}
@@ -161,15 +161,15 @@ header .headBasket{padding:17px 1px 0}
 .slideWrapp{height:500px}
 .roundSlideWrapp{height:360px;margin-top:36px}
 .saleWrapp{background-color:#f4f4f4;min-height:694px;overflow:visible;margin-bottom:40px}
-.saleWrapp .bookName{color:#424c4f;height:39px;width:142px;overflow:hidden}
+.saleWrapp .bookName{color:#424c4f;height:39px;overflow:hidden}
 .saleWrapp .bookPrice{color:#7B8C90;font-size:14px}
 .saleWrapp .titleMain{color:#3f4a4d;font-size:48px;padding-bottom:38px;padding-top:53px;text-align:center;font-family:Walshein_light!important}
 .saleWrapp .titleMain a{color:#3f4a4d}
 .titleMain a {text-decoration:none}
 .titleMain a:hover {border-bottom:1px solid}
-.saleWrapp ul{width:9999px;position:relative;left:0}
+.saleWrapp ul{width:9999px;position:relative;left:0;padding-bottom: 10px;}
 .saleWrapp .left,.saleWrapp .right{position:absolute;top:229px;cursor:pointer}
-.saleWrapp li{width:192px}
+.saleWrapp li{width:190px}
 .saleWrapp .saleSlider{overflow:hidden}
 .saleWrapp .left{left:-50px}
 .saleWrapp .right{right:-35px}
@@ -1129,7 +1129,7 @@ table.form-table tr td:nth-child(2){text-align:left}
 .ga-views {background-color:transparent;color:#424D4F;text-align:center;margin:8px 0 0!important;padding-left:0!important}
 .ga-views .ttip {width:140px!important}
 .gap {padding:0 5px}.gap:before {content:"\003E"}
-.saleSlider .tapeOfPack {color:#627478;font-size:14px;font-family:"Walshein_regular";height:20px}
+.saleSlider .tapeOfPack {color:#627478;font-size:14px;font-family:"Walshein_regular";height:20px;margin-bottom: 9px;}
 .ya-share2__container.ya-share2__container_size_m .ya-share2__icon{width:35px;height:35px;background-repeat:no-repeat;background-position:50%;padding-bottom:0!important}
 .ya-share2__container.ya-share2__container_size_m .ya-share2__counter{min-width:35px;height:35px;font-size:15px;line-height:35px;box-sizing:border-box;padding:0 12px;text-align:center;border-left:1px solid hsla(0,0%,100%,.25)}
 .ya-share2__counter::before{display:none}
@@ -1331,4 +1331,35 @@ body>.bottomBlock{display:none}
     width: 245px;
     cursor: pointer;
     clear: both;
+}
+.sliderBookSeveralAutor{
+    color: #00abb8;
+    margin-bottom: 9px;
+}
+.saleWrapp .bookWrapp .sliderBookSeveralAutor{
+    margin-bottom: 9px;
+}
+.saleWrapp .bookWrapp {
+    position: relative;
+    width: 160px;
+    text-align: center;
+    padding: 10px;
+    height: 420px;
+}
+.saleWrapp .bookWrapp:hover {
+    background-color: #fff;
+    box-shadow: 0 5px 3px 0 rgba(0,0,0,.18);
+}
+body .section_item_img{
+    width: auto;
+}
+body .bookWrapp .sect_badge {
+    right: 20px;
+}
+.catalogWrapper .saleSlider > ul{
+    float: left;
+}
+.saleWrapp .saleSlider li {
+    display: block;
+    float: left;
 }
