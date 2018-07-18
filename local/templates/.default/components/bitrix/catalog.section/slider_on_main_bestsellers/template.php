@@ -72,7 +72,7 @@ $this->setFrameMode(true);
             <?}?>
         </ul>
     </div>
-    <?if(count($arResult["ITEMS"]) > 5){?>
+    <?if(count($arResult["ITEMS"]) > 6){?>
         <img src="/img/arrowLeft.png" class="bestcellersBooksleftArrow leftArrow">
         <img src="/img/arrowRight.png" class="bestcellersBooksRightArrow RightArrow">
     <?}?>

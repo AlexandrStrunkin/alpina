@@ -59,6 +59,7 @@
                     $('.stk-editor').text('Error!');
                    }
                });
+               
          });    
     </script>
   </head>

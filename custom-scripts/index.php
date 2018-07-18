@@ -22,7 +22,7 @@ if ($USER->isAdmin()) {?>
     <a target="_blank" href="delivery_date/delivery_cahnge.php">Смена даты доставки Москва</a><br /><br />
     <a target="_blank" href="delivery_date/pickup_delivery.php">Смена даты самовывоза</a><br /><br />
     <a target="_blank" href="catalog/export_user_csv.php">Скрипт выгрузки покупателей</a><br /><br />
-	<a target="_blank" href="checkdelivery/courier_checked.php.php">Скрипт привязки курьеров</a><br /><br />
+	<a target="_blank" href="checkdelivery/courier_checked.php">Скрипт привязки курьеров</a><br /><br />
     
 	
 <?} else {

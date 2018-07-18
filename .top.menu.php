@@ -34,6 +34,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Акция!#Альпина20", 
+		"/actions/alpina20/", 
+		Array(), 
+		Array("color"=>"#ff7c05"), 
+		"" 
 	)
 );
 ?>

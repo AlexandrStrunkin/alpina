@@ -135,15 +135,16 @@ header .headBasket{padding:17px 1px 0}
 .sliderOnMaineBlock .titleMain { color: #3f4a4d; font-size: 48px; padding-bottom: 38px; padding-top: 53px; text-align: center; font-family: Walshein_light!important;}
 
 .sliderConteiner {overflow: hidden;}
-.sliderConteiner .LiSliderElement {display: inline-block; vertical-align: top; width: 228px;}
-.sliderConteiner .divSliderElementConteiner {width: 190px; margin: 0 auto 5px auto; height: 470px; padding: 16px 12px 40px 12px;}
+.sliderConteiner .LiSliderElement {display: inline-block; vertical-align: top; width: 188px;}
+.sliderConteiner .divSliderElementConteiner {width: 150px; margin: 0 auto 5px auto; height: 470px; padding: 16px 12px 40px 12px;}
+/*
 .sliderConteiner .divSliderElementConteiner:hover {background-color: #fff; box-shadow: 0 5px 3px 0 rgba(0,0,0,.18);}
-.sliderConteiner .imgSliderItem {margin-bottom: 10px; min-height: 260px}
+*/
+.sliderConteiner .imgSliderItem {margin-bottom: 10px; min-height: 227px}
 .sliderConteiner .imgSliderItem img {box-shadow:0 9px 5px 0 rgba(0,0,0,.18),0 10px 7px 0 rgba(0,0,0,.14);transition:box-shadow .4s ease, transform .4s ease 0s}
 .sliderConteiner .imgSliderItem img:hover { box-shadow: 0 15px 18px 0 rgba(0,0,0,.18), 0 15px 18px 0 rgba(0,0,0,.14); transform: scale(1.02);}
-.sliderConteiner .sliderItemDescriptionContaner {padding: 0 4px 0 4px; text-align: center;}
-.sliderConteiner .sliderItemDescriptionContaner p {margin-bottom: 9px;}
-.sliderConteiner a .sliderBookName {color: #424c4f; overflow: hidden; font-size: 17px; margin-bottom: 3px; padding: 15px 0 15px 0}
+.sliderConteiner .sliderItemDescriptionContaner {padding: 0 4px 0 4px; text-align: left;}
+.sliderConteiner a .sliderBookName {color: #424c4f; overflow: hidden; font-size: 14px; margin-bottom: 3px; padding: 15px 0 15px 0}
 .sliderConteiner a .sliderBookName:hover {text-decoration: underline; opacity: 0.8;}
 .sliderConteiner .sliderBookAutor {font-size: 15px; overflow: hidden;  color: #00abb8;}
 .sliderConteiner .sliderBookAutor a { display: block; padding: 3px 0 12px 0;}
@@ -1339,7 +1340,7 @@ body>.bottomBlock{display:none}
 .saleWrapp .bookWrapp .sliderBookSeveralAutor{
     margin-bottom: 9px;
 }
-.saleWrapp .bookWrapp {
+/*.saleWrapp .bookWrapp {
     position: relative;
     width: 160px;
     text-align: center;
@@ -1350,6 +1351,7 @@ body>.bottomBlock{display:none}
     background-color: #fff;
     box-shadow: 0 5px 3px 0 rgba(0,0,0,.18);
 }
+*/
 body .section_item_img{
     width: auto;
 }
@@ -1362,4 +1364,11 @@ body .bookWrapp .sect_badge {
 .saleWrapp .saleSlider li {
     display: block;
     float: left;
+}
+.sliderConteiner .imgSliderItem img{
+    box-shadow: 0 9px 5px 0 rgba(0,0,0,.18), 0 10px 7px 0 rgba(0,0,0,.14);
+    transition: box-shadow .4s ease, transform .4s ease 0s;
+    width: 142px;
+    height: auto;
+    margin-bottom: 10px;
 }

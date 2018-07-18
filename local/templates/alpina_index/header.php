@@ -93,13 +93,13 @@
 	<script type="text/javascript" src="https://www.gdeslon.ru/landing.js?mode=main&amp;mid=79276" async></script>
 	<script>
 		$(function(){
-           fxSlider('smallBooksSliderConteiner', 'smallBooksleftArrow', 'smallBooksRightArrow', false, 650, 5);
+           fxSlider('smallBooksSliderConteiner', 'smallBooksleftArrow', 'smallBooksRightArrow', false, 650, 6);
 		})
 		$(function(){
-           fxSlider('recomendedBooksSliderConteiner', 'recomendedBooksleftArrow', 'recomendedBooksRightArrow', false, 650, 5);
+           fxSlider('recomendedBooksSliderConteiner', 'recomendedBooksleftArrow', 'recomendedBooksRightArrow', false, 650, 6);
 		})
 		$(function(){
-           fxSlider('bestcellersBooksSliderConteiner', 'bestcellersBooksleftArrow', 'bestcellersBooksRightArrow', false, 650, 5);
+           fxSlider('bestcellersBooksSliderConteiner', 'bestcellersBooksleftArrow', 'bestcellersBooksRightArrow', false, 650, 6);
         })
 	</script>
 </head>
