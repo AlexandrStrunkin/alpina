@@ -101,30 +101,36 @@
                 в розыгрыше призов. Результаты будут объявлены 26 июля в соцсетях издательства.</p>
             <ul>
                 <li>
-                    <img src="/img/landing/PuzzleEnglish-logo_vertical_color.png"><p><b>Puzzle English</b> — онлайн-сервис для самостоятельного изучения английского языка с помощью видео, игр, упражнений, подкастов, песен и большого количества разного контента</p>
+                    <a href="https://puzzle-english.com/" target="_blank"><img src="/img/landing/PuzzleEnglish-logo_vertical_color.png"><p><b>Puzzle English</b> — онлайн-сервис для самостоятельного изучения английского языка с помощью видео, игр, упражнений, подкастов, песен и большого количества разного контента</p>
                     <span>2 доступа к заданиям</span>
                     <span>3 курса Puzzle Academy</span>
                     <span>5 доступов к подкастам</span>
+                    </a>
                 </li>
                 <li>                  
-                    <img src="/img/landing/cityclass.png"><p><b>Сити Класс</b> предлагает интеллектуальный досуг. Это 100 идей, как с пользой провести время! Вас ждет прекрасная компания наших экспертов: Ирина Хакамада, Александр Васильев, Николай Сванидзе, Максим Поташев и другие</p>
+                    <a href="http://cityclass.ru/" target="_blank"><img src="/img/landing/cityclass.png"><p><b>Сити Класс</b> предлагает интеллектуальный досуг. Это 100 идей, как с пользой провести время! Вас ждет прекрасная компания наших экспертов: Ирина Хакамада, Александр Васильев, Николай Сванидзе, Максим Поташев и другие</p>
                     <span>3 билета на лекции  и мастер-классы</span>
+                    </a>
                 </li>
                 <li>
-                    <img src="/img/landing/pasted.png" style=" margin-top: 23px; "><p><b>Remote Moscow</b> — театральный проект нового формата</p>
+                    <a href="http://remote-moscow.ru/" target="_blank"><img src="/img/landing/pasted.png" style=" margin-top: 23px; "><p><b>Remote Moscow</b> — театральный проект нового формата</p>
                     <span>2 билета на спектакль - путешествие по Москве</span>
+                    </a>
                 </li>
                 <li style=" height: 340px;">   
-                    <img src="/img/landing/share1.png" style=" margin-top: 15px; "><p >Молодой независимый театр, созданный на основе курса Школы-студии МХАТ под руководством Дмитрия Брусникина.</p>
+                    <a href="https://masterbrus.com/" target="_blank"><img src="/img/landing/share1.png" style=" margin-top: 15px; "><p >Молодой независимый театр, созданный на основе курса Школы-студии МХАТ под руководством Дмитрия Брусникина.</p>
                     <span>2 билета на любой спектакль</span>
+                    </a>
                 </li>
                 <li style=" height: 340px;">
-                    <img src="/img/landing/dc6f8ad803f12dc564665195c0bdf357.png"><p style=" margin-top: 12px; ">Центр популяризации естественно-научных знаний</p>
+                    <a href="http://planetarium-moscow.ru/" target="_blank"><img src="/img/landing/dc6f8ad803f12dc564665195c0bdf357.png"><p style=" margin-top: 12px; ">Центр популяризации естественно-научных знаний</p>
                     <span>2 билета на посещение Большого Звездного зала и музея Урани</span>
+                    </a>
                 </li>
                 <li style=" height: 340px;">
-                    <img src="/img/landing/timthumb.png"><p style=" margin-top: 12px; ">Мосигра - настольные игры для классных людей</p>
+                    <a href="https://www.mosigra.ru/" target="_blank"><img src="/img/landing/timthumb.png"><p style=" margin-top: 12px; ">Мосигра - настольные игры для классных людей</p>
                     <span>5 наборов игры «Экивоки»</span>
+                    </a>
                 </li>
                 <li>
                     <img src="/img/landing/foto_1.png" style=" margin-top: 4px; ">

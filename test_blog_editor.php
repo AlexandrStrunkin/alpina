@@ -29,38 +29,30 @@
     <script type="text/javascript" src="<?=$jsonObj["plugins"][0]["url"]?>" async></script>
     
     <!-- 2. Подключаем стили интерфейса редактора -->
-    <script type="text/javascript" src="<?=$jsonObj["theme_files"][1]["url"]?>" async></script>
+    <script type="text/javascript" src="<?//=$jsonObj["theme_files"][1]["url"]?>" async></script>
     <script type="text/javascript" src="<?=$jsonObj["content_editor_files"][1]["url"]?>" async></script>
     <link rel="stylesheet" href="<?=$jsonObj["theme_files"][0]["url"]?>">
     <link rel="stylesheet" href="<?=$jsonObj["content_editor_files"][0]["url"]?>">
     <script>
          $(document).ready(function () {
-           //преобразуем данные формы в строку, но нам же нужен формат JSON
-           //var data = $('form').serialize();
-                                                           
-           //превращаем объект в строку формата JSON
-           var strInForm = JSON.stringify({
-              "public_token": "vsGI2nrHVEguEh_42iKPx_UsW8eQZm1h",
-            });
-               $.ajax({
-                   url: "https://ceditor.setka.io/path/to/alpinabook.min.json",
-                   type: "GET",
-                   data: strInForm,
-                   contentType: 'application/json; charset=utf-8',
-                   dataType: 'json',
-                   success: function (data) {
-                        //превращаем строку формата JSON в массив
-                        var ara = JSON.parse(data);
-                        //обращаемся к массиву по индексу
-                        console.log(data);
-                        $('.stk-editor').text(ara[0]);
-                   },
-                   error: function() {
-                    $('.stk-editor').text('Error!');
-                   }
-               });
-               
-         });    
+
+
+            fetch('https://www.alpinabook.ru/js/setka/setka.json').then(response => response.json()).then(response => {
+
+                const config = response.config;
+                const assets = response.assets;
+                config.headerTopOffset = 20;    // ерхний отступ для верхней панели редактора.
+                config.footerBottomOffset = 20; // нижний отступ для нижней панели редактора.
+
+            // Передаем публичный токен (public_token) компании
+            // (он нужен для отправки запросов из редактора в API editor.setka.io)
+            config.public_token = 'zda0qJTle6p4h3iB80VSFrUNrWkX6LDa';
+            config.token = 'zda0qJTle6p4h3iB80VSFrUNrWkX6LDa';
+
+             // Стартуем редактор 
+            SetkaEditor.start(config, assets); 
+            }) .catch(ex => alert(ex));
+         }); 
     </script>
   </head>
   <body>
