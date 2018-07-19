@@ -136,15 +136,15 @@ header .headBasket{padding:17px 1px 0}
 
 .sliderConteiner {overflow: hidden;}
 .sliderConteiner .LiSliderElement {display: inline-block; vertical-align: top; width: 188px;}
-.sliderConteiner .divSliderElementConteiner {width: 150px; margin: 0 auto 5px auto; height: 470px; padding: 16px 12px 40px 12px;}
+.sliderConteiner .divSliderElementConteiner {width: 150px; margin: 0 auto 5px auto; height: 470px; padding: 16px 9px 40px 9px; width: 160px;}
 /*
 .sliderConteiner .divSliderElementConteiner:hover {background-color: #fff; box-shadow: 0 5px 3px 0 rgba(0,0,0,.18);}
 */
-.sliderConteiner .imgSliderItem {margin-bottom: 10px; min-height: 227px}
+.sliderConteiner .imgSliderItem {margin-bottom: 10px; min-height: 227px; text-align: center;}
 .sliderConteiner .imgSliderItem img {box-shadow:0 9px 5px 0 rgba(0,0,0,.18),0 10px 7px 0 rgba(0,0,0,.14);transition:box-shadow .4s ease, transform .4s ease 0s}
 .sliderConteiner .imgSliderItem img:hover { box-shadow: 0 15px 18px 0 rgba(0,0,0,.18), 0 15px 18px 0 rgba(0,0,0,.14); transform: scale(1.02);}
 .sliderConteiner .sliderItemDescriptionContaner {padding: 0 4px 0 4px; text-align: left;}
-.sliderConteiner a .sliderBookName {color: #424c4f; overflow: hidden; font-size: 14px; margin-bottom: 3px; padding: 15px 0 15px 0; text-align: center;}
+.sliderConteiner a .sliderBookName {color: #424c4f; overflow: hidden; font-size: 14px; margin-bottom: 3px; padding: 15px 0 10px 0; text-align: center;}
 .sliderConteiner a .sliderBookName:hover {text-decoration: underline; opacity: 0.8;}
 .sliderConteiner .sliderBookAutor {font-size: 15px; overflow: hidden;  color: #00abb8;}
 .sliderConteiner .sliderBookAutor a { display: block; padding: 3px 0 12px 0;}
@@ -1368,30 +1368,30 @@ body .bookWrapp .sect_badge {
     float: left;
 }
 .saleWrapp .saleSlider li .bookWrapp{
-    height: 435px;
+    height: 475px;
 }
 .saleWrapp .bookPriceLine{
     position: absolute;
     left: 50%;
     margin-left: -16px;
-    bottom: 21px; 
+    bottom: 61px; 
 }
 .saleWrapp .bookPrice{
     position: absolute;
     left: 50%;
     margin-left: -16px;
-    bottom: 0;
+    bottom: 40px;
 }
 .sliderConteiner .sliderBookPrice{
     position: absolute;
     left: 50%;
     margin: 0 AUTO;
-    bottom: 0;
+    bottom: 40px;
     margin-left: -42%;
     width: 130px;
 }
 .sliderConteiner .sliderItemDescriptionContaner{
-    height: 165px;
+    height: 205px;
     position: relative;
 }                     
 .sliderConteiner .imgSliderItem img{
@@ -1400,4 +1400,20 @@ body .bookWrapp .sect_badge {
     width: 142px;
     height: auto;
     margin-bottom: 10px;
+}
+.divSliderElementConteiner .basketBook,
+.saleSlider .bookWrapp .basketBook {
+    border: 1px solid #c7a271;
+    color: #c7a271;
+    font-size: 14px;
+    margin: 16px auto 0;
+    padding: 6px 5px;
+    width: 122px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -61px;
+    border-radius: 20px;
+    text-align: center;
 }

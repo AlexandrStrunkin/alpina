@@ -378,7 +378,7 @@ if ($USER->IsAuthorized()) {
 					1 => "",
 				),
 				"OFFERS_PROPERTY_CODE" => array(
-					0 => "COLOR_REF",
+					0 => "COLOR_REF",                                     
 					1 => "SIZES_SHOES",
 					2 => "SIZES_CLOTHES",
 					3 => "",
@@ -1010,7 +1010,7 @@ if ($USER->IsAuthorized()) {
 		"PROPERTY_CODE" => array(
 			0 => "AUTHORS",
 			1 => "PROPERTY_AUTHORS.NAME",
-			2 => "",
+			2 => "STATE",
 		),
 		"OFFERS_FIELD_CODE" => array(
 			0 => "",
@@ -1153,6 +1153,7 @@ if ($USER->IsAuthorized()) {
 		"PROPERTY_CODE" => array(
 			0 => "AUTHORS",
 			1 => "PROPERTY_AUTHORS.NAME",
+            2 => "STATE"
 		),
 		"OFFERS_FIELD_CODE" => array(
 			0 => "",
@@ -1284,7 +1285,7 @@ if ($USER->IsAuthorized()) {
 		"PAGE_ELEMENT_COUNT" => "9",
 		"LINE_ELEMENT_COUNT" => "1",
 		"PROPERTY_CODE" => array(
-			0 => "",
+			0 => "STATE",
 			1 => "",
 		),
 		"TEMPLATE_THEME" => "site",
@@ -1409,6 +1410,7 @@ $APPLICATION->IncludeComponent(
 		"PROPERTY_CODE" => array(
 			0 => "AUTHORS",
 			1 => "PROPERTY_AUTHORS.NAME",
+            2 => "STATE"
 		),
 		"OFFERS_FIELD_CODE" => array(
 			0 => "",
