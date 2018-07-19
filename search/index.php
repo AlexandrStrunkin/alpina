@@ -5,7 +5,7 @@ $APPLICATION->SetTitle("Поиск");
 global $SearchFilter;
 $SearchFilter = array(">CATALOG_PRICE_1" => 0);
 
-?>
+?> 
 <?/*$APPLICATION->IncludeComponent(
     "bitrix:catalog.search",
     "search_page",

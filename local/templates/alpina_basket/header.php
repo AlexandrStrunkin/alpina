@@ -123,7 +123,7 @@ if($order_id > 0) {
     <meta name="theme-color" content="#ffffff">
     <meta name="yandex-verification" content="9b63e2cc68c18dd9" />
 
-    <script src="/js/inputmask.date.extension.js"></script>
+    <!--<script src="/js/inputmask.date.extension.js"></script>   -->
     <script src="/js/jquery.selectric.min.js"></script>
 
     <script src="/js/main.js?<?=filemtime($_SERVER["DOCUMENT_ROOT"].'/js/main.js')?>"></script>
@@ -165,7 +165,6 @@ if($order_id > 0) {
             });
             var latitude = '';
             var longitude = '';
-            // Поиск координат центра Нижнего Новгорода.
             ymaps.geocode(adress_input, {
                 /**
                  * Опции запроса
@@ -209,6 +208,8 @@ if($order_id > 0) {
               if (metro.length()) {
                   var firstStation = metro.get(0);
                   var tubest = (firstStation.text).split("метро ");
+                  console.log(tubest);
+                  console.log(<?=METRO_2?>);
                     $("#<?=METRO_2?> option[data-value='"+tubest[1]+"']").attr('selected', 'selected'); // выбираем станцию из списка станций
               }
             });

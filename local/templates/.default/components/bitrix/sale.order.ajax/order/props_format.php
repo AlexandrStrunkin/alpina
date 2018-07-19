@@ -167,7 +167,7 @@
                                     }
                                 ?>
                                 <?foreach($arProperties["VARIANTS"] as $key_metro => $arVariants):?>
-                                    <option data-count="<?=$key_metro?>" data-value="<?=$arVariants["NAME"]?>" value="<?=$arVariants["VALUE"]?>"<?=($arVariants["SELECTED"] == "Y" &&  $_POST["ORDER_PROP_29"] > 0) ? " selected" : ''?>
+                                    <option data-count="<?=$key_metro?>" data-value="<?=preg_replace("/ \(.*\)/","",$arVariants["NAME"]);?>" value="<?=$arVariants["VALUE"]?>"<?=($arVariants["SELECTED"] == "Y" &&  $_POST["ORDER_PROP_29"] > 0) ? " selected" : ''?>
                                         <?if($arProperties["CODE"] == 'RLAB_SENDPARCEL_CHECK_1' || $arProperties["CODE"] == 'RLAB_SENDPARCEL_CHECK_2' and $arVariants["VALUE"] == 'N'){?> selected <?}?>><?=$arVariants["NAME"]?></option>
                                     <?endforeach?>
                             </select>

@@ -227,7 +227,9 @@ function date_deactive(){    // ограничение вывода достав
         });     */
         $('#ORDER_PROP_24').focusout(function(){
             var val_phone = $('#ORDER_PROP_24').val();
-            document.getElementById('pp_sms_phone').value = val_phone.replace(/[^0-9]/g, '');
+            if(val_phone){
+                document.getElementById('pp_sms_phone').value = val_phone.replace(/[^0-9]/g, '');
+            }
 
         });
         $('#ORDER_PROP_11').focusout(function(){
@@ -468,7 +470,7 @@ function date_deactive(){    // ограничение вывода достав
             count: 5,
             /* Вызывается, когда пользователь выбирает одну из подсказок */
             onSelect: function(suggestion) {
-                console.log(suggestion);
+            //    console.log(suggestion);
             }
         });
 
@@ -927,6 +929,7 @@ function date_deactive(){    // ограничение вывода достав
                                             $("#ORDER_PROP_15").val(suggestion['data']['inn']);            
                                             $("#ORDER_PROP_16").val(suggestion['data']['kpp']);
                                             $("#ORDER_PROP_8").html(suggestion['data']['address']["data"]["postal_code"] + ', ' + suggestion['data']['address']['unrestricted_value']);
+                                            console.log(suggestion);
                                         }
                                     });
                                     $("#ORDER_PROP_32").suggestions({
