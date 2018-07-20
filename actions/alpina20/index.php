@@ -101,7 +101,7 @@
                 в розыгрыше призов. Результаты будут объявлены 26 июля в соцсетях издательства.</p>
             <ul>
                 <li>
-                    <a href="https://puzzle-english.com/" target="_blank"><img src="/img/landing/PuzzleEnglish-logo_vertical_color.png"><p><b>Puzzle English</b> — онлайн-сервис для самостоятельного изучения английского языка с помощью видео, игр, упражнений, подкастов, песен и большого количества разного контента</p>
+                    <a href="https://puzzle-english.com/?tid=alpina_dr" target="_blank"><img src="/img/landing/PuzzleEnglish-logo_vertical_color.png"><p><b>Puzzle English</b> — онлайн-сервис для самостоятельного изучения английского языка с помощью видео, игр, упражнений, подкастов, песен и большого количества разного контента</p>
                     <span>2 доступа к заданиям</span>
                     <span>3 курса Puzzle Academy</span>
                     <span>5 доступов к подкастам</span>

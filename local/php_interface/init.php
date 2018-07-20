@@ -3947,24 +3947,6 @@
         return strtotime($b) - strtotime($a);
     }
 
-AddEventHandler("iblock", "OnAfterIBlockElementAdd", "SyncProductCode");
-AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "SyncProductCode");
-
-function SyncProductCode($arFields) {
-    if ($arFields["IBLOCK_ID"] == 78) {
-        $new_iblock_element_info = CIBlockElement::GetList (array(), array("IBLOCK_ID" => 78, "ID" => $arFields["ID"]), false, false, array("IBLOCK_ID", "ID", "XML_ID", "PROPERTY_ID_BITRIKS"));
-        while ($new_iblock_element = $new_iblock_element_info -> Fetch()) {
-            $id_bitrix_property_value = intval($new_iblock_element["PROPERTY_ID_BITRIKS_VALUE"]);
-            $new_iblock_element_code = $new_iblock_element["XML_ID"];
-        }
-        if ($id_bitrix_property_value > 0) {
-            $current_iblock_element = new CIBlockElement;
-            $arLoadProductArray = array("XML_ID" => $new_iblock_element_code);
-            $res = $current_iblock_element -> Update($id_bitrix_property_value, $arLoadProductArray);
-        }
-    }
-}
-
 
 function AddBasketRule() {
     // получение релятивных товаров для создания правила корзины
@@ -4290,14 +4272,14 @@ AddEventHandler("iblock", "OnAfterIBlockElementDelete", "DeleteElementWishList")
 
     function EventProductQuantity($ID, $arFields) {
 
-        $basketItem = $arBasketItems;
-        $basketItem = array_pop($basketItem);
-        $itemID = $basketItem["PRODUCT_ID"];
+        $arBasketItems = array();
         foreach($arFields["BASKET_ITEMS"] as $basket_item) {
             $product_quantity = CCatalogProduct::GetByID($basket_item["PRODUCT_ID"]);
+            logger($basket_item, $_SERVER["DOCUMENT_ROOT"].'/logs/log_event.txt');
+
             if($basket_item["QUANTITY"] > $product_quantity["QUANTITY"]){    // если количество в заазе больше чем на складе
                  $arBasketItems[$basket_item["ID"]]["QUANTITY"] = $basket_item["QUANTITY"]; // количество товара
-                 $arBasketItems[$basket_item["ID"]]["ID"] = $basket_item["ID"];
+                 $arBasketItems[$basket_item["ID"]]["ID"] = $basket_item["PRODUCT_ID"];
                  $arBasketItems[$basket_item["ID"]]["NAME"] = $basket_item["NAME"];
                  $arBasketItems[$basket_item["ID"]]["DETAIL_PAGE_URL"] = $basket_item["DETAIL_PAGE_URL"];
             };
