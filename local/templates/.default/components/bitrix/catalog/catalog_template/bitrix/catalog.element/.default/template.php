@@ -833,12 +833,14 @@
                                 ); ?>">
                             <a href="#" onclick="changeQ('+');return false;" class="plus" id="<?= $arResult['QUANTITY_UP']; ?>">+</a>
                         </span>
+                        <?global $test;?>
+                        <?echo '<pre>';print_r($test);echo '</pre>';?>
                         <? if ($arResult['IBLOCK_SECTION_ID'] == CERTIFICATE_SECTION_ID) { ?>
                             <?
                             global $USER;
                             ?>
                             <a href="javascript:void(0);" onclick="buy_certificate_popup(); return false;">
-                                <p class="inBasket"><?= GetMessage("CT_BCE_CATALOG_BUY") ?></p>
+                                <p class="c"><?= GetMessage("CT_BCE_CATALOG_BUY") ?></p>
                             </a>
                             <div id="loadingInfo" style="display:none;"><div class="spinner"><div class="spinner-icon"></div></div></div>
                             <?} elseif ($arResult["ITEM_IN_BASKET"]["QUANTITY"] == 0) {?>
@@ -856,8 +858,12 @@
                                 <?}?>
                             </a>
                             <div id="loadingInfo" style="display:none;"><div class="spinner"><div class="spinner-icon"></div></div></div>
+                            <?} else if($test == "Y"){?>
+                                <a href="/personal/cart/" onmousedown="try { rrApi.addToBasket(<?=$arResult["ID"]?>) } catch(e) {}"  onclick="<?//if ($arResult["CATALOG_QUANTITY"] > 0) {?>addtocart(<?= $arResult["ID"]; ?>, '<?= $arResult["NAME"]; ?>'); addToCartTracking(<?= $arResult["ID"]; ?>, '<?= $arResult["NAME"]; ?>', '<?= $arResult["PRICES"]["BASE"]["VALUE"] ?>', '<?= $arResult['SECTION']['NAME']; ?>', '1');<?//}?> return false;">
+                                    <p class="inBasket" style="background-color: #A9A9A9;"><?= GetMessage("ALREADY_IN_BASKET") ?></p>
+                                </a>
                             <?} else {?>
-                            <a href="/personal/cart/"><p class="inBasket" style="background-color: #A9A9A9;"><?= GetMessage("ALREADY_IN_BASKET") ?></p></a>
+                                <a href="/personal/cart/"><p class="inBasket" style="background-color: #A9A9A9;"><?= GetMessage("ALREADY_IN_BASKET") ?></p></a>
                             <?}?>
                         <a href="javascript:void(0);"><p class="buyOneClick"><?= GetMessage("TO_BUY_IN_1_CLICK") ?></p></a>
                     </div>
