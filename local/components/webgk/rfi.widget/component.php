@@ -50,6 +50,5 @@ if ($arParams['OTHER_PAYMENT'] == "Y") {
     
     $arResult['COMMENT'] = str_replace("ORDER_ID", $order_id, GetMessage("COMMENT"));
 }
-
 $this->IncludeComponentTemplate(); 
 ?>        

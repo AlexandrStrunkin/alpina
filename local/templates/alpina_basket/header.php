@@ -208,8 +208,6 @@ if($order_id > 0) {
               if (metro.length()) {
                   var firstStation = metro.get(0);
                   var tubest = (firstStation.text).split("метро ");
-                  console.log(tubest);
-                  console.log(<?=METRO_2?>);
                     $("#<?=METRO_2?> option[data-value='"+tubest[1]+"']").attr('selected', 'selected'); // выбираем станцию из списка станций
               }
             });

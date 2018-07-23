@@ -213,14 +213,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "webgk:rfi.widget",
         "",
         Array(
-          "ORDER_ID"   => "PRINT_",
-          "OTHER_PAYMENT" => "Y",
-          "OTHER_PARAMS" => array(
-            "PAYSUM"  => $newPrice,
-            "EMAIL"  => "",
-            "PHONE"  => "",
-            "COMMENT" => str_replace("#SUM#", $newPrice, "Покупка плаката на сайте alpinabook.ru на сумму #SUM# рублей")
-          )
+            "ORDER_ID"   => "PRINT_",
+            "OTHER_PAYMENT" => "Y",
+            "OTHER_PARAMS" => array(
+                "PAYSUM"  => $newPrice,
+                "EMAIL"  => "",
+                "PHONE"  => "",
+                "COMMENT" => str_replace("#SUM#", $newPrice, "Покупка плаката на сайте alpinabook.ru на сумму #SUM# рублей")
+            )
         ),
         false
       );

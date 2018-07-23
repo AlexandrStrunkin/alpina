@@ -834,7 +834,6 @@
                             <a href="#" onclick="changeQ('+');return false;" class="plus" id="<?= $arResult['QUANTITY_UP']; ?>">+</a>
                         </span>
                         <?global $test;?>
-                        <?echo '<pre>';print_r($test);echo '</pre>';?>
                         <? if ($arResult['IBLOCK_SECTION_ID'] == CERTIFICATE_SECTION_ID) { ?>
                             <?
                             global $USER;
