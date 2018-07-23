@@ -467,11 +467,21 @@
             <li class="tabsInElement" data-id="1"><?= GetMessage("ANNOTATION_TITLE") ?></li>                  
             <?}?>
             <?if (!empty($arResult["AUTHORS"])) {?><li data-id="4" class="tabsInElement"><?echo count($arResult["AUTHOR"]) == 1 ? GetMessage("ABOUT_AUTHOR_TITLE") : GetMessage("ABOUT_AUTHORS_TITLE");?></li><?}?>
+            
             <?if ($arResult["REVIEWS_COUNT"] > 0) {?>
-                <li data-id="2" class="tabIsRecenzion"><a  class="ajax_link" href="<?=substr($arResult['ORIGINAL_PARAMETERS']['CURRENT_BASE_PAGE'], 0, -12) . '-reviews/'?>"><?= GetMessage("REVIEWS_TITLE") ?> (<?=$arResult["REVIEWS_COUNT"]?>)</a></li>
-                <?}?>
+                <li data-id="2" class="tabIsRecenzion">
+                    <a class="ajax_link" href="<?=substr($arResult["DETAIL_PAGE_URL"], 0, -1) . '-reviews/'?>">
+                        <?= GetMessage("REVIEWS_TITLE") ?> (<?=$arResult["REVIEWS_COUNT"]?>)
+                    </a>                       
+                </li>
+            <?}?>
+            
             <? if ($arResult['IBLOCK_SECTION_ID'] != CERTIFICATE_SECTION_ID) { ?>
-            <li data-id="3" class="tabsInElement active" id="commentsLink"><?= GetMessage("COMMENTS_TITLE") ?></li>
+                <li data-id="3" class="tabsInElement active" id="commentsLink">
+                    <a class="ajax_link" href="<?=substr($arResult["DETAIL_PAGE_URL"], 0, -1) . '-comments/'?>">
+                        <?= GetMessage("COMMENTS_TITLE") ?>
+                    </a>
+                </li>
             <?}?>
         </ul>
 

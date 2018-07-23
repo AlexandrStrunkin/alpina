@@ -14,7 +14,7 @@
     $checkMobile = checkMobile();
     $childrenDesign = $arResult["PROPERTIES"]["CHILDREN_DESIGN"]["VALUE"] == "Y" ? true : false;
     include_once($_SERVER["DOCUMENT_ROOT"].'/custom-scripts/checkdelivery/options.php');
-?>
+?>  
 <?global $USER;?>
 <?if($arResult["PROPERTIES"]["FOR_ADMIN"]["VALUE"] == "Y" && !$USER->IsAdmin()){
     LocalRedirect('/404.php', '301 Moved permanently');
@@ -977,7 +977,6 @@
         </div>
 
         <?$frame = $this->createFrame()->begin();?>
-        <?//arshow($arResult['CATALOG_QUANTITY'])?>
         <?if ($arResult['PROPERTIES']['STATE']['VALUE_XML_ID'] != 'net_v_nal' && $arResult['PROPERTIES']['STATE']['VALUE_XML_ID'] != 'soon'  && $arResult["PROPERTIES"]["ol_opis"]["VALUE_ENUM_ID"] != 233 ) {?>
             <?
                 $today = date("w");
@@ -1325,9 +1324,10 @@
             <div class="videoWrapp videoWrappTop" style="width:400px;margin-top:15px">
             <?=$video_convert?>
             </div>
-        <?}?>
-
+        <?}?>         
+        
         <ul class="productsMenu">
+        
             <? if ($arResult['IBLOCK_SECTION_ID'] == CERTIFICATE_SECTION_ID) { ?>
             <li class="active tabsInElement" data-id="1"><?= GetMessage("CERTIFICATE_TITLE") ?></li>
             <?} elseif($arResult['IBLOCK_SECTION_ID'] == HANDBAG_SECTION_ID) {?>
@@ -1336,11 +1336,21 @@
             <li class="active tabsInElement" data-id="1"><?= GetMessage("ANNOTATION_TITLE") ?></li>
             <?}?>
             <?if (!empty($arResult["AUTHORS"])) {?><li data-id="4" class="tabsInElement"><?echo count($arResult["AUTHOR"]) == 1 ? GetMessage("ABOUT_AUTHOR_TITLE") : GetMessage("ABOUT_AUTHORS_TITLE");?></li><?}?>
+            
             <?if ($arResult["REVIEWS_COUNT"] > 0) {?>
-                <li data-id="2" class="tabIsRecenzion"><a class="ajax_link" href="<?=substr($arResult["CANONICAL_PAGE_URL"], 0, -1) . '-reviews/'?>"><?= GetMessage("REVIEWS_TITLE") ?> (<?=$arResult["REVIEWS_COUNT"]?>)</a></li>
+                <li data-id="2" class="tabIsRecenzion">
+                    <a class="ajax_link" href="<?=substr($arResult["DETAIL_PAGE_URL"], 0, -1) . '-reviews/'?>">
+                        <?= GetMessage("REVIEWS_TITLE") ?> (<?=$arResult["REVIEWS_COUNT"]?>)
+                    </a>                       
+                </li>
             <?}?>
+            
             <? if ($arResult['IBLOCK_SECTION_ID'] != CERTIFICATE_SECTION_ID) { ?>
-                <li data-id="3" class="tabsInElement" id="commentsLink"><a class="ajax_link" href="<?=substr($arResult["CANONICAL_PAGE_URL"], 0, -1) . '-comments/'?>"><?= GetMessage("COMMENTS_TITLE") ?></a></li>
+                <li data-id="3" class="tabsInElement" id="commentsLink">
+                    <a class="ajax_link" href="<?=substr($arResult["DETAIL_PAGE_URL"], 0, -1) . '-comments/'?>">
+                        <?= GetMessage("COMMENTS_TITLE") ?>
+                    </a>
+                </li>
             <?}?>
         </ul>
 
@@ -2266,7 +2276,6 @@ if (!$childrenDesign) {
             <script>
             function subscribeChildren() {
                 var emailAddres = $(".giftWrapChildren form input[name=email]").val();
-                console.log($(".giftWrapChildren form input[name=email]"));
                 var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 if (regex.test(emailAddres)){
                     $.post("/ajax/subscribe_actions.php", {email: emailAddres, children: 1},
@@ -2847,7 +2856,7 @@ if (!$childrenDesign) {
             type: "PARTY",
             count: 5,
             /* Вызывается, когда пользователь выбирает одну из подсказок */
-            onSelect: function(suggestion) { console.log(suggestion);
+            onSelect: function(suggestion) { 
                 $("#legal_name").val(suggestion['value']);
                 $("#inn").val(suggestion['data']['inn']);
                 $("#kpp").val(suggestion['data']['kpp']);

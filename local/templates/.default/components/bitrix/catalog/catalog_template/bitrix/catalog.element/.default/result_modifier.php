@@ -900,7 +900,8 @@ if ($arResult['MODULES']['currency'])
         array(),
         array(
             "IBLOCK_ID" => REVIEWS_IBLOCK_ID,
-            "PROPERTY_BOOK" => $arResult["ID"]
+            "PROPERTY_BOOK" => $arResult["ID"],
+            "ACTIVE" => "Y"
         ),
         false,
         false,
