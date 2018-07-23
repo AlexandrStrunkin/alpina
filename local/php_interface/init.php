@@ -2085,10 +2085,12 @@
             if($ar_props_date = $proprs_date->Fetch()){
                 $state_date = $ar_props_date["VALUE"]; // получаем дату проставления новинки
             }
+            
             $date = date_create($state_date);
             date_modify($date, '+2 month');  // прибавляем 2 месяца
-            date_format($date, 'd.m.Y');
-            if($str_to_state == STATE_NEWS && $state_date >= date('d.m.Y')){ // добавляем свойство новинки 
+            $new_date = date_format($date, 'd.m.Y');
+
+            if($str_to_state == STATE_NEWS && strtotime($new_date) >= strtotime(date('d.m.Y'))){ // добавляем свойство новинки 
                 CIBlockElement::SetPropertyValuesEx($arFields["ID"], $arFields["IBLOCK_ID"], array("NOVINKA" => PROP_NOVINKA_ID));
             } else { // удалем свойство через 2 месяца после установленной даты
                 CIBlockElement::SetPropertyValuesEx($arFields["ID"], $arFields["IBLOCK_ID"], array("NOVINKA" => false));
