@@ -36,8 +36,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Акция!#Альпина20", 
-		"/actions/alpina20/", 
+		"Бесплатные электронные книги", 
+		"/actions/freedigitalbooks/", 
 		Array(), 
 		Array("color"=>"#ff7c05"), 
 		"" 

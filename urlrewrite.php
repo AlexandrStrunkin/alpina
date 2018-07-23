@@ -96,19 +96,19 @@ $arUrlRewrite=array (
     'PATH' => '/testpersonal/order/index.php',
     'SORT' => 100,
   ),
-  12 => 
-  array (
-    'CONDITION' => '#^/online/(/?)([^/]*)#',
-    'RULE' => '',
-    'ID' => 'bitrix:im.router',
-    'PATH' => '/desktop_app/router.php',
-    'SORT' => 100,
-  ),
   13 => 
   array (
     'CONDITION' => '#^/online/(/?)([^/]*)#',
     'RULE' => '',
     'ID' => '',
+    'PATH' => '/desktop_app/router.php',
+    'SORT' => 100,
+  ),
+  12 => 
+  array (
+    'CONDITION' => '#^/online/(/?)([^/]*)#',
+    'RULE' => '',
+    'ID' => 'bitrix:im.router',
     'PATH' => '/desktop_app/router.php',
     'SORT' => 100,
   ),
