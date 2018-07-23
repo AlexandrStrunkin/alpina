@@ -472,6 +472,12 @@ $(document).ready(function(){
             if ($("#prodBlock3").css("display") == "block") {
                 $("#prodBlock3").css("height", $(".ReviewsFormWrap").height() + 90);
             }
+            
+            //пишем ссылку в урл
+            if ($(this).find("a").attr("href") != "") {
+                history.pushState(null, null, $(this).find("a").attr("href"));
+            }
+            
         })
     }
 
