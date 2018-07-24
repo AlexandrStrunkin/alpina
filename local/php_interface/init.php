@@ -2053,8 +2053,9 @@
     AddEventHandler("main", "OnBeforeUserAdd", Array("OnBeforeUserAddHandler", "OnBeforeUserAdd"));
     class OnBeforeUserAddHandler{
         function OnBeforeUserAdd(&$arFields) {
-           // $arFields['LOGIN'] = stristr($fields['EMAIL'], '@', true);
-            $arFields['LOGIN'] = $fields['EMAIL'];
+            if($arFields["EXTERNAL_AUTH_ID"] != 'socservices'){
+                $arFields['LOGIN'] = $fields['EMAIL'];
+            }
         }
     }
     //подмена логина на EMAIL
@@ -2063,7 +2064,7 @@
         // создаем обработчик события "OnBeforeUserUpdate"
         function OnBeforeUserUpdateHandler(&$arFields) {
             if (strlen($arFields['EMAIL']) && !strlen($arFields['LOGIN'])) {
-            //    $arFields['LOGIN'] = $arFields['EMAIL'];
+                $arFields['LOGIN'] = $arFields['EMAIL'];
             }
             return $arFields;
         }
