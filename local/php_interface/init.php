@@ -1676,7 +1676,7 @@
                 ($by = "id"),
                 ($order = "asc"),
                 array(
-                    "=EMAIL" => $fields['LOGIN']
+                    "=EMAIL" => $fields['LOGIN'] // stristr($fields['LOGIN'], '@', true)
                 ),
                 array(
                     "FIELDS" => array("ID", "EMAIL", "PASSWORD")
@@ -2053,10 +2053,8 @@
     AddEventHandler("main", "OnBeforeUserAdd", Array("OnBeforeUserAddHandler", "OnBeforeUserAdd"));
     class OnBeforeUserAddHandler{
         function OnBeforeUserAdd(&$arFields) {
-            $arFields['LOGIN'] = $arFields['EMAIL'];
-
-            return $arFields;
-
+           // $arFields['LOGIN'] = stristr($fields['EMAIL'], '@', true);
+            $arFields['LOGIN'] = $fields['EMAIL'];
         }
     }
     //подмена логина на EMAIL
@@ -2065,7 +2063,7 @@
         // создаем обработчик события "OnBeforeUserUpdate"
         function OnBeforeUserUpdateHandler(&$arFields) {
             if (strlen($arFields['EMAIL']) && !strlen($arFields['LOGIN'])) {
-                $arFields['LOGIN'] = $arFields['EMAIL'];
+            //    $arFields['LOGIN'] = $arFields['EMAIL'];
             }
             return $arFields;
         }
