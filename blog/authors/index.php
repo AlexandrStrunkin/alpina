@@ -3,8 +3,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Авторы блога «Альпина Паблишер»");
 ?>
 <?$APPLICATION->IncludeComponent(
-	"bitrix:news", 
-	"blog_authors_list", 
+	"bitrix:news",
+	"blog_authors_list",
 	array(
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "Y",

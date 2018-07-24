@@ -21,6 +21,8 @@ if ($_REQUEST["id"]) {
 			$(".stopProp").click(function(e) { e.stopPropagation(); }); 
 			$(".subscribeForm input[type=email]").keydown(function(event){
 				if(event.keyCode == 13) {
+                  var email = $(".subscribeForm input[type=email]").val();
+                  (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email); });
 				  event.preventDefault();
 				  $(this).siblings("input[type=button]").click();
 				  return false;

@@ -163,6 +163,9 @@
                 var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
                 if($('input[name=USER_EMAIL]').val() != '' && pattern.test($('input[name=USER_EMAIL]').val())){
                     emailVal = $('input[name=USER_EMAIL]').val();
+                    if(emailVal != 'undefined'){
+                        (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(emailVal); }); 
+                    }
                     $('#existingEmail_2').hide();
                     $.ajax({
                         url : "/ajax/CheckingExistingEmail.php",

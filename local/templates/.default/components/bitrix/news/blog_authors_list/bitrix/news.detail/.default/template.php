@@ -7,7 +7,7 @@ $frame = $this->createFrame()->begin();
 $blocks = array();
 
 $arSelect = Array('ID', 'NAME', 'DETAIL_PICTURE', 'DETAIL_TEXT', 'DETAIL_PAGE_URL');
-$arFilter = Array("IBLOCK_ID" => 71, "ACTIVE" => "Y", "PROPERTY_AUTHOR"=>$arResult["ID"]);
+$arFilter = Array("IBLOCK_ID" => 71, "ACTIVE" => "Y", "ACTIVE_DATE"=>"Y", "PROPERTY_AUTHOR"=>$arResult["ID"]);
 $posts = CIBlockElement::GetList(Array("ID" => "DESC"), $arFilter, false, Array("nPageSize" => 999), $arSelect);
 $i = 0;
 while ($post = $posts->GetNextElement()) {
@@ -19,7 +19,7 @@ while ($post = $posts->GetNextElement()) {
         $blocks[1][] = $postFields;
     else
         $blocks[2][] = $postFields;
-    
+
     $i++;
 }
 ?>
@@ -40,11 +40,11 @@ while ($post = $posts->GetNextElement()) {
             <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                 <a itemprop="url" href="/blog"><span itemprop="name">Блог</span></a>
                 <meta itemprop="position" content="1" />
-            </span> / 
+            </span> /
             <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                 <a itemprop="url" href="/blog/authors/"><span itemprop="name">Авторы блога</span></a>
                 <meta itemprop="position" content="2" />
-            </span> / 
+            </span> /
             <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                 <span itemprop="name"><?=$arResult["NAME"]?></span>
                 <meta itemprop="position" content="3" />

@@ -43,6 +43,7 @@
     define ("INFO_MESSAGES_IBLOCK_ID", 53); // 52 - для тестовой копии
     define ("SUSPENDED_BOOKS_BUYERS_IBLOCK", 55); // 54 - для тестовой копии
     define ("NEW_BOOK_STATE_XML_ID", 21);
+    define ("STATUS_ORDER_SP", 438);
     define ("BESTSELLER_BOOK_XML_ID", 285);
     define ("COVER_TYPE_SOFTCOVER_XML_ID", 168);
     define ("COVER_TYPE_HARDCOVER_XML_ID", 169);
@@ -148,7 +149,7 @@
     /**
     * Изменить на define() при апе до 7 версии PHP
     **/
-    $orderListTemplates = array(16,178,344,380); //Письма с составом заказа
+    $orderListTemplates = array(16,178,344,380, STATUS_ORDER_SP); //Письма с составом заказа
     $paymentButtonTemplates = array(16,178); //Письма с кнопкой "оплатить"
     $latestBooksTemplates = array(16,160,168); //Письма с новинками
     /**
@@ -2547,11 +2548,91 @@
             $arFields["PAYMENT_BUTTON"] = $pay_button;
         }
     }
+    
+    // редактируем письмо статуса "истек срок хранения"    
+    AddEventHandler('main', 'OnBeforeEventSend', "eventSPStatus");
 
+    function eventSPStatus (&$arFields, &$arTemplate) {
+        Cmodule::IncludeModule('sale');
+
+        if($arTemplate["ID"] == STATUS_ORDER_SP) {  
+            $orderArr = CSaleOrder::GetByID($arFields["ORDER_ID"]);
+            $arFields['EMAIL_DISCOUNT_PERCENT_TOTAL'] = $orderArr['EMAIL_DISCOUNT_PERCENT_TOTAL'];
+            $arFields['EMAIL_DISCOUNT_SUM_TOTAL'] = $orderArr['EMAIL_DISCOUNT_SUM_TOTAL'];
+            $arFields['PRICE'] = $orderArr["PRICE"];
+            $arFields['EMAIL_CURRENT_DISCOUNT_SAVE_PERCENT'] = $orderArr['EMAIL_CURRENT_DISCOUNT_SAVE_PERCENT'];
+            $arFields['EMAIL_NEXT_DISCOUNT_SAVE_SUM'] = $orderArr['EMAIL_NEXT_DISCOUNT_SAVE_SUM'];
+            $arFields['EMAIL_ORDER_WEIGHT'] = $orderArr['EMAIL_ORDER_WEIGHT'];
+            $arFields['EMAIL_ORDER_ITEMS'] = getOrderItemsForMail($orderArr["ID"]);
+            $authHash = get_hash_for_authorization($arFields['EMAIL']);
+            $phone_prop = CSaleOrderPropsValue::GetList (array("SORT" => "ASC"), array("ORDER_ID" => $orderArr["ID"], "CODE" => "PHONE"));
+            while ($phone = $phone_prop -> Fetch()) {
+                $arFields["CUSTOMER_PHONE"] = $phone["VALUE"];
+            }
+            $arFields['PROMO_PARTNER'] = '';
+            if ($orderArr['PAY_SYSTEM_ID'] == CASHLESS_PAYSYSTEM_ID) { //если оплата по безналу юриком
+                $arFields['EMAIL_PAY_SYSTEM'] = getOrderPaySystemName($orderArr['PAY_SYSTEM_ID']);
+                $arFields['PAYMENT_LINK'] = "Менеджер отправит счет на оплату в рабочее время.";
+            } else {
+                $arFields['EMAIL_PAY_SYSTEM'] = getOrderPaySystemName($orderArr['PAY_SYSTEM_ID']);
+            }
+
+            if ($orderArr["PAY_SYSTEM_ID"] == RFI_PAYSYSTEM_ID || $orderArr["PAY_SYSTEM_ID"] == SBERBANK_PAYSYSTEM_ID || $orderArr["PAY_SYSTEM_ID"] == PLATBOX_PAYSISTEM_ID) {
+                //получаем путь до обработчика
+                $arFields["PAYMENT_LINK"] = "Для оплаты заказа перейдите по <a href='https://www.alpinabook.ru/personal/order/payment/?ORDER_ID=".$orderArr["ID"]."&hash=".$authHash."'>ссылке</a>.";
+            }
+
+            $arFields['DELIVERY_NAME'] = getOrderDeliverySystemName($orderArr['DELIVERY_ID']);
+
+            if (in_array(trim($orderArr['DELIVERY_ID']), array(DELIVERY_PICK_POINT, DELIVERY_PICK_POINT2, DELIVERY_BOXBERRY_PICKUP, "pickpoint:postamat"))) {
+
+                $arFields['EMAIL_DELIVERY_TERM'] = "<br />Сроки доставки (дней): <b>".$_SESSION['EMAIL_DELIVERY_TERM']."</b><br>";
+                $arFields['EMAIL_DELIVERY_ADDR'] = "Адрес доставки: <b>".getDeliveryAddress(trim($orderArr['DELIVERY_ID']),$orderArr["ID"])."</b><br>";
+
+            } elseif (in_array($orderArr['DELIVERY_ID'], array(DELIVERY_COURIER_1, DELIVERY_COURIER_2))) {
+
+                $db_vals = CSaleOrderPropsValue::GetList(array("SORT" => "ASC"), array("ORDER_ID" => $orderArr["ID"], "CODE" => array("DELIVERY_DATE","ADDRESS")));
+                while ($arVals = $db_vals -> Fetch()) {
+                    $arVals['CODE'] == "ADDRESS" ? $arFields['EMAIL_DELIVERY_ADDR'] = "Адрес доставки: <b>".$arVals['VALUE']."</b><br>" : $arFields['EMAIL_DELIVERY_TERM'] = "<br />".$arVals['NAME']." : <b>".$arVals['VALUE']."</b><br>";
+                }
+                $arFields['EMAIL_ADDITIONAL_INFO'] = "<tr><td align=\"left\" style=\"border-collapse: collapse;color:#393939;font-family: 'Open Sans', 'Segoe UI',Roboto,Tahoma,sans-serif;font-size: 16px;font-weight: 400;line-height: 160%;font-style: normal;letter-spacing: normal;padding-top:10px;\" valign=\"top\" colspan=\"2\">";
+                $arFields['EMAIL_ADDITIONAL_INFO'] .= "Курьер свяжется с вами в выбранный день доставки, чтобы согласовать удобное время и другие детали.";
+                $arFields['EMAIL_ADDITIONAL_INFO'] .= "</td></tr>";
+
+            } elseif ($orderArr['DELIVERY_ID'] == DELIVERY_PICKUP) {
+
+                $arFields['EMAIL_ADDITIONAL_INFO'] = "<tr><td align=\"left\" style=\"border-collapse: collapse;color:#393939;font-family: 'Open Sans', 'Segoe UI',Roboto,Tahoma,sans-serif;font-size: 16px;font-weight: 400;line-height: 160%;font-style: normal;letter-spacing: normal;padding-top:10px;\" valign=\"top\" colspan=\"2\">";
+                $arFields['EMAIL_ADDITIONAL_INFO'] .= "Заказ будет собран в&nbsp;течение двух рабочих часов. Забрать заказ можно по&nbsp;адресу <em>м.Полежаевская, ул.4-ая&nbsp;Магистральная, д.5, 2&nbsp;подъезд, 2&nbsp;этаж.</em> <br />Офис работает по&nbsp;будням с&nbsp;8&nbsp;до&nbsp;18&nbsp;часов.";
+                $arFields['EMAIL_ADDITIONAL_INFO'] .= "<br /><br /><b>Как к нам пройти</b><br /><br />Метро «Полежаевская» (или «Хорошёвская»), последний вагон из центра, из вестибюля направо, выход на улицу налево. После выхода на улицу переходите на противоположную сторону к ТЦ «Хорошо», поворачиваете направо и двигаетесь по 4-ой Магистральной улице. Проходите магазин «Ларес» и доходите до дома 5 строения 1. Вам нужен «БЦ на Магистральной», второй подъезд, второй этаж.";
+                $arFields['EMAIL_ADDITIONAL_INFO'] .= "</td></tr>";
+
+                $arFields['YANDEX_MAP'] = "<tr><td style=\"border-collapse: collapse;padding-bottom:20px;\"><table align=\"left\" width=\"100%\"><tbody><tr><td align=\"left\" style=\"border-collapse: collapse;color:#393939;font-family: 'Open Sans', 'Segoe UI',Roboto,Tahoma,sans-serif;font-size: 16px;font-weight: 400;line-height: 100%;font-style: normal;letter-spacing: normal;padding-top:10px;\" colspan=\"2\" valign=\"top\"><img src=\"https://www.alpinabook.ru/img/ymap.png\" /></td></tr></tbody></table></td></tr>";
+
+            } else if($orderArr['DELIVERY_ID'] == DELIVERY_MAIL || $orderArr['DELIVERY_ID'] == DELIVERY_MAIL_2 || $orderArr['DELIVERY_ID'] == DELIVERY_MAIL_3 || $orderArr['DELIVERY_ID'] == DELIVERY_MAIL_4){
+                $db_vals = CSaleOrderPropsValue::GetList(array("SORT" => "ASC"), array("ORDER_ID" => $orderArr["ID"], "CODE" => array("INDEX", "CITY_DELIVERY")));
+                while ($arVals = $db_vals -> Fetch()) {
+                    if(!empty($arVals["VALUE"])){
+                        $arFields['EMAIL_DELIVERY_ADDR'] .=  " ".$arVals['NAME'].": ".$arVals["VALUE"]."<br>";
+                    }
+                }
+                $db_vals = CSaleOrderPropsValue::GetList(array("SORT" => "ASC"), array("ORDER_ID" => $orderArr["ID"], "CODE" => array("COUNTRY_DELIVERY", "COUNTRY", "CITY", "STREET", "HOUSE")));
+                $arFields['EMAIL_DELIVERY_ADDR'] = "Адрес доставки:<br>";
+                while ($arVals = $db_vals -> Fetch()) {
+                    if(!empty($arVals["VALUE"])){
+                        $arFields['EMAIL_DELIVERY_ADDR'] .=  " ".$arVals['NAME'].": ".$arVals["VALUE"]."<br>";
+                    }
+                }
+            }
+            logger($arFields, $_SERVER["DOCUMENT_ROOT"].'/logs/SP.txt');
+            $arFields['USER_DESCRIPTION'] = $orderArr['USER_DESCRIPTION'];   
+        }         
+    }
+    
+    
     //Добавляем состав заказа в шаблон
     AddEventHandler('main', 'OnBeforeEventSend', 'GetOrderList');
     function GetOrderList(&$arFields, &$arTemplate) {
-        if (in_array($arTemplate["ID"],array(16,178,344,380))) {
+        if (in_array($arTemplate["ID"],array(16,178,344,380, STATUS_ORDER_SP))) {
             $orderItems = CSaleBasket::GetList(array("ID" => "ASC"), array("ORDER_ID" => $arFields["ORDER_ID"]));
             $orderItemsResult = '<br /><center><h3 style="color:#393939;font-family: Segoe UI,Roboto,Tahoma,sans-serif;font-size: 20px;font-weight: 400;">Книги в заказе</h3></center><br />';
             while($orderItem = $orderItems->GetNext()) {
@@ -2570,7 +2651,7 @@
     AddEventHandler('main', 'OnBeforeEventSend', "AddLatestBooks");
 
     function AddLatestBooks (&$arFields, &$arTemplate) {
-        if (in_array($arTemplate["ID"],array(16,160,168))) {
+        if (in_array($arTemplate["ID"],array(16,160,168, STATUS_ORDER_SP))) {
             $latestBooks = "";
             $NewItems = CIBlockElement::GetList(array("PROPERTY_shows_a_day" => "DESC"), array("IBLOCK_ID" => CATALOG_IBLOCK_ID, "PROPERTY_STATE" => NEW_BOOK_STATE_XML_ID, "ACTIVE" => "Y", ">DETAIL_PICTURE" => 0), false, Array("nPageSize"=>3), array());
             while ($NewItemsList = $NewItems -> Fetch()){
@@ -2622,6 +2703,7 @@
         }
     }
 
+    
     function RussianPostTrackingAgent() {
         if(CModule::IncludeModule("sale") && CModule::IncludeModule("iblock") && CModule::IncludeModule("main")) {
             $arFilterOrders = Array (
