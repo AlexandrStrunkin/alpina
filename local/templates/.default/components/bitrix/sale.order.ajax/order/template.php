@@ -199,11 +199,18 @@ function date_deactive(){    // ограничение вывода достав
                  $('#ORDER_PROP_24,#ORDER_PROP_11').val('+7');
             }
         }
-
+        delivery_m = '<?=DELIVERY_M?>';
         if ($.browser.msie && $.browser.version <= 9) {
-
+        
         } else {
-            if(locationID == internationalLocation) {
+            console.log(locationID);
+            console.log(internationalLocation);
+            console.log(delivery_m);
+            if(locationID == delivery_m) {
+                $("#ORDER_PROP_24").mask("(999)999-99-99-99-99");   //для физлица
+                $("#ORDER_PROP_11").mask("(999)999-99-99-99-99");  //для юрлица
+                $("#pp_sms_phone").mask("99999999999999");
+            } else if(locationID == internationalLocation && locationID != delivery_m) {
                 $("#ORDER_PROP_24").mask("+9(999)999-99-99");   //для физлица
                 $("#ORDER_PROP_11").mask("+9(999)999-99-99");  //для юрлица
                 $("#pp_sms_phone").mask("+99999999999");

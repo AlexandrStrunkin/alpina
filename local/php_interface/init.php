@@ -125,7 +125,7 @@
     define ("ROUTE_STATUS_ID", 'I');  // в пути
     define ("ASSEMBLED_STATUS_ID", 'C');  // собран
     define ("STATUS_UNDER_ORDER", 'PZ');  // под заказ
-    define ("STATUS_SERTIFICATE", 'OS');  // оплата сертификатом 
+    define ("STATUS_SERTIFICATE", 'OS');  // оплата сертификатом
     define ("DELIVERY_TIME", '12:00');  // Время
 
     define ("REISSUE_ID", 218); //ID свойства "Переиздание"
@@ -199,7 +199,7 @@
             FILE_APPEND
         );
     }
-    
+
     AddEventHandler('main', 'OnBeforeEventSend', 'addingTagParameterForTemplate');
     function addingTagParameterForTemplate ($arFields, $arTemplate) {
         if ($arTemplate["EVENT_NAME"] == "SUBSCRIBE_CONFIRM") {
@@ -1327,7 +1327,7 @@
                         $user_ar = CUser::GetByID($courier["PROPERTY_COURIRER_VALUE"])->Fetch();
                         $ar_courier["CUR"]["NAME"] = $user_ar["NAME"];
                         $ar_courier["CUR"]["PHONE"] = $user_ar["LAST_NAME"];
-                    }                    
+                    }
 
                     if(!empty($ar_courier)){
                         logger($ar_courier["CUR"]["NAME"],$_SERVER["DOCUMENT_ROOT"].'/logs/log_courier.txt' );
@@ -1335,12 +1335,12 @@
                     } else if($order["TRACKING_NUMBER"]){
                         $result = $message->sendMessage($ID,$val,'','',$order["TRACKING_NUMBER"]);
                     }
-                }      
+                }
             } else if($val == "AR"){
                 $message = new Message();
                 if($_SESSION["MESSAGE_STATE"] != $val || $_SESSION["MESSAGE_ORDER"] != $ID){
                     $result = $message->sendMessage($ID,$val);
-                }      
+                }
             }
             $_SESSION["MESSAGE_STATE"] = $val;
             $_SESSION["MESSAGE_PRICE"] = $order['PRICE'];
@@ -2028,7 +2028,7 @@
                     'content' => $postdata
                     )
             );
-            
+
             logger($curArr,$_SERVER["DOCUMENT_ROOT"].'/logs/log_courier.txt' );
 
             $context  = stream_context_create($opts);
@@ -2055,12 +2055,12 @@
         function OnBeforeUserAdd(&$arFields) {
             if($arFields["EXTERNAL_AUTH_ID"] != 'socservices'){
                 $arFields['LOGIN'] = $fields['EMAIL'];
-                
+
                 return $arFields;
             }
             if (strlen($arFields['EMAIL']) && !strlen($arFields['LOGIN'])) {
                 $arFields['LOGIN'] = $arFields['EMAIL'];
-                
+
                 return $arFields;
             }
         }
@@ -2078,7 +2078,7 @@
     }
 
 
-    
+
     AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "UpdateStatusNew");
 
     // создаем обработчик события "OnAfterIBlockElementUpdate"
@@ -2092,19 +2092,19 @@
             if($ar_props_date = $proprs_date->Fetch()){
                 $state_date = $ar_props_date["VALUE"]; // получаем дату проставления новинки
             }
-            
+
             $date = date_create($state_date);
             date_modify($date, '+2 month');  // прибавляем 2 месяца
             $new_date = date_format($date, 'd.m.Y');
 
-            if($str_to_state == STATE_NEWS && strtotime($new_date) >= strtotime(date('d.m.Y'))){ // добавляем свойство новинки 
+            if($str_to_state == STATE_NEWS && strtotime($new_date) >= strtotime(date('d.m.Y'))){ // добавляем свойство новинки
                 CIBlockElement::SetPropertyValuesEx($arFields["ID"], $arFields["IBLOCK_ID"], array("NOVINKA" => PROP_NOVINKA_ID));
             } else { // удалем свойство через 2 месяца после установленной даты
                 CIBlockElement::SetPropertyValuesEx($arFields["ID"], $arFields["IBLOCK_ID"], array("NOVINKA" => false));
             }
         }
     }
-    
+
     // --- books subscribe
     AddEventHandler("iblock", "OnBeforeIBlockElementUpdate", "sendMailToBookSubs");
 
@@ -2554,14 +2554,14 @@
             $arFields["PAYMENT_BUTTON"] = $pay_button;
         }
     }
-    
-    // редактируем письмо статуса "истек срок хранения"    
+
+    // редактируем письмо статуса "истек срок хранения"
     AddEventHandler('main', 'OnBeforeEventSend', "eventSPStatus");
 
     function eventSPStatus (&$arFields, &$arTemplate) {
         Cmodule::IncludeModule('sale');
 
-        if($arTemplate["ID"] == STATUS_ORDER_SP) {  
+        if($arTemplate["ID"] == STATUS_ORDER_SP) {
             $orderArr = CSaleOrder::GetByID($arFields["ORDER_ID"]);
             $arFields['EMAIL_DISCOUNT_PERCENT_TOTAL'] = $orderArr['EMAIL_DISCOUNT_PERCENT_TOTAL'];
             $arFields['EMAIL_DISCOUNT_SUM_TOTAL'] = $orderArr['EMAIL_DISCOUNT_SUM_TOTAL'];
@@ -2630,11 +2630,11 @@
                 }
             }
             logger($arFields, $_SERVER["DOCUMENT_ROOT"].'/logs/SP.txt');
-            $arFields['USER_DESCRIPTION'] = $orderArr['USER_DESCRIPTION'];   
-        }         
+            $arFields['USER_DESCRIPTION'] = $orderArr['USER_DESCRIPTION'];
+        }
     }
-    
-    
+
+
     //Добавляем состав заказа в шаблон
     AddEventHandler('main', 'OnBeforeEventSend', 'GetOrderList');
     function GetOrderList(&$arFields, &$arTemplate) {
@@ -2709,7 +2709,7 @@
         }
     }
 
-    
+
     function RussianPostTrackingAgent() {
         if(CModule::IncludeModule("sale") && CModule::IncludeModule("iblock") && CModule::IncludeModule("main")) {
             $arFilterOrders = Array (
@@ -3695,7 +3695,7 @@
                     }
                 }
             }
-        }        
+        }
     }
 
     //Обновляем корзину, требуется для корректного отображения страницы с заказами, при переходе со страницы офорлмения заказа
@@ -4035,7 +4035,7 @@
                     }
                 }
 
-            }            
+            }
         }
     }
 
@@ -4408,18 +4408,18 @@ AddEventHandler("iblock", "OnAfterIBlockElementDelete", "DeleteElementWishList")
           ">=DATE_INSERT" => $date_day,
           "PAYED" => "N",
           );
-          
+
        $rsSales = CSaleOrder::GetList(array(), $arFilter, false, false, array("ID", "PAY_SYSTEM_ID", "PERSON_TYPE_ID", "STATUS_ID"));
-       
+
        while ($arSales = $rsSales->Fetch()) {
-           if(($arSales["PAY_SYSTEM_ID"] == RFI_PAYSYSTEM_ID || $arSales["PAY_SYSTEM_ID"] == SBERBANK_PAYSYSTEM_ID) && $arSales["PERSON_TYPE_ID"] == NATURAL_ENTITY_PERSON_TYPE_ID && $arSales["STATUS_ID"] != "PR" &&  $arSales["STATUS_ID"] != "PZ" &&  $arSales["STATUS_ID"] != "A"){    
+           if(($arSales["PAY_SYSTEM_ID"] == RFI_PAYSYSTEM_ID || $arSales["PAY_SYSTEM_ID"] == SBERBANK_PAYSYSTEM_ID) && $arSales["PERSON_TYPE_ID"] == NATURAL_ENTITY_PERSON_TYPE_ID && $arSales["STATUS_ID"] != "PR" &&  $arSales["STATUS_ID"] != "PZ" &&  $arSales["STATUS_ID"] != "A"){
                 CSaleOrder::StatusOrder($arSales["ID"], "O");   // изменяем статус на "ожидается оплата"
            }
-       }  
+       }
     }
     return 'expected_payment();';    // возвращаем функцию для агента
  }
- 
+
  // регистрируем обработчик
 AddEventHandler('sale', 'OnOrderSave', "CourierAdd");
 
@@ -4443,7 +4443,7 @@ function CourierAdd($ID, $arFields){
        $delivery_id = array(DELIVERY_COURIER_1,DELIVERY_COURIER_2, DELIVERY_COURIER_MKAD);
        $db_props = array();
 
-       if (in_array($arFields["STATUS_ID"], $status_id) && in_array($arFields["DELIVERY_ID"], $delivery_id)) {  
+       if (in_array($arFields["STATUS_ID"], $status_id) && in_array($arFields["DELIVERY_ID"], $delivery_id)) {
             $filter = Array (
                 "!UF_STATION_METRO_M" => false,
                 "GROUPS_ID" => Array(GROUP_COURIER),
@@ -4460,10 +4460,10 @@ function CourierAdd($ID, $arFields){
                 array("SORT" => "ASC"),
                 array("ORDER_ID" => $ID, "CODE"=>array("METRO_2"))
             )->Fetch();
-            
+
             $db_props = CSaleOrderPropsVariant::GetByValue($dbOrderProps["ORDER_PROPS_ID"],$dbOrderProps["VALUE"]);
 
-            foreach($ar_user as $user_group){      
+            foreach($ar_user as $user_group){
                if(in_array($db_props["NAME"], $user_group["UF_STATION_METRO_M"])){
 
                     $arSelect = Array("ID");
@@ -4474,8 +4474,8 @@ function CourierAdd($ID, $arFields){
                         $el = new CIBlockElement;
 
                         $PROP = array();
-                        $PROP["ORDER"] = $ID;  
-                        $PROP["COURIRER"] = $user_group["ID"];        
+                        $PROP["ORDER"] = $ID;
+                        $PROP["COURIRER"] = $user_group["ID"];
                         $arLoadProductArray = Array(
                           "IBLOCK_SECTION_ID" => false,          // элемент лежит в корне раздела
                           "IBLOCK_ID"      => IBLOCK_ID_COURIER,
@@ -4486,11 +4486,10 @@ function CourierAdd($ID, $arFields){
 
                         $PRODUCT_ID = $el->Add($arLoadProductArray);
                     }
-               } 
+               }
             }
-           
-       } 
-    } 
+
+       }
+    }
 }
 
- 
