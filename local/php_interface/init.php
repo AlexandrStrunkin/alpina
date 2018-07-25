@@ -2055,12 +2055,19 @@
         function OnBeforeUserAdd(&$arFields) {
             if($arFields["EXTERNAL_AUTH_ID"] != 'socservices'){
                 $arFields['LOGIN'] = $fields['EMAIL'];
+                
+                return $arFields;
+            }
+            if (strlen($arFields['EMAIL']) && !strlen($arFields['LOGIN'])) {
+                $arFields['LOGIN'] = $arFields['EMAIL'];
+                
+                return $arFields;
             }
         }
     }
     //подмена логина на EMAIL
     AddEventHandler("main", "OnBeforeUserUpdate", Array("UserUpdateClass", "OnBeforeUserUpdateHandler"));
-    class UserUpdateClass		{
+    class UserUpdateClass {
         // создаем обработчик события "OnBeforeUserUpdate"
         function OnBeforeUserUpdateHandler(&$arFields) {
             if (strlen($arFields['EMAIL']) && !strlen($arFields['LOGIN'])) {
