@@ -1137,7 +1137,7 @@ table.form-table tr td:nth-child(2){text-align:left}
 .ya-share2__badge{background-color:#85959a!important;padding-bottom:0!important}
 .ya-share2__item {margin:0 10px!important}
 .sliderElement{display:inline-block;width:146px;vertical-align:top}
-.sliderElementMin{display:inline-block;width:234px}
+body .sliderElementMin{display:inline-block;width:214px;}
 .sliderUl{left:0;position:relative;width:9999px}
 .sliderContainer{overflow:hidden}
 .sliderContainer .left{cursor:pointer;left:-38px;position:absolute;top:95px}
