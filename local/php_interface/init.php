@@ -4422,7 +4422,7 @@ AddEventHandler("iblock", "OnAfterIBlockElementDelete", "DeleteElementWishList")
         $date = date('d.m.Y H:i:s');        // текущая дата
         $time = strtotime("now -1 hour");  // если прошел час
         $date = date('d.m.Y H:i:s',$time); // присваиваем к текущей дате
-        $date_day = date('d.m.Y H:i:s',strtotime("now -2 hour")); // дата начала поиска
+        $date_day = date('d.m.Y H:i:s',strtotime("now -3 hour")); // дата начала поиска
        $arFilter = Array(
           "<=DATE_INSERT" => $date,
           ">=DATE_INSERT" => $date_day,
@@ -4432,7 +4432,7 @@ AddEventHandler("iblock", "OnAfterIBlockElementDelete", "DeleteElementWishList")
        $rsSales = CSaleOrder::GetList(array(), $arFilter, false, false, array("ID", "PAY_SYSTEM_ID", "PERSON_TYPE_ID", "STATUS_ID"));
 
        while ($arSales = $rsSales->Fetch()) {
-           if(($arSales["PAY_SYSTEM_ID"] == RFI_PAYSYSTEM_ID || $arSales["PAY_SYSTEM_ID"] == SBERBANK_PAYSYSTEM_ID) && $arSales["PERSON_TYPE_ID"] == NATURAL_ENTITY_PERSON_TYPE_ID && $arSales["STATUS_ID"] != "PR" &&  $arSales["STATUS_ID"] != "PZ" &&  $arSales["STATUS_ID"] != "A"){
+           if(($arSales["PAY_SYSTEM_ID"] == RFI_PAYSYSTEM_ID || $arSales["PAY_SYSTEM_ID"] == SBERBANK_PAYSYSTEM_ID) && $arSales["PERSON_TYPE_ID"] == NATURAL_ENTITY_PERSON_TYPE_ID && $arSales["STATUS_ID"] != "PR" &&  $arSales["STATUS_ID"] != "PZ" &&  $arSales["STATUS_ID"] != "A" &&  $arSales["STATUS_ID"] != "O"){
                 CSaleOrder::StatusOrder($arSales["ID"], "O");   // изменяем статус на "ожидается оплата"
            }
        }
@@ -4524,7 +4524,7 @@ function AdmitedGenerate(){
     
     $arFilter = Array( ">=DATE_INSERT" => $date );
 
-    $db_sales = CSaleOrder::GetList(array("DATE_INSERT" => "ASC"), $arFilter, false, false, array('ID', 'STATUS_ID'));
+    $db_sales = CSaleOrder::GetList(array("DATE_INSERT" => "ASC"), $arFilter, false, false, array('ID', 'STATUS_ID', 'PRICE'));
     while ($ar_sales = $db_sales->Fetch()) {
         if($ar_sales["STATUS_ID"] == 'A' || $ar_sales["STATUS_ID"] == 'P' || $ar_sales["STATUS_ID"] == 'RT'){
             $state = 2;
@@ -4536,6 +4536,7 @@ function AdmitedGenerate(){
         $root->setAttribute("xmlns", $url); // Устанавливаем атрибут "xmlns" у узла "Payment"
         $order = $dom->createElement("OrderID", $ar_sales["ID"]); // Создаём узел "order" с текстом внутри
         $status = $dom->createElement("Status", $state); // Создаём узел "status" с текстом внутри
+        $status = $dom->createElement("OrderAmount", round($ar_sales["PRICE"],2)); // Создаём узел "суммы" с текстом внутри
       //  $comment = $dom->createElement("Comment", $comments[$i]); // Создаём узел "коментария" с текстом внутри
         $user->appendChild($order); // Добавляем в узел "Payment" узел "$order"
         $user->appendChild($status);// Добавляем в узел "Payment" узел "$status"
