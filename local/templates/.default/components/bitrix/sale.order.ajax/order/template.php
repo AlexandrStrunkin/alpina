@@ -203,9 +203,7 @@ function date_deactive(){    // ограничение вывода достав
         if ($.browser.msie && $.browser.version <= 9) {
         
         } else {
-            console.log(locationID);
-            console.log(internationalLocation);
-            console.log(delivery_m);
+
             if(locationID == delivery_m) {
                 $("#ORDER_PROP_24").mask("(999)999-99-99-99-99");   //для физлица
                 $("#ORDER_PROP_11").mask("(999)999-99-99-99-99");  //для юрлица
@@ -394,7 +392,7 @@ function date_deactive(){    // ограничение вывода достав
 			curDay = curDay + 2;
 		}
 
-        if(curDay == 0){
+        if(curDay == 0 && ourday != 5){
             curDay = curDay -1;
         }
         //для физических и юридических лиц
