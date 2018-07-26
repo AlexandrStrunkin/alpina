@@ -579,6 +579,26 @@
         return trim(preg_replace('/ {2,}/', ' ', join(' ',$out)));
     }
 
+    //Дублируем email заказа в пользовательские поля
+    AddEventHandler("sale", "OnOrderSave", "duplicateEmail");
+    function duplicateEmail($orderId, $arFields) {
+        if($orderId > 0) {
+            $order = Bitrix\Sale\Order::load($orderId);
+            $userType = $order->getPersonTypeId();
+            $propertyCollection = $order->getPropertyCollection();
+            $emailPropValue = $propertyCollection->getUserEmail();
+            $email = $emailPropValue->getValue();
+            if(!empty($email)) {
+                if ($userType == LEGAL_ENTITY_PERSON_TYPE_ID) {
+                    $cashEmailPropertyInstance = $propertyCollection->getItemByOrderPropertyId(ORDER_PROPS_CASH_EMAIL_ID_ENTITY);
+                } else {
+                    $cashEmailPropertyInstance = $propertyCollection->getItemByOrderPropertyId(ORDER_PROPS_CASH_EMAIL_ID_INDIVIDUAL);
+                }
+                $cashEmailPropertyInstance->setValue($email);
+                $order->save();
+            }
+        }
+    }
 
     AddEventHandler("sale", "OnOrderSave", "flippostHandler"); // меняем цену для flippost
     AddEventHandler("sale", "OnOrderSave", "flippostHandlerAfter"); // меняем адрес для flippost
@@ -4492,4 +4512,35 @@ function CourierAdd($ID, $arFields){
        }
     }
 }
+function AdmitedGenerate(){
+  $dom = new domDocument("1.0", "utf-8"); // Создаём XML-документ версии 1.0 с кодировкой utf-8
+  $root = $dom->createElement("Payments"); // Создаём корневой элемент
+  $dom->appendChild($root);
+  $comments = array("Отказ при получении"); // Пароли пользователей
+  // Выведем даты всех заказов текущего пользователя за текущий месяц, отсортированные по дате заказа
+    $date = date('d.m.Y H:i:s');        // текущая дата
+    $time = strtotime("-1 month");  // если прошел час
+    $date = date('d.m.Y H:i:s',$time); // присваиваем к текущей дате
+    
+    $arFilter = Array( ">=DATE_INSERT" => $date );
 
+    $db_sales = CSaleOrder::GetList(array("DATE_INSERT" => "ASC"), $arFilter, false, false, array('ID', 'STATUS_ID'));
+    while ($ar_sales = $db_sales->Fetch()) {
+        if($ar_sales["STATUS_ID"] == 'A' || $ar_sales["STATUS_ID"] == 'P' || $ar_sales["STATUS_ID"] == 'RT'){
+            $state = 2;
+        } else {
+            $state = 1;
+        }
+        $url = 'http://admitad.com/payments-revision'; // url сервера
+        $user = $dom->createElement("Payment"); // Создаём узел "Payment"
+        $root->setAttribute("xmlns", $url); // Устанавливаем атрибут "xmlns" у узла "Payment"
+        $order = $dom->createElement("OrderID", $ar_sales["ID"]); // Создаём узел "order" с текстом внутри
+        $status = $dom->createElement("Status", $state); // Создаём узел "status" с текстом внутри
+      //  $comment = $dom->createElement("Comment", $comments[$i]); // Создаём узел "коментария" с текстом внутри
+        $user->appendChild($order); // Добавляем в узел "Payment" узел "$order"
+        $user->appendChild($status);// Добавляем в узел "Payment" узел "$status"
+       // $user->appendChild($comment);// Добавляем в узел "Payment" узел "coments"
+        $root->appendChild($user); // Добавляем в корневой узел "Payments" узел "Payment"
+    }
+  $dom->save($_SERVER["DOCUMENT_ROOT"]."/admitad.xml"); // Сохраняем полученный XML-документ в файл
+}
