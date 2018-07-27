@@ -83,6 +83,7 @@
     define ("DELIVERY_COURIER_2", 15);
     define ("DELIVERY_COURIER_MKAD", 12);
     define ("DELIVERY_PICKUP", 2);
+    define ("DELIVERY_M", 21279);
     define ("DELIVERY_MAIL", 10);
     define ("DELIVERY_MAIL_2", 11);
     define ("DELIVERY_MAIL_3", 16);
@@ -4455,7 +4456,9 @@ function CourierAdd($ID, $arFields){
             if(!empty($arOrderProps["VALUE"])){
                 $srtificate_ob = CIBlockElement::GetList(Array(), Array("IBLOCK_ID"=>CERTIFICATE_IBLOCK_ID, "PROPERTY_COUPON_CODE" => $arOrderProps["VALUE"]), false, false, Array("ID", "IBLOCK_ID", "PROPERTY_COUPON_CODE"));
                 while($ar_srtificate = $srtificate_ob->GetNext()) {
-                    CSaleOrder::StatusOrder($arOrderProps["ORDER_ID"], STATUS_SERTIFICATE);
+                    if(empty($arFields["STATUS_ID"])) {
+                        CSaleOrder::StatusOrder($arOrderProps["ORDER_ID"], STATUS_SERTIFICATE);
+                    }
                 }
             }
         };
@@ -4521,7 +4524,7 @@ function AdmitedGenerate(){
     $date = date('d.m.Y H:i:s');        // текущая дата
     $time = strtotime("-1 month");  // если прошел час
     $date = date('d.m.Y H:i:s',$time); // присваиваем к текущей дате
-    
+
     $arFilter = Array( ">=DATE_INSERT" => $date );
 
     $db_sales = CSaleOrder::GetList(array("DATE_INSERT" => "ASC"), $arFilter, false, false, array('ID', 'STATUS_ID', 'PRICE'));
@@ -4543,5 +4546,5 @@ function AdmitedGenerate(){
        // $user->appendChild($comment);// Добавляем в узел "Payment" узел "coments"
         $root->appendChild($user); // Добавляем в корневой узел "Payments" узел "Payment"
     }
-  $dom->save($_SERVER["DOCUMENT_ROOT"]."/admitad.xml"); // Сохраняем полученный XML-документ в файл
+  $dom->save($_SERVER["DOCUMENT_ROOT"]."/0yv7PT58Yt0Elm5eFqQW.xml"); // Сохраняем полученный XML-документ в файл
 }

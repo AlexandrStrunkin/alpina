@@ -758,3 +758,12 @@
     padding-top: 5px;
     height: 18px;
 }
+.bookPrice{
+    text-align: center;
+}
+body .bookWrapp .basketBook{
+    margin: 0 auto;
+}
+.priceOfBook{
+    text-align: center;
+}

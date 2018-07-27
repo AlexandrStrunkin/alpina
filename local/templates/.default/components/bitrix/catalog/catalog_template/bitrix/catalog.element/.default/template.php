@@ -659,10 +659,10 @@
                                 if ($arResult['IBLOCK_SECTION_ID'] != CERTIFICATE_SECTION_ID) {
                                     if ($arResult['PROPERTIES']['spec_price']['VALUE']) {?>
                                         <div class="oldPrice"><span class="cross"><?= $arPrice["PRINT_VALUE"] ?></span></div>
-                                         <p class="newPrice"><?= round($arPrice["DISCOUNT_VALUE"]) ?> <span>руб.</span></p>
+                                         <p class="newPrice"><?= $arPrice["DISCOUNT_VALUE"] ?> <span>руб.</span></p>
                                     <?} elseif ($arPrice["DISCOUNT_DIFF_PERCENT"] > 0) {?>
                                     <div class="oldPrice"><span class="cross"><?= $arPrice["PRINT_VALUE"] ?></span>
-                                    <span class="diff"><?echo '-'.round($arPrice["DISCOUNT_DIFF"])+$newPrice.' <span style="font-family:RoubleSign"">'.GetMessage("ROUBLES").'</span>';?></span></div>
+                                    <span class="diff"><?echo '-'.$arPrice["DISCOUNT_DIFF"]+$newPrice.' <span style="font-family:RoubleSign"">'.GetMessage("ROUBLES").'</span>';?></span></div>
                                     <?  // проверяем установлена ли фиксированная скидка на товар
                                     if($arPrice["DISCOUNT_VALUE"] == 99){
                                         $newPrice = $arPrice["DISCOUNT_VALUE"];
@@ -681,15 +681,15 @@
                                         }
                                     }?>
 
-                                    <p class="newPrice"><?= round($newPrice) ?> <span>руб.</span></p>
+                                    <p class="newPrice"><?= $newPrice ?> <span>руб.</span></p>
                                     <?} else if ($discount) {
                                         $newPrice = round (($arPrice["VALUE"]) * (1 - $discount / 100), 2);
                                         if (strlen (stristr($newPrice, ".")) == 2) {
                                             $newPrice .= "0";
                                     }?>
-                                    <div class="oldPrice"><span class="cross"><?= $arPrice["PRINT_VALUE"] ?></span> <span class="diff"><?echo '-'.$arPrice["VALUE_VAT"]+round($newPrice).' <span style="font-family:RoubleSign"">'.GetMessage("ROUBLES").'</span>';?></span></div>
+                                    <div class="oldPrice"><span class="cross"><?= $arPrice["PRINT_VALUE"] ?></span> <span class="diff"><?echo '-'.$arPrice["VALUE_VAT"]+$newPrice.' <span style="font-family:RoubleSign"">'.GetMessage("ROUBLES").'</span>';?></span></div>
                                     <?// расчитываем накопительную скидку от стоимости?>
-                                    <p class="newPrice"><?= round($newPrice) ?> <span>руб.</span></p>
+                                    <p class="newPrice"><?= $newPrice ?> <span>руб.</span></p>
                                     <?} else {
                                         $newPrice = round($arPrice["VALUE_VAT"], 2);
                                         if (strlen(stristr($newPrice, ".")) == 2) {

@@ -27,9 +27,15 @@ $this->setFrameMode(true);
 								<span class="volumes"><?=$arItem["PROPERTIES"]["number_volumes"]["VALUE"]?></span>
                             <?}?>
                         </div>
-                        <p class="bookName" title="<?=$arItem["NAME"]?>"><?=$arItem["NAME"]?></p>
-                        <p class="bookAutor"><?=$curr_author["NAME"]?></p>
-                        <p class="tapeOfPack"><?=$arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
+                        <?if($arItem["NAME"]){?>
+                            <p class="bookName" title="<?=$arItem["NAME"]?>"><?=$arItem["NAME"]?></p>
+                        <?}?>
+                        <?if($curr_author["NAME"]){?>
+                            <p class="bookAutor"><?=$curr_author["NAME"]?></p>
+                        <?}?>
+                        <?if($arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]){?>
+                            <p class="tapeOfPack"><?=$arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
+                        <?}?>
                         <?
                         if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != 22 && intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != 23 && $arItem["IBLOCK_SECTION_ID"] != CERTIFICATE_SECTION_ID) {?>
                             <p class="bookPrice"><?=ceil($arPrice["DISCOUNT_VALUE_VAT"])?> <span></span></p>

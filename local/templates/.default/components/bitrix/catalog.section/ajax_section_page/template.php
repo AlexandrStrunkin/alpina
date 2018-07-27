@@ -409,8 +409,12 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                                      <?if ($USER->isAdmin()){?>
                                         <span class="crr-cnt" data-crr-url="<?=$arItem["ID"]?>" data-crr-chan="<?=$arItem["ID"]?>"></span>
                                      <?}?>
-                                     <p class="bookAutor" itemprop="author"><?= $arResult[$arItem["ID"]]["CURRENT_AUTHOR"]["NAME"]?></p>
-                                     <p class="tapeOfPack"><?= $arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
+                                     <?if($arResult[$arItem["ID"]]["CURRENT_AUTHOR"]["NAME"]){?>
+                                        <p class="bookAutor" itemprop="author"><?= $arResult[$arItem["ID"]]["CURRENT_AUTHOR"]["NAME"]?></p>
+                                     <?}?>
+                                     <?if($arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]){?>
+                                        <p class="tapeOfPack"><?= $arItem["PROPERTIES"]["COVER_TYPE"]["VALUE"]?></p>
+                                     <?}?>
                                      <?
                                      if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != getXMLIDByCode(CATALOG_IBLOCK_ID, "STATE", "net_v_nal")) {
                                             if ($arPrice["DISCOUNT_VALUE_VAT"] && $arResult['ID'] != CERTIFICATE_SECTION_ID) { ?>

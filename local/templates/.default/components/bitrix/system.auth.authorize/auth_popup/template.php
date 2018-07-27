@@ -142,12 +142,14 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 
 function checkAuthFields(){
     var email = $('input[name=USER_LOGIN]').val();
-    if(email != 'undefined'){
-        (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email); }); 
-    }
+
     $.post ("/ajax/CheckingAuthFields.php", {login: $('input[name=USER_LOGIN]').val(), password: $('input[name=USER_PASSWORD]').val()}, function(data){
         if (data != "SUCCESS") {
+            var email = $('input[name=USER_LOGIN]').val();
             $(".auth_note").html(data);
+            if(email != 'undefined'){
+                (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email); }); 
+            }
         } else {
             $("#form_auth").submit();
         }
