@@ -379,7 +379,7 @@ $(document).ready(function() {
 
     $('body').on('click', '.mc-subscr-toggle', function(){
         var email = $('#cackleReviews .mc-subscr-input-wrap input').val();
-      //  (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
+        (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
     })
 });
 

@@ -14,7 +14,7 @@
     $checkMobile = checkMobile();
     $childrenDesign = $arResult["PROPERTIES"]["CHILDREN_DESIGN"]["VALUE"] == "Y" ? true : false;
     include_once($_SERVER["DOCUMENT_ROOT"].'/custom-scripts/checkdelivery/options.php');
-?>  
+?>
 <?global $USER;?>
 <?if($arResult["PROPERTIES"]["FOR_ADMIN"]["VALUE"] == "Y" && !$USER->IsAdmin()){
     LocalRedirect('/404.php', '301 Moved permanently');
@@ -114,7 +114,7 @@
             $('body').on('click', '.getSubscribe', function(){
                  var email = $(".subscribeEmail").val();
                 (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
-            })            
+            })
             $('body').on('click', '.takePartWrap button', function(){
                  var email = $("#chapter-email").val();
                 (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
@@ -839,7 +839,7 @@
                             global $USER;
                             ?>
                             <a href="javascript:void(0);" onclick="buy_certificate_popup(); return false;">
-                                <p class="c"><?= GetMessage("CT_BCE_CATALOG_BUY") ?></p>
+                                <p class="c inBasket"><?= GetMessage("CT_BCE_CATALOG_BUY") ?></p>
                             </a>
                             <div id="loadingInfo" style="display:none;"><div class="spinner"><div class="spinner-icon"></div></div></div>
                             <?} elseif ($arResult["ITEM_IN_BASKET"]["QUANTITY"] == 0) {?>
@@ -1324,10 +1324,10 @@
             <div class="videoWrapp videoWrappTop" style="width:400px;margin-top:15px">
             <?=$video_convert?>
             </div>
-        <?}?>         
-        
+        <?}?>
+
         <ul class="productsMenu">
-        
+
             <? if ($arResult['IBLOCK_SECTION_ID'] == CERTIFICATE_SECTION_ID) { ?>
             <li class="active tabsInElement" data-id="1"><?= GetMessage("CERTIFICATE_TITLE") ?></li>
             <?} elseif($arResult['IBLOCK_SECTION_ID'] == HANDBAG_SECTION_ID) {?>
@@ -1336,15 +1336,15 @@
             <li class="active tabsInElement" data-id="1"><?= GetMessage("ANNOTATION_TITLE") ?></li>
             <?}?>
             <?if (!empty($arResult["AUTHORS"])) {?><li data-id="4" class="tabsInElement"><?echo count($arResult["AUTHOR"]) == 1 ? GetMessage("ABOUT_AUTHOR_TITLE") : GetMessage("ABOUT_AUTHORS_TITLE");?></li><?}?>
-            
+
             <?if ($arResult["REVIEWS_COUNT"] > 0) {?>
                 <li data-id="2" class="tabIsRecenzion">
                     <a class="ajax_link" href="<?=substr($arResult["DETAIL_PAGE_URL"], 0, -1) . '-reviews/'?>">
                         <?= GetMessage("REVIEWS_TITLE") ?> (<?=$arResult["REVIEWS_COUNT"]?>)
-                    </a>                       
+                    </a>
                 </li>
             <?}?>
-            
+
             <? if ($arResult['IBLOCK_SECTION_ID'] != CERTIFICATE_SECTION_ID) { ?>
                 <li data-id="3" class="tabsInElement" id="commentsLink">
                     <a class="ajax_link" href="<?=substr($arResult["DETAIL_PAGE_URL"], 0, -1) . '-comments/'?>">
@@ -1356,7 +1356,7 @@
 
         <div class="annotation" id="prodBlock1">
             <div class="showAllWrapp">
-               
+
                 <?global $reviewsFilter;
                 $reviewsFilter = array ("PROPERTY_BOOK" => $arResult["ID"]);
                 $APPLICATION->IncludeComponent(
@@ -2856,7 +2856,7 @@ if (!$childrenDesign) {
             type: "PARTY",
             count: 5,
             /* Вызывается, когда пользователь выбирает одну из подсказок */
-            onSelect: function(suggestion) { 
+            onSelect: function(suggestion) {
                 $("#legal_name").val(suggestion['value']);
                 $("#inn").val(suggestion['data']['inn']);
                 $("#kpp").val(suggestion['data']['kpp']);

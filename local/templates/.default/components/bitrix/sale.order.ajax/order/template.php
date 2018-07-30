@@ -187,14 +187,14 @@ function date_deactive(){    // ограничение вывода достав
         <?}?>
 
         $("#ORDER_PROP_24, #ORDER_PROP_11").on("keyup", function(e){
-            if(locationID != internationalLocation) {
+            if(locationID != internationalLocation && locationID != delivery_m) {
                 if(e.currentTarget.value.length < 2) {
                     e.currentTarget.value = "+7";
                 };
             };
         });
 
-        if(locationID != internationalLocation) {
+        if(locationID != internationalLocation && locationID != delivery_m) {
             if( $('#ORDER_PROP_24,#ORDER_PROP_11').val() == ''){
                  $('#ORDER_PROP_24,#ORDER_PROP_11').val('+7');
             }

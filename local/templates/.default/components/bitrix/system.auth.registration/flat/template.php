@@ -164,7 +164,7 @@
                 if($('input[name=USER_EMAIL]').val() != '' && pattern.test($('input[name=USER_EMAIL]').val())){
                     emailVal = $('input[name=USER_EMAIL]').val();
                     if(emailVal != 'undefined'){
-                       // (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(emailVal); }); 
+                        (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(emailVal); }); 
                     }
                     $('#existingEmail_2').hide();
                     $.ajax({

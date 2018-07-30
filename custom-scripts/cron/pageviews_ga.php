@@ -1,8 +1,9 @@
-#!/usr/bin/php
-<?php
-$_SERVER["DOCUMENT_ROOT"] = '/var/www/alpinabook.ru/html';
+<?
+require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+
 define('LOG_FILENAME', $_SERVER["DOCUMENT_ROOT"]."/custom-scripts/log.txt");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+
 AddMessage2Log('Скрипт выполнен cron', 'pageviews_ga.php');
 
 CModule::IncludeModule("iblock");
@@ -11,8 +12,6 @@ CModule::IncludeModule("catalog");
 CModule::IncludeModule("main");
 
 // Загрузка клиентской библиотеки PHP для Google API.
-require_once $_SERVER["DOCUMENT_ROOT"].'/bitrix/php_interface/include/service-account-credentials.json';
-
 $analytics = initializeAnalytics();
 $response1 = getLastTwoDays($analytics, '21409934');
 $response2 = getLastMonth($analytics, '21409934');
@@ -26,7 +25,7 @@ function initializeAnalytics()
     // Use the developers console and download your service account
     // credentials in JSON format. Place them in this directory or
     // change the key file location if necessary.
-    $KEY_FILE_LOCATION = $_SERVER["DOCUMENT_ROOT"].'/vendor/service-account-credentials.json';
+    $KEY_FILE_LOCATION = $_SERVER["DOCUMENT_ROOT"].'/bitrix/php_interface/include/service-account-credentials.json';
 
     // Create and configure a new client object.
     $client = new Google_Client();
@@ -114,9 +113,6 @@ function printResultsTwoDays($results) {
 		}
 	}
 
-    arshow($addViews);
-    die();
-
 	foreach ($table as $book) {
 		if ($book['id'] > 0) {
 			$arFilter = Array("IBLOCK_ID"=>4, "ACTIVE"=>"Y", "ID" => $book['id']);
@@ -132,7 +128,8 @@ function printResultsTwoDays($results) {
 				/*if ($oneb["ID"] == 384889) //Книге Overview поднимаем рейтинг
 					$views += 302;*/
 
-				//echo $book['id'].' '.$oneb["ID"].' '.$book['url'].' '.$book['views'].'<br />';
+
+				echo $book['id'].' '.$oneb["ID"].' '.$book['url'].' '.$book['views'].'<br />';
 				CIBlockElement::SetPropertyValuesEx($oneb["ID"], 4, array('page_views_ga' => $views));
 			}
 		}

@@ -491,7 +491,7 @@ margin-bottom:30px;
 .hidingBasketRight .basketBook{border-top:1px solid #ececec;height:140px;position:relative;padding-top:20px;box-sizing:content-box}
 .basketBook img{width:81px;height:115px}
 .wrapperCategor .grayTitle{color:#3f4a4d;font-size:32px;padding-top:40px;padding-bottom:36px}
-.bestSlider .bookName{color:#424c4f;font-size:14px;padding-bottom:6px;padding-top:5px;height:50px;width:142px;overflow:hidden}
+.bestSlider .bookName{color:#424c4f;font-size:14px;padding-bottom:6px;padding-top:5px;height:50px;width:142px;overflow:hidden;margin-left: 40px;}
 .bestSlider .bookName:hover{text-decoration: underline}
 .bestSlider .bookPrice{color:#7b8c90;font-size:14px}
 .titleDiv{background-color:#fff;padding:36px 60px;height:340px;box-shadow:0 0 10px rgba(0,0,0,.5);margin-bottom:38px;margin-top:38px}
