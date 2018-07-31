@@ -1,0 +1,295 @@
+body {
+	    font-family: "Walshein_regular";
+}
+.bookWrap {
+	display:inline-block;
+	width:170px;
+	height:225px;
+	padding:20px 0;
+}
+.bookWrap a {
+	text-decoration:none;
+}
+.bookWrap img {
+	width:140px;
+	box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+.bookWrap p {
+	padding: 10px 0 0;
+}
+.bookWrap span {
+	color: #000;
+	font-family: "Walshein_regular";
+	font-size: 24px;
+	position: relative;
+	padding-top:15px;
+	
+}
+.bookWrap .oldprice::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #ff4126;
+    position: absolute;
+    top: 64%;
+    left: 0;
+}
+.bookWrap .oldprice {
+	font-size:15px;
+}
+.slide4 .bookWrap .oldprice, .slide4 .bookWrap .newprice {
+	color:#3e3e3e;
+	padding:0 6px;
+}
+.slide6 .bookWrap .oldprice, .slide6 .bookWrap .newprice {
+	color:#fff;
+	padding:0 6px;
+}
+.slide8 .bookWrap .oldprice, .slide8 .bookWrap .newprice {
+	color:#3e3e3e;
+	padding:0 6px;
+}
+.landing .bg, .hintWrapp {
+	background:none;
+	margin:0;
+	padding:14px 0;
+}
+
+.landing .slide1 {
+	background: url(../img/books.jpg) no-repeat 50% 0% #000;
+	height:auto;
+}
+
+.slide1 .slide1text1 {
+	position: relative;
+	margin: 0 auto;
+	top: 135px;
+	color: #fff; 
+	text-align: center;
+	width: auto;
+	font-size: 42px;
+	line-height:120%;
+	font-family: "Walshein_bold";
+}
+.slide1 .slide1text2 {
+	position: relative;
+	margin: 0 auto;
+	color: #fff; 
+	text-align: center;
+	width: auto;
+	margin-top: 40px;
+	text-transform:uppercase;
+	font-size: 30px;
+	line-height:190%;
+	font-family: "Walshein_regular";
+}
+.slide1 .slide1text3 {
+	position: relative;
+	margin: 0 auto;
+	color: #fff; 
+	text-align: center;
+	width: auto;
+	margin-top: 110px;
+	text-transform:uppercase;
+	font-size: 14px;
+	line-height:190%;
+	font-family: "Walshein_regular";
+}
+#slide1img {
+	background: url(../img/caut.png) no-repeat 50% 50%;
+	width: 100%;
+    height: 315px;
+	margin-top:30px;
+}
+#slide2 {
+	max-width: 1615px;
+	width:100%;
+	height:auto;
+	margin:80px auto 0;
+	background:#f3f0eb;
+	box-shadow: 0px 5px 5px 0px rgba(255, 255, 255, 0.18), 0px 10px 7px 0px rgba(255, 255, 255, 0.14);
+}
+#slide2img1 {
+	background: url(../img/plan.png) no-repeat 42% 50%;
+	width:100%;
+	height:112px;
+    margin-top: -28px;
+    position: absolute;	
+}
+#shp1 {
+    background: url(../img/shp1.png) no-repeat 0% 34%;
+    width: 100%;
+    height: 181px;
+    left: 100px;
+    margin-top: 283px;
+    position: absolute;
+	margin-left: -48px;
+}
+#shp2 {
+    background: url(../img/shp2.png) no-repeat 50% 34%;
+    width: 100%;
+    height: 181px;
+	z-index:0;
+    margin-top: -143px;
+    position: absolute;
+}
+#shp3 {
+    background: url(../img/shp3.png) no-repeat 96% 100%;
+    width: 100%;
+    height: 281px;
+	z-index:0;
+    position: absolute;
+}
+#shp4 {
+    background: url(../img/shp4.png) no-repeat 50% 50%;
+    width: 100%;
+    height: 220px;
+	margin:0 auto;
+}
+#shp5 {
+    background: url(../img/shp5.png) no-repeat 100% 50%;
+    width: 100%;
+    height: 220px;
+	margin:0 auto;
+	position: absolute;
+    bottom: 0px;
+	right:0px;
+	width:216px;
+}
+#shp6 {
+    background: url(../img/shp6.png) no-repeat 50% 50%;
+    width: 100%;
+    height: 220px;
+	margin:50px auto 0;
+}
+#slide2text1, #slide2text3, #slide2text4 {
+	position: relative;
+	color: #000; 
+	text-align: center;
+	width: auto;
+	text-transform:uppercase;
+	font-size: 30px;
+	line-height:190%;
+	padding-top:150px;
+	font-family: "Walshein_regular";
+}
+#slide2text4 {
+	color: #fff;
+	padding-top:0!important;
+    top: 0px;
+    margin-top: -40px;
+	width:550px;
+	padding-top:70px;
+    background: #000;
+    padding: 0px 50px;
+}
+#slide2text2 {
+	position: relative;
+	color: #000; 
+	text-align: center;
+	width: auto;
+	text-transform:uppercase;
+	font-size: 30px;
+	line-height:190%;
+	padding-top:40px;
+	font-family: "Walshein_regular";
+}
+.slide1 .slide1text2 span {
+	color:#e3c11f;
+}
+
+.beelineUnderLine {
+	border-bottom: solid 4px #fdc94e;
+}
+.mainWrapp::before {
+	height:auto;
+}
+.landing .footer img {
+	margin:0;
+}
+header .lkWrapp {
+    right: 33px;
+}
+.landing {
+	max-width:none;
+}
+.landing .a {
+	background: url(../img/a.png) no-repeat 50% 50%;
+	height: 585px;
+	margin: 20px 0 14px;	
+}
+.titleMain {
+    position: relative;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+    color: #627478;
+        font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 30px;
+}
+.titleMain::after {
+	content: "";
+	width: 140px;
+	height: 3px;
+	background: #627477;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin: 0 0 0 -70px;	
+}
+.landing .hintWrapp {
+	margin: 20px auto 0 auto;
+	/*height:290px;*/
+	height:auto;
+	width:auto;
+}
+
+
+
+.landing .bottom1 {
+	background: #fff;
+	height:auto;
+	color:#fdc94e;
+	text-align:center;
+	padding-top:150px;
+}
+.last {
+	padding-bottom:150px;
+}
+.bottom1 .circle {
+	background: #fdc94e;
+	color: #3e3e3e;
+	width: 60px;
+	border-radius: 30px;
+	margin: 0 auto;
+	padding: 13px 0;
+	font-size:22px;
+}
+.bottom1 .slide1text {
+	position: relative;
+	margin: 0 auto;
+	top: 40px;
+	color: #3e3e3e;
+	font-size: 35px;
+	text-align: center;
+	width: 939px;
+	line-height: 120%;
+}
+.landing .footer {
+	background: url(/images/blackfriday2016.png) no-repeat 50% 50% #3e3e3e;
+	color:#fdc94e;
+	text-align:center;
+	height:380px;
+}
+.discount {
+	position:absolute;background:#000;color:#fff;border-radius:20px;padding:9px 5px;
+}
+#bookInBlogWrap{overflow:hidden;background:#000}
+#bookInBlogWrap .title{font-size:48px;padding-bottom:20px;text-align:center;color:#fff}
+#bookInBlogWrap .bookInBlogPosts{text-align:center}
+#bookInBlogWrap .bookInBlogPost{display:inline-block;margin:0 30px;width:100%;max-width:300px;height:460px}
+#bookInBlogWrap .bookInBlogPost img{box-shadow:0 9px 5px 0 rgba(0,0,0,.18), 0 10px 7px 0 rgba(0,0,0,.14);transition:box-shadow .4s ease;width:300px;margin-bottom:15px}
+#bookInBlogWrap .bookInBlogPost .name{color:#fff;text-decoration:none;font-family:Walshein_bold;font-size:20px;text-align:center;padding-bottom:15px}
+#bookInBlogWrap .bookInBlogPost .name span{border-bottom:1px solid #00abb8}
+#bookInBlogWrap .bookInBlogPost:hover img{box-shadow:0 15px 18px 0 rgba(0,0,0,.18), 0 15px 18px 0 rgba(0,0,0,.14)}
+#bookInBlogWrap .bookInBlogPost:hover .name span{border-bottom:none}

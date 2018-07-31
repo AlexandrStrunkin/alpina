@@ -1,0 +1,5803 @@
+﻿/*../fonts поменять на /fonts */
+/*убрать из путей http://www.alpinabook.ru/ (поменять на /)*/
+@font-face {
+    font-family: 'Walshein_regular';
+    src: url('../fonts/GT-Walsheim-Pro-Regular.eot');
+    src: url('../fonts/GT-Walsheim-Pro-Regular.woff') format('woff'),
+    url('../fonts/GT-Walsheim-Pro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Walshein_light';
+    src: url('../fonts/GT-Walsheim-Pro-Light.eot');
+    src: url('../fonts/GT-Walsheim-Pro-Light.woff') format('woff'),
+    url('../fonts/GT-Walsheim-Pro-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Walshein_bold';
+    src: url('../fonts/GT-Walsheim-Pro-Bold.eot');
+    src: url('../fonts/GT-Walsheim-Pro-Bold.woff') format('woff'),
+    url('../fonts/GT-Walsheim-Pro-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Walshein_black';
+    src: url('../fonts/GT-Walsheim-Pro-Black.eot');
+    src: url('../fonts/GT-Walsheim-Pro-Black.woff') format('woff'),
+    url('../fonts/GT-Walsheim-Pro-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Walshein_medium';
+    src: url('../fonts/GT-Walsheim-Pro-Trial-Medium.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'gt_walsheim_pro_trialblack';
+    src: url('../fonts/gt-walsheim-pro-trial-black-webfont.eot');
+    src: url('../fonts/gt-walsheim-pro-trial-black-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/gt-walsheim-pro-trial-black-webfont.woff2') format('woff2'),
+    url('../fonts/gt-walsheim-pro-trial-black-webfont.woff') format('woff'),
+    url('../fonts/gt-walsheim-pro-trial-black-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OfficinaSerifBold';
+    src: url('../fonts/OfficinaSerifBold.eot');
+    src: url('../fonts/OfficinaSerifBold.woff') format('woff'),
+    url('../fonts/OfficinaSerifBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OfficinaSerifBoldItalic';
+    src: url('../fonts/OfficinaSerifBoldItalic.eot');
+    src: url('../fonts/OfficinaSerifBoldItalic.woff') format('woff'),
+    url('../fonts/OfficinaSerifBoldItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OfficinaSerifBook';
+    src: url('../fonts/OfficinaSerifBook.eot');
+    src: url('../fonts/OfficinaSerifBook.woff') format('woff'),
+    url('../fonts/OfficinaSerifBook.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OfficinaSerifBookItalic';
+    src: url('../fonts/OfficinaSerifBookItalic.eot');
+    src: url('../fonts/OfficinaSerifBookItalic.woff') format('woff'),
+    url('../fonts/OfficinaSerifBookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OfficinaSerifMedium';
+    src: url('../fonts/OfficinaSerifMedium.eot');
+    src: url('../fonts/OfficinaSerifMedium.woff') format('woff'),
+    url('../fonts/OfficinaSerifMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OfficinaSerifMediumItalic';
+    src: url('../fonts/OfficinaSerifMediumItalic.eot');
+    src: url('../fonts/OfficinaSerifMediumItalic.woff') format('woff'),
+    url('../fonts/OfficinaSerifMediumItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LEngineer-Italic';
+    src: url('../fonts/LEngineer-Italic.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'LEngineer-Regular';
+    src: url('../fonts/LEngineer-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PRO45';
+    src: url('/fonts/PRO45.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PRO65';
+    src: url('/fonts/PRO65.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (max-width: 1240px){
+    header .telephone{
+        display: none;
+    }
+}
+@media screen and (max-width: 1140px){
+    .catalogIcon, .basketIcon{
+        display: none;
+    }
+}
+@media screen and (max-device-width: 414px){
+	.menu li a {
+		font-size:24px!important;
+	}
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+
+/***********************/
+
+.landing{
+    position: relative;
+  /*  width: 1769px;*/
+    max-width: 1769px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.landing .slide1 .text1 {
+    margin: 0 auto 25px;
+    display: block;
+}
+.landing .slide1 .text2 {
+    display: block;
+    margin: 0 auto;
+}
+
+.landing .slide3 .text1, .landing .slide3 .text2 {
+    max-width: 1090px;
+    margin: 0 auto 25px;
+    padding: 0 0 0 10px;
+}
+.landing .slide3 .text1 {
+   color: #ffea00;
+    font: 72px/1 'Walshein_bold', sans-serif;
+    padding-top: 130px;
+    letter-spacing: -1.1px;
+}
+.landing .slide3 .text2 {
+    color:#fff;
+    font: 24px/1 'Walshein_regular', sans-serif;
+    margin: 0 auto;
+}
+.landing .slide3 .text2 strong {
+  font-family: 'Walshein_black', sans-serif;
+}
+.landing .coub {
+    padding: 55px 0 0;
+    position: relative;
+    background: #fff;
+}
+
+.landing .coub .text {
+    margin: 0 auto 40px;
+    display: block;
+}
+.landing .coub p {
+    width: 500px;
+    margin: 0 auto 54px;
+    text-align: center;
+    font: 24px/1.2 'Walshein_regular', sans-serif;
+}
+.landing .coub iframe {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+
+}
+.landing .mainWrapp {
+    height: auto;
+
+}
+.landing .bg {
+   background: #f4f4f4;
+    margin: -160px 0 0;
+    padding: 228px 0 195px;
+}
+.landing .bg .title {
+    font: 42px/1.2 "Walshein_bold", sans-serif;
+    color:#627477;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+}
+.landing .hintWrapp {
+   text-align: center;
+    position: relative;
+    width: 1140px;
+    height: auto;
+    margin: 0 auto;
+}
+.landing .hintWrapp .recomendation {
+   border: none;
+    margin: 0;
+    padding-top: 25px;
+}
+.landing .hintWrapp .recomendation>p {
+   position: relative;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+.landing .hintWrapp .recomendation>p:after {
+   content: "";
+    width: 140px;
+    height: 3px;
+    background: #627477;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin: 0 0 0 -70px;
+}
+.landing .recomendation ul {
+    text-align: center;
+    width: auto;
+    font-size: 1px;
+
+}
+.landing .bookPrice {
+   text-align: left;
+    padding: 20px 0 0;
+}
+.landing .bookPrice span {
+    position: relative;
+    /*color: #ff4126;*/
+}
+.landing .bookPrice span:before {
+   content: "";
+    width: 100%;
+    height: 1px;
+    background: #ff4126;
+    position: absolute;
+    top: 50%;
+    left:0;
+}
+.landing .recomendation .saleSlider {
+    padding: 10px 0 5px;
+}
+.landing .section_item_img img {
+    box-shadow: 0 0 7px 4px #c9c9c9;
+}
+.landing .recomendation li {
+    width: 175px;
+
+}
+.landing .recomendation li .bookWrapp {
+   width: 141px;
+    margin: 0 auto;
+}
+.landing .recomendation li .bookWrapp img {
+    width: 141px;
+    height: 209px;
+}
+.landing .section_item_img img {
+    width: 141px;
+    height: 209px;
+}
+.landing .footer {
+    text-align: center;
+    background: #fff;
+    position: relative;
+
+}
+.landing .footer img {
+    margin: -130px 0 0 40px;
+}
+/******************/
+
+header{
+    background-color: #ffffff;
+    height: 58px;
+    position: relative;
+    color: #7B8C90;
+    font-size: 14px;
+    font-family: "Walshein_regular";
+}
+header .lkWrapp{
+    position: absolute;
+    /*right: 60px; */
+    right: 0;
+    top: 0;
+}
+header img{
+
+}
+header a {
+    color: #7B8C90 !important;
+}
+header .telephone{
+    float: left;
+    padding-right: 34px;
+    padding-top: 18px;
+}
+.catalog_text {
+    font-family: "Walshein_regular";
+    color: #E4E8EA;
+    position: absolute;
+    left: 85px;
+    top: 25px;
+    font-size: 15px;
+}
+.logo {
+    /*background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/logo.png") no-repeat scroll 60px 10px;*/
+    height:60px;
+    width:120px;
+    position:absolute;
+}
+.logo img {
+    position:absolute;
+    left:60px;
+    top:10px;
+}
+.lkWrapp div{
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+    float: right;
+    height: 41px;
+    padding: 17px 18px 0;
+}
+header .headBasket{
+    padding: 17px 1px 0;
+}
+.menu li{
+    display: inline-block;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.mainWrapp{
+    background-color: #ffffff;
+    height: 990px;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.mainWrapp:after,
+.mainWrapp:before{
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.mainWrapp:after{
+    background-color: #ffffff;
+    right: 0;
+}
+.mainWrapp:before{
+    background-color: #99abb1;
+    height: 740px;
+    top: 0;
+}
+.mainWrapp input[type=text]{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color white;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 2px;
+    color: #fff;
+    font-family: "walshein_regular";
+    font-size: 20px;
+    padding-bottom: 13px;
+    width: 325px;
+    position:relative;
+    /*background: url("http://www.alpinabook.ru/img/find.png") no-repeat 302px 6px;*/
+}
+
+.mainWrapp input[type=text]::-webkit-input-placeholder {
+    color:#fff;
+}
+
+.mainWrapp input[type=text]::-moz-placeholder {
+    color:#fff;
+}
+
+.grayBack{
+    background-color: #99ABB1;
+    height: 740px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -5;
+}
+.mainWrapp .books{
+    height: 540px !important;
+    margin: 55px auto 0;
+    position: relative;
+    width: 1140px;
+}
+.books>ul>li{
+    color: #E4E8EA;
+    /*font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase; */
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    text-transform: none;
+    margin-bottom: 24px;
+}
+.books>ul>li a {
+    color: #E4E8EA !important;
+}
+.books .active a{
+    color: white !important;
+}
+.books ul{
+    width: 180px;
+    padding-top: 12px;
+}
+.books .first{
+    margin-bottom: 30px;
+}
+.books .active{
+    color: white;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    border-bottom: 2px solid #D9D9D9;
+    text-transform: none;
+    text-decoration: none !important;
+}
+.mainWrapp .interShop{
+    color: #d0d8da;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding-top: 84px;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+}
+.mainWrapp .ibooks{
+    color: white;
+    font-family: "gt_walsheim_pro_trialblack";
+    font-size: 72px;
+    position: relative;
+    text-align: center;
+    top: -10px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.ibooks img{
+    position: relative;
+    top: 40px;
+    padding: 0 22px;
+}
+.mainWrapp .find{
+    margin: 30px auto 0;
+    width: 348px;
+    position: relative;
+}
+.mainWrapp input{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color white;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 2px;
+    color: #d0d8da;
+    font-family: "walshein_regular";
+    font-size: 20px;
+    padding-bottom: 13px;
+    width: 325px;
+    background: url("http://www.alpinabook.ru/img/find.png") no-repeat 302px 6px;
+}
+.find input[type=submit] {
+    position:absolute;
+    width:38px;
+    right:28px;
+    background: url("http://www.alpinabook.ru/img/find.png") no-repeat 0px 0px;
+    border:none;
+    right:5px;
+    cursor:pointer;
+    top:6px;
+}
+.mainWrapp .socServ{
+    bottom: 0;
+    height: 107px;
+    position: absolute;
+    width: 180px;
+}
+.mainWrapp .socServ .text {
+    width: 137px;
+}
+.mainWrapp .book{
+    float: right;
+    height: 536px;
+    width: 980px;
+}
+.book>div{
+    display: inline-block;
+}
+.book .firstWrapp{
+    height: 100%;
+    width: 194px;
+    margin-left: 13px;
+}
+.book .secondWrapp{
+    height: 100%;
+    width: 360px;
+}
+.secondWrapp img {
+    /*width:400px;*/
+    /*height:530px;*/
+    position:absolute;
+    top: -2px;
+}
+.book .thirdWrapp{
+    height: 100%;
+    width: 378px;
+    /*margin-left: 24px;*/
+    margin-left: 10px;
+    vertical-align: top;
+}
+.thirdWrapp .text{
+    background-color: #00a0af;
+    height: 160px;
+    /*margin-bottom: 40px;*/
+    margin-bottom: 35px;
+    padding: 44px 38px;
+    width: 282px;
+    margin-left: 20px
+}
+.thirdWrapp .container{
+    width: 450px;
+}
+.thirdWrapp img {
+    /*height:238px;*/
+    height: 247px;
+    /*width:160px;*/
+    margin-left:20px;
+    margin-bottom: -3px;
+}
+.book .coverSmall {
+    display: inline-block;
+}
+.mainWrapp .coverSmall:nth-child(1){
+    /*margin-bottom: 4px;*/
+    margin-bottom: 29px;
+    margin-top: 15px;
+}
+.thirdWrapp p{
+    color: #CBE6E9;
+    font-family: "Walshein_black";
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+.container .coverSmall:nth-child(1){
+    /* margin-right: -17px; */
+    margin-right: 4px;
+    margin-top: 15px;
+    margin-bottom: 41px;
+}
+
+.thirdWrapp a{
+    text-decoration: none;
+    color: white;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+}
+.thirdWrapp .text a:after{
+    content: url("http://www.alpinabook.ru/img/anchRech.png");
+    left: 9px;
+    position: relative;
+    top: 1px;
+}
+.socServ .text{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    line-height: 19px;
+    margin-bottom: 27px;
+    padding-top: 10px;
+}
+.socServ .icons{
+
+}
+.icons img{
+    margin-right: 9px;
+}
+.icons img:nth-child(3){
+    position: relative;
+    top: 4px;
+}
+.firstWrapp img {
+    /*width:204px;*/
+    /*width:160px;*/
+    /* margin-top:33px;*/
+}
+
+.firstWrapp .coverSmall:nth-child(2) {
+    margin-top: 20px;
+}
+.firstWrapp img, .secondWrapp img, .thirdWrapp img {
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+
+
+.hintWrapp{
+    background-color: #f4f4f4;
+    height: 1670px;
+}
+.hintWrapp .catalogWrapper{
+    width: 1140px;
+    margin: 0 auto;
+}
+.catalogWrapper{
+    width: 1140px;
+    margin: 0 auto;
+    position: relative;
+}
+.hintWrapp .books>div{
+    /* display: inline-block;*/
+    float: left;
+}
+.hintWrapp .title{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 74px;
+    padding-bottom: 34px;
+}
+.hintWrapp .titleBlock>div{
+    display: inline-block;
+    background-color: #627478;
+}
+.hintWrapp .titleText{
+    width: 524px;
+    padding-left: 30px;
+}
+.hintWrapp .titleText img{
+    float: right;
+}
+.hintWrapp .nameOfGroup{
+    color: #ffffff;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    line-height: 43px;
+    padding-top: 36px;
+}
+.hintWrapp .subNameOfGroup{
+    border-top: 2px solid #829093;
+    color: #ffffff;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    margin-top: 128px;
+    padding-top: 18px;
+    text-transform: uppercase;
+    width: 230px;
+    margin-bottom: 12px;
+}
+.hintWrapp .description{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+}
+.hintWrapp .smallContainer{
+    background-color: #ffffff;
+    position: relative;
+    height: 365px;
+    float: left;
+    width: 259px;
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+.firstSection .smallContainer{
+    /*display: inline-block;*/
+    height: 366px;
+    float: left;
+    width: 260px;
+}
+.hintWrapp .smallContainer p{
+    color: #627478;
+    font-family: "Walshein_black";
+    font-size: 24px;
+    /*padding-left: 34px;*/
+    padding-left: 26px;
+    word-wrap: break-word;
+    line-height: 30px;
+}
+.hintWrapp .count{
+    color: #9C9C9C !important;
+    font-family: "Walshein_regular" !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+
+}
+.smallContainer img{
+    bottom: 0;
+    position: absolute;
+}
+.hintWrapp .titleBlock{
+    margin-bottom: 36px;
+}
+.hintWrapp .smallContainer p:nth-child(1){
+    /*padding-top: 25px;*/
+    padding-top: 28px;
+}
+.firstSection .smallContainer:nth-child(1){
+    margin-right: 34px;
+}
+.hintWrapp .firstSection{
+    margin-right: 34px;
+}
+.secondSection>div{
+    height: 370px;
+}
+.secondSection .smallContainer:nth-child(2n+1){
+    margin-right: 34px;
+}
+.secondSection div:nth-child(1){
+    margin-bottom: 36px;
+}
+.catalogWrapper .recomendation:nth-child(2) .left, .catalogWrapper .recomendation:nth-child(2) .right {
+    display: none;
+}
+.hintWrapp .recomendation>p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 38px;
+    padding-top: 30px;
+}
+.hintWrapp .recomendation{
+    border-top: 1px solid #e4e4e4;
+    margin-top: 63px;
+    position: relative;
+}
+.recomendation .saleSlider{
+    overflow: hidden;
+}
+.recomendation .saleSlider .left, .recomendation .saleSlider .right {
+    display: none;
+}
+.recomendation .left{
+    cursor: pointer;
+    left: -46px;
+    position: absolute;
+    top: 194px;
+}
+.recomendation .right{
+    cursor: pointer;
+    position: absolute;
+    right: -32px;
+    top: 195px;
+}
+.recomendation li{
+    display: inline-block;
+    width: 192px;
+}
+.recomendation .bookName{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-top: 16px;
+    height: 39px;
+    width: 142px;
+    overflow: hidden;
+}
+.recomendation .bookPrice{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.recomendation ul{
+    left: 0;
+    position: relative;
+    width: 9999px;
+}
+.hintWrapp .books{
+    height: 780px;
+}
+
+
+
+.slideWrapp{
+    background-color: #637e71;
+    height: 500px;
+    overflow: hidden;
+}
+.roundSlideWrapp{
+    background-color: #637e71;
+    height: 360px;
+    overflow: hidden;
+}
+
+.saleWrapp{
+    background-color: #f4f4f4;
+    min-height: 694px;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.saleWrapp .saleSlider li{
+    display: inline-block;
+}
+.saleWrapp .bookWrapp{
+
+}
+.saleWrapp .bookName{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-top: 16px;
+    height: 39px;
+    width: 142px;
+    overflow: hidden;
+}
+.saleWrapp .bookPrice{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.saleWrapp .titleMain{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 38px;
+    padding-top: 66px;
+}
+.saleWrapp ul{
+    width: 9999px;
+    position: relative;
+    left: 0px;
+}
+.saleWrapp li{
+    width: 192px;
+}
+.saleWrapp .saleSlider{
+    overflow: hidden;
+}
+.saleWrapp .left{
+    left: -50px;
+    position: absolute;
+    top: 229px;cursor: pointer;
+}
+.saleWrapp .right{
+    position: absolute;
+    right: -35px;
+    top: 229px;
+    cursor: pointer;
+}
+.giftWrap input[type=text]{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    /*background: white url("http://www.alpinabook.ru/img/giftInpBack.png") no-repeat scroll 355px 12px;*/
+    border-color: -moz-use-text-color -moz-use-text-color white;
+    border-image: none;
+    border-style: none none/* solid*/;
+    border-width: medium medium 2px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.18), 0 3px 7px 0 rgba(0, 0, 0, 0.14);
+    color: #8d8d8d;
+    float: right;
+    font-family: "walshein_regular";
+    font-size: 20px;
+    height: 32px;
+    /*height: 60px;*/
+    margin-right: 46px;
+    margin-top: 14px;
+    padding-bottom: 13px;
+    padding-left: 20px;
+    padding-top: 13px;
+    position:relative;
+    width: 396px;
+    /*width: 416px;*/
+}
+.giftWrap input[type=button] {
+    position:absolute;
+    right:47px;
+    top:81px;
+    border:none;
+    width:60px;
+    height:44px;
+    background: white url("http://www.alpinabook.ru/img/giftInpBack.png") no-repeat scroll;
+    cursor: pointer;
+}
+.giftWrap .some_info {
+    z-index:1100;
+    position:absolute;
+    display:none;
+    top:100px;
+    left:200px;
+    width:700px;
+    background:white;
+    border:1px solid blue;
+    text-align:center;
+    padding:30px 0;
+}
+.saleWrapp .giftWrap{
+    border-top: 1px solid #e2e2e2;
+    margin-top: 78px;
+    padding-top: 56px;
+}
+.giftWrap .title{
+    font-family: "Walshein_black";
+    font-size: 42px;
+    color: #486796;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.giftWrap p{
+    color: #768AAC;
+    font-family: 'Walshein_regular';
+    font-size: 16px;
+}
+.giftWrap{
+    position: relative;
+}
+.giftWrap img{
+    left: 414px;
+    position: absolute;
+    top: -27px;
+}
+
+
+.allBooksWrapp{
+    min-height: 1194px;
+    padding-bottom:50px;
+}
+.allBooksWrapp .titleMain{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 62px;
+    padding-bottom: 30px;
+    padding-left: 4px;
+}
+.allBooksWrapp .bookWrapp{
+    display: block;
+    height: 300px;
+    width: 184px;
+    float: left;
+    margin: 5px;
+    margin-bottom: 14px;
+}
+.allBooksWrapp .bookWrapp:nth-child(6n){
+    width: 160px;
+}
+.bookWrapp .section_item_img, .categoryBooks .section_item_img, .bookWrapp .item_img{
+    /*box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);*/
+    /*width:142px;
+    height:210px;*/
+}
+.allBooksWrapp .bookName{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 5px;
+    padding-top: 16px;
+    height: 39px;
+    width: 142px;
+    overflow: hidden;
+}
+.allBooksWrapp .bookPrice{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.allBooksWrapp .allBooks{
+    border: 2px solid #c7a271;
+    border-radius: 46px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-left: 447px;
+    margin-top: 68px;
+    padding: 12px 64px;
+    text-decoration: none;
+}
+.allBooksWrapp .catalogBooks{
+    /*min-height: 920px; */
+    min-height: 1140px;
+    margin-bottom: 59px;
+}
+
+
+
+
+
+
+.reviewsWrapp{
+    background-color: #f4f4f4;
+    height: 804px;
+}
+.reviewsWrapp .arrows{
+    float: right;padding-top: 50px;
+}
+.reviewsWrapp .revTitle{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 52px;
+}
+.reviewsWrapp .bigSlider{
+    height: 358px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-top: 32px;
+    height: 466px;
+}
+.bigSlider li{
+    display: inline-block;
+    float: left;
+}
+.bigSlider ul{
+    width: 9999px;
+    position: relative;
+    left: 0;
+}
+.bigSlider .sliderElement{
+    background-color: #ffffff;
+    height: 360px;
+    margin-right: 25px;
+    padding: 40px 30px;
+    width: 300px;
+    position: relative;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+.arrows img{
+    cursor: pointer;
+}
+.arrows img:nth-child(1){
+    left: 9px;
+    position: relative;
+}
+.arrows img:nth-child(2){
+    left: 3px;
+    position: relative;
+}
+.sliderElement .autor{
+    color: #7B8C90;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+.sliderElement .reviesText{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    line-height: 23px;
+}
+.thisBook .autorBook{
+    color: #7B8C90;
+    font-size: 13px;
+    font-family: "Walshein_regular";
+    text-transform: uppercase;
+    margin-top: 14px;
+}
+.thisBook .titleBook{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    line-height: 17px;
+    margin-top: 30px;
+}
+.sliderElement .thisBook{
+    border-top: 1px solid #e2e2e2;
+    margin-top: 28px;
+    padding-top: 20px;
+    position: absolute;
+    bottom: 36px;
+    width: 300px;
+}
+.thisBook img{
+    float: left;
+    margin-right: 30px;
+}
+.reviewsWrapp .dopSale{
+    color: #c7a271;
+    font-family: "Walshein_black";
+    font-size: 26px;
+    line-height: 26px;
+    padding-top: 10px;
+    margin-right: 86px;
+}
+.reviewsWrapp .saleSize{
+    color: #C7A271;
+    font-family: "Walshein_light";
+    font-size: 62px;
+}
+.reviewsWrapp .persent{
+    color: #C7A271;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    line-height: 50px;
+}
+.reviewsWrapp .saleText{
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    padding-left: 31px;
+    padding-top: 18px;
+    width: 178px;
+}
+.dopSaleWrap .TwentypercentBlock {
+    margin-right: 28px;
+}
+.dopSaleWrap .dopSale, .dopSaleWrap .percentBlock, .dopSaleWrap .TwentypercentBlock{
+    float: left;
+    width: 300px;
+}
+.dopSaleWrap .percentBlock p, .dopSaleWrap .TwentypercentBlock p{
+    float: left;
+}
+.reviewsWrapp .dopSaleWrap{
+    border-top: 1px solid #e2e2e2;
+    margin-top: 46px;
+    padding-top: 50px;
+}
+.reviewsWrapp .percentBlock{
+    border-right: 2px solid #e2e5e6;
+    margin-right: 28px;
+    padding-right: 60px;
+}
+
+
+.paymentWrapp{
+    height: 348px;
+}
+.paymentWrapp .comfortPayment, .paymentWrapp .shiping{
+    float: left;
+    padding-top: 65px;
+    width: 496px;
+}
+.paymentWrapp .comfortPayment{
+    margin-right: 130px;
+    position: relative;
+}
+.paymentWrapp .shiping {
+    position: relative;
+}
+.paymentWrapp .comfortPayment a {
+    color: #627478 !important;
+}
+.paymentWrapp .title{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 40px;
+}
+.comfortPayment img{
+    padding-left: 56px;
+    position: relative;
+    top: 10px;
+}
+.shiping img{
+    padding-left: 26px;
+    position: relative;
+    top: 10px;
+}
+.shiping a {
+    color: #627478 !important;
+}
+.paymentWrapp .variants{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+}
+.paymentWrapp .variants p{
+    position: relative;
+    padding-bottom: 24px;
+}
+.paymentWrapp .variants p:before{
+    content: url("http://www.alpinabook.ru/img/reht.png");
+    display: inline-block;
+    float: left;
+    height: 23px;
+    left: 0;
+    padding-right: 11px;
+    position: relative;
+    top: -3px;
+}
+.variants div{
+    float: left;
+    width: 222px;
+}
+.variants div:nth-child(1){
+    margin-right: 48px;
+}
+
+
+footer{
+    background-color: #353535;
+    height: 564px;
+    clear: both;
+}
+.footerMenu p{
+    color: #8F8F8F;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.footerMenu a {
+    color: #8F8F8F !important;
+}
+.footerContacts .yaMarket p{
+    color: #5F5F5F;
+    font-family: "Walshein_regular" ;
+    font-size: 9px;
+}
+.yaMarket .stars{
+    left: 6px;
+    position: relative;
+    top: 3px;
+}
+.yaMarket span{
+
+}
+.yaMarket p{
+    display: inline;
+}
+.yaMarket{
+    width: 150px;
+    margin-right: 208px;
+}
+/*.footerContacts .adres{
+color: #9C9C9C;
+font-family: "Walshein_regular";
+font-size: 15px;
+padding-bottom: 4px;
+} */
+.footerContacts .adress {
+    color: #9C9C9C;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    padding-bottom: 4px;
+}
+.footerContacts .years{
+    color: #7A7A7A;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-top: 18px;
+    margin-bottom: 50px;
+}
+.footerContacts>div{
+    float: left;
+    margin-left: 8px;
+}
+.footerMenu{
+    padding-top: 78px;
+    padding-bottom: 220px;
+    border-bottom: 1px solid #4B4B4B;
+    margin-bottom: 46px;
+}
+.footerMenu>div{
+    float: left;
+}
+.footerMenu>div:nth-child(1){
+    margin-right: 90px;
+}
+.footerMenu>div:nth-child(2){
+    margin-right: 78px;
+}
+.footerMenu>div:nth-child(3){
+    margin-right: 96px;
+}
+.footerMenu>div:nth-child(4){
+    margin-right: 110px;
+}
+.footerMenu>div:nth-child(5){
+
+}
+.footerMenu p{
+    padding-bottom: 20px;
+}
+/*footer .adress p{
+text-align: center;
+}*/
+footer .adress{
+    text-align: center;
+}
+footer .appStore{
+    /*margin-left: 54px;*/
+    margin-left: 3px;
+    margin-right: 8px;
+}
+footer .webServ{
+    margin-left: 140px;
+}
+.webServ img{
+    padding-left: 15px;
+}
+.headerWrapper{
+    margin: 0 auto;
+    position: relative;
+    /*width: 1140px;*/
+    width: 100%;
+    text-align: center;
+}
+header .menu{
+    padding-top: 18px;
+}
+.colorCorrect{
+    z-index: 1;
+    bottom: 0;
+    position: absolute;
+    width: 260px;
+    height: 202px;
+    background: url("http://www.alpinabook.ru/img/blueColor.png");
+}
+.hintWrapp .smallContainer:hover p{
+    color:#C7A271;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.hintWrapp .smallContainer:hover .colorCorrect{
+    background: url("http://www.alpinabook.ru/img/redColor.png");
+}
+.slideWrapp .titleSlide{
+    color: white;
+    font-family: "Walshein_black";
+    font-size: 62px;
+    line-height: 62px;
+}
+.slideWrapp .textSlide{
+    color: #CAD1CE;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    margin-top: 16px;
+    margin-bottom: 36px;
+}
+.roundSlideWrapp .titleSlide{
+    color: white;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    line-height: 62px;
+    position: relative;
+    z-index: 100;
+    width: 500px;
+}
+.roundSlideWrapp .textSlide{
+    color: #cad1ce;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    margin-bottom: 36px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 100;
+    width: 500px;
+}
+.slideWrapp .firstSlide .catalogWrapper{
+    height: 100%;
+    padding-top: 134px;
+}
+.roundSlideWrapp .firstSlide .catalogWrapper{
+    height: 100%;
+    padding-top: 90px;
+    /*padding-left: 60px;*/
+    padding-left:35px;
+    /*width: 814px;*/
+    width: 780px;
+}
+.roundCatBack{
+    position: absolute;
+    right: -30px;
+    top: 0;
+}
+.slideWrapp .firstSlide{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/roundSlideBack.png") no-repeat scroll 75% 0;
+}
+.roundSlideWrapp .firstSlide{
+    /*background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/roundSlideBack.png") no-repeat scroll 75% 0;*/
+}
+.slideWrapp li{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.slideWrapp ul{
+    height: 100%;
+    width: 9999px;
+    position: relative;
+    left: 0;
+}
+.roundSlideWrapp li{
+    width: 876px;
+    height: 100%;
+    display: inline-block;
+}
+.roundSlideWrapp ul{
+    height: 100%;
+    width: 9999px;
+    position: relative;
+    left: 0;
+}
+.circle strong{
+    color: white;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    left: -28px;
+    position: relative;
+    top: -17px;
+}
+.circle2 strong, .circle3 strong {
+    left: -30px;
+}
+.circle{
+    position: relative;
+    display: inline-block;
+}
+.slideWrapp .buttons{
+    background-color: #546b60;
+    border-radius: 60px;
+    display: inline-block;
+    height: 30px;
+    margin-bottom: 6px;
+    width: 30px;
+    color: white;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    top: -23px;
+    position: relative;
+    margin-right: 6px;
+}
+.roundSlideWrapp .buttons{
+    background-color: #546b60;
+    border-radius: 60px;
+    display: inline-block;
+    height: 30px;
+    margin-bottom: 6px;
+    width: 30px;
+    color: white;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    top: -23px;
+    position: relative;
+    margin-right: 6px;
+}
+.buttons p{
+    left: 11px;
+    position: relative;
+    top: 6px;
+}
+
+.footerMenu p{
+    cursor: pointer;
+}
+.adress img{
+    cursor: pointer;
+}
+.webServ img{
+    cursor: pointer;
+}
+.yaMarket>img{
+    cursor: pointer;
+}
+.icons img{
+    cursor: pointer;
+}
+input:focus{
+    outline: none;
+}
+.roundSlider .buttons{
+    cursor: pointer;
+}
+.books > ul span:hover{
+    text-decoration: underline;
+}
+.books > ul span{
+    cursor: pointer;
+}
+.bookNew{
+    display: block;
+}
+.bookBest, .bookSoon, .bookMust{
+    display: none;
+}
+.catalogIcon{
+    border-radius: 80px;
+    height: 64px;
+    left: -6px;
+    position: absolute;
+    top: -313px;
+    width: 64px;
+    background: #85959a url("http://www.alpinabook.ru/img/catalogIco.png") no-repeat center;
+    cursor: pointer;
+}
+.catalogIcon:hover{
+    background: #fff url("http://www.alpinabook.ru/img/catalogLogoMini.png") no-repeat center;
+}
+.basketIcon{
+    border-radius: 80px;
+    height: 64px;
+    right: -6px;
+    position: absolute;
+    top: -313px;
+    width: 64px;
+    background: #85959a url("http://www.alpinabook.ru/img/basketIcoHovers.png") no-repeat center;
+    cursor: pointer;
+}
+.basketIcon:hover{
+    background: #fff url("http://www.alpinabook.ru/img/basketIco.png") no-repeat center;
+}
+.searchWrap{
+    background-color: #ECEDEF;
+    height: 60px;
+}
+.searchWrap input[type=text]{
+    /*background: #ecedef url("http://www.alpinabook.ru/img/searchIcon.png") no-repeat scroll 0 3px;*/
+    background-color: #ecedef;
+    border: medium none;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-top: 16px;
+    padding-left: 43px;
+    width: 100%;
+}
+.searchWrap input[type=submit] {
+    position:absolute;
+    background: #ecedef url("http://www.alpinabook.ru/img/searchIcon.png") no-repeat scroll 0 3px;
+    width:30px;
+    height:30px;
+    left:0;
+    cursor:pointer;
+    top:16px;
+}
+
+.authorWrap .titleWrap{
+    background-color: #99abb1;
+    height: 138px;
+}
+.breadCrump{
+    color: #e4e8ea;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-left: 6px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+.titleWrap .mainTitle{
+    color: #fff;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    padding-left: 4px;
+}
+.authorWrap .content{
+    background-color: #F4F4F4;
+}
+.authorWrap .autorInfo{
+    float: left;
+    padding-left: 4px;
+    padding-top: 50px;
+}
+.events p{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+}
+.event p{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.event .date{
+    color: #7B8C90;
+    padding-bottom: 5px;
+}
+.event{
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: -4px;
+    padding-bottom: 14px;
+    padding-top: 20px;
+    width: 354px;
+}
+.content .autorPhoto{
+    margin-bottom: 32px;
+}
+.authorWrap .allEvents{
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    color: #486796;
+    padding-top: 20px;
+    cursor: pointer;
+}
+.allEvents:after{
+    content: url("http://www.alpinabook.ru/img/allEvents.png");
+    padding-left: 8px;
+}
+.authorWrap .citation{
+    color: #424D4F;
+    font-size: 20px;
+    font-family: "Walshein_light";
+    padding-top: 48px;
+}
+.authorWrap .autorName{
+    color: #7B8C90;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-top: 18px;
+    margin-bottom: 40px;
+}
+.authorWrap .title{
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-bottom: 14px;
+    margin-top: 42px;
+}
+.authorWrap .text{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+.content .textWrap{
+    padding-left: 394px;
+    padding-bottom: 34px;
+}
+.autorBooksWrap{
+    height: 906px;
+}
+.autorBooksWrap .catalogBooks{
+    height: 610px;
+}
+.authorsMenuWrap{
+    background-color:#99ABB1;
+    height: 186px;
+}
+.authorsMenuWrap .title{
+    color: #FFFFFF;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    padding-top: 42px;
+}
+.authorsMenuWrap .alphabet{
+    color: #fff;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding: 26px 8px;
+}
+.alphabet span{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.authorLetter>div{
+    float: left;
+    margin: 0 18px;
+    width: 160px;
+    height: 248px;
+    position: relative;
+}
+.authorsWrap .authorBack{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/autBack.png") repeat scroll 0 0;
+    height: 165px;
+    left: 5px;
+    position: absolute;
+    top: 4px;
+    width: 165px;
+}
+.authorsWrap .authorLetter{
+    height: 460px;
+    padding-top: 36px;
+    position: relative;
+    display: none;
+}
+.authorsWrap .authorLetter:first-child, .authorsWrap .authorLetter:nth-child(2) {
+    display: block;
+}
+.authorLetter .bigLetter{
+    color: #627478;
+    font-family: "Walshein_bold";
+    font-size: 80px;
+    padding-left: 60px;
+    padding-top: 32px;
+}
+.authorLetter .autCount{
+    color: #809095;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-top: -6px;
+    padding-left: 52px;
+}
+.authorsWrap .authorWrap p{
+    color: #627478;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    padding-left: 6px;
+    padding-top: 10px;
+    text-transform: uppercase;
+}
+.cataloggWrapper{
+    margin: 0 auto;
+    position: relative;
+    width: 1186px;
+}
+.authorsWrap .showMore{
+    border: 2px solid #c8a474;
+    border-radius: 34px;
+    color: #c8a474;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 40px auto 70px;
+    padding: 12px 44px;
+    text-align: center;
+    width: 153px;
+}
+.pageTitleWrap{
+    background-color:#99ABB1;
+    height: 126px;
+}
+.pageTitleWrap .title{
+    color: #ffffff;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    padding-left: 2px;
+    padding-top: 32px;
+}
+.pageTitleWrap span{
+    color: #e4e8ea;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-left: 8px;
+}
+.searchBooksWrap{
+    background-color: #F4F4F4;
+    padding-top: 38px;
+    padding-bottom: 50px;
+}
+.searchBooksWrap .searchBook{
+    height: 270px;
+    width: 540px;
+    margin-bottom: 24px;
+    display: inline-block;
+}
+.searchBook img{
+    float: left;
+    margin-left: -8px;
+    /*height: 233px; */
+}
+.searchBook .bookNames{
+    color: #627478;
+    font-family: "Walshein_black";
+    font-size: 24px;
+    height: 70px;
+    overflow: hidden;
+    width: 374px;
+}
+.searchBook .autorName{
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    color: #627478;
+    text-transform: uppercase;
+    padding-top: 2px;
+}
+.searchBook .price{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-top: 10px;
+}
+.searchBook .description{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    line-height: 22px;
+    padding-top: 10px;
+}
+.searchBook .basket{
+    background-color: #009fad;
+    border-radius: 50px;
+    color: #fff;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    margin-top: 16px;
+    padding: 12px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 166px;
+    cursor: pointer;
+}
+.searchBook>div{
+    float: left;
+}
+.searchBook .descrWrap{
+    padding-left: 9px;
+    width: 374px;
+}
+.searchWidthWrapper{
+    margin: 0 auto;
+    position: relative;
+    width: 1142px;
+}
+.searchBooksWrap .searchBook:nth-child(2n+1){
+    margin-right: 42px;
+}
+.searchBooksWrap .showMore{
+    border: 2px solid #c8a474;
+    border-radius: 34px;
+    color: #c8a474;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 16px auto 0;
+    padding: 12px 46px;
+    text-align: center;
+    width: 153px;
+}
+.interestingWrap{
+    background-color: #fff;
+    height: 426px;
+}
+.interestingWrap .title{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 42px;
+    padding-bottom: 32px;
+}
+.bookEasySlider .bookImg{
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+.bookEasySlider .bookName {
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-top: 16px;
+}
+.bookEasySlider .bookPrice{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.slidingTopMenu{
+    background: white url("") no-repeat scroll 68px 13px;
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    height: 58px;
+    position: fixed;
+    top: 0px;
+    background-color: white;
+    z-index: 1500;
+    width: 100%;
+    display: none;
+    box-shadow: 0 0 13px;
+}
+.headCatalog{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/catalogLogoMini.png") no-repeat scroll 26px 22px;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+    color: #627478;
+    font-size: 15px;
+    height: 100%;
+    /*left: 120px;
+    position: absolute;*/
+    width: 150px;
+    float: left;
+    margin-left: 120px;
+    cursor: pointer;
+}
+.headCatalog p{
+    padding-left: 72px;
+    padding-top: 20px;
+}
+.headBasket{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/basletLogoMini.png") no-repeat scroll 22px 20px;
+    border-left: 1px solid #e2e2e2;
+    height: 100%;
+    /*position: absolute;
+    right: 60px;*/
+    width: 60px;
+    float: right;
+    /*margin-right: 60px;*/
+    cursor: pointer;
+    position:relative;
+}
+.headLiked{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/alp_icon.png") no-repeat scroll 22px 20px;
+    border-left: 1px solid #e2e2e2;
+    height: 99%;
+    /*position: absolute;
+    right: 60px;*/
+    width: 60px;
+    float: right;
+    /*margin-right: 60px;*/
+    cursor: pointer;
+    position:relative;
+    padding: 1px 0 0 !important;
+}
+header .headBasket {
+    margin-right: 0;
+}
+.BasketQuant {
+    width:19px;
+    height:19px !important;
+    background: #4B4B4B;
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    padding: 0 !important;
+}
+.likedQuant {
+    width:19px;
+    height:19px !important;
+    background: #4B4B4B;
+    position: absolute;
+    right: 12px;
+    top: 15px;
+    border-radius: 10px;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    padding: 0 !important;
+}
+/*header .BasketQuant {
+right: 45px;
+}*/
+.headLogin{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/loginLogoMini.png") no-repeat scroll 18px 16px;
+    border-left: 1px solid #e2e2e2;
+    height: 100%;
+    /* position: absolute;
+    right: 122px;*/
+    width: 60px;
+    float: right;
+}
+.headFind{
+    float: left;
+    height: 100%;
+    left: 0;
+    margin-left: 272px;
+    position: absolute;
+    right: 182px;
+    width: auto;
+    /*background: #f8f8f8 url("http://www.alpinabook.ru/img/findLogoMini.png") no-repeat scroll 99% 50%;*/
+    top:0px;
+}
+.headFind input{
+    height: 90%;
+    margin-left: 1px;
+    width: 90%;
+    border: none;
+    background-color: #F8F8F8;
+    color: #BBC0C2;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding-left: 30px;
+}
+.headFindCatalog input{
+    height: 100%;
+    margin-left: 1px;
+    width: 100%;
+    border: none;
+    background-color: #F8F8F8;
+    color: #BBC0C2;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding-left: 30px;
+}
+.insideHeader{
+    background: #fff;
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    height: 58px;
+    position: relative;
+}
+.insideHeader .logoHead{
+    background: white url("http://www.alpinabook.ru/img/alpinaLogoMini.png") no-repeat scroll 69px 12px;
+    border-right: 1px solid #e2e2e2;
+    float: left;
+    height: 100%;
+    width: 121px;
+}
+.catalogHead{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/catalogLogoMini.png") no-repeat scroll 26px 22px;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+    float: left;
+    height: 100%;
+    margin-left: 120px;
+    width: 150px;
+}
+.catalogHead p{
+    padding-left: 72px;
+    padding-top: 20px;
+}
+.insideHeader .menuHead{
+    left: 400px;
+    margin: auto;
+    position: absolute;
+    right: 400px;
+    padding-top: 19px;
+}
+.insideHeader .menuHead ul{
+    text-align: center;
+}
+.insideHeader .basketHead{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/basletLogoMini.png") no-repeat scroll 22px 19px;
+    border-left: 1px solid #e2e2e2;
+    float: right;
+    height: 100%;
+    width: 125px;
+}
+.insideHeader .loginHead{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/loginLogoMini.png") no-repeat scroll 17px 16px;
+    border-left: 1px solid #e2e2e2;
+    float: right;
+    height: 100%;
+    width: 61px;
+}
+.insideHeader .telephHead{
+    float: right;
+    height: 100%;
+    width: 142px;
+}
+.insideHeader .telephHead p{
+    padding-top: 19px;
+}
+.categoryWrapper{
+    margin: 0 auto;
+    width: 1140px;
+    background-color: #F4F4F4;
+    position: relative;
+}
+.categoryWrapperWhite{
+    margin: 0 auto;
+    width: 1140px;
+    background-color: #FFF;
+}
+
+.categoryWrapper .leftMenu{
+    color: #555e60;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    padding-left: 2px;
+    padding-top: 40px;
+    width: 230px;
+    /*font-weight: bold; */
+}
+.categoryWrapper .leftMenu a {
+    color: #555e60 !important;
+}
+.categoryWrapper .leftMenu>ul>li{
+    padding-bottom: 18px;
+    cursor: pointer;
+}
+.categoryWrapper .leftMenu>ul>li>p:after{
+    content: url("http://www.alpinabook.ru/img/leftMenuAft1.png");
+    margin-left:10px;
+}
+.categoryWrapper .secondLevel li{
+    color: #627478;
+    margin-left: 24px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.categoryWrapper .secondLevel li:before{
+    content: url("http://www.alpinabook.ru/img/secLvlBefore.png");
+    left: -20px;
+    position: absolute;
+    top: 0px;
+}
+.categoryWrapper .secondLevel {
+    display:none;
+}
+.categoryWrapper .contentWrapp{
+    width: 876px;
+    /*height: 2644px;*/
+    height: 2329px;
+    float: right;
+}
+.wrapperCategor{
+    background-color: #F4F4F4;
+    /*height: 2750px;*/
+    height: 2500px;
+}
+.categoryWrapper li>ul{
+    display: none;
+}
+.categoryWrapper .categoryBooks{
+    float: left;
+    padding: 6px;
+    margin-bottom: 40px;
+    position: relative;
+}
+.categoryWrapper .showMore{
+    border: 2px solid #c8a474;
+    border-radius: 34px;
+    color: #c8a474;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 32px auto 70px;
+    padding: 12px 44px;
+    text-align: center;
+    /*width: 153px;*/
+    width: 245px;
+    cursor: pointer;
+}
+.categoryWrapper .otherBooks{
+    height: 1302px;
+}
+.otherBooks .nameBook{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-left: 4px;
+    padding-top: 5px;
+    height: 45px;
+    width: 142px;
+    overflow: hidden;
+}
+.otherBooks .bookAutor{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-left: 6px;
+    padding-top: 5px;
+    height: 18px;
+}
+.otherBooks .tapeOfPack{
+    color: #627478;
+    font-size: 14px;
+    font-family: "Walshein_regular";
+    padding-left: 4px;
+    padding-top: 8px;
+    height: 20px;
+}
+.otherBooks .priceOfBook{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-left: 6px;
+    padding-top: 12px;
+}
+.otherBooks .basketBook{
+    border: 2px solid #c7a271;
+    border-radius: 40px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin: 16px auto 0;
+    padding: 6px 5px;
+    text-align: center;
+    width: 122px;
+    cursor: pointer;
+}
+.otherBooks .basketLater{
+    display: none;
+    cursor: pointer;
+    border: 2px solid #c7a271;
+    border-radius: 40px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin: 16px auto 0;
+    padding: 6px 5px;
+    text-align: center;
+    width: 122px;
+}
+.otherBooks img{
+    left: 0px;
+    position: relative;
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+    /* margin-bottom:15px; */
+}
+.categoryWrapper .titleMain{
+    font-family: 'Walshein_black';
+    font-size: 42px;
+    color: #627478;
+    padding-top: 30px;
+    padding-bottom: 26px;
+}
+
+.hidingCatalogLeft{
+    background-color: #ffffff;
+    display: none;
+    height: 100%;
+    left: 0;
+    padding: 85px 0 0 46px;
+    position: fixed;
+    top: 0;
+    width: 264px;
+    z-index: 1050;
+}
+.hidingCatalogLeft .windowClose{
+    position: absolute;
+    right: -30px;
+    top: 40px;
+    cursor: pointer;
+}
+.hidingCatalogLeft .webServ a:nth-child(2) img {
+    opacity: 0.3;
+}
+.hidingBasketRight{
+    position: fixed;
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 350px;
+    right: 0;
+    top: 0;
+    display: none;
+    z-index: 1550;
+    overflow-y: auto;
+}
+.hidingBasketRight .windowClose{
+    left: -30px;
+    position: absolute;
+    top: 40px;
+    cursor: pointer;
+}
+.windowClose {
+    position: fixed;
+    right: 319px;
+    top: 40px;
+    z-index: 1600;
+    display: none;
+    cursor: pointer;
+}
+.layout{
+    /*z-index: 130;*/
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.35;
+    display: none;
+}
+.layout2{
+    /*z-index: 130;*/
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.35;
+    display: block;
+}
+.hidingCatalogLeft .categories{
+    color: #424D4F;
+    /*font-family: "Walshein_medium";*/
+    font-family: "Walshein_regular";
+    font-weight: bold;
+    font-size: 15px;
+    /*margin-right: 31px;*/
+    margin-right: 21px;
+}
+.hidingCatalogLeft .categories .secondLevel {
+    display: none;
+}
+.hidingCatalogLeft .categories .secondLevel li {
+    margin-left: 24px;
+    margin-bottom: 0px;
+    padding: 5px 0;
+    position: relative;
+}
+.hidingCatalogLeft .categories a {
+    color: #424D4F !important;
+}
+.hidingCatalogLeft .categories li{
+    margin-bottom: 18px;
+}
+.hidingCatalogLeft .categories li p{
+    position: relative;
+}
+.hidingCatalogLeft .categories li p:after{
+    content: url("http://www.alpinabook.ru/img/leftMenuAft1.png");
+    /*margin-left: 10px; */
+    margin-left: 5px;
+}
+.hidingCatalogLeft .categories .secondLevel li:before{
+    content: url("http://www.alpinabook.ru/img/secLvlBefore.png");
+    left: -20px;
+    position: absolute;
+    top: 0px;
+}
+.hidingCatalogLeft .menuCopy{
+    color: #7B8C90;
+    font-family: 'Walshein_regular';
+    font-size: 15px;
+    margin-top: 44px;
+}
+.hidingCatalogLeft .menuCopy a {
+    color: #7B8C90 !important;
+}
+.hidingCatalogLeft .menuCopy li{
+    margin-bottom: 12px;
+}
+.hidingCatalogLeft .webServ{
+    margin-top: 146px;
+}
+.hidingCatalogLeft .webServ img{
+    padding-left: 0;
+    padding-right: 15px;
+}
+.hidingCatalogLeft li{
+    cursor: pointer;
+}
+.hidingBasketRight .title{
+    color: #424c4f;
+    font-family: "Walshein_bold";
+    font-size: 15px;
+    margin-left: 50px;
+    margin-top: 56px;
+    text-transform: uppercase;
+    margin-top: 124px;
+}
+.hidingBasketRight .bonus{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    padding: 18px 50px;
+    margin-bottom: 10px;
+}
+.hidingBasketRight .result{
+    border-bottom: 1px solid #ececec;
+    border-top: 1px solid #ececec;
+    /*height: 38px;*/
+    height:53px;
+    margin-bottom: 28px;
+    padding-left: 48px;
+    padding-top: 14px;
+    width: 100%;
+}
+.hidingBasketRight .result>p{
+    float: left;
+}
+.hidingBasketRight .resultText{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+}
+.hidingBasketRight .count{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    padding-left: 22px;
+    padding-top: 5px;
+}
+.hidingBasketRight .price{
+    color: #424c4f;
+    font-family: "Walshein_bold";
+    font-size: 17px;
+    padding-left: 54px;
+}
+.hidingBasketRight .price span{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+}
+.hidingBasketRight .confirm{
+    border: 2px solid;
+    border-radius: 48px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    height: 32px;
+    margin-bottom: 32px;
+    /*margin-left: 52px;*/
+    padding-left: 60px;
+    padding-top: 10px;
+    position: relative;
+    width: 182px;
+    margin-top: 32px;
+    box-sizing: content-box;
+}
+.confirmTopWrap{
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 1050;
+    top: 0px;
+    border-bottom: 1px solid #ececec;
+}
+.hidingBasketRight .confirm p:after{
+    content: url("http://www.alpinabook.ru/img/leftBasketAfter.png");
+    margin-left: 36px;
+    position: relative;
+    top: 2px;
+}
+.hidingBasketRight .bottomBlock{
+    bottom: 0;
+    /*position: absolute;*/
+    position: fixed;
+    width: 100%;
+    z-index: 1050;
+    background-color: #fff;
+}
+.hidingBasketRight .bookImage{
+    float: left;
+}
+.hidingBasketRight .bookNameBask{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    padding-top: 16px;
+    margin-left: 102px;
+}
+.hidingBasketRight .bookPrice{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-left: 102px;
+    padding-top: 4px;
+}
+.hidingBasketRight .countOfBook{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+}
+.hidingBasketRight .basketBooks{
+    margin: 0 48px;
+    overflow-y: auto;
+    padding-bottom:175px;
+}
+.hidingBasketRight .minus{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/minusImgNew.png") no-repeat scroll 0 0;
+    height: 22px;
+    left: 122px;
+    position: absolute;
+    top: 19px;
+    width: 24px;
+}
+.hidingBasketRight .plus{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/plusImgNew.png") no-repeat scroll 0 0;
+    height: 22px;
+    left: 146px;
+    position: absolute;
+    top: 19px;
+    width: 24px;
+}
+.hidingBasketRight .countMenu{
+    padding-left: 106px;
+    padding-top: 22px;
+    position: relative;
+}
+.hidingBasketRight .basketBook{
+    border-top: 1px solid #ececec;
+    height: 140px;
+    position: relative;
+    padding-top: 20px;
+    box-sizing: content-box;
+}
+.basketBook img {
+    width: 81px;
+    height: 115px;
+}
+.wrapperCategor .grayTitle{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 40px;
+    padding-bottom: 36px;
+}
+.bestSlider .bookName {
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    height: 50px;
+    width: 142px;
+    overflow: hidden;
+}
+.bestSlider .bookPrice {
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.titleDiv{
+    background-color: #fff;
+    padding: 36px 60px;
+    /*height: 268px;*/
+    height: 340px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-bottom: 38px;
+    margin-top: 38px;
+}
+.titleDiv img{
+    float: right;
+}
+.titleDiv .text{
+    color: #424d4f;
+    font-family: "Walshein_regular";
+    font-size: 22px;
+    line-height: 30px;
+    margin-top: 18px;
+}
+.titleDiv .autor{
+    color: #7B8C90;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-top: 62px;
+}
+.wrapperCategor .filterParams li{
+    color: #7b898c !important;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-right: 4px;
+    padding: 6px 17px;
+}
+.filterParams li:nth-child(2) p:after, .filterParams li:nth-child(3) p:after{
+    content: url('http://www.alpinabook.ru/img/filterAftPict.png');
+    margin-left: 8px;
+}
+.filterParams .active.dir_desc p:after {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    position: absolute;
+    margin-left: 10px;
+}
+.wrapperCategor .filterParams li.dir_desc {
+    width:108px;
+}
+.wrapperCategor .filterParams li:hover{
+    background-color: #fff;
+    border-radius: 50px;
+}
+.filterParams li:nth-child(2):hover p:after, .filterParams li:nth-child(3):hover p:after{
+    content: url('http://www.alpinabook.ru/img/filtAftPictHov.png');
+}
+.categoryWrapper .categoryBooks:hover{
+    background-color: #fff;
+    z-index: 999;
+    height: 450px;
+    position: relative;
+}
+.categoryWrapper .categoryBooks:hover .basketBook{
+    border-color:#00A0AF ;
+    background-color: #00A0AF;
+    color: #fff;
+}
+.categoryWrapper .categoryBooks:hover .basketLater{
+    display: block;
+}
+.otherBooks li{
+    display: inline-block;
+    height: 450px;
+    /*width: 172px;*/
+    width: 171px;
+}
+.otherBooks li:hover{
+    z-index: 999;
+}
+.wrapperCategor .filterParams{
+    margin-bottom: 24px;
+}
+.interestSlider>p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 32px;
+    padding-top: 40px;
+}
+.otherEasySlider .bookImg{
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+    /*width:142px;*/
+    margin-bottom:15px;
+    /*height:210px;*/
+}
+.otherEasySlider .bookName{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    height: 44px;
+    width: 142px;
+    overflow: hidden;
+}
+.otherEasySlider .bookPrice{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.interestSlider{
+    height: 428px;
+}
+.productElementWrapp{
+    position: relative;
+    background-color: #F4F4F4;
+    /*min-height: 1130px;*/
+    min-height: 1170px;
+
+}
+.productElementWrapp a{
+    text-decoration: none;
+}
+.productElementWrapp:after, .productElementWrapp:before{
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.productElementWrapp:before{
+    background-color: #99ABB1;
+    height: 260px;
+    /*height: 305px;*/
+    top: 0;
+}
+.productElementWrapp:after{
+    background-color: #F4F4F4;
+    right: 0;
+}
+.centerWrapper{
+    margin: 0 auto;
+    position: relative;
+    width: 1140px;
+}
+.elementDescriptWrap{
+
+}
+.elementDescriptWrap .leftColumn{
+    float: left;
+    height: 100%;
+    width: 264px;
+}
+.elementDescriptWrap .rightColumn{
+    float: right;
+    height: 100%;
+    width: 264px
+}
+.elementDescriptWrap .centerColumn{
+    height: 100%;
+    margin: 0 264px;
+    padding: 0 28px;
+    width: auto;
+}
+.elementDescriptWrap .elementMainPict{
+    position: relative;
+}
+.elementDescriptWrap .elementMainPict img{
+    /*    width: 264px;*/
+}
+.elementDescriptWrap .elementMainPict:hover .overlay{
+    display: block;
+}
+
+.elementDescriptWrap .overlay{
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    left: 0;
+    background: url('http://www.alpinabook.ru/img/overlayMainPict.png') no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.elementDescriptWrap .overlay a{
+    border: 2px solid #ad9069;
+    border-radius: 40px;
+    color: #ad9069;
+    display: block !important;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 6px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+}
+.elementDescriptWrap .marks{
+    height: 50px;
+    padding-top: 12px;
+    margin-bottom: 20px;
+}
+.elementDescriptWrap .marks>div{
+    border-radius: 3px;
+    color: #fff;
+    float: left;
+    font-family: "Walshein_medium";
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 4px 9px;
+    text-transform: uppercase;
+}
+.elementDescriptWrap .newBookMark{
+    background-color: #00A0AF;
+}
+.elementDescriptWrap .bestBookMark{
+    background-color: #E59622;
+}
+.elementDescriptWrap .buyLater {
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/laterBuyBack.png") no-repeat scroll 75px 10px;
+    border: 2px solid #c7a271;
+    border-radius: 30px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding: 6px 0 6px 100px;
+    margin-bottom: 20px;
+}
+.elementDescriptWrap .AlreadyInWishlist {
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/laterBuyBack.png") no-repeat scroll 60px 10px;
+    border: 2px solid #c7a271;
+    border-radius: 30px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding: 6px 0 6px 85px;
+    margin-bottom: 40px;
+}
+.elementDescriptWrap .takePartWrap{
+    border-top: 1px solid #dddddd;
+    margin-top: 42px;
+    padding: 14px 6px;
+    margin-bottom: 20px;
+    display: none;
+}
+.takePartWrap .title{
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding-bottom: 8px;
+}
+.takePartWrap .text{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 16px;
+    padding-bottom: 14px;
+}
+.takePartWrap input{
+    background: #fff url("http://www.alpinabook.ru/img/custImpOnElement.png") no-repeat scroll 223px 9px;
+    border: medium none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.18), 0 0 1px 0 rgba(0, 0, 0, 0.14);
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    height: 34px;
+    margin-left: -6px;
+    padding-left: 18px;
+    padding-right: 32px;
+    width: 214px;
+}
+.elementDescriptWrap .characteris{
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 10px;
+    padding-bottom: 14px;
+}
+.characteris:last-child{
+    border: none;
+}
+.characteris .title{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-left: 4px;
+}
+.characteris .text{
+    color: #424C4F;
+    padding-left: 4px;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+/*.elementDescriptWrap .socialServises div{
+background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/socserInElement.png") no-repeat scroll 0 0;
+display: inline-block;
+height: 30px;
+margin-right: 7px;
+width: 34px;
+}*/
+.socialServises{
+    margin-left: 4px;
+    margin-top: 25px;
+}
+.socialServises .vk{
+
+}
+.socialServises .twit{
+    background-position: -45px !important;
+}
+.socialServises .faceb{
+    background-position: -90px !important;
+}
+.socialServises .googp{
+    background-position: -135px !important;
+}
+.socialServises .odnkl{
+    background-position: -180px !important;
+}
+.elementDescriptWrap .priceBasketWrap{
+    background: #fcfcfc none repeat scroll 0 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.18), 0 0 1px 0 rgba(0, 0, 0, 0.14);
+    width: 264px;
+    text-align: center;
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+.elementDescriptWrap .oldPrice{
+    /*border-bottom: 2px solid #7b8c90;*/
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 22px;
+    height: 15px;
+    display: inline-block;
+    position: relative;
+    left: -4px;
+}
+.oldPrice p{
+    background-color: #7b8c90;
+    height: 2px;
+    position: absolute;
+    top: 14px;
+    width: 92%;
+}
+.elementDescriptWrap .newPrice{
+    color: #00ABB8;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+.elementDescriptWrap .newPrice span{
+    font-family: "Walshein_regular";
+    font-size: 22px;
+}
+.priceBasketWrap .text{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    padding: 8px;
+    /*margin-bottom: 60px;*/
+    margin-bottom: 85px;
+}
+.elementDescriptWrap .inBasket{
+    background-color: #00abb8;
+    border-radius: 35px;
+    color: #fff;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 0 28px;
+    padding: 14px 58px;
+}
+.elementDescriptWrap .buyOneClick{
+    border: 2px solid #c7a271;
+    border-radius: 40px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 20px 28px;
+    padding: 12px;
+}
+.elementDescriptWrap .shippings{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    margin-left: 30px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.shippings li{
+    position: relative;
+    padding-bottom: 8px;
+}
+.shippings a{
+    color: #00ABB8;
+    border-bottom: 1px dashed #00ABB8;
+}
+.shippings li:before{
+    content: url("http://www.alpinabook.ru/img/rechShip.png");
+    left: -24px;
+    position: absolute;
+    top: -4px;
+}
+.productAction{
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 22px;
+}
+.productAction .title{
+    color: #486796;
+    font-family: "Walshein_black";
+    font-size: 24px;
+    padding-left: 4px;
+    padding-top: 8px;
+}
+.productAction .text{
+    color: #8999b5;
+    font-family: "Walshein_regular";
+    font-size: 16px;
+    padding-left: 6px;
+    padding-top: 10px;
+}
+.productAction .takePart{
+    color: #486796;
+    font-family: "Walshein_regular";
+    font-size: 16px;
+    margin-left: 4px;
+    margin-top: 10px;
+}
+.productAction .takePart:after{
+    content: url("http://www.alpinabook.ru/img/takePart.png");
+    margin-left: 10px;
+    position: relative;
+    top: 4px;
+}
+.centerColumn .productName{
+    color: #fff;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 34px;
+}
+.centerColumn .topBlock {
+    min-height:175px;
+}
+.centerColumn .engBookName{
+    color: #e4e8ea;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+.centerColumn .productAutor{
+    color: #E4E8EA;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.centerColumn .star{
+
+}
+.centerColumn .reviews{
+    float: right;
+}
+.centerColumn .countOfRev{
+    color: #E4E8EA;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.elementDescriptWrap .typesOfProduct{
+    margin-top: 84px;
+    height: 90px;
+    overflow: hidden;
+}
+.elementDescriptWrap .typesOfProduct>div{
+    border: 2px solid #e2e2e2;
+    float: left;
+    height: 58px;
+    margin-right: 12px;
+    padding-left: 18px;
+    padding-top: 14px;
+    width: 144px;
+    margin-bottom: 14px;
+}
+.elementDescriptWrap .productType{
+
+}
+.productType .title{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.productType .title a {
+    color: #424C4F !important;
+}
+.productType .cost{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.elementDescriptWrap .otherTypes{
+    background: #dfdfdf url("http://www.alpinabook.ru/img/otherTypesBack.png") no-repeat scroll 3px 34px;
+    height: 72px !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    width: 16px !important;
+    cursor: pointer;
+}
+.elementDescriptWrap .productsMenu{
+    color: #00abb8;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    margin-top: 18px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.productsMenu li{
+    display: inline-block;
+    cursor: pointer;
+    border-bottom: 1px dashed rgb(0, 171, 184);
+    margin-right:20px;
+}
+.productsMenu li:hover{
+    border-bottom: none;
+}
+.productsMenu li:not(:first-child) {
+    width: 91px;
+}
+.productsMenu .active{
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    text-transform: none;
+    border-bottom: none;
+}
+.elementDescriptWrap .citate{
+    color: #424D4F;
+    font-family: "Walshein_light";
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.elementDescriptWrap i{
+    color: #424D4F;
+    font-family: "Walshein_light";
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.elementDescriptWrap .citateAutor{
+    color: #7B8C90;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+}
+.elementDescriptWrap .productSelectTitle{
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-bottom: 14px;
+    margin-top: 15px;
+}
+.elementDescriptWrap h3{
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-bottom: 14px;
+}
+.productSelectTitle .count{
+    color: #AEBFC3;
+    font-size: 14px;
+    margin-left: 6px;
+}
+.productSelectTitle span{
+    font-size: 14px;
+    color: #00ABB8;
+    margin-left: 16px;
+}
+.productSelectTitle span a{
+    font-size: 14px;
+    color: #00ABB8;
+}
+.elementDescriptWrap .prodSelText{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    line-height: 24px;
+    margin-bottom: 40px;
+}
+.elementDescriptWrap .annotation span, .elementDescriptWrap .annotation ul{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    line-height: 24px;
+    /*margin-bottom: 40px;*/
+    padding-bottom: 18px;
+}
+.elementDescriptWrap .annotation ul {
+    list-style-type: circle;
+    padding-left: 40px;
+}
+.elementDescriptWrap .annotation ul li {
+    margin-top:8px;
+}
+.elementDescriptWrap .annotation{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    line-height: 24px;
+}
+
+.elementDescriptWrap .videoWrapp{
+    /*background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/videoBack.png") no-repeat scroll 0 0;*/
+    /*height: 310px;*/
+    width: 552px;
+    margin-bottom: 30px;
+}
+.elementDescriptWrap .keyWords{
+    margin-left: 4px;
+    /*margin-top: 18px;*/
+    margin-top: 8px;
+    padding-bottom: 56px;
+}
+.elementDescriptWrap .keyWords li{
+    background-color: #fff;
+    border-radius: 30px;
+    color: #424c4f;
+    display: inline-block;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-right: 4px;
+    padding: 6px 20px;
+    margin-top: 10px;
+}
+.authorBooksWrapp{
+    background-color: #fff;
+    width: 1140px;
+    margin: 0 auto;
+    height: 440px;
+}
+.authorBooksWrapp:before {
+    position:absolute;
+    left:0;
+    background:white;
+    height:100%;
+    content:"";
+    display:block;
+}
+.authorBooksWrapp>p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 38px;
+    padding-top: 44px;
+}
+.authorBooksWrapp .bookImg{
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+.authorBooksWrapp .bookName{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-top: 14px;
+}
+.authorBooksWrapp .bookPrice{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.uLookSlider .bookImg{
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+    /*height: 210px;*/
+}
+.uLookSlider .bookName{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    height: 39px;
+    width: 142px;
+    overflow: hidden;
+}
+.uLookSlider .bookPrice{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.reviewsSliderWrapp{
+    background-color: #F4F4F4;
+    width: 100%;
+    /*height: 1070px; */
+    height: 724px;
+    overflow: hidden;
+}
+.reviewsSliderWrapp .arrows{
+    float: right;
+    padding-top: 38px;
+}
+.reviewsSliderWrapp .revTitle{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 40px;
+}
+.reviewsSliderWrapp .bigSlider{
+    height: 466px;
+    margin-top: 32px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.reviewsSliderWrapp .sliderElement{
+    height: 200px !important;
+    float: left;
+}
+.reviewsSliderWrapp .sliderName{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 40px;
+    padding-top: 18px;
+}
+.reviewsSliderWrapp .bigSlider{
+    height: 300px !important;
+}
+.reviewsSliderWrapp .giftWrap{
+    border-top: 1px solid #e2e2e2;
+    margin-top: 40px;
+    padding-top: 56px;
+    height:130px;
+    overflow:hidden;
+
+}
+.reviewsSliderWrapp .giftWrap img{
+    left: 414px;
+    position: absolute;
+    top: 0;
+}
+.weRecomWrap .tile{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 34px;
+    padding-top: 62px;
+}
+.weRecomWrap .bookWrapp{
+    display: inline-block;
+    margin-bottom: 46px;
+    margin-right: 50px;
+}
+.weRecomWrap .bookWrapp:nth-child(6n){
+    margin-right: 0px;
+}
+.weRecomWrap .bookName{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    height: 39px;
+    width: 142px;
+    overflow: hidden;
+}
+.weRecomWrap .bookPrice{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.weRecomWrap .allBooks{
+    border: 2px solid #c7a271;
+    border-radius: 46px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-left: 447px;
+    margin-top: 68px;
+    padding: 12px 64px;
+    text-decoration: none;
+}
+.weRecomBlock{
+    margin-bottom: 28px;
+}
+.weRecomWrap{
+    padding-bottom: 90px;
+}
+.basketHeader{
+    background-color: #fff;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    color: #7B8C90;
+    height: 58px;
+    position: relative;
+}
+.basketHeader .alpiLogo{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/alpinaLogoMini.png") no-repeat scroll 8px 14px;
+    height: 100%;
+    left: 60px;
+    position: absolute;
+    width: 50px;
+}
+.basketHeader .baskHeadMenu{
+    left: 400px;
+    margin: auto;
+    position: absolute;
+    padding-top: 20px;
+    right: 400px;
+    text-align: center;
+
+}
+.basketHeader .baskHeadMenu li{
+    display: inline-block;
+    padding-right: 10px;
+}
+.basketHeader .headPhone{
+    height: 40px;
+    padding-top: 20px;
+    position: absolute;
+    right: 76px;
+}
+.breadCrumpWrap{
+    background-color: #99ABB1;
+    width: 100%;
+    height: 100px;
+    padding-top: 42px;
+}
+.breadCrumpWrap .afterImg:after{
+    content: url("http://www.alpinabook.ru/img/afterRechte.png");
+    margin-left: 14px;
+    margin-right: 20px;
+}
+.breadCrumpWrap .active{
+    font-size: 42px;
+    color: #fff;
+}
+.breadCrumpWrap a{
+    font-family: "Walshein_black";
+    font-size: 24px;
+    color: #E4E8EA;
+    text-decoration: none;
+}
+.orderBodyWrapp{
+    background-color: #F4F4F4;
+    width: 100%;
+    padding-bottom: 100px;
+    padding-top: 38px;
+}
+.orderBody{
+    background-color: #fff;
+    padding: 24px 46px 0px 22px;
+    width: 782px;
+    border-bottom: 1px solid #ebebeb;
+}
+.helpBlock{
+    border: 2px solid #c7a271;
+    float: right;
+    padding: 28px 32px 19px;
+    text-align: center;
+    width: 192px;
+}
+.helpBlock .text{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.helpBlock .telephone{
+    color: #627478;
+    font-family: "Walshein_black";
+    font-size: 20px;
+    padding-top: 16px;
+}
+.helpBlock .mailAdr{
+    color: #627478;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+}
+.orderBody .blockTitle{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    margin-bottom: 2px;
+    width: 350px;
+}
+.orderBody .faceText{
+    color: #424C4F;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    cursor: pointer;
+    padding-left: 4px;
+    margin-right: 44px;
+}
+.orderBody .faceText:before{
+    content: url("http://www.alpinabook.ru/img/beforeInputRadio.png");
+    left: -8px;
+    position: relative;
+    top: 7px;
+}
+
+.radioInp{
+    display: none;
+}
+.radioInp:checked + .faceText:before{
+    content: url('http://www.alpinabook.ru/img/chekedInpRadio.png');
+    left: -8px;
+    position: relative;
+    top: 7px;
+}
+.orderBody .grayLine{
+    background-color: #ebebeb;
+    height: 1px;
+    left: -22px;
+    margin-top: 25px;
+    position: relative;
+    width: 850px;
+    margin-bottom: 24px;
+}
+.orderBody .blockText{
+    color: #353535;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-top: 6px;
+}
+.orderBody .quickLocation{
+    margin-top: 28px;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 32px;
+}
+.orderBody .quickLocation a{
+    border-radius: 30px;
+    color: #424c4f !important;
+    padding: 6px 24px;
+    text-decoration: none;
+    background-color: #F8F8F8;
+
+}
+.orderBody .shipingText{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 8px;
+    margin-left: 34px;
+    margin-top: 10px;
+}
+.orderBody .imlPuncts{
+    color: #00A0AF;
+    border-bottom: 1px dashed;
+    text-decoration: none;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-left: 34px;
+}
+.orderBody .totalPrice{
+    background-color: #FCFCFC;
+}
+.orderBody .totalCost{
+    float: right;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    color: #9AA6AA;
+}
+.orderBody .totalCost span{
+    color: #424C4F;
+}
+.orderBody .totalText{
+    float: right;
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+}
+.orderBody .totalText span{
+    color: #424C4F;
+    font-size: 19px;
+}
+.orderBody .orderConfirm{
+    text-decoration: none;
+    border-radius: 40px;
+    background-color: #00A0AF;
+    color: white;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+}
+.orderBody .inputTitle{
+    color: #7b8c90;
+    float: left;
+    font-family: "Walshein_regular";
+    font-size: 16px;
+    left: 2px;
+    position: absolute;
+    top: 8px;
+}
+.orderBody .clientInfo{
+    background-color: #fdfdfd;
+    border: 1px solid #f5f5f5;
+    box-shadow: none;
+    color: #353535;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    height: 34px;
+    padding-left: 14px;
+    width: 248px;
+}
+.orderBody textarea{
+    background-color: #fdfdfd;
+    border: 1px solid #f5f5f5;
+    box-shadow: none;
+    color: #353535;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    height: 76px;
+    padding-left: 14px;
+    resize: none;
+    width: 246px;
+}
+.orderBody .allCost{
+    font-size: 17px;
+    font-family: "Walshein_bold";
+    color: #424C4F;
+}
+.orderBody .selectric .label {
+    font-family: "Walshein_regular";
+}
+.selectric-items ul, .selectric-items li{
+    font-family: "Walshein_regular";
+}
+.orderBody .shippingWrap{
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+.orderBody .paementWrapp{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.orderBody .paementWrapp img{
+    margin: 8px 544px 12px 30px;
+}
+.orderBody .infoPunct{
+    margin-bottom: 22px;
+    padding-left: 104px;
+    position: relative;
+}
+.orderBody .clientInfoWrap{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.totalPriceWrap{
+    background-color: #fff;
+    width: 850px;
+    height: 274px;
+}
+.totalPriceWrap .totalPrice{
+    background-color: #fcfcfc;
+    border-bottom: 1px solid #ebebeb;
+    height: 140px;
+}
+.totalPriceWrap .totalCost{
+    color: #9aa6aa;
+    float: right;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    margin-right: 96px;
+    margin-top: 18px;
+}
+.totalPriceWrap .totalCost span{
+    color: #424C4F;
+}
+.totalPriceWrap .totalCost p{
+    margin-bottom: 3px;
+}
+.totalPriceWrap .totalCost p:last-child{
+    margin-top: 12px;
+}
+.totalPriceWrap .totalText{
+    color: #7b8c90;
+    float: right;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-right: 12px;
+    margin-top: 20px;
+}
+.totalPriceWrap .totalText p{
+    margin-bottom: 5px;
+}
+.totalPriceWrap .totalText p:last-child{
+    margin-top: 12px;
+}
+.totalPriceWrap .totalText span{
+    color: #424C4F;
+    font-size: 19px;
+}
+.totalPriceWrap .orderConfirm{
+    background-color: #00a0af;
+    border-radius: 40px;
+    color: white;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding: 13px 48px;
+    text-decoration: none;
+}
+.totalPriceWrap .allCost{
+    font-size: 17px;
+    font-family: "Walshein_bold";
+    color: #424C4F;
+}
+.totalPriceWrap .ordContain{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 52px;
+    text-align: center;
+    width: 248px;
+}
+.cartMenuWrap .basketItems{
+    color: #00abb8;
+    float: left;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 204px;
+    cursor: pointer;
+}
+.cartMenuWrap .basketItems span{
+    color: #BCBCBC;
+    font-family: "Walshein_regular";
+}
+.cartMenuWrap{
+    height: 52px;
+}
+.cartMenuWrap .active{
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    background-color: #fff;
+    text-transform: none;
+}
+.cartWrapper{
+    padding-top: 42px;
+    background-color: #F4F4F4;
+    padding-bottom: 54px;
+}
+.cartWrapper .yourBooks{
+    background-color: #fff;
+    padding-bottom: 24px;
+    padding-top: 22px;
+}
+.cartWrapper .deferredBooks{
+    background-color: #fff;
+}
+.yourBooks thead{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+}
+.yourBooks .nameOfBook{
+    color: #353535;
+    font-family: "Walshein_regular";
+    font-size: 16px;
+    padding-top: 34px;
+}
+.yourBooks .nameOfAutor{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-top: 16px;
+}
+.yourBooks .costOfBook{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+}
+.yourBooks .bookDelete{
+    color: #DB747D;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    cursor: pointer;
+}
+.yourBooks input{
+    border: 1px solid #d2d2d2;
+    box-shadow: none;
+    color: #7b8c90;
+    float: left;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    height: 28px;
+    /*width: 38px;*/
+    width: 29px;
+    text-align: center;
+}
+.yourBooks .plus, .yourBooks .minus{
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: arial;
+    font-size: 21px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    width: 30px;
+}
+
+.cartWrapper .bookImg{
+    padding-left: 28px;
+    padding-top: 14px;
+    width: 98px;
+}
+.cartWrapper .bookNameWrap{
+    width: 550px;
+    vertical-align: top;
+}
+.cartWrapper .quantityInp{
+    width: 118px;
+    vertical-align: top;
+}
+.cartWrapper .quanTitle{
+    text-align: center;
+}
+.cartWrapper .quantityInp div{
+    background-color: #d2d2d2;
+    border-radius: 6px;
+    height: 32px;
+    margin-left: 8px;
+    margin-top: 28px;
+    width: 103px;
+}
+.cartWrapper .priceOfBook{
+    padding-left: 84px;
+    padding-top: 36px;
+    vertical-align: top;
+    width: 142px;
+}
+.cartWrapper .counTitle{
+    padding-left: 90px;
+}
+.cartWrapper .cancelBook{
+    padding-top: 36px;
+    vertical-align: top;
+}
+.cartWrapper tbody tr{
+    height: 152px;
+}
+.cartWrapper .grayDownLine{
+    width: 100%;
+    height: 1px;
+    background-color: #D1D1D1;
+    margin-top: 14px;
+}
+.cartWrapper .promocode{
+    text-decoration: none;
+    border-bottom: 1px dashed #00A9B6;
+    color: #00A9B6;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    cursor: pointer;
+}
+.cartWrapper .finalDiscount{
+    color: #7b8c90;
+    float: right;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    margin-right: 38px;
+    margin-top: 21px;
+}
+.cartWrapper .finalText{
+    color: #424c4f;
+    float: right;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-right: 20px;
+    margin-top: 17px;
+}
+.cartWrapper .finalQuant{
+    color: #7b8c90;
+    float: right;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-right: 70px;
+    margin-top: 22px;
+}
+.cartWrapper .finalCost{
+    color: #7b8c90;
+    float: right;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    margin-right: 92px;
+    margin-top: 17px;
+}
+.cartWrapper .finalCost span{
+    color: #424C4F;
+    font-family: "Walshein_bold";
+    font-size: 17px;
+}
+.cartWrapper .promoWrap{
+    margin-left: 36px;
+    margin-top: 18px;
+}
+.cartWrapper .nextPage{
+    background: #00a9b6 url("http://www.alpinabook.ru/img/nextPageBack.png") no-repeat scroll 209px 19px;
+    border-radius: 34px;
+    color: #fff;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding: 14px 68px;
+    text-decoration: none;
+}
+.cartWrapper .nextPageWrap{
+    margin-top: 54px;
+    text-align: center;
+}
+.moreInterestParty>div>p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 32px;
+    padding-top: 40px;
+}
+.moreInterestParty{
+    height: 600px;
+}
+.moreInterestParty .autorSlideName{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.moreInterestParty .coverSlideType{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+.moreInterestParty .slideInBasket{
+    border: 2px solid #c7a271;
+    border-radius: 30px;
+    margin-top: 16px;
+    padding: 6px 32px;
+    width: 66px;
+}
+.moreInterestParty .slideInBasket a{
+    text-decoration: none;
+    color: #C7A271;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.moreInterestParty .bookNameSlide{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+.moreInterestParty .bookPriceSlide{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.historyCoverWrap{
+    height: 138px;
+    background-color: #99ABB1;
+}
+.historyCoverWrap a {
+    background-color: #99ABB1;
+    color: #E4E8EA !important;
+}
+.historyCoverWrap p{
+    color: #E4E8EA;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-top: 28px;
+}
+.historyCoverWrap h1{
+    color: #fff;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    margin-top: 6px;
+    padding-top: 0;
+}
+.historyMenuWrap a{
+    text-decoration: none;
+    color: #6B6B6B;
+    text-transform: uppercase;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+}
+.tableTitle>p{
+    float: left;
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    padding-top: 10px;
+}
+.orderHistorWrap{
+    float: right;
+    width: 850px;
+    padding-bottom: 160px;
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.orderHistorWrap .wishElement {
+    width: 780px !important;
+}
+.historyMenuWrap ul{
+    padding-top: 44px;
+}
+.historyMenuWrap li{
+    margin-bottom: 16px;
+}
+.orderHistorWrap>p, .orderHistorWrap .personal_title {
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    margin-top: 46px;
+    margin-bottom: 40px;
+}
+.orderHistorWrap .info{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    margin-top: 46px;
+    margin-bottom: 40px;
+}
+.historyWrap{
+    background-color: #fbfbfb;
+}
+.historyWrap .tableTitle{
+    width: 100%;
+    height: 40px;
+    background-color: #FBFBFB;
+}
+.historyBodywrap{
+    background-color: #F4F4F4;
+}
+.orderNumbLine>p{
+    float: left;
+}
+.orderNumbLine{
+    height: 54px;
+    width: 100%;
+    border-bottom: 1px solid #ECECEC;
+    background-color: #FFFFFF;
+}
+.historyBodywrap .numbTitle{
+    margin-left: 30px;
+}
+.historyBodywrap .dateTitle{
+    margin-left: 138px;
+}
+.historyBodywrap .quantTitle{
+    margin-left: 80px;
+}
+.historyBodywrap .statTitle{
+    margin-left: 52px;
+}
+.historyBodywrap .sumTitle{
+    margin-left: 206px;
+}
+.orderNumbLine span{
+    color: #424C4F;
+    font-size: 17px;
+    font-family: "Walshein_bold";
+}
+.historyBodywrap .ordTitle{
+    color: #00a0af;
+    font-family: "Walshein_regular";
+    cursor: pointer;
+    padding-left: 28px;
+    padding-top: 16px;
+    width: 182px;
+}
+.historyBodywrap .ordTitle span{
+    border-bottom: 1px dashed;
+    color: #00a0af;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+}
+.historyBodywrap .ordDate{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    padding-top: 18px;
+    width: 140px;
+}
+.historyBodywrap .ordQuant{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-top: 18px;
+    width: 90px;
+}
+.historyBodywrap .ordStatus{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-top: 18px;
+    width: 244px;
+}
+.historyBodywrap .ordSum{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    margin-top: 16px;
+}
+.historyBodywrap .dopInfoTitle{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+.historyBodywrap .dopInfoText{
+    color: #424c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.historyBodywrap .hiddenOrderInf>div{
+    border-bottom: 1px solid #ececec;
+}
+.historyBodywrap .infoQuant{
+    color: #8F9DA0;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+}
+.historyBodywrap .infoTextTab{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.historyBodywrap .infBookName{
+    color: #424C4F;
+}
+.historyBodywrap .infoPriceTd{
+    color: #7B8C90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.historyBodywrap .orderCancel a{
+    text-decoration: none;
+    color: #C7A271;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+
+.historyBodywrap .infoAddrWrap{
+    height: 228px;
+}
+.historyBodywrap .infoAddrWrap>div{
+    float: left;
+    padding: 18px 30px;
+}
+.historyBodywrap .infoAddrWrap>div:nth-child(1){
+    width: 350px;
+}
+.historyBodywrap .firstCol{
+    margin-bottom: 12px;
+}
+
+.historyBodywrap .secCol{
+    margin-bottom: 12px;
+    margin-top: 18px;
+}
+.historyBodywrap .thiCol{
+    margin-top: 24px;
+}
+.historyBodywrap .orderBooks{
+    margin-left: 26px;
+    margin-bottom: 18px;
+}
+.historyBodywrap .ordBooksTitle{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+.historyBodywrap  .orderBooks tr{
+    height: 24px;
+}
+.orderBooks tr td:nth-child(1){
+    width: 318px;
+}
+.orderBooks tr td:nth-child(2){
+    width: 330px;
+}
+.historyBodywrap .orderCancel{
+    height: 36px;
+    padding-left: 26px;
+    padding-top: 12px;
+}
+.historyBodyWr{
+    background-color: #F4F4F4;
+}
+.historyMenuWrap .active{
+    color: #59B6C1;
+}
+.historyWrap .active{
+    background-color: #FBFBFB;
+}
+.hiddenOrderInf{
+    display: none;
+}
+.hidOrdInfo1{
+    display: block;
+}
+.finishOrdWrap{
+    background-color: #F4F4F4;
+}
+.finishOrdWrap .rightBlockWrap{
+    border: 2px solid #e4e4e4;
+    float: right;
+    font-family: "Walshein_regular";
+    height: 220px;
+    margin-right: 10px;
+    margin-top: 38px;
+    padding: 0 28px;
+    text-align: center;
+    width: 200px;
+    display: none;
+}
+.finishOrdWrap .blockTitle{
+    color: #353535;
+    font-size: 15px;
+    margin-bottom: 4px;
+    margin-top: 26px;
+}
+.finishOrdWrap .blokText{
+    font-size: 14px;
+    color: #627478;
+}
+.finishOrdWrap .giftCont{
+    border: 2px solid #c7a271;
+    border-radius: 30px;
+    margin-top: 30px;
+    padding: 6px 25px;
+    text-align: center;
+    width: 130px;
+}
+.finishOrdWrap .giftCont a{
+    text-decoration: none;
+    color: #C7A271;
+    font-size: 14px;
+}
+.finishOrdWrap .ordTitle{
+    color: #627478;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    padding-bottom: 20px;
+    padding-top: 42px;
+}
+.finishOrdWrap .OrdAkses{
+    color: #424D4F;
+    font-family: "Walshein_light";
+    font-size: 20px;
+}
+.finishOrdWrap .ordHint{
+    color: #424d4f;
+    font-family: "Walshein_light";
+    font-size: 20px;
+    padding-top: 30px;
+    width: 640px;
+}
+.finishOrdWrap .ordHint a{
+    text-decoration: none;
+    color: #00A0AF;
+}
+.finishOrder{
+    height: 100%;
+}
+.finishOrder body{
+    height: 100%;
+    background-color: #F4F4F4;
+}
+.deliveryPageTitleWrap{
+    height: 136px;
+    width: 100%;
+    background-color: #99ABB1;
+}
+.deliveryPageTitleWrap p{
+    color: #E4E8EA;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-top: 28px;
+}
+.deliveryPageTitleWrap h1{
+    color: #FFFFFF;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    margin-top: 4px;
+}
+.deliveryBodyWrap{
+    background-color: #F4F4F4;
+}
+.delivMenuWrapp{
+    float: left;
+    height: 100%;
+    width: 250px;
+    padding-top: 48px;
+}
+.delivMenuWrapp ul{
+    list-style-type: none;
+}
+.delivMenuWrapp li{
+    text-transform: uppercase;
+    color: #6B6B6B;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+.deliveryBody{
+    background-color: #F4F4F4;
+}
+.deliveryTextWrap{
+    float: right;
+    padding-top: 16px;
+    width: 850px;
+    padding-bottom: 100px;
+}
+.deliveryTypeWrap{
+    position: relative;
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.deliveryTypeWrap b {
+    font-family: "Walshein_regular";
+}
+.deliveryTypeWrap p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.deliveryTypeWrap li{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    position: relative;
+}
+.deliveryTypeWrap img{
+    float: left;
+    padding-left: 22px;
+    padding-right: 40px;
+}
+.deliveryTypeWrap .title{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 40px;
+    padding-top: 32px;
+}
+.deliveryTypeWrap li:before{
+    content: url("http://www.alpinabook.ru/img/rechtDeliv.png");
+    left: -22px;
+    position: absolute;
+    top: -4px;
+}
+.deliveryTypeWrap ul{
+    margin-bottom: 20px;
+    padding-left: 154px;
+    padding-top: 5px;
+}
+.deliveryTypeWrap .deliveryTime{
+    margin-bottom: 24px;
+    margin-top: 20px;
+}
+.deliveryTypeWrap a{
+    border-bottom: 1px dashed;
+    color: #00a0af;
+    text-decoration: none;
+}
+.deliveryTypeWrap .rusPostImg{
+    padding-left: 0;
+    padding-right: 28px;
+}
+.deliveryTypeWrap .rusPostDeliv{
+    padding-bottom: 30px;
+    padding-left: 152px;
+    padding-top: 4px;
+}
+.deliveryTypeWrap .deliveryHint{
+    margin-top: 22px;
+}
+.deliveryTypeWrap .pickImageDeliv{
+    padding-left: 0;
+    padding-right: 18px;
+    padding-top: 18px;
+}
+.deliveryTypeWrap .pickDescription{
+    margin-bottom: 10px;
+}
+.changePassWr{
+    background-color: #f4f4f4;
+}
+.contactsBodyWrap{
+    background-color: #F4F4F4;
+    width: 100%;
+    padding-bottom: 90px;
+}
+.contactsTextWrap h1{
+    color: #4e585a;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding-top: 32px;
+}
+.contactsTextWrap p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.contactsTextWrap{
+    width: 750px;
+}
+.contactsTextWrap .organisName{
+    margin-bottom: 12px;
+    margin-top: 16px;
+}
+.contactsTextWrap .organisTelep{
+    color: #627478;
+    font-family: "Walshein_black";
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 38px;
+}
+.contactsTextWrap .organisMail{
+    font-family: "Walshein_bold";
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #627478;
+}
+.contactsTextWrap .timeTitle{
+    color: #424d4f;
+    font-size: 19px;
+    margin-bottom: 12px;
+    margin-top: 38px;
+}
+.contactsTextWrap .wayTitle{
+    color: #424d4f;
+    font-size: 19px;
+    margin-bottom: 14px;
+    margin-top: 34px;
+    margin-right: 97px;
+}
+.contactsFormWrap{
+    background-color: #fff;
+    float: right;
+    /*height: 548px;  */
+    height: 570px;
+    margin-top: 34px;
+    width: 362px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+    margin-bottom: 56px;
+    margin-right: 100px;
+}
+.contactsFormWrap p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-top: 28px;
+    text-align: center;
+    /*margin-bottom: 20px;*/
+}
+.contactsFormWrap input[type=text]{
+    background-color: #fbfbfb;
+    border: 1px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 54px;
+    margin-bottom: 22px;
+    margin-left: 30px;
+    padding-left: 20px;
+    width: 274px;
+}
+.ReviewsFormWrap {
+    float: right;
+    min-height: 548px;
+    margin-top: 34px;
+    margin-bottom: 56px;
+}
+.questInput{
+    background-color: #fbfbfb;
+    border: 1px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 104px;
+    margin-bottom: 22px;
+    margin-left: 30px;
+    padding-left: 20px;
+    padding-top: 12px;
+    resize: none;
+    width: 274px;
+}
+.contactsFormWrap input[type=submit]{
+    background-color: #fff;
+    border: 2px solid #c7a271;
+    border-radius: 40px;
+    color: #c7a271;
+    cursor: pointer;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-left: 72px;
+    padding: 10px 0;
+    width: 216px;
+}
+.mapContainerContact{
+    height: 522px;
+}
+.noResultBodyWrap{
+    background-color: #F4F4F4;
+    height: 600px;
+}
+.noResultBodyWrap .noResultTitle{
+    color: #627478;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    line-height: 44px;
+    padding-top: 190px;
+    width: 462px;
+}
+.noResultBodyWrap .noResText{
+    color: #485254;
+    font-family: "Walshein_light";
+    font-size: 20px;
+    padding-top: 38px;
+    width: 520px;
+}
+.noResWrapp{
+    background: rgba(0, 0, 0, 0) url("http://www.alpinabook.ru/img/noResultBack.png") no-repeat scroll 662px 35px;
+    height: 600px;
+}
+#map{
+    height: 522px;
+    width: 100%;
+}
+.gmnoprint{
+    display: none;
+}
+.filterParams .active{
+    background-color: #fff;
+    border-radius: 50px;
+}
+.categoryWrapper #block2, .categoryWrapper #block3{
+    display: none;
+}
+.filterParams li:nth-child(2).active p:after, .filterParams li:nth-child(3).active p:after{
+    content: url("http://www.alpinabook.ru/img/filtAftPictHov.png");
+}
+#prodBlock2, #prodBlock3, #prodBlock4{
+    display: none;
+}
+.hidingBasketRight .confirm a{
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    text-decoration: none;
+}
+#cardBlock1, #cardBlock2{
+    display: none;
+}
+.footerMenu p>a{
+    color: #8f8f8f;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    text-decoration: none;
+}
+.elementDescriptWrap .overlay p{
+    /*top: 184px;*/
+    border: 2px solid #ad9069;
+    border-radius: 40px;
+    color: #ad9069;
+    display: block !important;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 6px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    position: relative;
+}
+.breadCrump span a{
+    color: #e4e8ea;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.elementDescriptWrap .keyWords a{
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    color: #424c4f;
+    text-decoration: none;
+}
+#couponInp{
+    border: 1px solid #bababa;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.21) inset;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 35px;
+    margin-top: 10px;
+    text-align: left;
+    width: 200px;
+    display: none;
+}
+.menu li a{
+    text-decoration: none;
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.mainLogoImg{
+    left: 60px;
+    position: absolute;
+    top: 10px;
+}
+.headLogoAnchor{
+    left: 68px;
+    position: absolute;
+    top: 12px;
+}
+.headLogin p{
+    height: 100%;
+    width: 100%;
+}
+.headLogin a{
+    height: 100%;
+    width: 100%;
+}
+.baskHeadMenu a{
+    text-decoration: none;
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+}
+.signinWrapper{
+    background-color: #f4f4f4;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.signinWrapper .active{
+    background-color: #fff;
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    text-transform: none;
+    height: 61px;
+}
+.registratWrapper .active{
+    background-color: #fff;
+    color: #424D4F;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    text-transform: none;
+    height: 61px;
+}
+.registrationLink, .signinLink{
+    background-color: #f4f4f4;
+    color: #00acb8;
+    display: inline-block;
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    height: 58px;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 164px;
+    cursor: pointer;
+}
+.centredWrapper{
+    width: 1140px;
+    margin: 0 auto;
+}
+.signinWrapper .signinBlock{
+    background-color: #ffffff;
+    padding-top: 78px;
+    display: none;
+    margin-bottom: 80px;
+}
+.signinWrapper .registrationBlock{
+    background-color: #ffffff;
+    /*display: none;*/
+    margin-bottom: 78px;
+    padding-bottom: 72px;
+    padding-top: 78px;
+}
+
+.signinWrapper input[type=text]{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 54px;
+    margin: 0 288px 20px;
+    width: 518px;
+    padding: 0 20px;
+}
+.signinWrapper input[type=password]{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 54px;
+    margin: 0 288px;
+    width: 518px;
+    padding: 0 20px;
+}
+.signinWrapper input[type=checkbox] + label::before{
+    background-image: url("http://www.alpinabook.ru/img/emptyChechBox.png");
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 26px;
+    left: -8px;
+    position: relative;
+    top: 8px;
+    width: 26px;
+}
+.signinWrapper input[type=checkbox]:checked + label::before{
+    background-image: url("http://www.alpinabook.ru/img/checkedCheckbox.png");
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 26px;
+    left: -5px;
+    position: relative;
+    top: 11px;
+    width: 26px;
+}
+.signinWrapper .forgotPass{
+    float: right;
+    margin-right: 293px;
+    margin-top: 18px;
+}
+.signinWrapper .remembMeText{
+    color: #434c4f;
+    font-family: "Walshein_medium";
+    font-size: 15px;
+    padding-left: 8px;
+    cursor: pointer;
+}
+.signinWrapper .forgotPass a{
+    text-decoration: none;
+    font-family: "Walshein_medium";
+    font-size: 15px;
+    color: #CEAD81;
+}
+.signinWrapper .remembMeContainer{
+    margin-left: 285px;
+    margin-top: 7px;
+}
+.signinWrapper input[type=submit]{
+    background-color: #ffffff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 28px 462px;
+    padding: 10px 78px;
+    cursor: pointer;
+}
+.signinWrapper .socServisesText{
+    border-top: 1px solid #ebebeb;
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    margin-top: 2px;
+    padding: 32px 427px 0;
+}
+.signinWrapper .socServisesPict{
+    margin: 24px 0 80px 385px;
+    padding-bottom: 76px;
+}
+.signinWrapper .socServisesPict img{
+    margin-right: 22px;
+}
+.signinWrapper .paswordIncorrectly{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 12px;
+    margin-left: 310px;
+    margin-top: 12px;
+}
+.authorisationWrapper{
+    background-color: #ffffff;
+    height: 606px;
+    position: fixed;
+    width: 654px;
+    z-index: 1100;
+    display: none;
+}
+.authWrapper{
+    background-color: #ffffff;
+    height: 606px;
+    width: 654px;
+}
+.authorisationWrapper .title, .authWrapper .title{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    text-align: center;
+}
+.authorisationWrapper input[type="text"], .authWrapper input[type="text"]{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 58px;
+    margin: 0 45px 20px;
+    padding: 0 20px;
+    width: 518px;
+}
+.authorisationWrapper input[type="password"], .authWrapper input[type="password"]{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 58px;
+    margin: 0 45px;
+    padding: 0 20px;
+    width: 518px;
+}
+.authorisationWrapper input[type="checkbox"] + label::before, .authWrapper input[type="checkbox"] + label::before {
+    background-image: url("http://www.alpinabook.ru/img/emptyChechBox.png");
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 26px;
+    left: -8px;
+    position: relative;
+    top: 8px;
+    width: 26px;
+}
+.authorisationWrapper input[type="checkbox"]:checked + label::before, .authWrapper input[type="checkbox"]:checked + label::before {
+    background-image: url("http://www.alpinabook.ru/img/checkedCheckbox.png");
+    background-repeat: no-repeat;
+    content: "";
+    display: inline-block;
+    height: 26px;
+    left: -5px;
+    position: relative;
+    top: 11px;
+    width: 26px;
+}
+.authorisationWrapper .remembMeText, .authWrapper .remembMeText {
+    color: #434c4f;
+    font-family: "Walshein_medium";
+    font-size: 15px;
+    padding-left: 8px;
+    cursor: pointer;
+}
+.authorisationWrapper .forgotPass, .authWrapper .forgotPass {
+    float: right;
+    margin-right: 50px;
+    margin-top: 11px;
+}
+.authorisationWrapper .forgotPass a, .authWrapper .forgotPass a {
+    color: #cead81;
+    font-family: "Walshein_medium";
+    font-size: 15px;
+    text-decoration: none;
+}
+.authorisationWrapper .remembMeContainer, .authWrapper .remembMeContainer{
+    margin-left: 42px;
+    margin-top: 1px;
+}
+.authorisationWrapper input[type="submit"], .authWrapper input[type="submit"] {
+    background-color: #ffffff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 28px 220px;
+    padding: 10px 78px;
+    cursor: pointer;
+}
+.authorisationWrapper .socServisesText, .authWrapper .socServisesText {
+    border-top: 1px solid #ebebeb;
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    margin-top: 5px;
+    padding-top: 32px;
+    text-align: center;
+}
+.authorisationWrapper .socServisesPict, .authWrapper .socServisesPict{
+    margin-bottom: 34px;
+    margin-top: 18px;
+    text-align: center;
+}
+.authorisationWrapper .socServisesPict img, .authWrapper .socServisesPict img{
+    height: 30px;
+    margin: 0 5px;
+}
+.authorisationWrapper .noRegisterText, .authWrapper .noRegisterText{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    text-align: center;
+}
+.authorisationWrapper .onregistrationLink, .authWrapper .onregistrationLink{
+    text-align: center;
+}
+.authorisationWrapper .onregistrationLink a, .authWrapper .onregistrationLink a{
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    color: #00ACB8;
+    text-decoration: none;
+    border-bottom: 1px dashed #00ACB8;
+}
+#authorisationClose{
+    position: absolute;
+    right: 46px;
+    top: -30px;
+    cursor: pointer;
+}
+.changePasWrapper{
+    background-color: #fbfbfb;
+    padding-left: 98px;
+    padding-top: 58px;
+}
+.changePasWrapper .changePasInp{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 54px;
+    margin-top: 22px;
+    padding-left: 20px;
+    width: 526px;
+}
+.changePasWrapper input[type=submit]{
+    background-color: #ffffff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-bottom: 80px;
+    margin-top: 40px;
+    padding: 10px 48px;
+    cursor: pointer;
+}
+.changePasWrapper .infoText{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin: 10px 22px -10px;
+}
+.personal_info_wrapper input[type=submit]{
+    background-color: #ffffff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin-bottom: 80px;
+    margin-top: 40px;
+    padding: 10px 48px;
+    cursor: pointer;
+}
+.personal_info_wrapper input[type=text]{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #8d8d8d;
+    font-family: "Walshein_regular";
+    font-size: 20px;
+    height: 54px;
+    margin-top: 22px;
+    padding-left: 20px;
+    width: 526px;
+}
+.lostPassWrapper, .changePassWrapper{
+    background-color: #F4F4F4;
+}
+.lostPassWrapper .lostPassBlock{
+    background-color: #ffffff;
+    /*height: 306px;*/
+    height: 350px;
+    margin: 40px auto;
+    padding-top: 74px;
+    width: 1140px;
+}
+.lostPassWrapper p, .changePassWrapper p{
+    color: #444f51;
+    font-family: "Walshein_light";
+    font-size: 20px;
+    text-align: center;
+    width:616px;
+    margin:0 auto;
+}
+.lostPassWrapper input[type=text], .changePassWrapper input[type=text]{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #979797;
+    font-family: "Walshein_light";
+    font-size: 20px;
+    height: 56px;
+    margin: 22px 286px;
+    padding: 0 22px;
+    width: 506px;
+}
+.lostPassWrapper input[type=submit]{
+    background-color: #fff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 19px 436px;
+    padding: 10px 26px;
+    cursor: pointer;
+}
+.changePassWrapper {
+    width: 1140px;
+    margin: 0 auto;
+    background: white;
+}
+.changePassWrapper .bx-authform {
+    min-height: 306px;
+    margin: 30px auto;
+    padding-top: 74px;
+    width: 1140px;
+    text-align: center;
+    font-family: "Walshein_regular";
+}
+.changePassWrapper .bx-authform-description-container, .changePassWrapper .bx-authform-link-container {
+    font-size: 15px;
+}
+.changePassWrapper .bx-authform input[type=password]{
+    margin: 0 auto;
+    font-family: "Walshein_light";
+}
+.changePassWrapper input[type=submit]{
+    background-color: #fff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    margin: 0 auto;
+    padding: 10px 26px;
+    cursor: pointer;
+}
+.delItem img{
+    width: 25px;
+    height: 25px;
+}
+.delItem {
+    position: absolute;
+    top: 8px;
+    left: 60px;
+    cursor: pointer;
+    display: none;
+}
+.hidingBasketRight .basketBook:hover .delItem{
+    display: block;
+}
+.quickOrderDiv {
+    position: absolute;
+    z-index: 2000;
+    margin: 0 auto;
+    left: 35%;
+    top: 200px;
+    padding: 25px;
+    background: #fff;
+    font-family: "Walshein_regular";
+}
+.quickOrderDiv input[type=text] {
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #979797;
+    font-family: "Walshein_light";
+    font-size: 18px;
+    padding-right: 22px;
+    width: 223px;
+}
+.quickOrderDiv input[type=button] {
+    background-color: #fff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_regular";
+    font-size: 16px;
+    padding: 10px 26px;
+    cursor: pointer;
+    margin: 12px 29px;
+}
+.notify {
+    font-size: 15px;
+}
+.CloseQuickOffer {
+    position: absolute;
+    top: -10px;
+    right: -13px;
+    cursor: pointer;
+}
+.CloseQuickOffer img {
+    width: 30px;
+}
+.wishlist_info, .del_notify {
+    z-index:1100;
+    position:absolute;
+    display:none;
+    top:250px;
+    left:200px;
+    width:700px;
+    background:white;
+    border:1px solid blue;
+    text-align:center;
+    padding:30px 0;
+    font-family: "Walshein_regular";
+}
+.CloseWishlist {
+    position: absolute;
+    top: -10px;
+    right: -13px;
+    cursor: pointer;
+}
+.CloseWishlist img {
+    width: 30px;
+}
+.wishlistBlock{
+    background-color: #FFFFFF;
+}
+.wishlistBlock .imgContainer{
+    float: left;
+    margin-right: 24px;
+    margin-top: 2px;
+    width:150px;
+    height:100%;
+}
+.wishlistBlock .wishElement{
+    height: 216px;
+    padding-left: 34px;
+    padding-top: 36px;
+    width: 1000px;
+    clear:both;
+}
+.wishlistBlock .wishBookName{
+    color: #434c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.wishlistBlock .wishBookName a{
+    color: #434c4f;
+    text-decoration: none;
+}
+.wishlistBlock .wishBookAutor{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+.wishlistBlock .wishBookAutor a{
+    color: #7b8c90;
+    text-decoration: none;
+}
+
+.wishlistBlock .wishBookPrice{
+    color: #434c4f;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.wishlistBlock .wishBookDescription{
+    color: #909ea3;
+    font-family: "Walshein_light";
+    font-size: 15px;
+    line-height: 23px;
+    overflow: hidden;
+    height:90px;
+}
+.wishlistBlock .wishInBasket{
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-family: "Walshein_medium";
+    font-size: 14px;
+    padding: 10px 48px;
+    text-decoration: none;
+}
+.wishlistBlock .wishDelete{
+    text-decoration: none;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    color: #DB747D;
+}
+.wishlistBlock .inBasketContainer{
+    float: left;
+    margin-right: 16px;
+    margin-top: 34px;
+}
+.wishlistBlock .wishDeleteContainer{
+    margin-top: 32px;
+}
+.wishlistBlock .socialWishWrapper{
+    border-top: 1px solid #ebebeb;
+    height: 46px;
+    margin-top: 34px;
+    padding-top: 14px;
+}
+.wishlistBlock .socialWishText{
+    color: #7b8c90;
+    float: left;
+    font-family: "Walshein_regular";
+    font-size: 13px;
+    margin-left: 32px;
+    margin-right: 46px;
+    margin-top: 8px;
+}
+.wishlistBlock .socServisesPict img{
+    height: 30px;
+    margin-right: 10px;
+}
+.fb-share-button {
+    /*background: url(http://www.alpinabook.ru/img/facebookRegistr.png);*/
+}
+.badge {
+    position: absolute;
+    right: 0;
+}
+.badge img {
+    width:60px !important;
+}
+.sect_badge {
+    position: absolute;
+    right: 5px;
+    z-index: 150;
+}
+.sect_badge img {
+    width: 40px !important;
+    height: 40px !important;
+    box-shadow: none;
+}
+.catalogLogo img{
+    left: 68px !important;
+    top: 12px !important;
+}
+.catalogHeadParagraph{
+    float: left;
+    padding-top: 20px;
+    width: 544px;
+}
+.headFindCatalog{
+    float: left;
+    height: 100%;
+    position: absolute;
+    /* right: 180px;  */
+    right: 213px;
+    /* top: 0; */
+    top: -2px;
+    /* width: 288px; */
+    width: 265px;
+}
+.catalogHeaderTel{
+    position: absolute;
+    right: 492px;
+    top: 20px;
+}
+.bx_ordercart .bx_ordercart_order_pay{
+    margin: 0 auto 0 !important;
+}
+.ContentcatalogIcon {
+    border-radius: 80px;
+    height: 64px;
+    left: 200px;
+    position: absolute;
+    top: 353px;
+    width: 64px;
+    background: #85959a url("http://www.alpinabook.ru/img/catalogIco.png") no-repeat center;
+    cursor: pointer;
+    z-index: 990;
+}
+.ContentcatalogIcon:hover{
+    background: #fff url("http://www.alpinabook.ru/img/catalogLogoMini.png") no-repeat center;
+}
+.ContentbasketIcon {
+    border-radius: 80px;
+    height: 64px;
+    right: 200px;
+    position: absolute;
+    top: 353px;
+    width: 64px;
+    background: #85959a url("http://www.alpinabook.ru/img/basketIco.png") no-repeat center;
+    cursor: pointer;
+    z-index: 990;
+}
+.ContentbasketIcon:hover{
+    background: #fff url("http://www.alpinabook.ru/img/basketIco.png") no-repeat center;
+}
+.info-order, .error_message {
+    display: none;
+}
+.where-order {
+    background-color: #ffffff;
+    height: 390px;
+    position: relative;
+    width: 560px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: "Walshein_regular";
+}
+.where-order input[type=text]{
+    background-color: #fbfbfb;
+    border: 2px solid #f0f0f0;
+    color: #8d8d8d;
+    font-size: 20px;
+    height: 54px;
+    margin-top: 22px;
+    padding-left: 20px;
+    width: 526px;
+    font-family: "Walshein_regular";
+}
+#check-order {
+    background-color: #ffffff;
+    border: 2px solid #c7a271;
+    border-radius: 50px;
+    color: #c7a271;
+    font-size: 19px;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    padding: 10px 48px;
+    cursor: pointer;
+    font-family: "Walshein_regular";
+    margin-left: 177px;
+}
+.where-order-title {
+    font-size: 18px;
+    margin-left: 156px;
+}
+#status-value, #change-value {
+    float: right;
+}
+.warningMessage{
+    color: #9C1521;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-left: 20px;
+    display: none;
+}
+.deliveriWarming{
+    color: #9C1521;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-left: 20px;
+    display: none;
+}
+
+.confirmTopWrap a{
+    display: block;
+    margin-left: 52px;
+    width: 246px;
+}
+.bottomBasketConfirm{
+    display: block;
+    margin-left: 52px;
+    width: 246px;
+}
+.headFindCatalog input[type=submit] {
+    position:absolute;
+    background: url("http://www.alpinabook.ru/img/findLogoMini.png") no-repeat 0px 0px;
+    border:none;
+    width:38px;
+    height:28px;
+    right:-2px;
+    top:19px;
+    cursor:pointer;
+}
+.recenzion {
+    font-family: "Walshein_regular";
+}
+.recenzion .recenz_author_name {
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #627478;
+}
+.recenzion .recenz_text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.aboutAutor .author_info {
+    font-family: "Walshein_regular";
+    float:left;
+}
+.aboutAutor .author_name {
+    font-family: "Walshein_bold";
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #627478;
+}
+.catalogIcon.searchCatalogModified{
+    left: -100px!important;
+}
+.basketIcon.searchBasketModified{
+    right: -100px!important;
+}
+.bookPages{
+    display: none;
+}
+.courierBlock{
+    display: none;
+}
+
+.pickupBlock{
+    display: none;
+}
+.videoWrapp iframe{
+    display:none;
+}
+.search_item_img {
+    width: 155px;
+    height: 200px;
+}
+.item_img {
+    width: 142px;
+    height: 214px;
+    /* display: table-cell;*/
+    text-align: center;
+    vertical-align: middle;
+}
+.howToBodyWrap h1{
+    margin: 0;
+    font-family: "Walshein_regular";
+    color: #424d4f;
+    font-size: 19px;
+}
+.howToBodyWrap{
+    background-color: #f4f4f4;
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.howToBodyWrap p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.howToCatalogWrapper{
+    background: #85959a url("http://www.alpinabook.ru/img/catalogIco.png") no-repeat scroll center center;
+    border-radius: 80px;
+    cursor: pointer;
+    height: 64px;
+    left: 200px;
+    position: absolute;
+    top: 230px;
+    width: 64px;
+    z-index: 990;
+}
+.howToCatalogWrapper:hover {
+    background: #fff url("http://www.alpinabook.ru/img/catalogLogoMini.png") no-repeat center;
+}
+.howToBasketWrapper{
+    background: #85959a url("http://www.alpinabook.ru/img/basketIco.png") no-repeat scroll center center;
+    border-radius: 80px;
+    cursor: pointer;
+    height: 64px;
+    position: absolute;
+    right: 200px;
+    top: 230px;
+    width: 64px;
+    z-index: 990;
+}
+.howToBasketWrapper:hover {
+    background: #fff url("http://www.alpinabook.ru/img/basketIco.png") no-repeat center;
+}
+.whereToBuyBodyWrap{
+    background-color: #f4f4f4;
+    font-family: "Walshein_regular";
+    color: #627478;
+}
+.whereToBuyBodyWrap h1{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+}
+.whereToBuyBodyWrap p{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.whereToBuyBodyWrap .title{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+
+.howToBodyWrap h3{
+    color: #424d4f;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    font-weight: 500;
+}
+.howToBodyWrap li{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+table.form-table th{
+    background: none !important;
+}
+table.form-table th{
+    border: none !important;
+}
+table.form-table th, table.form-table td{
+    border: none !important;
+}
+.section_item_img {
+    height: 215px;
+    width: 142px;
+    text-align: center;
+    vertical-align: middle;
+}
+.element_item_img {
+    width: 264px;
+    height: 394px;
+}
+table.form-table{
+    background-color: #F4F4F4 !important;
+    text-align: right;
+}
+table.form-table tr td:nth-child(2){
+    text-align: left;
+}
+.comingSoonCatIcon{
+    left: -90px !important;
+    top: 50px !important;
+}
+.comingSoonBasIcon{
+    right: -90px !important;
+    top: 50px !important;
+}
+.reg_text {
+    font-family: "Walshein_regular";
+    font-size:17px;
+}
+.image_visa {
+    background-image: url(http://www.alpinabook.ru/img/payImg.png);
+    width: 55px;
+    height: 30px;
+    position: absolute;
+    top: 69px;
+    right: 155px;
+    background-repeat: no-repeat;
+}
+.image_mastercard {
+    background-image: url(http://www.alpinabook.ru/img/payImg.png);
+    background-position-x: -66px;
+    width: 57px;
+    height: 34px;
+    position: absolute;
+    top: 69px;
+    right: 85px;
+    background-position: -66px center;
+    background-repeat: no-repeat;
+}
+.image_yandexmoney {
+    background-image: url(http://www.alpinabook.ru/img/payImg.png);
+    background-position-x: -129px;
+    width: 39px;
+    height: 33px;
+    position: absolute;
+    top: 69px;
+    right: 43px;
+    background-position: -128px center;
+    background-repeat: no-repeat;
+}
+.image_webmoney {
+    background-image: url(http://www.alpinabook.ru/img/payImg.png);
+    background-position-x: -178px;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    top: 69px;
+    right: 0px;
+    background-position: -178px center;
+    background-repeat: no-repeat;
+}
+.image_iml {
+    background-image: url(http://www.alpinabook.ru/img/shipimg.png);
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    top: 76px;
+    right: 213px;
+    background-repeat: no-repeat;
+
+}
+.image_pickpoint {
+    background-image: url(http://www.alpinabook.ru/img/shipimg.png);
+    width: 113px;
+    height: 30px;
+    position: absolute;
+    top: 76px;
+    right: 90px;
+    background-position: -62px center;
+    background-repeat: no-repeat;
+}
+.image_russianpost {
+    background-image: url(http://www.alpinabook.ru/img/shipimg.png);
+    width: 72px;
+    height: 34px;
+    position: absolute;
+    top: 76px;
+    right: 10px;
+    background-position: -180px 0;
+    background-repeat: no-repeat;
+}
+.slidingDelivMenu{
+    left: -570px;
+    margin-left: 50%;
+    position: fixed;
+    top: 40px;
+}
+.wrapperCategor .filterParams li p a{
+    color:#627478 !important;
+}
+.editorsCatalogIcon{
+    left: -105px;
+    top: 48px;
+}
+.editorsBasketIcon{
+    right: -105px;
+    top: 48px;
+}
+.item_img img{
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+.allBooksWrapp .titleMain a{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+}
+.footerMenu a:hover{
+    color: #fff !important;
+}
+.orderHistorWrap h3{
+    color: #424d4f;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    font-weight: 500;
+}
+.orderHistorWrap a{
+    color: #424d4f;
+}
+.howToBodyWrap{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+}
+.webServ a{
+
+}
+.saleWrapp .bookPriceLine {
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    text-decoration:line-through;
+}
+.saleWrapp .saleSlider .left,
+.saleWrapp .saleSlider .right{
+    display: none;
+}
+.showAllWrapp{
+    /*height: 554px;*/
+    overflow: hidden;
+    padding-bottom: 22px;
+    position: relative;
+}
+.readMore{
+    background-color: #f4f4f4;
+    bottom: -4px;
+    color: #00ABB8;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 100%;
+}
+.giftWrapBlock {
+    padding-top: 5px;
+    padding-bottom: 60px;
+    min-height: 150px;
+    overflow: hidden;
+    border-bottom: 1px solid #e2e2e2;
+}
+.EditorChoiceWrapp {
+    height: 100%;
+    padding-bottom: 30px;
+}
+.auth_note {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Walshein_regular";
+    font-size: 15px;
+    color: red;
+}
+.bestSlider .rigth, .bestSlider .left{
+    display: none;
+}
+.section_item_img img{
+    box-shadow: 0 9px 5px 0 rgba(0, 0, 0, 0.18), 0 10px 7px 0 rgba(0, 0, 0, 0.14);
+}
+.bookWrapp .basketBook {
+    border: 2px solid #c7a271;
+    border-radius: 40px;
+    color: #c7a271;
+    cursor: pointer;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    margin: 16px 10px 0;
+    padding: 6px 5px;
+    text-align: center;
+    width: 122px;
+}
+.wrapperType{
+    color: #7b8c90;
+    font-family: "Walshein_regular";
+    font-size: 14px;
+    padding-top: 10px;
+}
+.categoryWrapper .sliderElementMin{
+    display: block;
+    float: left;
+}
+
+.item_img > img{
+    /*width: 142px;
+    height: 214px; */
+}
+.contacsFormMessage{
+    background: white none repeat scroll 0 0;
+    border: 1px solid blue;
+    display: block;
+    left: 200px;
+    padding: 30px 0;
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    width: 700px;
+    z-index: 1100;
+}
+.reviewsBlockDetail .reviewImgContain{
+    border-radius: 90px;
+    float: left;
+    height: 150px;
+    overflow: hidden;
+    width: 150px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.reviewsBlockDetail .reviewDatail{
+    clear: both;
+    margin-bottom: 32px;
+}
+.reviewsBlockDetail .autor{
+    float: right;
+}
+.contacsPopupTitle{
+    color: #4e585a;
+    font-family: "Walshein_black";
+    font-size: 42px;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+.popupDeliveryWrapper{
+    padding: 0 20px;
+}
+.popupDeliveryWrapper .deliveryTextWrap{
+    width: auto !important;
+}
+.popupAbout{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 17px;
+    padding: 0 20px;
+}
+.popupAbout h3{
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+}
+.popupAbout p{
+
+}
+
+.authorsContent {
+    padding-bottom: 48px;
+    padding-top: 48px;
+    font-family: "Walshein_regular";
+    color: #627478;
+    font-size: 17px;
+}
+
+.authorsContent a{
+    border-bottom: 1px dashed;
+    color: #00a0af;
+    text-decoration: none;
+}
+
+.authorsContent .title {
+    color: #627478;
+    font-family: "Walshein_regular";
+    font-size: 24px;
+    padding-bottom: 40px;
+    padding-top: 32px;
+}
+
+.authorsContent .inputtext {
+    background-color: #fdfdfd !important;
+    border: 1px solid #c1c5c8 !important;
+    box-shadow: none !important;
+    color: #353535 !important;
+    font-family: "Walshein_regular" !important;
+    font-size: 14px !important;
+    height: 34px !important;
+    padding: 0 0 0 14px !important;
+    width: 255px !important;
+    border-radius: 2px;
+}
+
+.authorsContent .inputtextarea{
+    background-color: #fdfdfd !important;
+    border: 1px solid #c1c5c8 !important;
+    box-shadow: none !important;
+    color: #353535 !important;
+    font-family: "Walshein_regular" !important;
+    font-size: 14px !important;
+    width: 264px !important;
+    resize: none;
+}
+
+.authorsContent .hide {
+    display: none;
+
+.authorsContent .submit {
+    margin-top: 20px;
+    background-color: #00a0af;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-family: "Walshein_regular";
+    font-size: 19px;
+    padding: 13px 48px;
+    text-decoration: none;
+}
+
+.exitA a{
+    color: #fff !important;
+    padding-left: 30px;
+}
+	

@@ -62,7 +62,7 @@ if ($_REQUEST["PAGEN_" . $navnum]) {
             <link itemprop="url" href="<?=$_SERVER['REQUEST_URI']?>" />
 
             <h1 itemprop="name"><?=$GLOBALS["NAME"]?></h1>
-			
+
 			<?
 			$arData = array();
 			$arSelect = Array("ID", "NAME", "DETAIL_PAGE_URL");
@@ -71,16 +71,16 @@ if ($_REQUEST["PAGEN_" . $navnum]) {
 			while($ob = $res->GetNextElement()) {
 				$arData[] = $ob->GetFields();
 			}
-			
+
 			if(count($arData) > 0):
-			?> 
+			?>
 			<div class="doner_tags">
 				<span>Популярные категории</span>
 				<?foreach($arData as $data):?>
 				<a href="<?=$data["DETAIL_PAGE_URL"]?>"><?=$data["NAME"]?></a>
 				<?endforeach;?>
 			</div>
-			
+
 			<?endif;?>
 
          <div class="otherBooks" id="block1" style="margin-top:50px">
@@ -177,33 +177,40 @@ if ($_REQUEST["PAGEN_" . $navnum]) {
 
                         $gdeslon .= $arItem['ID'].':'.ceil($arPrice["DISCOUNT_VALUE_VAT"]).',';
 
-                         $gtmEcommerceImpressions .= "{";
-                         $gtmEcommerceImpressions .= "'name': '" . $arItem["NAME"] . "',";
-                         $gtmEcommerceImpressions .= "'id': '" . $arItem['ID'] . "',";
-                         $gtmEcommerceImpressions .= "'price': '" . ceil($arPrice["DISCOUNT_VALUE_VAT"]) . "',";
-                         $gtmEcommerceImpressions .= "'category': '" . $arResult["NAME"] . "',";
-                         $gtmEcommerceImpressions .= "'list': 'category - " . $arResult["NAME"] . "',";
-                         $gtmEcommerceImpressions .= "'position': '" . ($cell+1) . "'";
-                         $gtmEcommerceImpressions .= "},";
+                        if(!empty($arResult["ORIGINAL_PARAMETERS"]["TAG_CODE"])) {
+                            $tagCode = $arResult["ORIGINAL_PARAMETERS"]["TAG_CODE"];
+                            $arSelectTag = Array("ID", "NAME");
+                            $arFilterTag = Array("IBLOCK_ID" => IBLOCK_ID_TAGGED_PAGES, "ACTIVE"=>"Y", "CODE" => $tagCode);
+                            $resTag = CIBlockElement::GetList(Array(), $arFilterTag, false, Array(), $arSelectTag);
+                            $arTag = $resTag->fetch();
+                        }
 
-                         }
-                         ?>
+                        $gtmEcommerceImpressions .= "{";
+                        $gtmEcommerceImpressions .= "'name': '" . $arItem["NAME"] . "',";
+                        $gtmEcommerceImpressions .= "'id': '" . $arItem['ID'] . "',";
+                        $gtmEcommerceImpressions .= "'price': '" . ceil($arPrice["DISCOUNT_VALUE_VAT"]) . "',";
+                        $gtmEcommerceImpressions .= "'category': '" . $arTag["NAME"] . "',";
+                        $gtmEcommerceImpressions .= "'list': 'category - " . $arTag["NAME"] . "',";
+                        $gtmEcommerceImpressions .= "'position': '" . ($cell+1) . "'";
+                        $gtmEcommerceImpressions .= "},";
 
+                     }
+                     ?>
+                <?if(!empty($arTag)) {?>
+                    <script type="text/javascript">
+                         <!-- //dataLayer GTM -->
+                         dataLayer.push({
+                             'categoryName' : '<?= $arTag["NAME"]?>',
+                             'categoryId' : '0<?= $arTag['ID'];?>',
+                             'ecommerce': {
+                                 'impressions': [
+                                     <?= $gtmEcommerceImpressions?>
+                                 ]
+                             }
 
-                <script type="text/javascript">
-                     <!-- //dataLayer GTM -->
-                     dataLayer.push({
-                         'categoryName' : '<?= $arResult["NAME"]?>',
-                         'categoryId' : '<?= $arResult['ID'];?>',
-                         'ecommerce': {
-                             'impressions': [
-                                 <?= $gtmEcommerceImpressions?>
-                             ]
-                         }
-
-                     });
-                     <!-- // dataLayer GTM -->
-                 </script>
+                         });
+                     </script>
+                <?}?>
                 <!-- gdeslon -->
                 <script type="text/javascript" src="https://www.gdeslon.ru/landing.js?mode=list&amp;codes=<?=substr($gdeslon,0,-1)?>&amp;mid=79276&amp;cat_id=<?= $arResult['ID'];?>"></script>
 

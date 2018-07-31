@@ -3080,6 +3080,19 @@
             "items_id"	=> "menu_webgk.accordpost_export",
             "items"		=> array()
         );
+
+        $moduleMenu[] = array(
+            "parent_menu" => "global_menu_store",
+            "section"	  => "webgk.accordpost_export",
+            "sort"		  => 110,
+            "url"		  => "sale_order_filter.php?lang=".LANG,
+            "text"		  => 'Фильтр заказов по разделам книг',
+            "title"		  => 'Фильтр заказов по разделам книг',
+            "icon"		  => "form_menu_icon",
+            "page_icon"   => "form_page_icon",
+            "items_id"	  => "menu_webgk.accordpost_export",
+            "items"		  => array()
+        );
     }
 
     AddEventHandler("sale", "OnSaleCancelOrder", "changingOrderStatusAfterCancelling");

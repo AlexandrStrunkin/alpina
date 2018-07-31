@@ -184,8 +184,8 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 									if(typeof controlInApater.vars.cache.nodes['other'] == 'undefined')
 									{
 										controlInApater.fillCache([{
-											CODE:		'other', 
-											DISPLAY:	ctx.options.messages.otherLocation, 
+											CODE:		'other',
+											DISPLAY:	ctx.options.messages.otherLocation,
 											IS_PARENT:	false,
 											VALUE:		'other'
 										}], {
@@ -447,13 +447,13 @@ BX.saleOrderAjax = { // bad solution, actually, a singleton at the page
 function postamat(path){
     var postamat = $('#sPPDelivery').val();
      console.log(postamat);
-    if(postamat != 'не выбрано'){
-       path = false; 
+    if(postamat != 'пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ'){
+       path = false;
     }else{
-       path = true;  
+       path = true;
     }
     return path;
-}                
+}
 
 function focus_imput() {
     $(".clientInfoWrap input").focus(function() {
@@ -468,6 +468,5 @@ function focus_imput() {
     });
 };
 //function form_delivery(){
- 
+
 //}
-                                                                                                                                                 

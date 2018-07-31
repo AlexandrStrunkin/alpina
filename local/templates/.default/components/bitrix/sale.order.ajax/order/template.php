@@ -157,7 +157,7 @@ function date_deactive(){    // ограничение вывода достав
         $count_dev++;
     }
         ?>
-  
+
 <script>
 	window.THIS_TEMPLATE_PATH = '<?= $templateFolder ?>';
 	window.GURU_DELIVERY_ID = '<?= GURU_DELIVERY_ID ?>';
@@ -186,6 +186,8 @@ function date_deactive(){    // ограничение вывода достав
             internationalLocation = <?=$internationalLocationID?>;
         <?}?>
 
+        delivery_m = '<?=DELIVERY_M?>';
+
         $("#ORDER_PROP_24, #ORDER_PROP_11").on("keyup", function(e){
             if(locationID != internationalLocation && locationID != delivery_m) {
                 if(e.currentTarget.value.length < 2) {
@@ -199,9 +201,8 @@ function date_deactive(){    // ограничение вывода достав
                  $('#ORDER_PROP_24,#ORDER_PROP_11').val('+7');
             }
         }
-        delivery_m = '<?=DELIVERY_M?>';
         if ($.browser.msie && $.browser.version <= 9) {
-        
+
         } else {
 
             if(locationID == delivery_m) {
@@ -931,7 +932,7 @@ function date_deactive(){    // ограничение вывода достав
                                         /* Вызывается, когда пользователь выбирает одну из подсказок */
                                         onSelect: function(suggestion) {
                                             $("#ORDER_PROP_10").val(suggestion['value']);
-                                            $("#ORDER_PROP_15").val(suggestion['data']['inn']);            
+                                            $("#ORDER_PROP_15").val(suggestion['data']['inn']);
                                             $("#ORDER_PROP_16").val(suggestion['data']['kpp']);
                                             $("#ORDER_PROP_8").html(suggestion['data']['address']["data"]["postal_code"] + ', ' + suggestion['data']['address']['unrestricted_value']);
                                             console.log(suggestion);

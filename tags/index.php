@@ -2,8 +2,9 @@
 <?
 $code = explode('/',$_SERVER['REQUEST_URI']);
 $arData = array();
+$tagCode = $code[2];
 $arSelect = Array("ID", "NAME", "DETAIL_PAGE_URL", "PROPERTY_THIS_ELEMENT");
-$arFilter = Array("IBLOCK_ID" => 80, "ACTIVE"=>"Y", "CODE" => $code[2]);
+$arFilter = Array("IBLOCK_ID" => 80, "ACTIVE"=>"Y", "CODE" => $tagCode);
 $res = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
 while($ob = $res->GetNextElement()) {
 	$arData = $ob->GetFields();
@@ -17,7 +18,7 @@ $ipropValues = new \Bitrix\Iblock\InheritedProperty\ElementValues(
 	$arData["ID"]
 );
 $arSection["IPROPERTY_VALUES"] = $ipropValues->getValues();
-	
+
 if($arSection["IPROPERTY_VALUES"]["ELEMENT_META_TITLE"]){
     $APPLICATION->SetPageProperty("title", $arSection["IPROPERTY_VALUES"]["ELEMENT_META_TITLE"]);
 }
@@ -31,8 +32,8 @@ $arrFilter = array("ID" => $arProps['THIS_ELEMENT']['VALUE']);
 
 
 <?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section", 
-	"ajax_tag", 
+	"bitrix:catalog.section",
+	"ajax_tag",
 	array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_PICT_PROP" => "-",
@@ -68,6 +69,7 @@ $arrFilter = array("ID" => $arProps['THIS_ELEMENT']['VALUE']);
 		"ELEMENT_SORT_ORDER2" => "asc",
 		"ENLARGE_PRODUCT" => "STRICT",
 		"FILTER_NAME" => "arrFilter",
+		"TAG_CODE" => $tagCode,
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
 		"IBLOCK_ID" => "4",
