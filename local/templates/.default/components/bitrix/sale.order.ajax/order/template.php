@@ -201,11 +201,18 @@ function date_deactive(){    // ограничение вывода достав
                  $('#ORDER_PROP_24,#ORDER_PROP_11').val('+7');
             }
         }
+
         if ($.browser.msie && $.browser.version <= 9) {
 
         } else {
 
             if(locationID == delivery_m) {
+
+                //Так надо
+                $("#ORDER_PROP_24").val("");   //для физлица
+                $("#ORDER_PROP_11").val(""); //для юрлица
+                $("#pp_sms_phone").val("");
+
                 $("#ORDER_PROP_24").mask("(999)999-99-99-99-99");   //для физлица
                 $("#ORDER_PROP_11").mask("(999)999-99-99-99-99");  //для юрлица
                 $("#pp_sms_phone").mask("99999999999999");
@@ -231,7 +238,7 @@ function date_deactive(){    // ограничение вывода достав
         $('body').on('change', '#ORDER_PROP_11', function(){
             $('#pp_sms_phone').val($('#ORDER_PROP_11').val());
         });     */
-        $('#ORDER_PROP_24').focusout(function(){
+        /*$('#ORDER_PROP_24').focusout(function(){
             var val_phone = $('#ORDER_PROP_24').val();
             if(val_phone){
                 document.getElementById('pp_sms_phone').value = val_phone.replace(/[^0-9]/g, '');
@@ -241,7 +248,7 @@ function date_deactive(){    // ограничение вывода достав
         $('#ORDER_PROP_11').focusout(function(){
             var val_phone = $('#ORDER_PROP_11').val();
             document.getElementById('pp_sms_phone').value = val_phone.replace(/[^0-9]/g, '');
-        });
+        });*/
         /*-----
         * RFI Bank tab switcher
         * ----*/
@@ -441,11 +448,11 @@ function date_deactive(){    // ограничение вывода достав
         //$('.quick-location-tag[data-id="' + locationID + '"]').attr("style", 'background: #00a0af !important; color: white !important;');
 		$('.quick-location-tag[data-id="' + locationID + '"]').addClass('addCircle');
 
-		$('#ORDER_PROP_24, #ORDER_PROP_11').bind("change keyup input click", function() {
+		/*$('#ORDER_PROP_24, #ORDER_PROP_11').bind("change keyup input click", function() {
 			if (this.value.match(/[^\(\)\-\+0-9]/g)) {
 				this.value = this.value.replace(/[^\(\)\-\+0-9]/g, '');
 			}
-		});
+		});*/
 
         $("body #ORDER_PROP_133").keypress(function (e) {
             if(($(this).val().length)+1 == 4){
@@ -668,7 +675,7 @@ function date_deactive(){    // ограничение вывода достав
                                     // дополнительная проверка полей и вывод ошибки
                                     if (val == "Y")
                                     {
-                                        if($("#ORDER_PROP_11").size() > 0 && $("#ORDER_PROP_11").val().length < 16){
+                                        if($("#ORDER_PROP_11").size() > 0 && $("#ORDER_PROP_11").val().length < 10){
                                             flag = false;
                                             $('#ORDER_PROP_11').parent("div").children(".warningMessage").show();
                                         }
@@ -734,7 +741,7 @@ function date_deactive(){    // ограничение вывода достав
                                             dataLayer.push({event: 'EventsInCart', action: '2nd Step', label: 'errorDeliveryAddress'});
                                         }
 
-                                        if($("#ORDER_PROP_24").size() > 0 && isTelephone($('#ORDER_PROP_24').val()) == false){
+                                        if($("#ORDER_PROP_24").size() > 0 && $("#ORDER_PROP_24").val().length < 10){
                                             flag = false;
                                             $('#ORDER_PROP_24').parent("div").children(".warningMessage").show();
                                             var scrollTop = $('#ORDER_PROP_24').offset().top;

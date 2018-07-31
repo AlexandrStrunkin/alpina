@@ -283,7 +283,7 @@ $(document).ready(function(){
         $(".saleSlider .left").hide();
         $(".saleSlider .right").hide();
     }
-    
+
     if ($(".otherEasySlider ul li").size() < 6) {
         $(".otherEasySlider .left").hide();
         $(".otherEasySlider .rigth").hide();
@@ -472,12 +472,12 @@ $(document).ready(function(){
             if ($("#prodBlock3").css("display") == "block") {
                 $("#prodBlock3").css("height", $(".ReviewsFormWrap").height() + 90);
             }
-            
+
             //пишем ссылку в урл
             if ($(this).find("a").attr("href") != "") {
                 history.pushState(null, null, $(this).find("a").attr("href"));
             }
-            
+
         })
     }
 
@@ -946,11 +946,11 @@ $(document).ready(function(){
     $('body').on('click', '#altasib_geobase_btn', function(){
         altasib_geobase.sc_onclk();
     })
-	
+
 	$(".stopProp").click(function(e){
 		e.stopPropagation();
 	});
-	
+
 	$(".catalogIcon").html("<span>Каталог</span>");
 	$(".basketIcon").html("<span>Корзина</span>");
 });
@@ -1011,21 +1011,31 @@ function update_basket(e)
 }
 function delete_href(id){
     setTimeout(function() {
-        $('.product'+id).attr('href', '') 
+        $('.product'+id).attr('href', '')
     }, 150);
 }
+
+function addToCartTracking(productid, name, product_status) {
+    //Функция нужна чтобы не вызывать ошибок там где она объявлена, подробностей не знаю
+}
+
 function addtocart(productid, name, product_status) {
     //product_status 22-нет в наличии;
+    if(window.block_add_to_cart) {
+        return false;
+    }
+    window.block_add_to_cart = true;
+
     quantity = $(".transparent_input").val();
-    
+
 	$(".inBasket").hide();
 	$("#loadingInfo").show();
 
 	$("a.product"+productid).find(".basketBook").css("background-color", "#A9A9A9");
     $("a.product"+productid).removeAttr("onclick");
+    
     $.post('/ajax/ajax_add2basket.php', {action: "add", productid: productid, quantity:quantity, product_status:product_status}, function(data)
         {
-
 			$("#loadingInfo").hide();
 			$(".inBasket").show();
             $(".inBasket").css("background-color", "#A9A9A9");
@@ -1040,7 +1050,7 @@ function addtocart(productid, name, product_status) {
             $("#wishItem_"+productid+" a").attr("href", "/personal/cart");
             $("#wishItem_"+productid+" a").attr("title", "Перейти в корзину");
             $(".inBasket").closest("a").removeAttr("onclick");
-           
+
             if ($("a.product"+productid).length > 0)
             {
                 // для раздела каталога и карточки товара
@@ -1064,9 +1074,11 @@ function addtocart(productid, name, product_status) {
             //$(".wrap_prise_top").load(window.location.href + " .wrap_prise_top > *");
 			$('.busket_senk').show();
 			setTimeout(function(){$('.busket_senk').fadeOut('fast')},2000);
+            window.block_add_to_cart = false;
             return false;
     })
 }
+
 function addtocart_fromwishlist (productid, name, product_status) {
 	$(".loadingInfo_"+productid).show();
 	$(".wishlistBlock").find("a#wishItem_"+productid).hide();
@@ -1918,11 +1930,11 @@ function docReadyComponent(id) {
 	NProgress.set(0.6);
 	setTimeout(function() { NProgress.done();}, 200);
 	//Progress Bar END
-	
+
 	$(".stopProp").click(function(e){
 		e.stopPropagation();
 	});
-	
+
 	$(".catalogIcon").html("<span>Каталог</span>");
 	$(".basketIcon").html("<span>Корзина</span>");
 }
@@ -3057,8 +3069,8 @@ function closeInfo() {
     $("body").css('overflow','auto');
 }
 // попап окно при загрузке страницы
-$(document).ready(function() { 
-    $(".stopProp").click(function(e) { e.stopPropagation(); }); 
+$(document).ready(function() {
+    $(".stopProp").click(function(e) { e.stopPropagation(); });
     $(".subscribeForm input[type=email]").keydown(function(event){
         if(event.keyCode == 13) {
           var email = $(".subscribeForm input[type=email]").val();
@@ -3072,7 +3084,7 @@ $(document).ready(function() {
 function subscribe() {var emailAddres = $(".subscribeForm input[type=email]").val();var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;if (regex.test(emailAddres)){$.post("/ajax/request_add.php", {email: $(".subscribeForm input[type=email]").val()}, function(data){$(".errorinfo").hide();$("#subpop form").html(data);})}else{$(".errorinfo").show();$(".errorinfo").html("Кажется, вы ошиблись в написании своего адреса");}}
 function setCloseCookie() {$.post("/ajax/request_add.php", {close: "y"}, function(data){closeX();})}
 
-            
+
 //instafeed
 (function(){var e;e=function(){function e(e,t){var n,r;this.options={target:"instafeed",get:"popular",resolution:"thumbnail",sortBy:"none",links:!0,mock:!1,useHttp:!1};if(typeof e=="object")for(n in e)r=e[n],this.options[n]=r;this.context=t!=null?t:this,this.unique=this._genKey()}return e.prototype.hasNext=function(){return typeof this.context.nextUrl=="string"&&this.context.nextUrl.length>0},e.prototype.next=function(){return this.hasNext()?this.run(this.context.nextUrl):!1},e.prototype.run=function(t){var n,r,i;if(typeof this.options.clientId!="string"&&typeof this.options.accessToken!="string")throw new Error("Missing clientId or accessToken.");if(typeof this.options.accessToken!="string"&&typeof this.options.clientId!="string")throw new Error("Missing clientId or accessToken.");return this.options.before!=null&&typeof this.options.before=="function"&&this.options.before.call(this),typeof document!="undefined"&&document!==null&&(i=document.createElement("script"),i.id="instafeed-fetcher",i.src=t||this._buildUrl(),n=document.getElementsByTagName("head"),n[0].appendChild(i),r="instafeedCache"+this.unique,window[r]=new e(this.options,this),window[r].unique=this.unique),!0},e.prototype.parse=function(e){var t,n,r,i,s,o,u,a,f,l,c,h,p,d,v,m,g,y,b,w,E,S,x,T,N,C,k,L,A,O,M,_,D;if(typeof e!="object"){if(this.options.error!=null&&typeof this.options.error=="function")return this.options.error.call(this,"Invalid JSON data"),!1;throw new Error("Invalid JSON response")}if(e.meta.code!==200){if(this.options.error!=null&&typeof this.options.error=="function")return this.options.error.call(this,e.meta.error_message),!1;throw new Error("Error from Instagram: "+e.meta.error_message)}if(e.data.length===0){if(this.options.error!=null&&typeof this.options.error=="function")return this.options.error.call(this,"No images were returned from Instagram"),!1;throw new Error("No images were returned from Instagram")}this.options.success!=null&&typeof this.options.success=="function"&&this.options.success.call(this,e),this.context.nextUrl="",e.pagination!=null&&(this.context.nextUrl=e.pagination.next_url);if(this.options.sortBy!=="none"){this.options.sortBy==="random"?M=["","random"]:M=this.options.sortBy.split("-"),O=M[0]==="least"?!0:!1;switch(M[1]){case"random":e.data.sort(function(){return.5-Math.random()});break;case"recent":e.data=this._sortBy(e.data,"created_time",O);break;case"liked":e.data=this._sortBy(e.data,"likes.count",O);break;case"commented":e.data=this._sortBy(e.data,"comments.count",O);break;default:throw new Error("Invalid option for sortBy: '"+this.options.sortBy+"'.")}}if(typeof document!="undefined"&&document!==null&&this.options.mock===!1){m=e.data,A=parseInt(this.options.limit,10),this.options.limit!=null&&m.length>A&&(m=m.slice(0,A)),u=document.createDocumentFragment(),this.options.filter!=null&&typeof this.options.filter=="function"&&(m=this._filter(m,this.options.filter));if(this.options.template!=null&&typeof this.options.template=="string"){f="",d="",w="",D=document.createElement("div");for(c=0,N=m.length;c<N;c++){h=m[c],p=h.images[this.options.resolution];if(typeof p!="object")throw o="No image found for resolution: "+this.options.resolution+".",new Error(o);E=p.width,y=p.height,b="square",E>y&&(b="landscape"),E<y&&(b="portrait"),v=p.url,l=window.location.protocol.indexOf("http")>=0,l&&!this.options.useHttp&&(v=v.replace(/https?:\/\//,"//")),d=this._makeTemplate(this.options.template,{model:h,id:h.id,link:h.link,type:h.type,image:v,width:E,height:y,orientation:b,caption:this._getObjectProperty(h,"caption.text"),likes:h.likes.count,comments:h.comments.count,location:this._getObjectProperty(h,"location.name")}),f+=d}D.innerHTML=f,i=[],r=0,n=D.childNodes.length;while(r<n)i.push(D.childNodes[r]),r+=1;for(x=0,C=i.length;x<C;x++)L=i[x],u.appendChild(L)}else for(T=0,k=m.length;T<k;T++){h=m[T],g=document.createElement("img"),p=h.images[this.options.resolution];if(typeof p!="object")throw o="No image found for resolution: "+this.options.resolution+".",new Error(o);v=p.url,l=window.location.protocol.indexOf("http")>=0,l&&!this.options.useHttp&&(v=v.replace(/https?:\/\//,"//")),g.src=v,this.options.links===!0?(t=document.createElement("a"),t.href=h.link,t.appendChild(g),u.appendChild(t)):u.appendChild(g)}_=this.options.target,typeof _=="string"&&(_=document.getElementById(_));if(_==null)throw o='No element with id="'+this.options.target+'" on page.',new Error(o);_.appendChild(u),a=document.getElementsByTagName("head")[0],a.removeChild(document.getElementById("instafeed-fetcher")),S="instafeedCache"+this.unique,window[S]=void 0;try{delete window[S]}catch(P){s=P}}return this.options.after!=null&&typeof this.options.after=="function"&&this.options.after.call(this),!0},e.prototype._buildUrl=function(){var e,t,n;e="https://api.instagram.com/v1";switch(this.options.get){case"popular":t="media/popular";break;case"tagged":if(!this.options.tagName)throw new Error("No tag name specified. Use the 'tagName' option.");t="tags/"+this.options.tagName+"/media/recent";break;case"location":if(!this.options.locationId)throw new Error("No location specified. Use the 'locationId' option.");t="locations/"+this.options.locationId+"/media/recent";break;case"user":if(!this.options.userId)throw new Error("No user specified. Use the 'userId' option.");t="users/"+this.options.userId+"/media/recent";break;default:throw new Error("Invalid option for get: '"+this.options.get+"'.")}return n=e+"/"+t,this.options.accessToken!=null?n+="?access_token="+this.options.accessToken:n+="?client_id="+this.options.clientId,this.options.limit!=null&&(n+="&count="+this.options.limit),n+="&callback=instafeedCache"+this.unique+".parse",n},e.prototype._genKey=function(){var e;return e=function(){return((1+Math.random())*65536|0).toString(16).substring(1)},""+e()+e()+e()+e()},e.prototype._makeTemplate=function(e,t){var n,r,i,s,o;r=/(?:\{{2})([\w\[\]\.]+)(?:\}{2})/,n=e;while(r.test(n))s=n.match(r)[1],o=(i=this._getObjectProperty(t,s))!=null?i:"",n=n.replace(r,function(){return""+o});return n},e.prototype._getObjectProperty=function(e,t){var n,r;t=t.replace(/\[(\w+)\]/g,".$1"),r=t.split(".");while(r.length){n=r.shift();if(!(e!=null&&n in e))return null;e=e[n]}return e},e.prototype._sortBy=function(e,t,n){var r;return r=function(e,r){var i,s;return i=this._getObjectProperty(e,t),s=this._getObjectProperty(r,t),n?i>s?1:-1:i<s?1:-1},e.sort(r.bind(this)),e},e.prototype._filter=function(e,t){var n,r,i,s,o;n=[],r=function(e){if(t(e))return n.push(e)};for(i=0,o=e.length;i<o;i++)s=e[i],r(s);return n},e}(),function(e,t){return typeof define=="function"&&define.amd?define([],t):typeof module=="object"&&module.exports?module.exports=t():e.Instafeed=t()}(this,function(){return e})}).call(this);
 function changeFeed(e){switch($("#instafeed").empty(),e){case"ap":default:userId=234788880,accessToken="234788880.1677ed0.b4707b411f044b99985f95f1b044d7e7",$(".fs-wrapper").show(),$("#instafeed").hide();break;case"anf":userId=526445861,accessToken="526445861.1677ed0.83228ef97e3f46859b97e833e93b0ba9",$("#instafeed").show(),$(".fs-wrapper").hide();break;case"ad":userId=3089843803,accessToken="3089843803.1677ed0.84b6545b2f6e474397dbbd59bc78c6f2",$("#instafeed").show(),$(".fs-wrapper").hide()}$(".instafeed div").removeClass("active"),new Instafeed({get:"user",userId:userId,accessToken:accessToken,limit:14,resolution:"low_resolution",mock:!1,useHttp:!1,template:'<a class="lazy" style="display:block;float:left;background-position: center center;background-repeat: no-repeat;-ms-background-size: cover;-webkit-background-size: cover;-o-background-size: cover;-moz-background-size: cover;background-size: cover; background-image:url({{image}});" href="{{link}}" target="_blank"><span class="instagram-{{type}}"></span><div class="hover-layer"><span class="likes"><img src="/include/instagram/likes.svg" /> &nbsp;{{likes}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="width:20px; height:auto" src="/include/instagram/comment.svg" /> &nbsp;{{comments}}</span></div></a>',after:function(){"use strict";$(".lazy").show(),$("."+e).addClass("active")}}).run()}$(document).ready(function(){changeFeed("ap")});

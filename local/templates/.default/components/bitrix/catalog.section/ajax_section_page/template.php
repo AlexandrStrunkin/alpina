@@ -36,15 +36,15 @@ if ($_REQUEST["PAGEN_" . $navnum]) {
     //$_SESSION[$APPLICATION -> GetCurDir()] = $_REQUEST["PAGEN_" . $navnum];
 }
 if($arResult["ID"] == SECTION_ID_FOR_CHILDREN){
-    $for_chyldren = "";    
+    $for_chyldren = "";
 }
 $is_bot_detected = false;
 if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|mediapartners/i', $_SERVER['HTTP_USER_AGENT'])) {
-    $is_bot_detected = true;              
+    $is_bot_detected = true;
 }?>
 <?if($for_chyldren){?>
     <link rel="stylesheet" href="/local/css/style_for_children.css" type="text/css">
-    <div class="soc_service_wrap">   
+    <div class="soc_service_wrap">
         <p>Мы в соцсетях</p>
         <ul>
             <li><a href="" class="net_1"></a></li>
@@ -94,10 +94,10 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
             <?if($for_chyldren){?>
                 <img src="/img/for_children/page-1.png" class="image_header">
             <?}?>
-           
+
             <h1 itemprop="name"><?= $arResult["NAME"]?></h1>
 
-            
+
             <?
             $arData = array();
             $arSelect = Array("ID", "NAME", "DETAIL_PAGE_URL");
@@ -106,8 +106,8 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
             while($ob = $res->GetNextElement()) {
                 $arData[] = $ob->GetFields();
             }
-            
-            if(count($arData) > 0) {?> 
+
+            if(count($arData) > 0) {?>
                 <div class="doner_tags">
                     <span>Популярные категории</span>
                     <?foreach($arData as $data) {?>
@@ -128,7 +128,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                     <img src="/img/for_children/bitmap1.png">
                 </div>
             <?}?>
-            
+
             <?if(!$for_chyldren){?>
                 <? global $SectionRoundBanner;
                 $SectionRoundBanner = array("PROPERTY_BIND_TO_SECTION" => $arResult["ID"]);
@@ -196,7 +196,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                     ),
                     false
                 );?>
-            
+
             <? /* Получаем от RetailRocket рекомендации для товара */
             $stringRecs = file_get_contents('https://api.retailrocket.ru/api/1.0/Recomendation/CategoryToItems/50b90f71b994b319dc5fd855/' . $arResult["ID"]);
             $recsArray = json_decode($stringRecs);
@@ -321,7 +321,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                     false
                 )
                 //}?>
-               
+
          <?} else {  //проверка на вывод подборок на главной?>
             <p class="grayTitle"></p>
          <?}?>
@@ -386,14 +386,14 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                                                 }
                                      }?>
                                  </div>
-                                <?if($arItem["PROPERTIES"]["TRANSPARENT_CORNER"]["VALUE_XML_ID"] == "Y"){?>  
-                                    <?$corner_1 = "Y";?> 
+                                <?if($arItem["PROPERTIES"]["TRANSPARENT_CORNER"]["VALUE_XML_ID"] == "Y"){?>
+                                    <?$corner_1 = "Y";?>
                                 <?} else if($arItem["PROPERTIES"]["TRANSPARENT_CORNER_1_2"]["VALUE_XML_ID"] == "Y"){?>
-                                    <?$corner_2 = "Y";?>  
+                                    <?$corner_2 = "Y";?>
                                 <?} else {
                                     $corner_1 = '';
                                     $corner_2 = '';
-                                }?>                                 
+                                }?>
                                 <a href="<?= $arItem["DETAIL_PAGE_URL"]?>" onclick="productClickTracking(<?= $arItem["ID"];?>, '<?= $arItem["NAME"];?>', '<?= ceil($arPrice["DISCOUNT_VALUE_VAT"])?>','<?= $arResult["NAME"]?>', <?= ($cell+1)?>, 'Catalog Section');" itemprop="url">
                                      <div class="section_item_img">
                                          <?if ($arResult[$arItem["ID"]]["PICTURE"]["src"]) {?>
@@ -429,7 +429,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                                             <? }
                                          ?>
                                          <?if ($arResult[$arItem["ID"]]["ITEM_IN_BASKET"]["QUANTITY"] == 0 && $arResult['ID'] != CERTIFICATE_SECTION_ID) {?>
-                                            <a class="product<?= $arItem["ID"];?>" onmousedown="try { rrApi.addToBasket(<?=$arItem["ID"]?>) } catch(e) {}" href="<?echo $arItem["ADD_URL"]?>" onclick="<?// if ($arItem["CATALOG_QUANTITY"] >= 0) {?>addtocart(<?=$arItem["ID"];?>, '<?=$arItem["NAME"];?>'); addToCartTracking(<?= $arItem["ID"];?>, '<?= $arItem["NAME"];?>', '<?= ceil($arPrice["DISCOUNT_VALUE_VAT"])?>','<?= $arResult["NAME"]?>', '1'); <?//}?> return false;">
+                                            <a id="addToCartSection" class="product<?= $arItem["ID"];?>" onmousedown="try { rrApi.addToBasket(<?=$arItem["ID"]?>) } catch(e) {}" href="JavaScript::void(0);" onclick="<?// if ($arItem["CATALOG_QUANTITY"] >= 0) {?>addtocart(<?=$arItem["ID"];?>, '<?=$arItem["NAME"];?>'); addToCartTracking(<?= $arItem["ID"];?>, '<?= $arItem["NAME"];?>', '<?= ceil($arPrice["DISCOUNT_VALUE_VAT"])?>','<?= $arResult["NAME"]?>', '1'); <?//}?> return false;">
                                                 <?if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != getXMLIDByCode (CATALOG_IBLOCK_ID, "STATE", "soon")) {
                                                     /*if ($arItem["CATALOG_QUANTITY"] <= 0) {?>
                                                         <p class="basketBook basketBook_unavailable"><?=GetMessage("CT_BCS_TPL_MESS_PRODUCT_NOT_AVAILABLE")?></p>
@@ -705,7 +705,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
             if (page == maxpage) {
                 $('.showMore').hide();
             }
-            return false;                       
+            return false;
 
         });
         <?if (isset($_SESSION[$APPLICATION -> GetCurDir()])) {?>

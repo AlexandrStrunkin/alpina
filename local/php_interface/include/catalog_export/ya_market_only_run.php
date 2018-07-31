@@ -5,7 +5,7 @@ set_time_limit(0);
 //$IBLOCK_ID = 6;
 //$V = array(0);
 
-setlocale(LC_ALL, "ru_RU.utf8"); 
+setlocale(LC_ALL, "ru_RU.utf8");
 setlocale(LC_NUMERIC, "C");
 
 
@@ -19,44 +19,44 @@ if (!isset($USER) || !is_a($GLOBALS['USER'], 'CUser'))
 	{
 		$USER_TMP = $USER;
 	}
-	
+
 	$USER = new CUser();
 }
 
 $arYandexFields = array('vendor', 'vendorCode', 'model', 'author', 'name', 'publisher', 'year', 'ISBN', 'volume', 'part', 'language', 'binding', 'page_extent', 'table_of_contents', 'performed_by', 'performance_type', 'storage', 'format', 'recording_length', 'series', 'artist', 'title', 'year', 'media', 'starring', 'director', 'originalName', 'country', 'description', 'sales_notes', 'promo', 'aliases', 'provider', 'tarifplan', 'xCategory', 'additional', 'worldRegion', 'region', 'days', 'dataTour', 'hotel_stars', 'room', 'meal', 'included', 'transport', 'price_min', 'price_max', 'options', 'manufacturer_warranty', 'country_of_origin', 'downloadable', 'param', 'place', 'hall', 'hall_part', 'is_premiere', 'is_kids', 'date',);
 
 $arYandexFieldsBook = array(
-    'author', 
-    'name', 
-    'publisher', 
-    'series', 
-    'year', 
-    'ISBN', 
-    'volume', 
-    'part', 
-    'language', 
+    'author',
+    'name',
+    'publisher',
+    'series',
+    'year',
+    'ISBN',
+    'volume',
+    'part',
+    'language',
     'binding',
-    'page_extent', 
+    'page_extent',
     'table_of_contents',
     'description'
     );
 
 $arYandexFieldsAudioBook = array(
-    'author', 
-    'name', 
-    'publisher', 
-    'series', 
-    'year', 
-    'ISBN',  
-    'volume', 
+    'author',
+    'name',
+    'publisher',
+    'series',
+    'year',
+    'ISBN',
+    'volume',
     'part',
-    'language', 
-    'table_of_contents', 
-    'performed_by', 
-    'performance_type', 
+    'language',
+    'table_of_contents',
+    'performed_by',
+    'performance_type',
     'storage',
-    'format', 
-    'recording_length', 
+    'format',
+    'recording_length',
     'description',
 );
 
@@ -76,14 +76,14 @@ if (!function_exists("yandex_text2xml"))
 	function yandex_text2xml($text, $bHSC = false)
 	{
 		$text = $GLOBALS['APPLICATION']->ConvertCharset($text, LANG_CHARSET, 'windows-1251');
-		
+
 		if ($bHSC)
 			$text = htmlspecialchars($text);
 		$text = preg_replace("/[\x1-\x8\xB-\xC\xE-\x1F]/", "", $text);
         $text = str_replace("'", "&apos;", $text);
         $text = str_replace("&laquo;", "&amp;laquo;", $text);
 		$text = str_replace("&raquo;", "&amp;raquo;", $text);
-		return $text; 
+		return $text;
 	}
 }
 
@@ -93,14 +93,14 @@ if (!function_exists('yandex_get_value'))
 	{
 		global $IBLOCK_ID;
 		static $arProperties = null, $arUserTypes = null;
-		
+
 		if (!is_array($arProperties))
 		{
 			$dbRes = CIBlockProperty::GetList(
-				array('id' => 'asc'), 
+				array('id' => 'asc'),
 				array('IBLOCK_ID' => $IBLOCK_ID, 'CHECK_PERMISSIONS' => 'N')
 			);
-			
+
 			while ($arRes = $dbRes->Fetch())
 			{
                 if($arRes['PROPERTY_TYPE'] == 'L')
@@ -114,22 +114,22 @@ if (!function_exists('yandex_get_value'))
                         $arRes['ENUM'] = $arEList;
                 }
                 else
-                    $arRes['ENUM'] = array();    
+                    $arRes['ENUM'] = array();
 				$arProperties[$arRes['ID']] = $arRes;
 			}
 		}
 
         //xvar_dump($arOffer);
         //die();
-		
+
 		$strProperty = '';
 		$bParam = substr($param, 0, 6) == 'PARAM_';
 		if (is_array($arProperties[$PROPERTY]))
 		{
 			$PROPERTY_CODE = $arProperties[$PROPERTY]['CODE'];
-			
+
 			$arProperty = $arOffer['PROPERTIES'][$PROPERTY_CODE] ? $arOffer['PROPERTIES'][$PROPERTY_CODE] : $arOffer['PROPERTIES'][$PROPERTY];
-			
+
 			$value = '';
 			$description = '';
 			switch ($arProperties[$PROPERTY]['PROPERTY_TYPE'])
@@ -142,17 +142,17 @@ if (!function_exists('yandex_get_value'))
                         {
                             $tv = intval($tv);
                             if($tv > 0)
-                                $tmpar[$k] = $tv;     
+                                $tmpar[$k] = $tv;
                         }
                         $arProperty['VALUE'] = $tmpar;
                     }
                     else
                     {
                         $tv = intval($arProperty['VALUE']);
-                        if($tv > 0)    
-                            $arProperty['VALUE'] = $tv;   
+                        if($tv > 0)
+                            $arProperty['VALUE'] = $tv;
                         else
-                            $arProperty['VALUE'] = 0;     
+                            $arProperty['VALUE'] = 0;
                     }
                     if($arProperty['VALUE'])
                     {
@@ -164,14 +164,14 @@ if (!function_exists('yandex_get_value'))
                             $vvv .= (strlen($vvv) > 0 ? ' ' : '').htmlspecialchars($arRes['PROPERTY_LAST_NAME_VALUE']);
                             if(strlen($vvv) <= 0)
                                 $vvv = $arRes['NAME'];
-						    
-                            
-                            
-                            if($PROPERTY_CODE == 'AUTHORS' || 17 == $PROPERTY)  // 
+
+
+
+                            if($PROPERTY_CODE == 'AUTHORS' || 17 == $PROPERTY)  //
                             {
                                 /*if(8263 == $arOffer['ID'])
                                 {
-                                    xvar_dump($arRes);    
+                                    xvar_dump($arRes);
                                     die();
                                 } */
                                 if(!is_array($arProperty['VALUE']))
@@ -181,20 +181,20 @@ if (!function_exists('yandex_get_value'))
                                 }
                                 foreach($arProperty['VALUE'] as $k => $val)
                                 {
-                                    if($val == $arRes['ID'])   
+                                    if($val == $arRes['ID'])
                                     {
                                         $d = trim($arProperty['DESCRIPTION'][$k]);
                                         if(strlen($d)>0)
-                                            $vvv .= (strlen($vvv) > 0 ? ' ' : '').$d;  
-                                        break;    
-                                    } 
+                                            $vvv .= (strlen($vvv) > 0 ? ' ' : '').$d;
+                                        break;
+                                    }
                                 }
                             }
-                            $value .= ($value ? ', ' : '').$vvv;  
+                            $value .= ($value ? ', ' : '').$vvv;
 					    }
                     }
 				break;
-				
+
 				case 'L':
                     if(!is_array($arProperty['VALUE_ENUM_ID']))
                     {
@@ -204,13 +204,13 @@ if (!function_exists('yandex_get_value'))
                     else
                     {
                             foreach($arProperty['VALUE_ENUM_ID'] as $veid)
-                                $value .= ($value ? ', ' : '').$arProperties[$PROPERTY]['ENUM'][$veid]['VALUE'];     
+                                $value .= ($value ? ', ' : '').$arProperties[$PROPERTY]['ENUM'][$veid]['VALUE'];
                     }
                     break;
                 break;
 				case 'G':
 					$dbRes = CIBlockProperty::GetPropertyEnum(
-						$PROPERTY, 
+						$PROPERTY,
 						array("SORT"=>"asc")
 					);
 					while ($arRes = $dbRes->Fetch())
@@ -218,8 +218,8 @@ if (!function_exists('yandex_get_value'))
 						$value .= ($value ? ', ' : '').$arRes['NAME'];
 					}
 				break;
-				
-				default: 
+
+				default:
 					if ($bParam && $arProperty['WITH_DESCRIPTION'] == 'Y')
 					{
 						$description = $arProperty['DESCRIPTION'];
@@ -230,9 +230,9 @@ if (!function_exists('yandex_get_value'))
 						$value = is_array($arProperty['VALUE']) ? implode(', ', $arProperty['VALUE']) : $arProperty['VALUE'];
 					}
 			}
-			
+
 			// !!!! check multiple properties and properties like CML2_ATTRIBUTES
-			
+
 			if ($bParam)
 			{
 				if (is_array($description))
@@ -275,18 +275,18 @@ $XML_DATA['XML_DATA'] = array(
     'series' => '48', //   SERIES
     'year' => '61', //   YEAR
     'ISBN' => '51', //   ISBN  199 ISBN_OLD
-    'description' => 'PREVIEW_TEXT', //     
-    'volume' => '', //     
-    'part' => '', //     
-    'language' => '', //     
-    'binding' => '78', //  COVER_TYPE   
-    'page_extent' => '63', //  PAGES   
-    'table_of_contents' => '180', //  BOOK_CONTENT   
-    'performed_by' => '', //     
-    'performance_type' => '', //     
-    'format' => '80', // COVER_FORMAT    
-    'storage' => '95', //  PRODUCT_TYPE_DESC    
-    'recording_length' => '91', //  DURATION   
+    'description' => 'PREVIEW_TEXT', //
+    'volume' => '', //
+    'part' => '', //
+    'language' => '', //
+    'binding' => '78', //  COVER_TYPE
+    'page_extent' => '63', //  PAGES
+    'table_of_contents' => '180', //  BOOK_CONTENT
+    'performed_by' => '', //
+    'performance_type' => '', //
+    'format' => '80', // COVER_FORMAT
+    'storage' => '95', //  PRODUCT_TYPE_DESC
+    'recording_length' => '91', //  DURATION
 );
 
 
@@ -330,7 +330,7 @@ if (strlen($strExportErrorMessage)<=0)
 				$bAllSections = True;
 				break;
 			}
-			
+
 			if (IntVal($value)>0)
 			{
 				$arSections[] = IntVal($value);
@@ -354,14 +354,14 @@ if (!$bTmpUserCreated && $GLOBALS["APPLICATION"]->GetFileAccessPermission($SETUP
 if (strlen($strExportErrorMessage)<=0)
 {
 	CheckDirPath($_SERVER["DOCUMENT_ROOT"].$SETUP_FILE_NAME);
-	
+
 	if (!$fp = @fopen($_SERVER["DOCUMENT_ROOT"].$SETUP_FILE_NAME, "wb"))
 	{
 		$strExportErrorMessage .= "Can not open \"".$_SERVER["DOCUMENT_ROOT"].$SETUP_FILE_NAME."\" file for writing.\n";
 	}
 	else
 	{
-		
+
 		if (!@fwrite($fp, '<?if (!isset($_GET["referer1"]) || strlen($_GET["referer1"])<=0) $_GET["referer1"] = "yandext";?>'))
 		{
 			$strExportErrorMessage .= "Can not write in \"".$_SERVER["DOCUMENT_ROOT"].$SETUP_FILE_NAME."\" file.\n";
@@ -405,7 +405,7 @@ if (strlen($strExportErrorMessage)<=0)
 			{
 				$strTmp.= "<currency id=\"".$CURRENCY."\""
 				." rate=\"".($arCurData['rate'] == 'SITE' ? CCurrencyRates::ConvertCurrency(1, $CURRENCY, $RUR) : $arCurData['rate'])."\""
-				.($arCurData['plus'] > 0 ? ' plus="'.intval($arCurData['plus']).'"' : '') 
+				.($arCurData['plus'] > 0 ? ' plus="'.intval($arCurData['plus']).'"' : '')
 				." />\n";
 			}
 		}
@@ -420,7 +420,7 @@ if (strlen($strExportErrorMessage)<=0)
 		}
 	}
 	$strTmp.= "</currencies>\n";
-    
+
     $strTmp = "<currencies>\n<currency id=\"RUB\" rate=\"1\"/>\n</currencies>\n";
 
 	@fwrite($fp, $strTmp);
@@ -428,7 +428,7 @@ if (strlen($strExportErrorMessage)<=0)
 	//*****************************************//
 
 	$arSelect = array("ID", "LID", "IBLOCK_ID", "IBLOCK_SECTION_ID", "ACTIVE", "ACTIVE_FROM", "ACTIVE_TO", "NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT", "PREVIEW_TEXT_TYPE", "DETAIL_PICTURE", "LANG_DIR", "DETAIL_PAGE_URL");
-	
+
 	$db_res = CCatalogGroup::GetGroupsList(array("GROUP_ID"=>2));
 	$arPTypes = array();
 	while ($ar_res = $db_res->Fetch())
@@ -439,7 +439,7 @@ if (strlen($strExportErrorMessage)<=0)
 			$arSelect[] = "CATALOG_GROUP_".$ar_res["CATALOG_GROUP_ID"];
 		}
 	}
-	
+
 	$strTmpCat = "";
 	$strTmpOff = "";
 
@@ -520,9 +520,9 @@ if (strlen($strExportErrorMessage)<=0)
 		$filter["SECTION_ID"] = $arSectionIDs;
 	}
 	$res = CIBlockElement::GetList(array(), $filter, false, false, $arSelect);
-	
+
 	$db_acc = new CIBlockResult($res);
-	
+
 	$total_sum = 0;
 	$is_exists = false;
 	$cnt = 0;
@@ -530,32 +530,24 @@ if (strlen($strExportErrorMessage)<=0)
 	while ($obElement = $db_acc->GetNextElement())
 	{
 		$arAcc = $obElement->GetFields();
-		if ($arAcc["ID"] == 6799) continue; // УДАЛЯЕМ КНИГУ СЕКС ДЛЯ НАУКИ
-		if ($arAcc["ID"] == 7067) continue; // УДАЛЯЕМ КНИГУ КАЖДОЙ ТВАРИ ПО ПАРЕ
-		if ($arAcc["ID"] == 8002) continue; // УДАЛЯЕМ КНИГУ ХВАТИТ БЫТЬ СЛАВНЫМ ПАРНЕМ
-		if ($arAcc["ID"] == 7986) continue; // УДАЛЯЕМ КНИГУ ВАГИНА
-		if ($arAcc["ID"] == 8024) continue; // УДАЛЯЕМ КНИГУ Стратегия семейной жизни
-		if ($arAcc["ID"] == 7726) continue; // УДАЛЯЕМ КНИГУ Как стать первым на ютюб
-		if ($arAcc["ID"] == 7418) continue; // УДАЛЯЕМ КНИГУ Большая игра
-		if ($arAcc["ID"] == 7702) continue; // УДАЛЯЕМ КНИГУ Постельные войны
-		
-		//if (is_array($XML_DATA['XML_DATA']))
+
+		if (is_array($XML_DATA['XML_DATA']))
 		{
 			$arAcc["PROPERTIES"] = $obElement->GetProperties();
 		}
-		
+
 		$str_QUANTITY = DoubleVal($arAcc["CATALOG_QUANTITY"]);
 		$str_QUANTITY_TRACE = $arAcc["CATALOG_QUANTITY_TRACE"];
 		if (($str_QUANTITY <= 0) && ($str_QUANTITY_TRACE == "Y"))
 			$str_AVAILABLE = ' available="false"';
 		else
 			$str_AVAILABLE = ' available="true"';
-         
+
         if(($arAcc["PROPERTIES"]['STATE']['VALUE_XML_ID'] == 'soon') || ($arAcc["PROPERTIES"]['STATE']['VALUE_XML_ID'] == 'net_v_nal'))
             $str_AVAILABLE = ' available="false"';
         else
-            $str_AVAILABLE = ' available="true"';   
-        
+            $str_AVAILABLE = ' available="true"';
+
 
 		// TODO: use PRICE setting. this code is only for PRICE=0
 
@@ -566,8 +558,8 @@ if (strlen($strExportErrorMessage)<=0)
 
 		$arPriceGroups = $XML_DATA['PRICE'] > 0 ? array($XML_DATA['PRICE']) : array();
 		if (!$arPrice = CCatalogProduct::GetOptimalPrice(
-			$arAcc['ID'], 
-			1, 
+			$arAcc['ID'],
+			1,
 			array(2), // anonymous
 			'N',
 			$arPriceGroups,
@@ -583,7 +575,7 @@ if (strlen($strExportErrorMessage)<=0)
 			$minPriceRUR = CCurrencyRates::ConvertCurrency($minPrice, $BASE_CURRENCY, $RUR);
 			$minPriceGroup = $arPrice['PRICE']['CATALOG_GROUP_ID'];
 		}
-		
+
 		/*
 		if ($XML_DATA['PRICE'] > 0 && strlen($arAcc["CATALOG_CURRENCY_".$XML_DATA['PRICE']]) > 0)
 		{
@@ -632,12 +624,12 @@ if (strlen($strExportErrorMessage)<=0)
 
 		if (strlen($arAcc['DETAIL_PAGE_URL']) <= 0) $arAcc['DETAIL_PAGE_URL'] = '/';
 		else $arAcc['DETAIL_PAGE_URL'] = str_replace(' ', '%20', $arAcc['DETAIL_PAGE_URL']);
-		
+
 		if (is_array($XML_DATA) && $XML_DATA['TYPE'] && $XML_DATA['TYPE'] != 'none')
 			$str_TYPE = ' type="'.htmlspecialchars($XML_DATA['TYPE']).'"';
 		else
 			$strType = '';
-        
+
         $arAcc['TYPE'] = $arAcc['PROPERTIES']['TYPE']['VALUE_XML_ID'];
         if($arAcc['TYPE'] == 'TYPE_AUDIO')
             $str_TYPE = ' type="audiobook" ';
@@ -647,16 +639,16 @@ if (strlen($strExportErrorMessage)<=0)
 			$age_group = $arAcc['PROPERTIES']['age_group']['VALUE'];
 		else
 			$age_group = 0;
-        
+
 		$strTmpOff.= "<offer id=\"".$arAcc["ID"]."\"".$str_TYPE.$str_AVAILABLE.">\n";
         $strTmpOff.= "<url>http://".$ar_iblock['SERVER_NAME'].htmlspecialchars($arAcc["~DETAIL_PAGE_URL"]."?utm_source=yandex.market&utm_medium=cpc")."</url>\n";
 
 		$strTmpOff.= "<price>".$minPrice."</price>\n";
         $strTmpOff.= "<currencyId>".$minPriceCurrency."</currencyId>\n";
 
-        
 
-        
+
+
 
 		$strTmpOff.= $strTmpOff_tmp;
 
@@ -668,57 +660,57 @@ if (strlen($strExportErrorMessage)<=0)
 			$db_file = CFile::GetByID($pictNo);
 			if ($ar_file = $db_file->Fetch())
 			{
-				
+
                 $strFile = "/".(COption::GetOptionString("main", "upload_dir", "upload"))."/".$ar_file["SUBDIR"]."/".$ar_file["FILE_NAME"];
-				$strFile = str_replace("//", "/", $strFile);   
+				$strFile = str_replace("//", "/", $strFile);
 				$strTmpOff.="<picture>http://".$ar_iblock['SERVER_NAME'].implode("/", array_map("rawurlencode", explode("/", $strFile)))."</picture>\n";
-                
-                
+
+
                 /*$strFile = "/".$ar_file["SUBDIR"]."/".$ar_file["FILE_NAME"];
-                $strFile = str_replace("//", "/", $strFile);   
+                $strFile = str_replace("//", "/", $strFile);
                 $strTmpOff.="<picture>http://alpinabook-a.akamaihd.net".implode("/", array_map("rawurlencode", explode("/", $strFile)))."</picture>\n";*/
 			}
 		}
 
         $strTmpOff .= "<delivery>true</delivery>\n
 					<pickup>true</pickup>\n";
-        
+
 		$y = 0;
         if($arAcc['TYPE'] == 'TYPE_AUDIO')
             $arTmpYandexFields = $arYandexFieldsAudioBook;
         else
             $arTmpYandexFields = $arYandexFieldsBook;
-            
-        
-        
+
+
+
 		foreach ($arTmpYandexFields as $key)
 		{
 			switch ($key)
 			{
 				case 'name':
-                    
+
                     $age = 16;
                     if($arAcc['PROPERTIES']['age_group']['VALUE']){
                         $age = $arAcc['PROPERTIES']['age_group']['VALUE'];
                     }
-                    
+
 					if (is_array($XML_DATA) && ($XML_DATA['TYPE'] == 'vendor.model' || $XML_DATA['TYPE'] == 'artist.title'))
 						continue;
 					if($arAcc['TYPE'] == 'TYPE_AUDIO') $arAcc["NAME"] .= ' (аудиокнига)';
-                    elseif($arAcc['TYPE'] == 'TYPE_VIDEO') $arAcc["NAME"] .= ' (видеокурс)'; 
-                    elseif($arAcc['TYPE'] == 'TYPE_SET') $arAcc["NAME"] .= ' (комплект из '.count($arAcc['PROPERTIES']['COMPLECT_BOOKS']['VALUE']).' книг'.(count($arAcc['PROPERTIES']['COMPLECT_BOOKS']['VALUE'])%10 == 1?'и':'').')'; 
+                    elseif($arAcc['TYPE'] == 'TYPE_VIDEO') $arAcc["NAME"] .= ' (видеокурс)';
+                    elseif($arAcc['TYPE'] == 'TYPE_SET') $arAcc["NAME"] .= ' (комплект из '.count($arAcc['PROPERTIES']['COMPLECT_BOOKS']['VALUE']).' книг'.(count($arAcc['PROPERTIES']['COMPLECT_BOOKS']['VALUE'])%10 == 1?'и':'').')';
 					$strTmpOff.= "<name>".yandex_text2xml('('.$age_group.'+) '.htmlspecialchars($arAcc["NAME"]), false)."</name>\n";
 				break;
-				case 'description': 
-					$strTmpOff.= 
+				case 'description':
+					$strTmpOff.=
 						"<description>".
 						yandex_text2xml(
-							($arAcc["PREVIEW_TEXT_TYPE"]=="html"? 
+							($arAcc["PREVIEW_TEXT_TYPE"]=="html"?
 							htmlspecialchars(TruncateText(strip_tags($arAcc["~PREVIEW_TEXT"]),800)) : htmlspecialchars(TruncateText(strip_tags($arAcc["PREVIEW_TEXT"]),800))), false).
 						"</description>\n";
 				break;
-                
-                
+
+
                 case 'ISBN':
                     $t = trim($arAcc['PROPERTIES']['ISBN']['~VALUE']);
                     $t2 = trim($arAcc['PROPERTIES']['ISBN_OLD']['~VALUE']);
@@ -726,9 +718,9 @@ if (strlen($strExportErrorMessage)<=0)
                         $t .= (strlen($t) > 0 ? ', ':'').$t2;*/
                     $strTmpOff.= "<".$key.">".yandex_text2xml($t, true)."</".$key.">\n";
                 break;
-                
-                
-                
+
+
+
 				case 'param':
 					if (is_array($XML_DATA) && is_array($XML_DATA['XML_DATA']) && is_array($XML_DATA['XML_DATA']['PARAMS']))
 					{
@@ -741,27 +733,27 @@ if (strlen($strExportErrorMessage)<=0)
 						}
 					}
 				break;
-				
+
 				case 'model':
 				case 'language':
 					$strTmpOff.= "<".$key.">rus</".$key.">\n";
 				break;
-				
+
 				case 'title':
 					if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])
 					{
 						if (
 							$key == 'model' && $XML_DATA['TYPE'] == 'vendor.model'
-							|| 
+							||
 							$key == 'title' && $XML_DATA['TYPE'] == 'artist.title'
 						)
 
 						$strTmpOff.= "<".$key.">".yandex_text2xml($arAcc["NAME"], true)."</".$key.">\n";
 					}
-					else 
+					else
 						$strTmpOff.= yandex_get_value($arAcc, $key, $XML_DATA['XML_DATA'][$key]);
 				//break;
-				
+
 				/*case 'year':
 					$y++;
 					if ($XML_DATA['TYPE'] == 'artist.title')
@@ -772,19 +764,19 @@ if (strlen($strExportErrorMessage)<=0)
 					{
 						if ($y > 1) continue;
 					}
-				*/	
+				*/
 					// no break here
-					
+
 				default:
 					if (is_array($XML_DATA) && is_array($XML_DATA['XML_DATA']) && $XML_DATA['XML_DATA'][$key])
 						$strTmpOff .= yandex_get_value($arAcc, $key, $XML_DATA['XML_DATA'][$key])."\n";
 			}
 		}
 		if($arAcc['TYPE'] == 'TYPE_BOOK')
-			$strTmpOff.= "<age unit='age'>".$age_group."</age>\n";		
+			$strTmpOff.= "<age unit='age'>".$age_group."</age>\n";
 		$strTmpOff.= "</offer>\n";
 	}
-	
+
 	@fwrite($fp, "<categories>\n");
 	@fwrite($fp, $strTmpCat);
 	@fwrite($fp, "</categories>\n");
@@ -803,10 +795,10 @@ if (strlen($strExportErrorMessage)<=0)
 	@fclose($fp);
 }
 
-if ($bTmpUserCreated) 
+if ($bTmpUserCreated)
 {
 	unset($USER);
-	
+
 	if (isset($USER_TMP))
 	{
 		$USER = $USER_TMP;
