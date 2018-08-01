@@ -399,12 +399,12 @@ if ($arrFilterPersonal['ID'][0] > 0) { // Если персональные ре
                                 $(this).html(truncate($(this).html(), 40));
                             }
                     });
-                    var otherBooksHeight = 1340 * Math.ceil(($(".otherBooks ul li").length / 15));
+                    //var otherBooksHeight = 1340 * Math.ceil(($(".otherBooks ul li").length / 15));
                     //var categorHeight = 2750 + 1190 * (($(".otherBooks ul li").length - 15) / 15);
-                    var categorHeight = 1600 + Math.ceil(($(".otherBooks ul li").length - 15) / 5) * 450;
-                    otherBooks.css("height", otherBooksHeight+"px");
-                    $(".wrapperCategor").css("height", categorHeight+"px");
-                    $(".contentWrapp").css("height", categorHeight-10+"px");
+                    //var categorHeight = 1600 + Math.ceil(($(".otherBooks ul li").length - 15) / 5) * 450;
+                    //otherBooks.css("height", otherBooksHeight+"px");
+                    //$(".wrapperCategor").css("height", categorHeight+"px");
+                    //$(".contentWrapp").css("height", categorHeight-10+"px");
             });
             if (page == maxpage) {
                 $('.showMore').hide();

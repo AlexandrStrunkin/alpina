@@ -738,8 +738,8 @@
     box-sizing: border-box;
 }
 .wrapperCategor.ComingSoonCategor {
-    height: 1600px;
+    height: auto;
 }
 .categoryWrapper .contentWrapp {
-    height: 1590px;
+    height: auto;
 }

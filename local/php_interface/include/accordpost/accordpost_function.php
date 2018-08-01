@@ -245,11 +245,11 @@ function update_order_accordpost($zdoc_id, $arIDs, $order_props) {
 
                 //Если статус оплачен то ставим комплектуется
                 if($arOrder = CSaleOrder::GetByID($ID)) {
-                   if($arOrder["STATUS_ID"] == "D") {
+                  /* if($arOrder["STATUS_ID"] == "D") {
                        CSaleOrder::StatusOrder($ID, "AC");
-                   } else {
+                   } else {*/
                        CSaleOrder::StatusOrder($ID, "K");
-                   }
+                   //}
                 }
 
                 $error_result = true;
@@ -263,13 +263,13 @@ function update_order_accordpost($zdoc_id, $arIDs, $order_props) {
                 logger($order_log, $logger_file);
 
                 if($arOrder = CSaleOrder::GetByID($ID)) {
-                   if($arOrder["STATUS_ID"] == "D") {
+                   /*if($arOrder["STATUS_ID"] == "D") {
                        CSaleOrder::StatusOrder($ID, "AC");
-                   } else {
+                   } else {*/
                        CSaleOrder::StatusOrder($ID, "K");
-                   }
+                   //}
                 }
-                
+
                 $error_result = true;
             } else {
                 $order_log = $logger_date.' - Не обновил';

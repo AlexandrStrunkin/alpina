@@ -3189,6 +3189,24 @@
     }
     } */
 
+    AddEventHandler('sale', 'OnSalePayOrder', 'ChangeStatusForCertificate');
+
+    function ChangeStatusForCertificate($ID, $val) {
+        if ($val == "Y") {
+            $dbOrderProps = CSaleOrderPropsValue::GetList(
+                 array("SORT" => "ASC"),
+                 array("ORDER_ID" => $ID, "CODE"=>array("CODE_COUPON"))
+             );
+             while ($arOrderProps = $dbOrderProps->GetNext()){
+                 if(!empty($arOrderProps["VALUE"])){
+                     $certificate_ob = CIBlockElement::GetList(Array(), Array("IBLOCK_ID"=>CERTIFICATE_IBLOCK_ID, "PROPERTY_COUPON_CODE" => $arOrderProps["VALUE"]), false, false, Array("ID", "IBLOCK_ID", "PROPERTY_COUPON_CODE"));
+                     if($ar_certificate = $certificate_ob->fetch()) {
+                         CSaleOrder::StatusOrder($ID, STATUS_SERTIFICATE);
+                     }
+                 }
+             }
+        }
+    }
 
     AddEventHandler('sale', 'OnSalePayOrder', 'AddNewGiftIBlockElement');
 

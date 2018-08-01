@@ -222,11 +222,11 @@
             if (CSaleOrderPropsValue::Update($order_props["EXPORTED_TO_B"]["ID"], $prop_data) && CSaleOrder::Update($current_order_id, array("TRACKING_NUMBER" => $data['track']))) {
 
                 if($arOrder = CSaleOrder::GetByID($ID)) {
-                   if($arOrder["STATUS_ID"] == "D") {
+                  /* if($arOrder["STATUS_ID"] == "D") {
                        CSaleOrder::StatusOrder($ID, "AC");
-                   } else {
+                   } else {*/
                        CSaleOrder::StatusOrder($ID, "I");
-                   }
+                   //}
                 }
                 echo "OK";
             } else {

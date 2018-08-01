@@ -1033,7 +1033,7 @@ function addtocart(productid, name, product_status) {
 
 	$("a.product"+productid).find(".basketBook").css("background-color", "#A9A9A9");
     $("a.product"+productid).removeAttr("onclick");
-    
+
     $.post('/ajax/ajax_add2basket.php', {action: "add", productid: productid, quantity:quantity, product_status:product_status}, function(data)
         {
 			$("#loadingInfo").hide();
@@ -1393,18 +1393,17 @@ function newSubFunction(submitButton){
                     $(".subscr_result").show();
                     //alert("Вы уже подписаны на появление данной книги в продаже.");
                 }else if(data.match(/success/)){
+                    (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(sub_mail);});                    
                     $(".subscr_result").html("Мы сообщим Вам о появлении книги");
                     $(".layout").show();
                     $(".subscr_result").show();
                     //alert("Мы сообщим Вам о появлении книги.");
                 }
         });
-    }
-    else {
+    } else {
         $(".subscr_result").html("Введите корректный e-mail адрес.");
         $(".subscr_result").show();
         $(".layout").show();
-
     }
 }
 

@@ -920,7 +920,6 @@
 
     </div>
 </div>
-
 <script>
     $(document).ready(function(){
         <?/*if ($_REQUEST["action"]) {?>

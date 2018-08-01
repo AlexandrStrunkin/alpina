@@ -109,7 +109,7 @@
         <?}?>
     });
     <?if (!$checkMobile) {?>
-        $(document).ready(function(){
+        /*$(document).ready(function(){
             $(".bookPrice span, .newPrice span").html('i');
             $('body').on('click', '.getSubscribe', function(){
                  var email = $(".subscribeEmail").val();
@@ -119,7 +119,7 @@
                  var email = $("#chapter-email").val();
                 (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email);    });
             })
-        });
+        });*/
         $(window).scroll(function() { //Скрываем блок с ценой при скролле вниз, расширяем блок аннотации и опускаем его на уровень глаз
             scrollDepth = $(window).scrollTop();
             if (scrollDepth > 450 && checkReadiness == 0) {
