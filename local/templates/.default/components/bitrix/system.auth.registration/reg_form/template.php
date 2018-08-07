@@ -138,34 +138,34 @@
     </noindex>
     <script type="text/javascript">
         document.bform.USER_NAME.focus();
-        
-        function checkRegisterFields(){          
+
+        function checkRegisterFields(){
             flag = true;
             if($('input[name=USER_NAME]').val() == ''){
                 flag = false;
                 $('input[name=USER_NAME]').css('border-color','#FF0000');
-            } 
+            }
             if($('input[name=USER_LAST_NAME]').val() == ''){
                 flag = false;
                 $('input[name=USER_LAST_NAME]').css('border-color','#FF0000');
-            }   
+            }
             if(isEmail($('input[name=USER_EMAIL]').val()) == false){
                 flag = false;
                 $('input[name=USER_EMAIL]').css('border-color','#FF0000');
-            } 
+            }
             if($('.reg_password').val().length < 6){
                 flag = false;
                 $('.reg_password').css('border-color','#FF0000');
-            }  
+            }
             if($('.reg_password').val() != $('.reg_confirm_password').val()){
                 flag = false;
                 $('.reg_confirm_password').css('border-color','#FF0000');
             }
-            
-            return flag;        
-            
+
+            return flag;
+
         }
-        
+
     </script>
 
     <?endif?>

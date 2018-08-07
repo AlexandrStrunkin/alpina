@@ -141,10 +141,21 @@ $APPLICATION->IncludeComponent("bitrix:socserv.auth.form",
 
 </div>
 <script type="text/javascript">
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
+$("form[name='form_auth']").on("submit", function(e){
+    var email = $("form[name='form_auth']").find('input[name=USER_LOGIN]').val();
+    if(isEmail(email)) {
+        (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(email); });
+    }
+});
+
 <?if (strlen($arResult["LAST_LOGIN"])>0):?>
 try{document.form_auth.USER_PASSWORD.focus();}catch(e){}
 <?else:?>
 try{document.form_auth.USER_LOGIN.focus();}catch(e){}
 <?endif?>
 </script>
-

@@ -321,7 +321,7 @@ if (isset($_SERVER["HTTP_USER_AGENT"]) && preg_match('/bot|crawl|slurp|spider|me
                     false
                 )
                 //}?>
-
+                <div data-retailrocket-markup-block="5b55e25e97a5250e28c19c81" data-category-id="<?=$arResult['ID']?>"></div>
          <?} else {  //проверка на вывод подборок на главной?>
             <p class="grayTitle"></p>
          <?}?>

@@ -1989,6 +1989,8 @@
                     );
 
                     unset($RecommFilter);?>
+                    <div data-retailrocket-markup-block="5b55e2a797a528425c3ce9e4" data-product-id="<?=$arResult["ID"]?>"></div>
+                    <div data-retailrocket-markup-block="5b55e2c197a528425c3ce9e6" data-product-id="<?=$arResult["ID"]?>"></div>
             </div>
         </div>
     <?}?>

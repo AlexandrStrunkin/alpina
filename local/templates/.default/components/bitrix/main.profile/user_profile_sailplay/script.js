@@ -54,9 +54,10 @@ $(function(){
         $('.account-form').hide();
     })
 })
-// Обрабтка формы, для возможности смены пароля при регистрации через Социальные сервисы
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 $(document).ready(function(){
     $(".account-form").on('submit', function(){
+        (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail($(".account-form").find("input[name='EMAIL']").val());});
         $.ajax({
             type: "POST",
             url: "/ajax/change_socservices_external_id.php",

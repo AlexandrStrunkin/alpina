@@ -289,7 +289,19 @@
 				$stringRecs = file_get_contents('https://api.retailrocket.ru/api/1.0/Recomendation/CrossSellItemToItems/50b90f71b994b319dc5fd855/'.(substr($retailRocketRecs,0,-1)));
 				$recsArray = json_decode($stringRecs);
 				$arrFilter = Array('ID' => (array_slice($recsArray,0,6)));
-
+				?>
+				<?
+				if($_SERVER["HTTP_X_REAL_IP"] == "91.201.253.5") {
+					$rrBooksIds = array();
+					foreach ($arResult["ITEMS"]["AnDelCanBuy"] as $bookItem) {
+						$rrBooksIds[] = $bookItem["ID"];
+ 					}
+					$rrBooksIdsString = '';
+					$rrBooksIdsString = implode(", ", $rrBooksIds);
+				}
+				?>
+				<div data-retailrocket-markup-block="5b55e33197a5250e28c19cb2" data-products="<?=$rrBooksIdsString?>"></div>
+				<?
 				if ($arrFilter['ID'][0] > 0) { // Если персональные рекомендаций нет, не показываем блок?>
 				<div class="recomendation">
 					<p class="grayTitle">С заказанными книгами читают</p>
@@ -910,7 +922,7 @@
 						),
 						false
 					);?>
-
+					<div data-retailrocket-markup-block="5b55e34397a528425c3cea68"></div>
 				<?}?>
             </div>
             <?

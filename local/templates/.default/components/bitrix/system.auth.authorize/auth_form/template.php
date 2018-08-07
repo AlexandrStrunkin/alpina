@@ -147,4 +147,3 @@ try{document.form_auth.USER_PASSWORD.focus();}catch(e){}
 try{document.form_auth.USER_LOGIN.focus();}catch(e){}
 <?endif?>
 </script>
-

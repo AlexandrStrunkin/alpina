@@ -378,7 +378,7 @@ if ($USER->IsAuthorized()) {
 					1 => "",
 				),
 				"OFFERS_PROPERTY_CODE" => array(
-					0 => "COLOR_REF",                                     
+					0 => "COLOR_REF",
 					1 => "SIZES_SHOES",
 					2 => "SIZES_CLOTHES",
 					3 => "",
@@ -957,6 +957,7 @@ if ($USER->IsAuthorized()) {
 </div>
 <div class="hintWrapp">
     <div class="catalogWrapper saleWrapp">
+        <div data-retailrocket-markup-block="5b55e22497a5250e28c19c74"></div>
 		<?/* Получаем персональные рекомендации RetailRocket */
 		if (isset($_COOKIE["rcuid"])){
 			$opts = array('http' =>
@@ -1528,6 +1529,8 @@ $APPLICATION->IncludeComponent(
 				),
 				false
 			);*/?>
+            <div data-retailrocket-markup-block="5b55e21597a5250e28c19c66"></div>
+            <div data-retailrocket-markup-block="5b55e23e97a5250e28c19c7a"></div>
         </div>
 
 		<?  // instagramm

@@ -17,6 +17,7 @@ $APPLICATION->SetTitle("Страница не найдена");?>
 		<div class="centerWrapper noResWrapp">
 			<p class="noResultTitle">Неправильно набран адрес, <br>или такой страницы на сайте больше не существует.</p>
 			<p class="noResText">Вернитесь на <a href="<?=SITE_DIR?>">главную</a> или посмотрите на наши <a href="/catalog/new/?SORT=NEW">новинки</a>.</p>
+            <div data-retailrocket-markup-block="5b55e35d97a528425c3cea6b"></div>
 		</div>
 	</div>
 

@@ -71,14 +71,16 @@ function closeX(){
 }
 //отправка главы
 function sendchapter(bookid) {
+    (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail($("#chapter-email").val());}); 
 	$(".takePartWrap button").after('<div id="loadingInfo"><div class="spinner"><div class="spinner-icon"></div></div></div>').hide();
 	$.ajax({
 		type: "POST",
 		url: "/ajax/send_chapter.php",
 		data: {email: $("#chapter-email").val(), book: bookid}
 	}).done(function( strResult ) {
-            if (strResult == 'ok')
+            if (strResult == 'ok') {
 				$(".takePartWrap").html("<span style='color:#00abb8;font-size:20px; font-family: \'Walshein_regular\';'>Глава отправлена</span>");
+            }
         });
 };
 $(document).ready(function(){
@@ -1393,7 +1395,7 @@ function newSubFunction(submitButton){
                     $(".subscr_result").show();
                     //alert("Вы уже подписаны на появление данной книги в продаже.");
                 }else if(data.match(/success/)){
-                    (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(sub_mail);});                    
+                    (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail(sub_mail);});
                     $(".subscr_result").html("Мы сообщим Вам о появлении книги");
                     $(".layout").show();
                     $(".subscr_result").show();

@@ -1540,10 +1540,10 @@
     //подмена логина на EMAIL
     AddEventHandler("main", "OnBeforeUserRegister", Array("OnBeforeUserRegisterHandler", "OnBeforeUserRegister"));
     class OnBeforeUserRegisterHandler {
-        function OnBeforeUserRegister(&$arFields) {
-           // $arFields['LOGIN'] = $arFields['EMAIL'];
+        function OnBeforeUserRegister(&$arFields) {            
+            $arFields['LOGIN'] = $arFields['EMAIL'];
             logger(date('d.m.Y H:i').' '.implode(', ', $arFields), $_SERVER["DOCUMENT_ROOT"].'/logs/user_mail.txt');
-           // return $arFields;
+            return $arFields;
         }
     }
 

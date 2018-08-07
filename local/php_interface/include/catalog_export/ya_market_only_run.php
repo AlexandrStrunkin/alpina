@@ -38,7 +38,8 @@ $arYandexFieldsBook = array(
     'binding',
     'page_extent',
     'table_of_contents',
-    'description'
+    'description',
+	'free_digital'
     );
 
 $arYandexFieldsAudioBook = array(
@@ -427,7 +428,7 @@ if (strlen($strExportErrorMessage)<=0)
 
 	//*****************************************//
 
-	$arSelect = array("ID", "LID", "IBLOCK_ID", "IBLOCK_SECTION_ID", "ACTIVE", "ACTIVE_FROM", "ACTIVE_TO", "NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT", "PREVIEW_TEXT_TYPE", "DETAIL_PICTURE", "LANG_DIR", "DETAIL_PAGE_URL");
+	$arSelect = array("ID", "LID", "IBLOCK_ID", "IBLOCK_SECTION_ID", "ACTIVE", "ACTIVE_FROM", "ACTIVE_TO", "NAME", "PREVIEW_PICTURE", "PREVIEW_TEXT", "PREVIEW_TEXT_TYPE", "DETAIL_PICTURE", "LANG_DIR", "DETAIL_PAGE_URL", "PROPERTY_AUTHORS", "PROPERTY_ENG_NAME");
 
 	$db_res = CCatalogGroup::GetGroupsList(array("GROUP_ID"=>2));
 	$arPTypes = array();
@@ -513,7 +514,7 @@ if (strlen($strExportErrorMessage)<=0)
 
 	//*****************************************//
 
-	$filter = Array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y", '!PROPERTY_hide_price'=>'241','PROPERTY_STATE'=>Array(false,21));
+$filter = Array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y", '!PROPERTY_hide_price'=>'241',/*'PROPERTY_STATE'=>Array(false,21)*/);
 	if (!$bAllSections)
 	{
 		$filter["INCLUDE_SUBSECTIONS"] = "Y";
@@ -548,7 +549,49 @@ if (strlen($strExportErrorMessage)<=0)
         else
             $str_AVAILABLE = ' available="true"';
 
+		if(($arAcc["PROPERTIES"]['STATE']['VALUE_XML_ID'] == 'soon') || ($arAcc["PROPERTIES"]['STATE']['VALUE_XML_ID'] == 'net_v_nal'))
+			$str_PREORDER = ' preorder="false"';
+		elseif($arAcc["PROPERTIES"]['STATE']['VALUE_XML_ID'] == 'under_order')
+			$str_PREORDER = ' preorder="true"';
 
+		$authors_IDs = $arAcc['PROPERTY_AUTHORS_VALUE'];
+		$authors_list = CIBlockElement::GetList (
+			array("SORT"=>"ASC"),
+			array("IBLOCK_ID" => AUTHORS_IBLOCK_ID, "ID" => $authors_IDs),
+			false,
+			false,
+			array(
+				"ID",
+				"PROPERTY_LAST_NAME",
+				"PROPERTY_FIRST_NAME",
+				"PROPERTY_SHOWINAUTHORS",
+				"PROPERTY_ORIG_NAME",
+				"DETAIL_PAGE_URL",
+				"NAME"
+			)
+		);
+
+		while ($authors = $authors_list -> GetNext()) {
+			$ar_properties["LAST_NAME"] = $authors["PROPERTY_LAST_NAME_VALUE"];
+			$ar_properties["FIRST_NAME"] = $authors["PROPERTY_FIRST_NAME_VALUE"];
+			$ar_properties["SHOWINAUTHORS"] = $authors["PROPERTY_SHOWINAUTHORS_VALUE"];
+			$ar_properties["ORIG_NAME"] = $authors["PROPERTY_ORIG_NAME_VALUE"];
+			$ar_properties["NAME"] = $authors["NAME"];
+			$ar_properties["DETAIL_PAGE_URL"] = $authors["DETAIL_PAGE_URL"];
+
+			if (strlen ($ar_properties['FIRST_NAME']) > 0) {
+				$authorFullName = $ar_properties['FIRST_NAME'];
+			}
+			if (strlen ($ar_properties['LAST_NAME']) > 0) {
+				$authorFullName .= (strlen ($authorFullName) > 0 ? ' ' : '') . $ar_properties['LAST_NAME'];
+			}
+			if (strlen ($ar_properties['ORIG_NAME']) > 0) {
+				$oriname = $ar_properties['ORIG_NAME'];
+				if($oriname){
+					$authorFullName .= " (" . $oriname.")";
+				}
+			}
+		}
 		// TODO: use PRICE setting. this code is only for PRICE=0
 
 		$minPrice = 0;
@@ -641,6 +684,11 @@ if (strlen($strExportErrorMessage)<=0)
 			$age_group = 0;
 
 		$strTmpOff.= "<offer id=\"".$arAcc["ID"]."\"".$str_TYPE.$str_AVAILABLE.">\n";
+
+        if($arAcc["PROPERTY_ENG_NAME_VALUE"]){
+            $strTmpOff .= '<engName>'.htmlspecialchars($arAcc["PROPERTY_ENG_NAME_VALUE"]).'</engName>';
+        }
+
         $strTmpOff.= "<url>http://".$ar_iblock['SERVER_NAME'].htmlspecialchars($arAcc["~DETAIL_PAGE_URL"]."?utm_source=yandex.market&utm_medium=cpc")."</url>\n";
 
 		$strTmpOff.= "<price>".$minPrice."</price>\n";
@@ -699,7 +747,7 @@ if (strlen($strExportErrorMessage)<=0)
 					if($arAcc['TYPE'] == 'TYPE_AUDIO') $arAcc["NAME"] .= ' (аудиокнига)';
                     elseif($arAcc['TYPE'] == 'TYPE_VIDEO') $arAcc["NAME"] .= ' (видеокурс)';
                     elseif($arAcc['TYPE'] == 'TYPE_SET') $arAcc["NAME"] .= ' (комплект из '.count($arAcc['PROPERTIES']['COMPLECT_BOOKS']['VALUE']).' книг'.(count($arAcc['PROPERTIES']['COMPLECT_BOOKS']['VALUE'])%10 == 1?'и':'').')';
-					$strTmpOff.= "<name>".yandex_text2xml('('.$age_group.'+) '.htmlspecialchars($arAcc["NAME"]), false)."</name>\n";
+					$strTmpOff.= "<name>".yandex_text2xml(htmlspecialchars($arAcc["NAME"]), false)."</name>\n";
 				break;
 				case 'description':
 					$strTmpOff.=
@@ -719,7 +767,19 @@ if (strlen($strExportErrorMessage)<=0)
                     $strTmpOff.= "<".$key.">".yandex_text2xml($t, true)."</".$key.">\n";
                 break;
 
+				case 'author':
+					if($authorFullName){
+						$strTmpOff .= '<author>'.yandex_text2xml(htmlspecialchars($authorFullName), false).'</author>';
+					}
+				break;
 
+
+				case 'free_digital':
+					if (!empty($arAcc['PROPERTIES']['appstore']['~VALUE']))
+						$strTmpOff .= '<param name="free_digital">true</param>';
+					else
+						$strTmpOff .= '<param name="free_digital">false</param>';
+				break;
 
 				case 'param':
 					if (is_array($XML_DATA) && is_array($XML_DATA['XML_DATA']) && is_array($XML_DATA['XML_DATA']['PARAMS']))
@@ -738,6 +798,7 @@ if (strlen($strExportErrorMessage)<=0)
 				case 'language':
 					$strTmpOff.= "<".$key.">rus</".$key.">\n";
 				break;
+
 
 				case 'title':
 					if (!is_array($XML_DATA) || !is_array($XML_DATA['XML_DATA']) || !$XML_DATA['XML_DATA'][$key])

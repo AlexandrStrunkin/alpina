@@ -36,8 +36,8 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Бесплатные электронные книги", 
-		"/actions/freedigitalbooks/", 
+		"Бесплатный курс для родителей", 
+		"http://xn--80aaxllk4g.xn--d1acj3b/", 
 		Array(), 
 		Array("color"=>"#ff7c05"), 
 		"" 

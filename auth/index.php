@@ -48,15 +48,23 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
                 </div>
 
                 <div class="registrationBlock">
-                    <?if($_GET["register"] != 'yes'){?>
+                    <?if($_SERVER["HTTP_X_REAL_IP"] == "91.201.253.5") {?>
                         <?$APPLICATION->IncludeComponent("bitrix:system.auth.registration", "flat", Array(
 
                             ),
                             false
                         );?>
-                    <?} else {
-                        echo '<p style="text-align: center">Вы успешно зарегестрированы!</p>';
-                    }?>
+                    <?} else {?>
+                        <?if($_GET["register"] != 'yes'){?>
+                            <?$APPLICATION->IncludeComponent("bitrix:system.auth.registration", "flat", Array(
+
+                                ),
+                                false
+                            );?>
+                        <?} else {
+                            echo '<p style="text-align: center">Вы успешно зарегестрированы!</p>';
+                        }?>
+                    <?}?>
                 </div>
             <?} else {?>
                 <div class="reg_text">

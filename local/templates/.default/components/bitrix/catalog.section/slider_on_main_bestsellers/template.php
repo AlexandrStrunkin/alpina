@@ -66,7 +66,7 @@ $this->setFrameMode(true);
                             <?}elseif($arItem["PROPERTIES"]["SOON_DATE_TIME"]["VALUE"]){?>
                                 <p class="sliderBookPrice"><?=$arItem["PROPERTIES"]["SOON_DATE_TIME"]["VALUE"]?></p>
                             <?}?>
-                            <?  
+                            <?
                                 if (intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != getXMLIDByCode(CATALOG_IBLOCK_ID, "STATE", "soon")
                                     && intval($arItem["PROPERTIES"]["STATE"]["VALUE_ENUM_ID"]) != getXMLIDByCode(CATALOG_IBLOCK_ID, "STATE", "net_v_nal")) {
                                 ?>
