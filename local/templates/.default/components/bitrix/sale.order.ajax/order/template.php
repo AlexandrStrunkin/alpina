@@ -856,7 +856,7 @@ function date_deactive(){    // ограничение вывода достав
                                     if(flag){
 
                                         if($("#ORDER_PROP_6").size() > 0 && isEmail($('#ORDER_PROP_6').val()) == false){
-                                            (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail($('#ORDER_PROP_6').val());});  
+                                            (window["rrApiOnReady"] = window["rrApiOnReady"] || []).push(function() { rrApi.setEmail($('#ORDER_PROP_6').val());});
                                         }
 
 										if (!orderSubmitted) {
